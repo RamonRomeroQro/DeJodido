@@ -1,0 +1,29 @@
+{% load static %}
+<div class="navbar" id="navbar">
+  <div class="container">
+    <div class="column">
+      <a href="/"><div class="logo"></div></a>
+    </div>
+    <div class="column anchors">
+      <div class="anchor"><a href="{% url 'landing:verTorneos' %}">CONVOCATORIAS</a></div>
+      <div class="anchor"><a href="{% url 'landing:ver_equipos' %}">EQUIPOS</a></div>
+      <div class="anchor"><a href="{% url 'landing:ver_torneos' %}">TORNEOS</a></div>
+      <div class="anchor"><a href="{% url 'landing:social' %}">SOCIAL</a></div>
+      <div class="anchor"><a href="{% url 'landing:ver_organizadores' %}">ORGANIZADORES</a></div>
+    </div>
+  </div>
+</div>
+<div class="mobile-nav" id="mobile-nav">
+  <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+    <i class="material-icons medium">menu</i></a>
+  <ul id="mobile-demo" class="sidenav">
+    <div class="logo-container">
+      <li><a href="/"><img class="logo" src="{% static 'static_media/logo-white.svg' %}" alt="logo-plidi" /></a></li>
+    </div>
+        <li><a class="anchor" href="{% url 'landing:verTorneos' %}">CONVOCATORIAS</a></li>
+        <li><a class="anchor" href="{% url 'landing:ver_torneos' %}">TORNEOS</a></li>
+        <li><a class="anchor" href="{% url 'landing:ver_equipos' %}">EQUIPOS</a></li>
+        <li><a class="anchor" href="{% url 'landing:social' %}">SOCIAL</a></li>
+        <li><a class="anchor" href="{% url 'landing:ver_organizadores' %}">ORGANIZADORES</a></li>
+  </ul>
+</div>
