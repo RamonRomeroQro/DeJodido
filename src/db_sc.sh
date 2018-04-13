@@ -13,6 +13,7 @@ echo ''
 
 python3 manage.py makemigrations
 
+
 echo ''
 echo 'Ejecutando de migraciones '
 echo ''
