@@ -1,0 +1,119 @@
+
+<!doctype html>
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+
+
+<script type="text/javascript">
+   var apiurl = 'http://maps.googleapis.com/maps/api/geocode/json?address='+zip_code+'&sensor=true';
+          var result = HTTP.get( apiurl );
+          return result;
+ </script>
+
+<script type="text/javascript">
+
+    var nav = null;
+
+    function requestPosition() {
+        if (nav == null) {
+            nav = window.navigator;
+        }
+
+        var geoloc = nav.geolocation;
+        if (geoloc != null) {
+            geoloc.getCurrentPosition(successCallback, errorCallback);
+        }
+
+    }
+
+    function successCallback(position) {
+        document.getElementById("latitude").innerHTML =
+            position.coords.latitude;
+        document.getElementById("longitude").innerHTML =
+            position.coords.longitude;
+
+    }
+
+    function errorCallback(error) {
+        var strMessage = "";
+
+        // Check for known errors
+        switch (error.code) {
+            case error.PERMISSION_DENIED:
+                strMessage = "Access to your location is turned off. "  +
+                    "Change your settings to turn it back on.";
+                break;
+            case error.POSITION_UNAVAILABLE:
+                strMessage = "Data from location services is " +
+                    "currently unavailable.";
+                break;
+            case error.TIMEOUT:
+                strMessage = "Location could not be determined " +
+                    "within a specified timeout period.";
+                break;
+            default:
+                break;
+        }
+
+        document.getElementById("status").innerHTML = strMessage;
+    }
+
+</script>
+<title>jjsjsjs</title>
+
+    <container>
+
+<form class="container flex" method="POST" enctype="multipart/form-data"  action="">
+  {% csrf_token %}
+        <div class="row">
+        <div class="input-field col s12 m6 l6">
+          <input id="presupuesto" type="number" class="validate" >
+          <label for="presupuesto">Presupuesto</label>
+        </div>
+
+            <div class="input-field col s12 m6 l6">
+          <input id="lugar" type="text" class="validate" >
+          <label for="lugar">Lugar</label>
+        </div>
+        </div>
+
+                    <div class="row">
+<div class="input-field col s12 m6 l6">
+          <input id="latitude" class="validate" >
+    <label for="latitude">Latitude: </label>
+        </div>
+
+            <div class="input-field col s12 m6 l6">
+          <input id="longitude"  class="validate" >
+        <label for="longitude">Longitude: </label>
+        </div>
+                    </div>
+
+
+    <div class="row">
+<div class="input-field col s12 m12 l12">
+
+        </div>
+                    </div>
+
+
+
+        <div id="status"> </div><br />
+        <input type="button" onclick="requestPosition()" value="Get Latitude and Longitude"  />
+      </div>
+
+
+    <div class="container-button">
+      <a href="" class="cancel">Cancelar</a>
+                <input type="button" onclick="makeCorsRequest()" value="Get Latitude and Longitude"  />
+
+      <button class="submit" type="submit" >Enviar</button>
+  </div>
+</form>
+            </container>
+
+
+{% endblock %}
+
