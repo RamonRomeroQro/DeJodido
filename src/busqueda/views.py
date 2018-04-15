@@ -2,32 +2,77 @@ from django.shortcuts import render
 
 # Create your views here.
 
+import urllib, json, ssl
+
+from deajodido.settings import GMAPS_API_KEY
+from django.http import HttpResponse
+
+import urllib.request
+import json
+
 
 def inicio(request):
-    return render(request, 'busqueda/inicio.html')
+    if (request.method=='POST'):
+        '''
+        print('post request')
+        url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + request.POST[
+            'latitude'] + ',' + request.POST['longitude'] + '&radius=' + request.POST[
+                  'radio'] +'&type= point_of_interest'+ '&key=AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ'
 
 
-def lista_de_resultados(request):
-    print(request.POST["lugar"])
-    return render(request, 'busqueda/list.html')
+        gcontext = ssl.SSLContext(ssl.PROTOCOL_TLSv1)  # Only for gangstars
+
+        googleResponse = urllib.request.urlopen(url, context=gcontext)
 
 
+        jsonResponse = json.loads(googleResponse.read())
+        
+        return HttpResponse(jsonResponse["status"])
+        
+        '''
+
+
+
+        # This restores the same behavior as before.
+
+        import ssl
+
+        conte= ssl._create_default_https_context
+
+        url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + request.POST[
+            'latitude'] + ',' + request.POST['longitude'] + '&radius=' + request.POST[
+                  'radio'] + '&type= point_of_interest' + '&key=AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ'
+
+        req = urllib.request.Request(url)
+        conte.verify_mode = ssl.CERT_NONE
+        conte.check_hostname = None
+        conte.sock = None
+        conte.wrap_socket = None
+
+
+        ##parsing response
+
+        print( urllib.request.urlopen(req, context=conte).read())
+        r = urllib.request.urlopen(req, context=conte).read()
+        cont = json.loads(r.decode('utf-8'))
+        counter = 0
+
+        ##parcing json
+
+        ##print formated
+        # print (json.dumps(cont, indent=4, sort_keys=True))
+        print( cont['status'] )
+
+
+    else:
+
+
+        return render(request, 'busqueda/inicio.html')
 
 
 '''
 
-17
-down vote
-The key to understanding jsonResponse's format is to print it out:
 
-import urllib, json
-import pprint
-
-URL2 = "http://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&sensor=false"
-
-googleResponse = urllib.urlopen(URL2)
-jsonResponse = json.loads(googleResponse.read())
-pprint.pprint(jsonResponse)
 # {u'results': [{u'address_components': [{u'long_name': u'1600',
 #                                         u'short_name': u'1600',
 #                                         u'types': [u'street_number']},

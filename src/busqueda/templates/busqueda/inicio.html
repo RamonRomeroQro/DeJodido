@@ -79,12 +79,12 @@
     <container>
         <br>
 
-<form class="container flex" method="POST" enctype="multipart/form-data"  action="">
+<form class="container flex" method="POST" enctype="multipart/form-data" >
   {% csrf_token %}
         <div class="row">
         <div class="input-field col s12 m6 l6">
                           <i class="material-icons prefix">attach_money</i>
-          <input id="presupuesto" type="number" class="validate" value="1">
+          <input id="presupuesto" name="presupuesto" type="number" class="validate" value="1">
           <label for="presupuesto">Presupuesto</label>
         </div>
 
@@ -92,7 +92,7 @@
                                           <i class="material-icons prefix">place</i>
 
 
-          <input id="lugar" type="text" class="validate" value="Querétaro" >
+          <input id="lugar" type="text" name="lugar" class="validate" value="Querétaro" >
           <label for="lugar">Lugar</label>
         </div>
         </div>
@@ -102,14 +102,14 @@
         <div class="input-field col s12 m6 l6">
                                       <i class="material-icons prefix">border_vertical</i>
 
-          <input id="latitude" type="text" class="validate" value="20.5923144" >
+          <input id="latitude" name="latitude" type="text" class="validate" value="20.5923144" >
           <label for="latitude">Latitud</label>
         </div>
 
             <div class="input-field col s12 m6 l6">
                           <i class="material-icons prefix">border_horizontal</i>
 
-          <input id="longitude" type="text" class="validate" value="-100.3878238" >
+          <input id="longitude" name="longitude" type="text" class="validate" value="-100.3878238" >
           <label for="longitude">Longitud</label>
         </div>
         </div>
@@ -136,7 +136,7 @@
                                       <i class="material-icons prefix">wifi_tethering</i>
 
 
-          <input id="Radio" type="text" class="validate" required value="100" >
+          <input id="Radio" name="radio" type="text" class="validate" required value="100" >
           <label for="Radio"></label>
         </div>
     </div>
