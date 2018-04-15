@@ -49,6 +49,8 @@ def inicio(request):
         conte.sock = None
         conte.wrap_socket = None
 
+        #errpor 400, in form request
+
 
         ##parsing response
 
