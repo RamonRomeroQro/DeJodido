@@ -4,23 +4,8 @@
 {% load staticfiles %}
 {% block content %}
 
-<h3>Upcoming Google Developer Events</h3>
-    <p id="demo"></p>
 
-<div id="agenda"></div>
-
-<script id="data" type="application/json" src="https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=20.5923144,-100.3878238&radius=5000&key=AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ&keyword=bar"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-
-<script>
-    var xhr = new XMLHttpRequest();
-    var url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=20.5923144,-100.3878238&radius=5000&key=AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ&keyword=bar";
-
-    xhr.open('GET', url);
-
-
-</script>
-
 
 
 <script type="text/javascript">
@@ -40,9 +25,9 @@
     }
 
     function successCallback(position) {
-        document.getElementById("latitude").innerHTML =
+        document.getElementById("latitude").value =
             position.coords.latitude;
-        document.getElementById("longitude").innerHTML =
+        document.getElementById("longitude").value =
             position.coords.longitude;
 
     }
@@ -72,57 +57,111 @@
     }
 
 </script>
-<title>jjsjsjs</title>
+
+ <div class="navbar-fixed">
+
+<nav>
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo"><i class="material-icons">cloud</i>Logo</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="sass.html"><i class="material-icons">search</i></a></li>
+        <li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
+        <li><a href="#"><i class="material-icons">refresh</i></a></li>
+        <li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li>
+      </ul>
+    </div>
+  </nav>
+  </div>
+
+
+
 
     <container>
+        <br>
 
 <form class="container flex" method="POST" enctype="multipart/form-data"  action="">
   {% csrf_token %}
         <div class="row">
         <div class="input-field col s12 m6 l6">
-          <input id="presupuesto" type="number" class="validate" >
+                          <i class="material-icons prefix">attach_money</i>
+          <input id="presupuesto" type="number" class="validate" value="1">
           <label for="presupuesto">Presupuesto</label>
         </div>
 
             <div class="input-field col s12 m6 l6">
-          <input id="lugar" type="text" class="validate" >
+                                          <i class="material-icons prefix">place</i>
+
+
+          <input id="lugar" type="text" class="validate" value="Querétaro" >
           <label for="lugar">Lugar</label>
         </div>
         </div>
 
-                    <div class="row">
-<div class="input-field col s12 m6 l6">
-          <input id="latitude" class="validate" >
-    <label for="latitude">Latitude: </label>
+    <div class="row">
+
+        <div class="input-field col s12 m6 l6">
+                                      <i class="material-icons prefix">border_vertical</i>
+
+          <input id="latitude" type="text" class="validate" value="20.5923144" >
+          <label for="latitude">Latitud</label>
         </div>
 
             <div class="input-field col s12 m6 l6">
-          <input id="longitude"  class="validate" >
-        <label for="longitude">Longitude: </label>
-        </div>
-                    </div>
+                          <i class="material-icons prefix">border_horizontal</i>
 
+          <input id="longitude" type="text" class="validate" value="-100.3878238" >
+          <label for="longitude">Longitud</label>
+        </div>
+        </div>
+    <div class="row">
+                <div class="col s12 m12 l12" id="status"></div>
+
+    </div>
+    <div class="row">
+                <div class="col s12 m12 l12" >
+
+
+
+  <button class="btn waves-effect waves-light" type="submit" name="action" onclick="requestPosition()">Usar mi ubicación
+    <i class="material-icons right">my_location</i>
+  </button>
+
+
+
+</div>
+    </div>
 
     <div class="row">
-<div class="input-field col s12 m12 l12">
+        <div class="input-field col s12 m12 l12">
+                                      <i class="material-icons prefix">wifi_tethering</i>
+
+
+          <input id="Radio" type="text" class="validate" required value="100" >
+          <label for="Radio"></label>
+        </div>
+    </div>
+
+<div class="row">
+        <div class="input-field col s12 m12 l12">
+
+
+
+  <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+    <i class="material-icons right">send</i>
+  </button>
 
         </div>
-                    </div>
+    </div>
 
 
 
-        <div id="status"> </div><br />
-        <input type="button" onclick="requestPosition()" value="Get Latitude and Longitude"  />
-      </div>
 
 
-    <div class="container-button">
-      <a href="" class="cancel">Cancelar</a>
-                <input type="button" onclick="makeCorsRequest()" value="Get Latitude and Longitude"  />
 
-      <button class="submit" type="submit" >Enviar</button>
-  </div>
+
 </form>
+
+
             </container>
 
 

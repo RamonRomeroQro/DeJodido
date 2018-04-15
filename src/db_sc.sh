@@ -1,5 +1,5 @@
 
-echo "Drop USER jodido;CREATE USER jodido;Drop DATABASE jodido;CREATE DATABASE jodido OWNER jodido;" > new.sql
+echo "Drop DATABASE jodido;CREATE DATABASE jodido  ;" > new.sql
 
 
 psql<new.sql
