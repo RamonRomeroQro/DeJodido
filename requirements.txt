@@ -1,4 +1,8 @@
-Python 3.6.5
-pip-9.0.2
+dataclasses==0.5
 Django==2.0.4
+djongo==1.2.24
+psycopg2==2.7.4
+psycopg2-binary==2.7.4
+pymongo==3.6.1
 pytz==2018.4
+sqlparse==0.2.4
