@@ -1,0 +1,5 @@
+use jodido
+db.testing.insert({"status":"test"})
+db.dropDatabase()
+use jodido
+db.testing.insert({"status":"test"})
