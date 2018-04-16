@@ -9,6 +9,11 @@ from django.http import HttpResponse
 
 import urllib.request
 import json
+from django.http import JsonResponse
+
+import requests
+import json
+
 
 
 def inicio(request):
@@ -17,7 +22,7 @@ def inicio(request):
         print('post request')
         url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + request.POST[
             'latitude'] + ',' + request.POST['longitude'] + '&radius=' + request.POST[
-                  'radio'] +'&type= point_of_interest'+ '&key=AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ'
+                  'radio'] +'&type= point_of_interest'+ '&key='+GMAPS_API_KEY
 
 
         gcontext = ssl.SSLContext(ssl.PROTOCOL_TLSv1)  # Only for gangstars
@@ -34,14 +39,14 @@ def inicio(request):
 
 
         # This restores the same behavior as before.
-
+        '''
         import ssl
 
         conte= ssl._create_default_https_context
 
         url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + request.POST[
             'latitude'] + ',' + request.POST['longitude'] + '&radius=' + request.POST[
-                  'radio'] + '&type= point_of_interest' + '&key=AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ'
+                  'radio'] + '&type= point_of_interest' + '&key='+GMAPS_API_KEY
 
         req = urllib.request.Request(url)
         conte.verify_mode = ssl.CERT_NONE
@@ -64,6 +69,26 @@ def inicio(request):
         ##print formated
         # print (json.dumps(cont, indent=4, sort_keys=True))
         print( cont['status'] )
+        
+        '''
+
+
+
+        url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + request.POST[
+            'latitude'] + ',' + request.POST['longitude'] + '&radius=' + request.POST[
+                  'radio'] + '&type=bar' + '&key=' + GMAPS_API_KEY
+
+        response = json.loads(requests.get(url).text)
+        json_string = json.dumps(response)
+        return render(request, "busqueda/lista.html", {'results': json_string})
+
+
+        #html = '<html><body>Referred URL:  <a href="'+url+'">GO</a></body></html>'
+        #response = JsonResponse({'foo': 'bar'})
+
+        #return render(request, 'busqueda/lista.html', {'resultados': resultados})
+        #return JsonResponse(response)
+
 
 
     else:
