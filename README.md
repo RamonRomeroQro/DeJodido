@@ -4,3 +4,9 @@ pip-9.0.2
 
 pip install psycopg2-binary"
 pip install psycopg2
+
+
+
+#MongoDB
+
+mongod --dbpath <path to data directory>

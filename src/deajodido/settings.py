@@ -73,20 +73,14 @@ WSGI_APPLICATION = 'deajodido.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
-
 DATABASES = {
-    'default': {
+       'default': {
+           'ENGINE': 'djongo',
+           'NAME': 'jodido',
+       }
+   }
 
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'jodido',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'localhost',
-    }
-}
-
-
+GMAPS_API_KEY = 'AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ'
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
