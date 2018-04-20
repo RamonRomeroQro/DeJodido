@@ -1,7 +1,11 @@
+
+
+
+'''
 import requests
 import json
 import pymongo
-'''
+
 GMAPS_API_KEY = 'AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ'
 
 class startpoint():
@@ -27,7 +31,7 @@ db.busquedas.insert(response)
 
 print(str(response['status']))
 
-'''
+
 
 
 import matplotlib.pyplot as plt
@@ -114,7 +118,6 @@ class Hexagon():
            print('Hex '+i.__str__())
 
 
-'''
 x=0.00
 y=0.00
 r=50.00
@@ -125,8 +128,6 @@ ny=by+(math.sin(1/6)*r)
 print(ny)
 nx=x+(math.cos(1/6)*r)
 print(nx)
-
-'''
 
 latitude=0.00
 longitude=0.00
@@ -159,9 +160,107 @@ ax.add_artist(circle4)
 ax.add_artist(circle5)
 
 fig.savefig('plotcircles.png')
+
+
+
+
+
+
+6,378,137.0 meters[1] resulting in a circumference of 40,075,161.2 meters.
+The equator is divided into 360 degrees of longitude, so each degree at the
+equator represents 111,319.9 meters or approximately 111.32 km. 
+
+20.5923513,-100.3788655
+20.5928005,-100.3788655
+20.59280045602236,-100.3788655
+
+
+
 '''
 
 
+
+
+
+import math
+class Coord:
+    """A simple example class"""
+    y = 0.00
+    x = 0.00
+    radio = 0.00
+    ev=False
+
+    def __init__(self):
+        self.x = 0.00
+        self.y = 0.00
+        self.radio = 0.00
+
+    def __init__(self, y,x,r):
+        self.x=x
+        self.y=y
+        self.radio=r
+    def __str__(self):
+        return (str(self.y)+','+ str(self.x)+'\n' )
+
+
+#14*15 km
+#evalua y guarda
+
+def ev(c):
+    return c
+
+
 '''
+>>> eq
+>>> 
+>>> 
+>>> adegree=eq/360
+>>> adegree
+111319.89222222223
+>>> round(adegree,2)
+111319.89
+>>> round(adegree,1)
+111319.9
+>>> 50/adegree
+0.00044915602235930617
+
+'''
+
+y=20.5121348
+x=-100.5072866
+r=50
+limitey=20.7477784
+limitex=-100.3101173
+inicial = Coord(y,x, r)
+print('inicial: '+inicial.__str__())
+ecuador=40075161.2
+adegree=ecuador/360
+radiodegrees=inicial.radio/adegree
+equidistancia = (math.sin(math.pi / 3) * radiodegrees) * 2
+contador=0
+
+thex=inicial.x
+
+
+while (inicial.y < limitey):
+
+
+    while (inicial.x < limitex):
+        #ev(inicial)
+        print(contador)
+        inicial.x = inicial.x + equidistancia
+        with open('coor.txt', "a") as myfile:
+            myfile.write(inicial.__str__())
+        contador=contador+1
+
+    inicial.y = inicial.y + (equidistancia * math.sin((math.pi / 3) * 2))
+    if (contador%2==0):
+        inicial.x=thex
+    else:
+        inicial.x=thex-equidistancia
+
+
+
+
 
 
