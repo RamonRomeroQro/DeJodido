@@ -8,7 +8,7 @@ class startpoint():
 #https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=<latitude>,<longitude>&radius=<radio>&type=<type>&key=<GMAPS_API_KEY
     latitude = 20.5923144
     longitude = -100.3878238
-    radio = 30000
+    radio = 10000
     type = 'bar'
 
 r = startpoint()
