@@ -74,11 +74,16 @@ WSGI_APPLICATION = 'deajodido.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 DATABASES = {
-       'default': {
-           'ENGINE': 'djongo',
-           'NAME': 'jodido',
-       }
-   }
+    'default': {
+
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'deajodido',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
 
 GMAPS_API_KEY = 'AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ'
 

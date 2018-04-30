@@ -12,12 +12,12 @@ class startpoint():
     type = 'bar'
 
 r = startpoint()
+counter=0
 
 url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + str(r.latitude) + ',' + str(r.longitude) + '&radius=' + str(r.radio) + '&type='+ r.type + '&key=' + GMAPS_API_KEY
 response = json.loads(requests.get(url).text)
-
-
 lugares = json.dumps(response, indent=4, sort_keys=True)
+
 
 
 
@@ -30,7 +30,6 @@ while True:
     try:
         if response["next_page_token"]:
             #print(json.dumps(response["results"][1], indent=4, sort_keys=True))
-
             lugares += "\n" + json.dumps(response, indent=4, sort_keys=True)
     except KeyError:
         lugares += "\n" + json.dumps(response, indent=4, sort_keys=True)
