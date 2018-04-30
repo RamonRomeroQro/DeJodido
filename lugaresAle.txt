@@ -1,0 +1,2755 @@
+{
+    "html_attributions": [], 
+    "next_page_token": "CuQD4AEAAJypbdjQC1voqIkMP6uZgAfsCJ-PISD4cOl6eWJtx_hDdVrf-TxPFfeexF_wjSKWQ42C_0y4IRdk3IhIkuskZMjrXqy8gOQG6ZWyzkBt1z76SGbSfcnZ4Is4lF8NG49xoiWLFGUPC3PqB-6gbPM-x_-t6mUeETZCfpW9DZcayNnbMjcy4SeW0LTn3TPOMGzrgzqkKfdkcozF5jcHeO8xexio1ybn21Uk3JG9kf1yZps0_kZJCRDUNpulSEvEHcqJVtvGs87E19I2jjzaTLO9CXldWrveLS1nqGZ3zglitet14CQrCJPyjt060--upn39LqIC71QqL84QdDEu6O6kxlxt427UAwTUFraeXdGMhLll60UIY_J6iHmF3iGfepzZd1GElEaRRXlCuIVq6NNGOdqeX10MIgnF4Hgc18dUIac4Cdbemj4OF79UlXGQbyaGnKCQrOnwIiN08j-PrpfQDO6Mw0s449pL5CLw4jaQci5vMki2t2n3Us50MSJBItjdZvhEGcl6QPcu_-Ndh3nIfOhnOVayfHMO5UfN6tcA3yFiyRw2F4fGu01sI326Gi_XmXdjHV87Cpin7PxjKgFz_J9v4hsXdQw7qHkkMajzio8q4ksKqsj2ELna5E6yJYnz3hIQ8TvCwIehKv3xSnlc57O5bBoUZa165Vliw_Und6sOkUxhQYgRlOo", 
+    "results": [
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.591884, 
+                    "lng": -100.393481
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5932847802915, 
+                        "lng": -100.3921542697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5905868197085, 
+                        "lng": -100.3948522302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png", 
+            "id": "5b11b309375c7c4924ff704c216a7e2585afa6f5", 
+            "name": "Hotel La Casa De La Marquesa", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 4160, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108869014842799534369/photos\">Marko Desouzart</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAlke_tqqqOcpzyMtjl8CgwhmVsRnMsgdbZSCC3Mr_D25o4H5ESBhbMmdCt0LuY1OwX9x8p_ZFq2odQz6XoSLKhhb0P89hapJKvb2E_tfZw_QGK9xTdLXZ9SWoW7VbYZCdEhBcfU65wpTEz5rHuZZtu8Z2GhRHTOc0mOJU_cJV-HEz2dFOGRBWGw", 
+                    "width": 2340
+                }
+            ], 
+            "place_id": "ChIJI8sKiipb04URiTKY1h347Kk", 
+            "rating": 4.4, 
+            "reference": "CmRSAAAAeuqEBzPHnr0axZWgbk22ZKcJcxY38ZY5rIVlfDxlm7wOCVRc-vfxfJLqtpVi6FqfcAvkGOckdoAX72MZLaRKsjoHWnQhrYzcubrWKd-aWwGKtrpRfHdhuF786WMPybhJEhCZMwN36774hhXUsAgvChhvGhR53gmRIxz5MqoQyNkbN_nJ0JzrmA", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "lodging", 
+                "restaurant", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calle Francisco I. Madero 41, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.59186, 
+                    "lng": -100.391707
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5931697302915, 
+                        "lng": -100.3904507197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5904717697085, 
+                        "lng": -100.3931486802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png", 
+            "id": "7c6e0e3f8a4cb814b10caf5065ba2e5598aac2b3", 
+            "name": "Hank's Quer\u00e9taro", 
+            "opening_hours": {
+                "open_now": true, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 1371, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107173361242060239234/photos\">Hank&#39;s Quer\u00e9taro</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAcK5R7e5dlv-lSrsZnR2l8FQ88xQFHr_t5wejephxLDL1ZEJ9BN41eCEBVtZ0i6y6SN0bKxMEVBbiHB88XRPo2QaeNqe6ILL_P-7IrlX_267nMRrikDV6jR8EGrtnZy-nEhDO4jzX2NZzfArcLPQjbMORGhSUusX7CA1aDv_yUw68Jpw-u8uUOA", 
+                    "width": 2048
+                }
+            ], 
+            "place_id": "ChIJEXP8_ypb04URcpMHadwogVE", 
+            "rating": 4.5, 
+            "reference": "CmRRAAAAsLKZXA4W5AIPtOo9pTspF-NapTxkDGVfke6m354rRJ4nIQGRGrceIIztsAOMBmnHkY11sO1W37uvNnhD6s-PTh8EHNGe8vtpK4SOQmBLIRMbR_xni8I-06L_ogsMWxlSEhBIfFizZD6QcXqclCivdn0-GhReqqkrP2kMYovdm9G7Dxy2QwAWHA", 
+            "scope": "GOOGLE", 
+            "types": [
+                "restaurant", 
+                "night_club", 
+                "bar", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calle Benito Ju\u00e1rez Sur 7, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.799753, 
+                    "lng": -100.449676
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.8011019802915, 
+                        "lng": -100.4483270197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.7984040197085, 
+                        "lng": -100.4510249802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/lodging-71.png", 
+            "id": "57e3c18f09ad6570715342a1bb51386008789342", 
+            "name": "Quinta del Lago", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 460, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107928498935550296309/photos\">Quinta del Lago Hotel</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAV8ZO6-0YMdGTUM2JreWgqxRjftuUVbXa2Cn5O54D1-ePYyrnLEwiMYT00OfA5Fe6oSk7CD2bu1d9jI64Dy1Q7Oqto5vdM7-bl3m_SJSZLI38gQ4jhR6k11WKQNuOtvBsEhBIFiBsBNkX1E1Pbgh7IJHWGhTohP9NWnobtu1hwX4OybN2q6tFOQ", 
+                    "width": 840
+                }
+            ], 
+            "place_id": "ChIJ0YuKUs9a04UR7A-ogjfRDhs", 
+            "rating": 4.3, 
+            "reference": "CmRRAAAAIInCLjuQvJv3hX1TsNILeTVd07p-tykYAwgWsQnJWKbq-uv4Rr7Am7dOM_wZ_iGjdUwt6lobd-22yO5P6SkwbbaTonVPqox79AlGaEeiptnPRCOzxIL5SAIcWNOy9-p4EhAFPpfM_DI3UG8Z01JA_w1sGhSY07uRKqWnfpmj9ogbxT-HHdhMOg", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "lodging", 
+                "restaurant", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Carretera San Luis Potos\u00ed- Queretaro Km 26.5, Corea, Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.56684599999999, 
+                    "lng": -100.414443
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5682772302915, 
+                        "lng": -100.4131386697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.56557926970849, 
+                        "lng": -100.4158366302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png", 
+            "id": "34e58dcef68da244139fd70cb9449e73a852efcd", 
+            "name": "Beer Passport", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 375, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105546743964812125099/photos\">Beer Passport</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAA61uss-dKtLTrjfLAAA2u6wK9zx34Br1y-VR5_Z0zpt4w8RaqJSGjINZ3zMZETx5b0Hh3GP4iZFEPjkWyLten7QennsMB82C4mM7t2y-OEfc4UbJ2E8v5TTUHI4sug5WLEhCM8jOK7bWC1NhBBc0PepAvGhR9s-noAarVqNJWRkcEPxC_jD3ciQ", 
+                    "width": 375
+                }
+            ], 
+            "place_id": "ChIJGcNjuspE04URzMyOkBfNsqg", 
+            "rating": 4.8, 
+            "reference": "CmRSAAAAqYEcv4VPfXvqGXt9hN4GuswNYmmABqHTeVLh7ftF0v7gddCdND8upY6vq13AsoqGdbXcJR3l6f6bQ7LJ8B_nRQ6UHUMa51bC4i1kg7EHVzz8nFvpZsYjRlplAwn6pGiXEhAis3qwGB6hvMBYXcw0QZUjGhTA-BMb7v5r3nKobUOKFamybVm1oA", 
+            "scope": "GOOGLE", 
+            "types": [
+                "liquor_store", 
+                "bar", 
+                "store", 
+                "restaurant", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Boulevard Hacienda del Jacal 905-22, El Jacal, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.613073, 
+                    "lng": -100.388339
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.6144541802915, 
+                        "lng": -100.3869259697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.6117562197085, 
+                        "lng": -100.3896239302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png", 
+            "id": "70b0c4c5630abf130acc75ab671c0eccc74fb67d", 
+            "name": "Hacienda La Laborcilla", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 3024, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108982715926175471265/photos\">Tina Moreno</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAA8I6v5de7IY83_gB6oiA9QoYjRfZXNVBDh8cy7ledr2wmVsPi9Q_QKjxMWNIgub7QP--XspYdyEE92wvddzgsSA1HJdRixV7E1plkmM1yFeFKmrjBeeFgVXMHQcJo7maBEhDX7nQtWUz4EHK87wNpJmt6GhTJhMrO7bUPzqltROYO4hRkLDqaMw", 
+                    "width": 4032
+                }
+            ], 
+            "place_id": "ChIJCzisuB5b04URvDmfy2FBl2E", 
+            "rating": 4.6, 
+            "reference": "CmRRAAAAG4Frx3qhuKkmdimhPta6Cn3ZSNXgPq4QUjErSGskVcAICTGlMWb_zryyRaBsFn-FXBlsZ9s96KtyGJM8lizGjjBAdLwgQCUszTycMOfs8zTN_l5U4LfAUhxnO91qKmB3EhB8wWbyTwAI8qiNmqERaeEsGhQrNWunBpA1SbuM7SP5Eh8KDoeh1Q", 
+            "scope": "GOOGLE", 
+            "types": [
+                "restaurant", 
+                "bar", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Prolongaci\u00f3n Corregidora Norte 911 bis, Plaza del Parque, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5824456, 
+                    "lng": -100.3965484
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5838604302915, 
+                        "lng": -100.3952447197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5811624697085, 
+                        "lng": -100.3979426802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png", 
+            "id": "ac239d07e29d2bcf2fcf8998602e2102ded3bf64", 
+            "name": "El Caserio", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 3024, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110702754879001330636/photos\">Rogelio Ocampo</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAhX4NSA8vWG2zcY-GjeFPm8qb1sCsD6KZmxZjcff9tJ3qOOwKL3RhnfZXUnCVZH_9JzD3SKxVnmdrV1L3s6hmta28R5gLpMh7O0pJN-17lXMyH6kD7kGIVtiENKXJq51eEhBokoAn5LU2qgGNYPNar-UAGhSMaajsqdaLi_Pa6_vweVitNoXfPA", 
+                    "width": 4032
+                }
+            ], 
+            "place_id": "ChIJHz-5e5VQ04URc_hATpYwbEU", 
+            "rating": 4.4, 
+            "reference": "CmRRAAAAQNwKaCHhThIP_3qA0g3RF0M-Iqzze8v5iFJgLK_QXuHsoC1vyDmes6Z8kVrdaOjkVSl94oM49kRDtmKDQj3Rg2TRORAUEy4sfXremynvTH0kWTHhQDAf202sbVVAtJIAEhDwx02btkvTE3iNmo9NxmX9GhQE5plT4pKhhVY4wfy6pLHpXVQEYA", 
+            "scope": "GOOGLE", 
+            "types": [
+                "restaurant", 
+                "bar", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Avenida Constituyentes 101B, Casa Blanca, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.6148283, 
+                    "lng": -100.3877104
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.6161772802915, 
+                        "lng": -100.3863614197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.6134793197085, 
+                        "lng": -100.3890593802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png", 
+            "id": "243ad5ba06b70efa6b3545feb02e7ad6323b9eca", 
+            "name": "Chilis Plaza Boulevares", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 2988, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101689533960307229872/photos\">Luis Hernandez</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAv5qy8rk9kppU2h49yz_u98SiD_d5S2YvNoN0e2MnfpesK5ks9r-KRu0G_LmAnDh45xj1k6W03dYW1AXBy9q6fpIWFlYZZPq8ucX4q85dAyHkmuNsgIoEy77MAXGTbF2XEhBhGPRdslHNuRWKseI3pw_HGhRfFAoqZr_l6sXXTFLcqVn2iBLxww", 
+                    "width": 5312
+                }
+            ], 
+            "place_id": "ChIJ05DPyBhb04URd1mFgIsGWjc", 
+            "price_level": 2, 
+            "rating": 4.2, 
+            "reference": "CmRRAAAAZsOwZffKBLmtai6aEEaxTX8avf6ljstGno8D0kO3mF820eZMZfcgCUCR2Tts_F2lmgIieo73vttS45HEltw2owuqK2XXdjidS_cq87EBzMoxgN3q93Jc-7SfxIzLGKlsEhAR0OgbROmAazKev0Q2nVdMGhTSZaufuIYnvWriFkuMh2cIXrO3Ig", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "restaurant", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Boulevard Bernardo Quintana 4100 Loc 21-A, Plaza Boulevares, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5965215, 
+                    "lng": -100.3980456
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5978704802915, 
+                        "lng": -100.3966966197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5951725197085, 
+                        "lng": -100.3993945802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "ddf5d9107494857b4b235669f19cf8e58e50b4a2", 
+            "name": "Sal\u00f3n Ocampo", 
+            "photos": [
+                {
+                    "height": 5184, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110766456623733055334/photos\">Elena Garcia</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAIG4Z8G2WiJO5n6JbbLdQL75kaOxyv8GxRruzXyQ1QCl00YfpmsHqjyPrZHO78KL_D8Twfskq7LL9o52KQf1zsp0V7MtQViNupAA5UFDxWJgjEwOecbgCtHVT4617MSZ5EhAPD5B9RaYnwIEZBDF7i3LYGhTez_ACsmH-6nx_4s-YT5l0iggNKg", 
+                    "width": 3888
+                }
+            ], 
+            "place_id": "ChIJwXv20dVa04URFVk4nOiwHZ0", 
+            "rating": 3.5, 
+            "reference": "CmRSAAAAU5I8MF80igORWpcUTokvovATHJI_2xfwWFkBpK1Zv7HdRRBZxms1lOw3P-v6w1Iimre0Q1deBps8Wqz3jV2BDrY7FTHL95p9WkRE0PAhbLLlOb9e2q-Via_FPGPEO94iEhCKtgMJnjlM4gSJpveFUerQGhQ7AJ3lUxooT5hf1SOHunYz8XMFMw", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "bar", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Ocampo 60, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5941364, 
+                    "lng": -100.3805195
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.59548538029151, 
+                        "lng": -100.3791705197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5927874197085, 
+                        "lng": -100.3818684802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png", 
+            "id": "86ceedd529d43ce6672c7d206b5d93abcd0839f6", 
+            "name": "College Bar Queretaro", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 1080, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104291472704237437751/photos\">David Quidware</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAA6f_sbj4VT49q_htjviSRHdDPxXIE2KzwabNPVxWaqlpxTSSoIAdF0s8x-xxp5cqTynfr5KitRppbFVK2lP_HgGDn1MHimBRaP1p4yXYI7jXwpSGnqp54F6EuNsy_bldDEhADOvPeE4PkyFLmh5eGZCcmGhTnTyOD4egNBRO9bZwSzJl59mYzCQ", 
+                    "width": 1920
+                }
+            ], 
+            "place_id": "ChIJreVmtjNb04URgmNVJ6ulUYY", 
+            "rating": 4.3, 
+            "reference": "CmRSAAAAQpzFHP2KJWJWyD9vwYKFRuKXl7lszBJGEgKvfcns8kvftEWj6KHisWvJMWAtuBx0IjaGsu1pL8lHStEiRe_bxLJSQSKgZ-ZbkwwouY20KjK22FypSZgc6IOjJHo8Se-UEhDMFgbp6jUhKJBk6_vgwURNGhTyvMhkqtI0leRrooIIYRCCNlHlig", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "restaurant", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Circunvalaci\u00f3n 46, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.6130004, 
+                    "lng": -100.3885871
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.6143493802915, 
+                        "lng": -100.3872381197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.6116514197085, 
+                        "lng": -100.3899360802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "f771b7dfd283c7c25366aaa4021c18991d497e20", 
+            "name": "Horus Bar", 
+            "opening_hours": {
+                "open_now": true, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 2322, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109062487338401683955/photos\">Carlos Garcia</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAtBTEI7rAsZSQ47cZmoY-v5G_4ZgnQ4uNS9hdFEYItO9boIsYwprJkGsF9UXUcaatG16NY1sktHX5qgLI82sjZ_LLuHUmabGpQPUXgNg83vPtcz2-wCYiwmLarme93w_4EhDXe0oNQMaSa-hMqyKYltyJGhTwDeGkP3n0sbhJP-evdUrVbb5jvw", 
+                    "width": 4128
+                }
+            ], 
+            "place_id": "ChIJYS_Lpxhb04UR7l_vEXs3SGI", 
+            "rating": 4.5, 
+            "reference": "CmRRAAAAPdhBhBUPayCe-LQNjtdrQWlHEH_Yds_Ji4wH2yDBYJdV7RrHZouLuR6zQd_NPx1mFX1dIHhfvokPRkVsUYOOgzJVJwNWYu3F1-69VoeQccSKu8qxJB7pEZ_qxfRcvUmlEhDlOk1Db5c_-SYX4LmzrtRJGhQY0xJ-3RPHDMDrK1kINnARc0WOwg", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Prolongaci\u00f3n Corregidora Norte 911-Bis,, Parques Residenciales, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.58117, 
+                    "lng": -100.399116
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.58251898029151, 
+                        "lng": -100.3977670197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5798210197085, 
+                        "lng": -100.4004649802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png", 
+            "id": "a9247477065f8f9d54ade3612ea9d58b4a44aa65", 
+            "name": "Parrilla Leonesa", 
+            "opening_hours": {
+                "open_now": true, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 3744, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105545371932483627697/photos\">Parrilla Leonesa</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAA3EJ4QxeDxc9Hd3A5vdsFfQVIHerjxj5yuFtfE3MGdNNhM1see7VCQPEWlCRIOpBIGyzFEExi_26cJ0lVB9Rw2qj5dyZa9aeLehVG-pe07aVlI_R9l5BazfWOZ7YWWWECEhBkz4EyKcF5cRX8dxMuORJ3GhR8MBIaxoTlIj9xH8xBiqrA_gIgGg", 
+                    "width": 5616
+                }
+            ], 
+            "place_id": "ChIJs3TKailF04URS7ubzvmMgz4", 
+            "rating": 4.5, 
+            "reference": "CmRRAAAAdCooneb-8ED4xWTOme5NsTz4qlS70-c0gtMhLllJkRJ7HoIsxe7Sp26u_19bJP2WCXqz-J50U1dUWtRMPfmXO4ZHQfNZgV2L0PXlBSkzdOpLuM1a_PPiK7pOOFSmIDM5EhByiuR-0-dgj9IbAFvuR5KyGhQfHo4df3QY8pzRv_2VzYY9gbBjZA", 
+            "scope": "GOOGLE", 
+            "types": [
+                "restaurant", 
+                "bar", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Avenida Constituyentes Oriente 138, Panamericano, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5942021, 
+                    "lng": -100.3869942
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.59558478029151, 
+                        "lng": -100.3856597697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5928868197085, 
+                        "lng": -100.3883577302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png", 
+            "id": "9904037103c851fb2e411fa738b4b67893e31516", 
+            "name": "Wicklow Irish Pub", 
+            "opening_hours": {
+                "open_now": true, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 2322, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109253856397885179029/photos\">Emilio Moreno Sobreyra</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAA0DSwOzJ3sU_yIwTBAkkbZaBY6pDU_7IvCpPH7QDrfjJPODFNhsF-PavUQ_bvb_l5ksS1m8lRHYesl3eMcoCUu0n0IhjZ407etdx60MOBcHp_vIYWV1HdT0UwINnDz2sQEhDOfvNEJFCvN-WWkpLVGf-kGhSuxDjCT6wkGHEAKrREDljDhmHYDQ", 
+                    "width": 4128
+                }
+            ], 
+            "place_id": "ChIJ1bqPEyxb04URxxcjFfV_FLs", 
+            "rating": 4.4, 
+            "reference": "CmRSAAAAQOdupcV3WgIywO6Cx4QgAPVtRAowveR2scHkQOYAsiJe3ssTL-4oDbwi2GX_aocoQQhZiRaIuUCDgnJqaKDrLRho69I9ndtCJ7xOFSghsLSvP7uyOF7FxbAET5nXDgiAEhAPNlzj-vPAMlCGNvcB92e8GhRAGP8FBgwy4X-gQDfyZCocMn-Vvw", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "restaurant", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calle 5 de Mayo 86, La Cruz, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.6972724, 
+                    "lng": -100.4551437
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.6986213802915, 
+                        "lng": -100.4537947197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.6959234197085, 
+                        "lng": -100.4564926802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "f8c9158ed7fdf6f008a55df1fee06bd52ef0b100", 
+            "name": "Margarita Blue", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 1365, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113871192598055885032/photos\">Margarita Blue</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAJeoriAOtLYTJ1upNEgWxLAvY4-1tftjmiYQvY5Ild_eLPA8Eey-ohvLb1aK8KQ__rX-X35ykV-0O5I5qFdj5ZUjciCILThTFUkK3ONM3uDl_Hx_8fuBCJDZAanpl6dSZEhCYXHGGpbMcqUiRgIUBBtKIGhRsEC11J6w8oeLTEtQZo_4oM3FfgQ", 
+                    "width": 2048
+                }
+            ], 
+            "place_id": "ChIJb_lDR0JX04URW6gFh5at17w", 
+            "rating": 4.1, 
+            "reference": "CmRSAAAAeEql7HxJdrhLj8iF1lUKM_o_uMyDUva_7OJ4I_v9ou3iFMZAo6sbpkszwoegNwMxOo2KVSJaMGNAn2PoELwRQq5ty69ouRfTNQBn5LPhomOGtzbPxLx7nAx6inEh_73FEhBMjML5D4zn_Bev0qz7I0CYGhRsatq1JE2IENC60EC5bzxZ5VruAA", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "bar", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Hacienda el Tintero 370, Juriquilla"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5929778, 
+                    "lng": -100.3906545
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5943267802915, 
+                        "lng": -100.3893055197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5916288197085, 
+                        "lng": -100.3920034802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png", 
+            "id": "31826276e08dddeda5ec2e764d08d0a3d5087cee", 
+            "name": "Di Vino Italian Restaurant", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 608, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106171707301331896283/photos\">Di Vino Italian Restaurant</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAQYe-edhO3XA5im26YZcuEKPl2kOL4EiFqU_QE8W9CG2lmzkHDHHZTVji4NO8J_k0lSnBijyc8Gk5EFKq45MsTYCx5Nf7p2i3-y8Z1iYrso8hGbisGwcQLIK_L3oy5g6XEhBqklGVPXQfe8ktv8la7OviGhSHT6uxhaZ3vWvCwwD9mBstsXfdpg", 
+                    "width": 1080
+                }
+            ], 
+            "place_id": "ChIJLZwEvStb04URPc1e9yIBv5c", 
+            "rating": 4.4, 
+            "reference": "CmRSAAAAeX0fujeRuzE7HRvcFetEE49k6oJe6pSvk6a3nlYKU05yQ-ZfDu9C58dziEIzIiwFBiOf3DyQiJyD0BqvvMbbOiic9FZFr5MBWEe8tLMLBVcuAAflMKQOK-NZq2mQs8X9EhCa3aJWbeyTXAiGt8HkbQ6rGhSqEy-dZ_QBKC6wA9_QTbdcBT7lOA", 
+            "scope": "GOOGLE", 
+            "types": [
+                "liquor_store", 
+                "bar", 
+                "store", 
+                "restaurant", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calle 5 de Mayo 12, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.598338, 
+                    "lng": -100.3952491
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5996869802915, 
+                        "lng": -100.3939001197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5969890197085, 
+                        "lng": -100.3965980802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "47570661570df5d16234eec666ab11b5c423104c", 
+            "name": "Bar Varela", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 3024, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102174193241294954943/photos\">Christian Mart\u00ednez V\u00e1zquez</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAfsdV785E8Fq1BBNZsGuE4A-kKz2XkSmkFfvkyohuVUFY7wg_KSwSURl3VZ1xx85I0PMj2dOPsJmTpKOJmY1hGfFpaXHxP3BFjYQKWsvTBchq5ybbj4yQ32oNfAjnm10nEhCTJZaes0Z8itWTmXxPUwqyGhQUFWo82pEWUabijzo2G8hoO54UOQ", 
+                    "width": 4032
+                }
+            ], 
+            "place_id": "ChIJDyr_0Nda04URgn_pNSkD8lk", 
+            "rating": 4.3, 
+            "reference": "CmRRAAAAxLzhSI3QbyxTc4lPQ9_0fjI468CyqPBQbjjjPKg2ijd3dI_K2VMc1KTegnv_b40V1jvz8ts4SXgCROmBCE6o2VRD4SqviMl-WIpsQKHi1rM18-EbdE91Dyup1EI1voeHEhAQnaU-jxu0Nwhj_Fpcc_ooGhTDYcWeCvBXmp050Te_TzEt8UVUfQ", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Universidad 18, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.595095, 
+                    "lng": -100.385698
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.59644398029151, 
+                        "lng": -100.3843490197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5937460197085, 
+                        "lng": -100.3870469802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png", 
+            "id": "0a6439b337a7897a2971741e3a27d259dc51902d", 
+            "name": "La Carreta Bar", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 2204, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107994462485955959477/photos\">B\u00e9licca G\u00f3mez Cabrera</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAADlDQC5ZoYQ8-_AU9ck3JW8c-sRvyV5LI9ttBC4gn-C1kILnMIRMy0YfSddWgRy2FR4K0xA45WwhFacOMfTxaUqwMlQZOAFeo5l4gc6TJ5Rx8i2ZLpMTeS0G1xgORHAMAEhAUQRql-9mQyH_lfd_MeUzhGhTUIZPue-B0ZqcUFZic7Oin3YPj0A", 
+                    "width": 3920
+                }
+            ], 
+            "place_id": "ChIJ7-CPCC9b04URupWr-Pb7LiU", 
+            "rating": 4.2, 
+            "reference": "CmRRAAAAkofMfVKMfdhBB5N8h7GFygx-wGnB_nChYH9atvEETx2gTz5OdPPgCvCuVTcKyTi78QerM2mja90Wic5sE70xHv3SiAK52lP1ITCZ1n3YZGvCdGKJIscSshijHQUcrHEzEhC6EgADCax9yNM0Tls14OWGGhSfdMotXWSXmwDFtiAyIg2DadnBZg", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "restaurant", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calle Manuel Gutierrez Najera #1C Norte, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.59329, 
+                    "lng": -100.377271
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5946086802915, 
+                        "lng": -100.3758973197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5919107197085, 
+                        "lng": -100.3785952802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "baa9e906b3269c046ada01f1cb11dfba10dbf314", 
+            "name": "Logan's Beer House Arcos", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 607, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103427602902626195344/photos\">Logan&#39;s Beer House Arcos</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAX-tobT4-L2__eRma3Id-vLjSBJjr_BCHzoWmv7qnuaxBHAu8BtIKSoT5XhwBrC13zMRuI33TPJqYZqPXRKK2t56kaN8fBYtWnVS-Es1JhsDxAnJQGphl_t41Nm0GwE9HEhCzZmMfGpZn8w2MN5VHCMnYGhTF0lm_KqIMGE9PmMCZVgGjVTLniw", 
+                    "width": 1080
+                }
+            ], 
+            "place_id": "ChIJaQ22ZDRb04URGLcObceDGb4", 
+            "rating": 4.4, 
+            "reference": "CmRSAAAAL2XutY9wE3nnQWd3j1SfaSiQx9jbgkqXmaens16rwo7pQhtEnO_Gw0lus5nu4eJLtTEEjHXJTYW2gpcn4cetcFQ5DiOLNpu6mQoNT-y79xMgsuYblFKI8TNr_EsugL3MEhDTsbmAtVNlqWVTe1BB_e78GhTeut85DFpN03dN6UwHIKJWFyemug", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calzada de los Arcos 21, Jardines de Queretaro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5817314, 
+                    "lng": -100.3985292
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5830021302915, 
+                        "lng": -100.3971028197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5803041697085, 
+                        "lng": -100.3998007802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png", 
+            "id": "1ceb40e8d011fdeb2d2531cec1933440bb6e5571", 
+            "name": "Restaurante Bar la Caba\u00f1a", 
+            "opening_hours": {
+                "open_now": true, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 1567, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116998057397868363812/photos\">Gaby Gijon</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAwSqFPVqxJSPQg5Gp1su-NySGlP_Ypt7Jlx-A60mAI1sAFT4sP1nnnFaTRg60nQDv2dX64Bkg1SWLsJfuqGsnCjNyCSDLyE52dgOgdR6zBUX0S2SCw-ICnmxlJ2jMynQYEhCyn9eZt1Cq-qZ9E7aVUAa-GhSLh1ddMIVGCtwfxTee2qVZDKVwig", 
+                    "width": 3152
+                }
+            ], 
+            "place_id": "ChIJr8l0aylF04UR-PWNJubmGgY", 
+            "rating": 4.3, 
+            "reference": "CmRRAAAAPjyHeVFHtFxDyjS-DLq-qWt3ftdW_dJl5H6uQcd2Jrm_wp6_46f_xNcddWuLRI7QwOzRPooFMb8jODqg3IMqIpMHhY8RjYCqFeLXNHEGfTDIr_-TX6mYC1jzOSRgAAZfEhDIQdhUYtTsZwcA_7ol6AKjGhQqGR9Bzeokx5sbq2miX4gCW-mDSQ", 
+            "scope": "GOOGLE", 
+            "types": [
+                "restaurant", 
+                "bar", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Avenida Constituyentes 130, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.6100037, 
+                    "lng": -100.3880433
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.6113526802915, 
+                        "lng": -100.3866943197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.6086547197085, 
+                        "lng": -100.3893922802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/shopping-71.png", 
+            "id": "de926f3f335a77d54fdf430f1c498f196f565880", 
+            "name": "La Regadera Canta Bar", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 3024, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102488490005577837430/photos\">Manuel Guzm\u00e1n</a>"
+                    ], 
+                    "photo_reference": "CmRZAAAAcVG7JVpEr8b0AY3YQQdOKEVVNZ_sBVux9t12uPgeXMb3Bout39VuBsYDwOlOfExcu4OH8hKIL_x4hclrBeIH7yyNfbCwcPf31_Wzz47-_nXixfC48D1Zu8LwXZ0EZQxwEhCGO-Tv_m9FxCxjwAbeoRsGGhTK-zChhrEIidwEnwl2xh_JLQBD8A", 
+                    "width": 4032
+                }
+            ], 
+            "place_id": "ChIJo-VMkeVa04URHnq85cw9kdY", 
+            "rating": 3.7, 
+            "reference": "CmRSAAAAfE3B6PpcF_YA9dCXUL05KHGIV02IhzSCDGfd_CsXHizOMQXO0n99ETTLBl_vpfwyVQhjm4YXRt9Lzi9pvcuRSlnSbEAVR1o-Ja09FSgud8x_ToUXP6d2lSH0y0Aa3u1WEhD1HJkahcPCFixobU9c30hyGhTDZvDDMU9umSuJr2NHMwtD2juHog", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "bar", 
+                "electronics_store", 
+                "home_goods_store", 
+                "store", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calle Manufactura 6 Int. B, Parque Industriales, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5774467, 
+                    "lng": -100.4050812
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5787956802915, 
+                        "lng": -100.4037322197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5760977197085, 
+                        "lng": -100.4064301802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png", 
+            "id": "67a696cf283348be825fde5ac5548d0761ef4e6e", 
+            "name": "Chili's", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 2988, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110351516686571194905/photos\">Constanza Pascual</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAABtkRiaPFiO2QIV9EZ94lF8VXDltHCvitlcLM71-f92Le9O2KP6G1ARnCcRBHYJoLZLjpe07efEY-iDZkqF8JyFppEDFAFZvKyfpRP6qJLcTR_FRTWDdIDcOlcktWb_ygEhCfzg_s4wutDSCpgbkn-_2jGhRD7I9ptsYLk10gkdoiq2qsNyB8Dw", 
+                    "width": 5312
+                }
+            ], 
+            "place_id": "ChIJ95-E6y9F04URS9_Jnqd8FOs", 
+            "price_level": 2, 
+            "rating": 3.9, 
+            "reference": "CmRSAAAAaF6upkmX0VUXZl2TA7uoYA8B3d3ZtZKGAn8ydzv66-XvAooIH9EN2lKAur-rLOxULlH6G5h3EcJ7YfaxwCNUDbvllGmvrv2W8V3bsyFdT-WuMsciJRLCyr-rK-0MgEntEhCg3GEnQLo1JdjJIOZmjNJIGhRg083nL7DKP8JZfN8VYayxLvCASA", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "restaurant", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Avenida 5 de Febrero 99, Los Virreyes, Santiago de Quer\u00e9taro"
+        }
+    ], 
+    "status": "OK"
+}{
+    "html_attributions": [], 
+    "next_page_token": "CoQFgAIAADGjzEJd_oQG8uYvuNVXTqumiy62QNGg7hs4I6L-GPxf4I8u2i-qo8lec-AiPmIbtZ5kd-qzmShQcbFoeeOkqIqGGugwKVRRmUU2aqNZjLvD7sZ2KZa3IzlXsyAYV7QqDbS1lOG2k8Juy37G2PMxTey5CJvBFBaoub0f9LCmOSW0ms1DrOj0YIgynqOHRdNGWhtT76rrj1qKVTN97Fz-lV4Os6Xiwtv3tKY07hSeutsiHMPYa9-AaqqfyLUeQOh64w_MAwAXh9IFv04jKEyvT7GEZU052Ewyc-D1TNNK_xj3hEgTC5SExDJ1pVkPgxhY1IGgEkhoIh8GPyYccW2kl0rX8_DtzDltE-Xr1PwkJzTHkyjXqS2EQ_TNUY5SKXoXBYZQjAhxxMjAViyfeKsJRV94VOldX5JAX3TOFEr-TO8fyKwmv10ueZOJfkNb0gvZnhhClawWvyxYyKRn0To9lRERmFI6EkEYQ9zt3MCu3i6_QmZYtyQw_W47vIZmu_v7AZdWRuQ2c1rdvzJVxS_i2KZg5Om4g72IMc9P-gbH3fZtgwFpEftg2qu1GrH5YzIMmihBO7u9U8u7vtmOzisWK_d4jNKCOfsHBJ2dQEO5QpEPs_NzpTgKARQbVVETsu70mhiUvjAjKPrgwQ1BybS0ZsTlanV2pAo8A2FJGA2gNEoomt6jGmEs8uqTaLCFiJfclaiQfpgOvITeJ5hqAMeo1j4-7C06D31CxEtEe3OJy5upb_d3_ryBOFBinDJFQUb1nueBBQm-4UoO7HSelDROMEJvfbx9vA9nste0GvK2N7P-T_GlguPzQqL0Fg605X3aR8h_MXxvLLAXxNR_8ZmF7hkSEErOY-KE2f4YDA-GPAWWhOwaFAh_87xT8oSQigCE0HYOXrG_LSX7", 
+    "results": [
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5987207, 
+                    "lng": -100.3903401
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.6000287302915, 
+                        "lng": -100.3889864697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5973307697085, 
+                        "lng": -100.3916844302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "52a9c0a8689651526f0e3c7a8ed248c8b4e7f214", 
+            "name": "La Encrucijada Rock House", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 3456, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115287030776183805115/photos\">Mario V\u00e1zquez</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAqDeNQcdCULCfN-SLZC_JgZtjlM_qSTAPNH2JVENZBlNzFe4f7BfnFSmFGqk4PPyZCer1YFfWQ-zws0EUK2sLPCnCs7shUZcdhpMaamadNnovSTV1lE-LHL7Sp4tuq8J5EhDMb-k6VdotPHrNUtfBV_y8GhSFbJt6bJUKMrQXfsK3wFrsohyLHw", 
+                    "width": 4608
+                }
+            ], 
+            "place_id": "ChIJLYhO2yhb04URZuSwyC5BdBs", 
+            "rating": 4.6, 
+            "reference": "CmRRAAAAt8hd58eyoCfEc-vyPpEjTp3ftS_DrIK8rJGSzyRgaWULE_C57HlXS5nqLp0Ogur54VeQ-e82y7BLts6WyKd5SIwU5APsolgOdVBHlq67lvteA8OPUFM6oYulBj5xw74gEhCsUDOP65ESzhN9CpDOyJQjGhQTeoYoXIN7gXfuvzVTDT5M_3jSQg", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Avenida Universidad 67, Villas del Oriente, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.568328, 
+                    "lng": -100.4098138
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5696769802915, 
+                        "lng": -100.4084648197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.56697901970849, 
+                        "lng": -100.4111627802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png", 
+            "id": "3bbaead11dcf17e19de1364d53d7854a706629b9", 
+            "name": "Bingo Billar", 
+            "opening_hours": {
+                "open_now": true, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 768, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115613721456450557168/photos\">efrain Trejo Navarrete</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAALSOme5mebIAUwj0u1L6lxtne4XmQctyyIUibyA387Rv9yPDa87DHSs3rFAyWiVXf4weiDPAwAibzDbM_w_EkO5FJB9g7o3V2OpLIjfFdi_5t_AJYFFdUmf3hDHol1CuxEhDnUhcFDSQxEGqTENfmVCn5GhTw9XD3ibeke8bIGttYe4-7HfN0yw", 
+                    "width": 1024
+                }
+            ], 
+            "place_id": "ChIJE9PEnstE04URMzQC0ZSzVKM", 
+            "rating": 4.8, 
+            "reference": "CmRSAAAA6TqUsk3HruxfgGOETPMpMejVdULZfcrRuTjqL5v-zph_tMSj6xWIDFhST2zQ7JR7ox6vLGmQQKJKnPVQVau_ITKs9Z9D_4WoACp2PgvQJAKm7n56PPEI5KrUS-tO7G0mEhAPV6Ti0Vdkl9SD_EmBGMcjGhQjBdvlXtDx_zHIU-MnrOGsEMhL-g", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "bar", 
+                "electronics_store", 
+                "home_goods_store", 
+                "store", 
+                "restaurant", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Hacienda Buenavista 318, Jardines de la Hacienda, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.651829, 
+                    "lng": -100.433906
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.6531993302915, 
+                        "lng": -100.4323440697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.6505013697085, 
+                        "lng": -100.4350420302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "481577c155c66d1a057360b920c59f8532bf8caa", 
+            "name": "Clap Irish Pub", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 666, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116261130969687678981/photos\">Clap Irish Pub</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAtZLuMH0XW_dAmyQXaMj41Z1JMz5HrCk_3w5HBNs6BbHmcFuFdvBwl9BxXDJbG0QMaBaqq9iTJaYpWXzqt7GYBPjRV-B64nzYFBtLnsSi0WM8EikApACKvwjb3V7xwCRGEhAVdn5Cw-1jiLrlcmMyTQktGhSLqrDd5NutxWVKBKZKcpYeq4fC-A", 
+                    "width": 1411
+                }
+            ], 
+            "place_id": "ChIJV_ysVv1a04URH2TJ7gdYJq8", 
+            "rating": 4.5, 
+            "reference": "CmRSAAAARRvME3_661YdPQjZ3oF5zdoFxdRKsCtAZP_uXWMb5FqtDvnePmk-cwMRgnKaNN06BnqNz2CDzui1NmbMvdiWC8g8bFRKqBoGwGn8sVvlE343-Sck4jfCZTzc6wzRhLNqEhBoofMyHBgahKRTl22x9dqTGhQPd_QQWiJTQFOeyE1ctMalpiyjUQ", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Privada de los Industriales 105, Jurica, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.7096684, 
+                    "lng": -100.4485776
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.7110173802915, 
+                        "lng": -100.4472286197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.7083194197085, 
+                        "lng": -100.4499265802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "05787c8be8fda69ddc59919fa7545a38add29e5d", 
+            "name": "Suites Mision Juriquilla", 
+            "photos": [
+                {
+                    "height": 300, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115699176830823018339/photos\">Suites Mision Juriquilla</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAA8Lr_4GLV4Alp8zVc7a-PjllXegR8XstVm_7FV3-cKlnD-iV8iCizpwGGYV63CbDKoRD1pB9hxus_fYv2L70lqHOH_JXkGzitFimokPDw5rhmy3I_a0BV7NSqPcybfkFcEhB0kWP80Oe9ZM2jBig9hi7sGhQnUHncfcqKAvLLX-PIEZ2TkU9PWg", 
+                    "width": 400
+                }
+            ], 
+            "place_id": "ChIJq2c5xmVX04URUs3N0w2-46s", 
+            "rating": 2.3, 
+            "reference": "CmRSAAAAqhFeh5FycWm4aC60fiodUJEQ-1bYA6d9wi_1a7TV8qMqN1hd7bHyl8JCxsB8UCMPKTp_fokN5SRhe3GOqdoYNOrJ56iK8e0qhSWHIG1_H9sB4wTaDI08NMeaZplLIUiqEhAxZd9Yn0xhwUIH441QWXvKGhStjC80EaBHzaUvvzP7IudTKxHn4Q", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Clemencia Borja Taboada 523, Plaza Misiones, Juriquilla"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.6090881, 
+                    "lng": -100.3969824
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.6104338802915, 
+                        "lng": -100.3956936197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.6077359197085, 
+                        "lng": -100.3983915802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/shopping-71.png", 
+            "id": "11177330c0b5f5a68bfa266105657229a0f4d995", 
+            "name": "Brincosyrebotes.com Inflables y Rockolas", 
+            "photos": [
+                {
+                    "height": 418, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108044438337456211926/photos\">Brincosyrebotes.com Inflables y Rockolas</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAS2Y1F3hXBfrnIxQYVUXl0smqqGMlL9oL7MDi_ehqmxUL2BA7YiCYhm_HPFSje2Kckn59iFdTbg9AgeZWW394U8IKL92d6k8sM8H0eVRKxljS2yVwLShaEp-6wJopvdnTEhC_1dBeqOxP6ZVJpxrMXnPuGhTngCQ0b2Ddavl-NCS0zBocPC8wBQ", 
+                    "width": 600
+                }
+            ], 
+            "place_id": "ChIJ_T7ABt9a04URnNogk7aaFrM", 
+            "reference": "CmRSAAAA5vXeIPQ2LEo9BKqFOr4pU9qm-y9VEazXO_ZXcQgmFCfhd3XIqRNNrxZz380HXpMHchjPPLzW9LuVWm_GekqblSkmqI1d1ku21zmWpegFnfSA51O6dv4vgbEal6NF1dOtEhB3ujsE4jr_u_SnyWUCMxqxGhQ2g4EMNIRMBQIBXU2jxLi6_eqV4Q", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "bar", 
+                "electronics_store", 
+                "home_goods_store", 
+                "store", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calle A 43, La Popular, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.6104061, 
+                    "lng": -100.3822066
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.6117550802915, 
+                        "lng": -100.3808576197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.6090571197085, 
+                        "lng": -100.3835555802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "8ccd340e7d59907b17e1512f73b02817271f4d60", 
+            "name": "Sirilo", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 426, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114058979052882550477/photos\">Javier Rodriguez</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAmiSf4MHhXgcuNqPYaDd-vRuo5V814JArcbVcZ3ISowXaAKPP1igwy7lODd3n4Qp296aViF5YDeubEgNRDX9eaoeSmEjtOlFkLgYNHrZrv7rDsAxJOfvV6YFb0EdY7z7HEhAaE4UUQf-42cP727Y3nkmIGhRDMOIVKnXGc2TNZJHVu3L9L1kXeg", 
+                    "width": 640
+                }
+            ], 
+            "place_id": "ChIJF0D23zxb04UR8lBArU_iYVY", 
+            "rating": 4.2, 
+            "reference": "CmRRAAAArFm8R9_zda94zuiJnuI-CWmClfU0GGjUG6N6gi-cvbmc6ubay3J7XwXWB_bMaxDgGTCShPka5LWYnlnst2loByJ-P5NFj6WlWbMNC5b4N3t9V6nA-8nFhKE53kNI_cv7EhCFzszmutPpEw5_VFDrqWtdGhQfxjPOclUr_RuMJX5j5GhGyMgF6A", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Circuito Jardin sur 1, Alamos 3ra Secci\u00f3n, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.588832, 
+                    "lng": -100.365755
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5900337802915, 
+                        "lng": -100.3644001197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.58733581970849, 
+                        "lng": -100.3670980802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png", 
+            "id": "de448832cb4525e40bb74e1b282e4940c778ef65", 
+            "name": "La Casona del \u00c1rbol Teatro & Cocina Show Center", 
+            "opening_hours": {
+                "open_now": true, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 3024, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107853435104990819032/photos\">La Casona del \u00c1rbol Teatro &amp; Cocina Show Center</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAyuG98wR52u1kx_PQgyQvE8453f8-G75mwFQCmGaGCa9ujNGkwcuiqhsmlolUKSahgMN1LRRvFrdofGK-FATfsER1JiIVBnPgysEb_zGsH-D3xmebtPV7QdfCC9np_39xEhAzckiG2kV3vFjn9MKZzEx1GhSKFFT9qHN5AOkgpyOwFDKHpkcxZQ", 
+                    "width": 4032
+                }
+            ], 
+            "place_id": "ChIJj0aP_jFb04URNqiC9VmwFp8", 
+            "rating": 4.1, 
+            "reference": "CmRSAAAA3Rx4ks9YQvtMXO2Nn1V693vDcnQxZEdH_jNRmMqE-9Nwk5TQoTRySnoboPwtYqoPSFLGCHqxRwAkhGxkZjYk8X5Nj8I-dAKvMU933_mxXEQWEAEcxhCnWPL3waQ0GU9PEhDCtPk9g9tpDmcTCohiazD3GhT71_dBVueNoFXstlYGlZG12nhRIA", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "restaurant", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Avenida Constituyentes 129, Carretas, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.588495, 
+                    "lng": -100.3669618
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5898439802915, 
+                        "lng": -100.3656128197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5871460197085, 
+                        "lng": -100.3683107802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "32b48f74ae9fe8193c3ae1a23d305ba92b5cdd8a", 
+            "name": "La Cruderia", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 3632, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111875483373874545507/photos\">La Cruderia</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAjZ-QEIhJv6H5PRMbhjfO3NjU14UB-U0wRvADilGV9iYC71ht2AxDz6Itc8h1Q1_GJ2g7No2wECzL2r0SD2xqmVzPlXBjt6FoLveY8m5esQHUtoUMQiS9RApKuv389VdSEhAYDd2w1GoKGgUMQRBZbWOoGhSXYbrhp90nJLt3ueK4fHsZvAFMog", 
+                    "width": 5456
+                }
+            ], 
+            "place_id": "ChIJd3b-nLRE04URI7vnUPBDgow", 
+            "rating": 4.1, 
+            "reference": "CmRSAAAA5nZnps5LB0cBAVqYcQFhTmx7BNA-ygYoAkEEsvArZ31P0IEtFnhhiyRxkqL4rT3yzCIfILaDTkhGcrrl-s8cc4BoFTe7IWlVfoZMkBvE893RsvX69eBz7i2uqZLADYMOEhAXbmRxBOuqFnxa_AWhEskpGhQqj6S-S-v-X1xhnrvgG9dUr7-krw", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Av Constituyentes 119 Ote, Carretas, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.6103442, 
+                    "lng": -100.3820935
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.61169318029151, 
+                        "lng": -100.3807445197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.6089952197085, 
+                        "lng": -100.3834424802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "5db2a8ec31c6fc9fa976c7f3f2a232e29330ca74", 
+            "name": "BaMBaaTa Queretaro", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 2336, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103783682967783664583/photos\">charlii Robles</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAA5yKJJxt7sxqqAgiEVm-6v5Y4EAly2gJTcPiHG4Voygi2N2V9vdqpPaqsNwMuU6x2Md3LRh-fMG8pRqiwtbksVFlafoInsrXG4RtYI-IR13gnxUA59wjF9ePq1zUFTGelEhDcU-JY49TKThK8YZUKc8XFGhRdAFbfOnsuOkdIGIFfnzu2EeGR1w", 
+                    "width": 4160
+                }
+            ], 
+            "place_id": "ChIJnaceID1b04URVKu6mOWAQdM", 
+            "rating": 3.9, 
+            "reference": "CmRSAAAAjmsN9wKIjq1FAvB-1rPZaykCxI-onKN4sNsA1MFpYqzyWHbH7Qc0yaqc6R21fcZ6FUJmhj8-xc4aPaPyLY6OPFmMG2eAH5Gf2bVW1jNGI_cV5brJ-3pdqLfTcqrkrxeyEhBMU_WTc1tO2ZpAD844rlBaGhTNCjEn2H5TADDejHJI_XwU8U21PA", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "cafe", 
+                "liquor_store", 
+                "bar", 
+                "store", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Alamos 3ra Secci\u00f3n, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.554205, 
+                    "lng": -100.220031
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5555539802915, 
+                        "lng": -100.2186820197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5528560197085, 
+                        "lng": -100.2213799802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png", 
+            "id": "f2d031dc96a924516deca05ba7425bfea7bee26b", 
+            "name": "Restaurante La Palapa Norte\u00f1a", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 3024, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112450391885736196850/photos\">Genaro Vega</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAj7q1ALh0C0hCETS2vnohZmdIQg-O1qmcu_xJfb_eIJ7MyAIz3ExGftzbI2WK0ZtGVVtUFAGsTBUmH630712_3njfY0smD4Ezacixd19psRWMtEI-2CeEMnoBQ7MievX9EhDKrfo7xAa98tZ0u0A55R3HGhS0kf8jxkJA86feNOA6hQfUFrbqLQ", 
+                    "width": 4032
+                }
+            ], 
+            "place_id": "ChIJj36ZkFRo04URrAIXKPG9nuo", 
+            "rating": 3.9, 
+            "reference": "CmRSAAAAzp5fIdyrgEjG6oQqMkgcEd6iSEGKcESKC-7S9FM5YbHxrY7CX7uk_bZ1rLpUrogB-FJe9Ne9OK77JncZoR3HehkcjtJ1F4VbxWfb5bF_OJj-suqtyVadura7aZZiaIM7EhC65VFNHZi5H9QntY9AcWygGhS4SH2iW17wrrVoCrv0RBZZ8hPwZg", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "restaurant", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Quer\u00e9taro Km. 191 331 s/n, Avenida Estados Unidos, Palo Alto"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5933979, 
+                    "lng": -100.3987925
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5947659302915, 
+                        "lng": -100.3973692697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.59206796970849, 
+                        "lng": -100.4000672302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "de81b3d475cb1c52b55d4290a1bcb6fcb6fe5917", 
+            "name": "Taurine Selva", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 3096, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102752116680396467138/photos\">Alejandro Pacheco</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAA-cBPx9CCURi-MUEmfg5HOFPpa2ovJY5XXeXcBNjQiS0Cb2wAR0z8EQZJu5HxPnsvDOIf3nk5YBuJgtcRpZEZVscvjL2bfserMLoLtaeZWcy7nk6fNwJ6uTUzGinXcUwWEhB5Qu-FpeZ1VMa1zax7l_W7GhSoBGQBsRptnwHyF6GAy3CBubEl7A", 
+                    "width": 4128
+                }
+            ], 
+            "place_id": "ChIJvXEpPNRa04UReSU6PkFXOn0", 
+            "rating": 4.3, 
+            "reference": "CmRRAAAAdJK51SuaohYML5aQQMEcNvNcLmkdZ3HunoIi2GPqNq-vtBz6mFnqvxafet-A518vlg10O-rpIUX8TwYZQdU6AgRCQua3nPNmdDqdpgJgORE9wFbKibBL9bKgDinIhUvQEhAxbXpJV--g03okIjMmrX7PGhT22qSYvK0BQVr42_RjlE2IrCJXmw", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calle Ezequiel Montes 55, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5955437, 
+                    "lng": -100.4504895
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5968304802915, 
+                        "lng": -100.4491484697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5941325197085, 
+                        "lng": -100.4518464302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "957bae9320c136043c685ad71ecbc9b30dc611bf", 
+            "name": "Musa Sal\u00f3n", 
+            "place_id": "ChIJX4OwNgVQ04URVTj2YvWs1e8", 
+            "rating": 3.8, 
+            "reference": "CmRSAAAA8KGz3wuhZGSEEHjRIQ0Bq6EQNfTBYr4HQxBGevrlAkCqk5JQ7q7Z_34Ok0mCid5stRdxCfOH5pfvi32jiWpyMkznNC91gOsfwNDgEtYLDrOAoEwn93y9WhkVD-bozeeXEhCgpLicgL5WDWvOJ1n2nALoGhTS4X9w5Rrtr5oI_f1AZMuvDBOEmQ", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "bar", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calle Jard\u00edn del Ed\u00e9n, Jardines del Valle, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5930904, 
+                    "lng": -100.3950527
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5943639802915, 
+                        "lng": -100.3936826697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.59166601970849, 
+                        "lng": -100.3963806302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "7067dfd59f7aff0d51acee9c3e9a4c570bc7572e", 
+            "name": "El Rinconcito Bar", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 639, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111660986325964923018/photos\">El Rinconcito Bar</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAu0rr7xf5AkqYJij_qCFfe6rlvpKDbg0_0eRFHgQPd7FlzzxZL0tOSW7EPJEbwYRXgsyfGh5_JzQt9jDTCd1Ozu0_kzH7FyPvRuhP_oiHkbnIH_bm6e71ER135x3G5jPPEhAZ22DiC1LeXtM4vjNPZCNsGhSR2aGrqsrlHO_BohO_7hUiGmz5HQ", 
+                    "width": 960
+                }
+            ], 
+            "place_id": "ChIJ6ZTki9Va04URkrDK5aEDAQk", 
+            "rating": 4.4, 
+            "reference": "CmRRAAAApmfI4SPzVtUd8Xwq4yCbpvHaXK8auLkLbRkPKXG2qWdr0PkTVjUNmFYmFwRklYWiND9zh7dXFBbxrNh0VV4mKgLbB0KKG0seMknUh0VHyoSw6r0g4kxHzWhxw6dnM6WjEhD77AeAbdKxikHshWKPlu3nGhRW4TLVxBio1nodArlC6bDA3vYtTQ", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Mariano Matamoros 12, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.59373309999999, 
+                    "lng": -100.3812348
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5951256302915, 
+                        "lng": -100.3798964697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5924276697085, 
+                        "lng": -100.3825944302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "06fb13ba3a7d230e7fa781bd5697f5c72727c914", 
+            "name": "Zeppelin Music Factory", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 2448, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109706938393871959235/photos\">Alshira Alshat</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAye_KAq_TeZ6V2B_h0GdmqopmFmtUcMAN6y_CHsW1zkDljoE_KiuNpyzZOQ0Xx0EgvkhrggYQ5gvAMO73jLCDXH-gcwrxcDCCNEmRa6VlQji28lAGxN1aNbgBHMvSws0dEhB2dJdn_MIR0JpV47nstTKyGhQebvJeW7zvjMbKyfO9VlmSjZPkrw", 
+                    "width": 3264
+                }
+            ], 
+            "place_id": "ChIJ7y_MSDJb04UR1Y0jTzCgK24", 
+            "rating": 4.2, 
+            "reference": "CmRRAAAAIyzm3yRVUWmg3DUwexwmJplxUDDzqUxhPWxossoYUw8_4XOuWJEbwqy4ZhiwiBbYsxbq3q4jLVpskJ4jIBYBu4b4PRTt11LMAdmvHaW-YlQwu49Lt8Oxk_9bIYccdqi3EhDs6OzFaxefk8pCsMBE51H9GhTo9z-GhFDhjKcSW98axVup_y8eyg", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "restaurant", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calle Independencia 186, La Pastora, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.59502519999999, 
+                    "lng": -100.3926294
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5963741802915, 
+                        "lng": -100.3912804197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5936762197085, 
+                        "lng": -100.3939783802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "8942691d08fa1914ad0dcda532179acf1340a371", 
+            "name": "MAXIMILIANO BAR", 
+            "opening_hours": {
+                "open_now": true, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 2448, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101533370160377676578/photos\">Magic Cortes</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAawJYrVJTjyUfxBJ8aiBmkLQt4fkB77srapjCCNlbH3boeJmumsN0XAIO9-E-jElOLKJN0UnK2EEv7dJiFvJWZtCKQPXJTb5SUMJAXItHwWej9Zcqe2F_MErkedxiiDXgEhDMqUGQXI4kd29koQCFRlVXGhQNdd8gIrvtCFrb8E_iuPcGcgu3NQ", 
+                    "width": 3264
+                }
+            ], 
+            "place_id": "ChIJTY2IHFBb04URBFzecOkN1_E", 
+            "rating": 3.8, 
+            "reference": "CmRSAAAA6QjCb7EMNmAYJWYBRTTNfv8FWO7YRsL63xnB1wMcpT8x6We442Vz_7FurkJo50OE-ZsZP6u_vlUPqli9gq7TK7H2J6LDFZ9T5IIvLEPW6PIbNy7AEXGDub8MfdBylY5rEhDW35rHKhF8Py2aNyl1PbkdGhQCypozTfkAUpoPF3hc9IwntUyT6g", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calle Morelos 4 Ote., Centro Historico, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.6009285, 
+                    "lng": -100.3969335
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.6023271802915, 
+                        "lng": -100.3955864697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5996292197085, 
+                        "lng": -100.3982844302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "fb5c39aefdc9670b57b43921471cf408f9dbbfaa", 
+            "name": "Bar Chava Invita", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 2340, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106620203732040589208/photos\">Alejandro Guzm\u00e1n.</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAHwY4JQd87o7GyXa_GE9aijvk4cgngBJiv0o9jP37lUcP-QnEeS8pGADK9aYvq6DzbAwtdbIiTDaGlvcOyIRmlKz2W42lK6K04pguxSGPIqvgHE0X9Up-d_7O0Tl45zfjEhArjTAeYJuTnYlBzKQFg2WKGhRrL-tcaOL6WQrzuGojr-dw6sGC_w", 
+                    "width": 4160
+                }
+            ], 
+            "place_id": "ChIJC1BPL9ha04URps2bePqBpGY", 
+            "rating": 4.2, 
+            "reference": "CmRRAAAAulZrra4Ztde2td8xoahHkg9t_RrotDGiinnKgsILp5l3s46mL-0jIUzf7epXKe-pw0KQ7P7xbh-Uz5_pgA3PddA5E57YLPXsjIJvFHd6UTIkarXr45gmg3wXAOZUIGZIEhCVHhoUPZI1pZaDcnoa-ii0GhRVsPKmZFPB4gOiMWwK1GNSwIMVrA", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calle H\u00e9roe de Nacozari 33, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5935335, 
+                    "lng": -100.4138431
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5948824802915, 
+                        "lng": -100.4124941197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5921845197085, 
+                        "lng": -100.4151920802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "cd64631b10059015e655b9c64c4a801c641c2261", 
+            "name": "Doble R", 
+            "place_id": "ChIJk4cmQS9b04UR4e-CGrX1uUA", 
+            "rating": 2.5, 
+            "reference": "CmRRAAAAKTItMdnzuO6MvUsaSKQVJstv_IJiNSp6GfQqAN7pt-AzVJnz2rbuU1PQIZs5sd4fVYbTqZr7GfnY9conRWds4vHToo_LV5iVkuUnV0tlIaOqwJhAqB5EhFrDz_uonCkLEhBe3Z9Ii5hLHqtA_JdaEZL5GhR74yelx2dgUiE9zKrV31aiMnpQtQ", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Universidad 154, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5936807, 
+                    "lng": -100.3768196
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5949788802915, 
+                        "lng": -100.3754281197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5922809197085, 
+                        "lng": -100.3781260802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "8a08c67ad05972515465f00e5364b2b8e8d74450", 
+            "name": "Bavaria DKB", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 540, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115707814235311537588/photos\">Bavaria DKB</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAV2LWeFtYDNC3rQAFMsarkS1CRNcxd2JIlysIMHhRw1qE3Z3sKj5hf3Z3CZcWLL-4DnuXvrShTdRYXHjmMZYcEH9lyVRhsUAfOVXoFdafVi6jsYITezSsAb68JDAmwZd6EhBq7eNAfNnIqkuOnPca6zsRGhShiClI1F3nAa1-6pm4KZwyeuzzuA", 
+                    "width": 960
+                }
+            ], 
+            "place_id": "ChIJKajzZTRb04UR2OvfZql_hS4", 
+            "rating": 3.8, 
+            "reference": "CmRRAAAAQjPkQwjWzCxtLkFzJfLZ3AVdJMEenj3W-YIhosdKJ3ymqbIVN-_xOOBR6wgNP928Rtj9jZCXu4p9ArqPcU_dtFACfnSWkkoVwUh_F1IEy-VcevEEaBl3rsdG4s_m2K--EhAJcGiImVbeM3BZLY5y2ZH3GhQCoM4KUX0YXuHKFG2ujPdasXuQrg", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calzada de los Arcos & Margaritas, Jardines de Queretaro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.598434, 
+                    "lng": -100.373464
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5997829802915, 
+                        "lng": -100.3721150197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5970850197085, 
+                        "lng": -100.3748129802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png", 
+            "id": "e0e40173452652efe212921b0919d5e759dd81d4", 
+            "name": "Robinson\u00b4s Crash", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 2204, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102932631389978303882/photos\">Manuel dealba</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAA-TjXcgpSJqEHYSlFos9vjvUYAZPETocErbESMdXyt23ERYd_DhWK5NCFrHfgIdlnn4M32tnE7qtNpiS6L1QKNR3iGnol5uCCVJxoHPk3uL0irgM-Vg3HIOp5hoY7_yYVEhBlmm4qn7Fl306txw6eTR0tGhQkPdo7i7AB9vGgzN10Kp8AFnaHCA", 
+                    "width": 3920
+                }
+            ], 
+            "place_id": "ChIJy-UlODZb04UR8vqOynX-eKk", 
+            "rating": 4.1, 
+            "reference": "CmRSAAAAQRGDuW1QTKPh9p9RvnqV7BvGhfQ0ppK2A4LYR2e1PFN7ithvZDk4DALSxeA5FxwpixZcJBZlVBaNKbppT91wiYzTQ3ItjTCsnk7fiV8AhGUVaEN26tv1KF9WrdGpqmQDEhAELnT7NmUYAwsJE8bEuAr5GhQ_9cpCGvCb_Itm1Z2SEMMydvHYCQ", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "restaurant", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Blvd. Bernardo Quintana 12 A, Calesa, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.564318, 
+                    "lng": -100.377054
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5657168802915, 
+                        "lng": -100.3756423697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5630189197085, 
+                        "lng": -100.3783403302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png", 
+            "id": "668f068a906f89a56e923e95de170ed01a411a32", 
+            "name": "Mariscos Jochelo's", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 1080, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112320888878003420682/photos\">Roberto Garibay</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAwqiVe0g_WvnWYQuz37OJWfVOcelKlrJPROL5hzOsiT63oz1zkuXk7iKz4kkCAgHWVBQu87Q30AB3KT8TpfalCvcP1yeeZwVqmU1-QsTA6hYtsOxKfaBbxpeh-CZqqeZHEhAz3AeDNBJQU6rPnn7RamyiGhTUq9u_tWDWvIlDsQzJ49YVAAO8jg", 
+                    "width": 1920
+                }
+            ], 
+            "place_id": "ChIJ5-asZtxE04UROfdBAcG-BRo", 
+            "rating": 4.1, 
+            "reference": "CmRRAAAAedeWCBV2wWRliUilQKsVt1qald43Um93dzEXiCt33hp-DcGzz1zgLiEXo24ic7PUm_dr5ZyRUn0Cwa2mCS47_ofBYY20piqD8U5OLWU6YcqMW1ue3VjATdsOErp5fEN0EhBdg1j80t3UcpXVPXatRa6uGhT8D2swmhCc0GRLyIAUlbAQGtUGPw", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "restaurant", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Avenida del Parque 702, Anexo al Mercado de Abastos, Santiago de Quer\u00e9taro"
+        }
+    ], 
+    "status": "OK"
+}{
+    "html_attributions": [], 
+    "results": [
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5409256, 
+                    "lng": -100.4316638
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5422995802915, 
+                        "lng": -100.4303516197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5396016197085, 
+                        "lng": -100.4330495802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "e45a35f8dc79586fa46b3e9cedfa3b2cc899bb71", 
+            "name": "Conexion Inmobiliaria Corregidora", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 1840, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111905218326489668334/photos\">JOSE JORGE CORDERO AGUILAR</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAATl_pGzQ10ZrIFgpra6Pip1ImKHlR8EW_ABFwG7sPo4XSX0z1Ec9mzJLqCVnjmCdcoGW5LQOqn5rW9TURewhPqm6k7qjrdWgjFv5lq5xeiXV4ZqWzs31Dn8JTqSQEJFRAEhDeNhVSz-fm1Kd6pcC07Y3nGhTL7PI_a4TYmdYLHjrgHyFXxKGlFg", 
+                    "width": 3264
+                }
+            ], 
+            "place_id": "ChIJEdE983hF04UR43X3vo_mebw", 
+            "rating": 3.3, 
+            "reference": "CmRSAAAAwhwPEmxmtBRfXCGymy8U5aWyI1b-oO2XP7j7wrWFDD0bxTpC0cu2yvWJgV0AEWlhrpDjPt8PMMAS6Vi4zlsNVJSb1tzXgZ4r80uDGUeGZVICPF_FdE1N2UA9GdZKvgoiEhBWnEhpN5Btjp3Ps979KE_CGhSRrZJhqtWKc7RvCRFZCBWiVy731Q", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Avenida Paseo Constituyentes, El Pueblito, Corregidora"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.640796, 
+                    "lng": -100.382074
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.6421449802915, 
+                        "lng": -100.3807250197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.6394470197085, 
+                        "lng": -100.3834229802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png", 
+            "id": "d530bac7516a806f0ed9d453354ceb09bdf3aaef", 
+            "name": "CIEC producciones", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "place_id": "ChIJQ_5VR6Zb04URIwePmMwVqaY", 
+            "rating": 4.7, 
+            "reference": "CmRSAAAAOvgHqS_ZSH_0Oi5CzdD7FTOYBDIpfOrR77BpsEImmP5QI7GbnHeGm74wGX8fNquvcLDQUBMdBWcNCJtJ1yxwyLYVBkQ0T1AMK0NzMgkwKvRoO9MGHC9-wKpQ6X_vJPxMEhC74ZWE69Fpe5QCTKJhmAjMGhSwk5k5j2KnAKj8uHdBGsvbOCKY4g", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "bar", 
+                "electronics_store", 
+                "home_goods_store", 
+                "store", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calle Jalisco, San Jose el Alto, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5952855, 
+                    "lng": -100.3812414
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5966344802915, 
+                        "lng": -100.3798924197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5939365197085, 
+                        "lng": -100.3825903802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "8d26abe3fbfb5e875d009d822cd6b01c04ab6899", 
+            "name": "La Internacional Quer\u00e9taro", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 720, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114974378078678566166/photos\">Marianita</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAC9y44F7Yef5ZdnmCX7jlLEAwVovyDYLo_pTbR3Y5261nOqAnNxhYaJ527_cjW-LZZtbY0mMn9yG48GxB3Jxje_p_RLsQvMyRTs4i5Orv294zleUJpLckASaHK6PfzDtTEhBTn3-HwahUT1n9KVRBRRcMGhRbmIUgx0VttuxpI80D7joOiAaw5A", 
+                    "width": 960
+                }
+            ], 
+            "place_id": "ChIJvT1kgTFb04URUdJ-IcohyDA", 
+            "rating": 4.6, 
+            "reference": "CmRRAAAAsA8GkP7cYUQG39kkkhvloxQ2K2UU-AF_Fk_d-V1R1kuc6WGlQI6fcWDMwb8hgXa6fcAEzpatjU9eqLHZhXCrOcg6pj9fVsIyjB4bKw94zpkQwFCYJTObpo3B-uJ3LOi2EhCxtOwVNpmB2-jKZ39EXYgvGhRdRQW4w0ZpQoozRPd3pSBVASLi9A", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Av Circunvalaci\u00f3n 30, Jardines de Quer\u00e9taro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.594011, 
+                    "lng": -100.424078
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5955994302915, 
+                        "lng": -100.4227557197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5929014697085, 
+                        "lng": -100.4254536802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png", 
+            "id": "fa2b82f3f26874fd7e6c898f4f5cf747d8390eef", 
+            "name": "Cheer\u00b4s Drink & Sing", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 1840, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116699571635820300243/photos\">Cheer\u00b4s Drink &amp; Sing</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAYBhwo14Vana2pTztwGbtAe_IxnRtL96rIlx7hDzgPMfpWTHtEOmMHUfJHxEVHIf6MjN2fxq2j3jX1xdTUxX6ln7vKuinbiEmZTZJNKfALMrwsv1G9akrabco4OmuFuwbEhBhjl_s77OcNosJuAW-GFSaGhTZq03zC7eG-teSWYFkD78VU-9diQ", 
+                    "width": 3264
+                }
+            ], 
+            "place_id": "ChIJ63ldabFa04URgSPY4n-MaqA", 
+            "rating": 5, 
+            "reference": "CmRSAAAAPZ3eLYykll17_sQJ_wOa_o3gBekVunRWdVYzJyiBzQZbZElNLnqvplNEHu4Q3ZGpPqx5DdNF9VqH9_Ee0MANAdqKhb702hZNKzyHHbtT_TPGM8IlL6oaLhEV9-qboXFGEhAc6w6ctf_jkZ_hF31Y7NHxGhQl7LhnrJt_xQtwWINAiEMeg4X0sQ", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Diagonal Carretera Al Campo Militar 305, San Antonio de la Punta, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5772543, 
+                    "lng": -100.3767981
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5785424302915, 
+                        "lng": -100.3754356197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5758444697085, 
+                        "lng": -100.3781335802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png", 
+            "id": "52b1ceae197269b68b0ff9fc4fd6338385d7fd28", 
+            "name": "Vicos Cantina Restaurante", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 2448, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105982208897208198793/photos\">Alan Rodriguez</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAechWBfu02LJntxumTVNVoQN6MOv7UofEK9Q49mssMzlpt2Cnlo_QCxWT_4UUK74U7LyaLRiRwqTjuArBbbZTnyfqFrK0K6IHvJJ0Pa5t_CAROpu-ITbUtTCrSdf52S_qEhDgiXoqLJyJ9wRT2yE9n2JhGhS09amrZr8ZRdnO995_otNrRDqcaQ", 
+                    "width": 3264
+                }
+            ], 
+            "place_id": "ChIJrdX76sVE04URI2Az6GkO_JQ", 
+            "rating": 4, 
+            "reference": "CmRSAAAAp-8PLJAo29WNX6c7vEYaZMD0yHqeDPxdEoJSctSFMSBZYf-Zl7eYsYkYuMK9C3hwJKEkX9T0deHdNfOvGd-QL8d_DuglbDus0R0ZlAevVdrOUBN0p92oa9I1-TexBj3EEhDuFGtvF0eVDSeM_sEMAWAtGhTCM3jbZdwW8AbWS6Ke6J4Nv1tvwg", 
+            "scope": "GOOGLE", 
+            "types": [
+                "restaurant", 
+                "bar", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Avenida Luis Vega Monrroy 701, Plazas del Sol 1ra Secci\u00f3n, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5950438, 
+                    "lng": -100.3991165
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5963927802915, 
+                        "lng": -100.3977675197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5936948197085, 
+                        "lng": -100.4004654802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png", 
+            "id": "0c24f9433822f1dc52be80b57a9e4fb7e7f6036b", 
+            "name": "La G\u00fca-G\u00fca", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 2952, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106252460183629927052/photos\">jonh Zeppelin</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAMwfGCj_UoQmtvcujzPwI2pjyI9DsujfMiN0fjmIfIWuOy9Eu4E6qgRu6dLhh0_pF6LKewTzGtWcazqnCu_ez5uqP7x6YqyTbSpwWlqIQ29u473Ub6CNumx76-gzxgMzgEhBhKwIHE7UsOZZG0Umx4xq0GhQLsetoACXmQQk9CfWldWy9gqh7FQ", 
+                    "width": 5248
+                }
+            ], 
+            "place_id": "ChIJ1Qpe8zVF04URB5OUVLb5Pzs", 
+            "rating": 3.9, 
+            "reference": "CmRRAAAAii2nqOSMNIcLI_Iqrv4eXMgp3uW3KaLqxq2gBYOIqp_P2WpoonZoUMpbPHdsZiEJ6rWTOhNGgY8Dl4Tf4TZUvn_1GeNZ2TIGY02MHi5q5CizSwdDcjgtjIpjkzQSnpvTEhBxpeTS3o399v3dUVlETXgWGhSZdv2opVgNFooysHE_N0EnS_v_Dg", 
+            "scope": "GOOGLE", 
+            "types": [
+                "restaurant", 
+                "bar", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Ezeqioel Montes #118 Norte Col. Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.6023034, 
+                    "lng": -100.3933733
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.6036817802915, 
+                        "lng": -100.3920671197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.6009838197085, 
+                        "lng": -100.3947650802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "a5c90d3624a9b7462b62d1c71385fb585ec27291", 
+            "name": "BAR BARRA 86", 
+            "photos": [
+                {
+                    "height": 4160, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104942739822214499804/photos\">Maria Guadalupe Avila Hernandez</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAA9USdOmElVyNOrmKM-jYgOgudzJVfVvRUvXw0GKU0vmDMXzs8gLdHhIVVjPm7Y0G4GcnNLpCBqXy71YhCCgupTyeq2N-xUyeQhJYiOsjjr7rDU-PzhV_J7YYEju3qtkF-EhBBKjzCnkOHCDWj6xRsNc77GhQnA2FgutIW1x7eMI0727qUPxwiug", 
+                    "width": 2336
+                }
+            ], 
+            "place_id": "ChIJeT8-6ydb04URj-GpAKBNtxQ", 
+            "rating": 5, 
+            "reference": "CmRRAAAAPoCwOVqVstBFRkehHCpfoq7hQZtcH6kcv9RkoA7Gd222dze4xyo5tioApg5SXPK1AunLsVsfr4qfa_L3HNz4a5CjIF_n1NPydUI8hhTYWEdGau8OOdEHB4z_TSt91CyeEhA5lFwi-6yjsGSIcwp6uOTdGhQtbUqJyjAGHFXEY-XiCNuKGC1F8g", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Avenida Corregidora Norte 180A, El Cerrito, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.57864979999999, 
+                    "lng": -100.3857828
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5799987802915, 
+                        "lng": -100.3844338197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.57730081970849, 
+                        "lng": -100.3871317802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png", 
+            "id": "5e6a13a49dee6bf616bea34e9b90c128867755e0", 
+            "name": "Bar la Roca", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 2448, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104460398438412984523/photos\">David Flores</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAXcaM7_s1vlEaJrVIgj6ZbVKlJX8VgdbeRvBb9EVi-NYDP4SG1BirAHoN4EWB-PDzZglKbbOUlApENxcJ5qe0kVtQ9kmYJ3EhLFXfewxb9jKVCx2rc9HSXt8cQj3I0HesEhD6MW-8qpEgLCRAEh7uP36YGhQNa1QKM4VS-COuGl9FOFINrT3dYA", 
+                    "width": 3264
+                }
+            ], 
+            "place_id": "ChIJe-pCZNBE04URMxgZ3KhVc6E", 
+            "rating": 4.1, 
+            "reference": "CmRSAAAAmGKgIUF2SAZsb8MueqsM0EDkYJCw8Hu7TfD43qWoeAOdLgbxd_4nnbLwb6Ubt_YZnnh90zNuHGCCKBI1DEkboUWd1lGmoXyrJoTdxiU-QuvDkHTB2McR2H11aymZGx7LEhCljEyKlj2Ai-WZiyFjUTQkGhTzZcok4f5jHcbBNaKfL1LRtzmyqQ", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "restaurant", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Prolongaci\u00f3n Corregidora Norte 163, Aragon, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5928987, 
+                    "lng": -100.3887816
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5942476802915, 
+                        "lng": -100.3874326197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5915497197085, 
+                        "lng": -100.3901305802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png", 
+            "id": "4de43d8d5fe93c98ee6e1a0e36ee914c7954cbcb", 
+            "name": "Gracias a Dios", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 2988, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114333053663644465894/photos\">Luis Mercado</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAARVPXRR27ZmZXA-dbAQb_dsif-m7QKnwSZFdneWtd-IegI6cfGxCPpikz-iXk2fgFGZzfJl7FXZ6Sy5GSD8NbpDYOXi2K_MpykQQetPoBRtm_vjxOmtEGaXdHHD9c2xEpEhDXuzLMjjna1NnkzZxFc-htGhQnPHx7pUHDU5BS18I6LBF85Bbvkw", 
+                    "width": 3984
+                }
+            ], 
+            "place_id": "ChIJJ576eSxb04URG8jxxfnlGiA", 
+            "rating": 4.3, 
+            "reference": "CmRRAAAAJ3UmmYeEfodmdz6OoE413SWFbBVXSFhMc1UoO2Q-aUOF3pEkIZ6_fC4KZgKRIcSmMMP-Rpp62OJuDYIyHnsqfTaMMNiMsGQ7LcAs4M8SYic5AhvYXdty4fxbcMFPIYe0EhA8dJJPE0lfpCt8IekPTfCYGhRyBBD2-nRosjxy6c7nOyeTFWEfkQ", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "restaurant", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Libertad 51, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5935111, 
+                    "lng": -100.3886451
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.59485308029151, 
+                        "lng": -100.3872978197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5921551197085, 
+                        "lng": -100.3899957802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "ec7fbbd389a400c8016a20f89b9064d7a83eed0b", 
+            "name": "1405 Whisky Coffee house", 
+            "opening_hours": {
+                "open_now": true, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 1080, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100279256384405697867/photos\">Mauricio S. Espinosa</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAALhqL76gyl9pIAkZgfAtllOEtDQ2FRSTDILOckx0UUy8SrioH6ao2M6217Kt1ZeJ9pc3ufK0xKG71vvPmzd4-A30kirACrJS4wDM-WquZjC7KUVJ1JS0AcQhvOCWM_3HwEhDcsk22yoDnBxmKkdicYjZfGhQmAq7VdofQS33D3pOnGWh34mshiQ", 
+                    "width": 1920
+                }
+            ], 
+            "place_id": "ChIJkV8Kcyxb04URD64T_DieLoI", 
+            "rating": 4.7, 
+            "reference": "CmRSAAAA3kjVCVklEFP9HbAxR-ETIpeF2aQVz7sdVvEnyQNhlhgSDFVbjpEydhvDNmcY3Ouqi8klfftURGmcYICyFx91oir4jqNWJOx-ibl7kIGdM89N1JYXuBc03suBcyZmH4ETEhCugbkQEOnu4G9CI0j7zhdVGhSzzZtxLFOXM1EaCiJVJYDCP6d-Hg", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calle Venustiano Carranza 1A, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5935912, 
+                    "lng": -100.3886997
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5949937302915, 
+                        "lng": -100.3873716197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5922957697085, 
+                        "lng": -100.3900695802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png", 
+            "id": "cf14ede67608be33f7d7f4ec7df4a3f794d7119e", 
+            "name": "Gudwey", 
+            "opening_hours": {
+                "open_now": true, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 3096, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113788425964559518626/photos\">Alan Gilberto Salazar Hern\u00e1ndez</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAwtrmfs35rgaCeTYTMtnrrWm4Dz4ABqHNVDw5DCFOJMOAT_0n37wVapHormo4MuB_9gpS3m7nCob-xdx7EkXjLkAtVnENbGklnrUhpKq6TLLMzueoKrNvSr0uT_oQcA0UEhCC_09JzcgENUsjjD_Xm-83GhQpUTNhK4qWWkbJVUso4dzCM5NV1A", 
+                    "width": 4128
+                }
+            ], 
+            "place_id": "ChIJbZ8_ojNF04URGQ33dJw_ob0", 
+            "rating": 4.3, 
+            "reference": "CmRSAAAA6A7gNM4tF--ZuYxE9AoNOep8ZTulKjGhJhVyYIpKTMpwiN-LE3wmi526ySTugdfHmxkJrqWObt65iyqqOVwhxmYq3ImAkJNovSje9Y8Yqx_XsgbIDj-SdaW_TDIcqDbUEhBbbLibtheUFZrWIn6YMv5DGhRGp5khBDbf9zUTCtb0pZM3eyaxTg", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "restaurant", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calle 5 de Mayo 46, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.593022, 
+                    "lng": -100.386255
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5944464302915, 
+                        "lng": -100.3848938697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5917484697085, 
+                        "lng": -100.3875918302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png", 
+            "id": "bb9480d3fbaf627c90ca52a81dfec45272eb54f1", 
+            "name": "Carranza 50 Terraza & Grill", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 2624, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104618148190316863272/photos\">Carranza 50 Terraza &amp; Grill</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAx6b3YMx4cxZkyfgiCH7MUdfMTEOuUVy80ONMMg-AfEkI_6hztMLxvO20hjKmdh94o_HvvQW9AXQuArO1xGL-rRsxajk2SsX1OyH4-gazUcgaHczJP9Ld4vUmpzaIv3t7EhAg2ErEiCmNHhMjngG0fabRGhSf1wAj48YhO705h8q1w-L8rIhqCA", 
+                    "width": 3674
+                }
+            ], 
+            "place_id": "ChIJ3chRrS1b04URaexj2wsDFmw", 
+            "rating": 4.3, 
+            "reference": "CmRRAAAA3o7l7AxXKn-jOGma5LiAp8S6oTJr-ocpjAUWaxLQxz0GMdVWicYYqAkI1vkPKfwTjEoEGcFDIvOr2a415-EyMuh0xqmekP5bKUujw3Rjix7hSNWX1DuBj3sVf2foqPK2EhDwGIDSjkOdQir0iZZXjteFGhTh2eE9sWzg1yXemWzg1v4aF0ELAw", 
+            "scope": "GOOGLE", 
+            "types": [
+                "restaurant", 
+                "bar", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calle Venustiano Carranza 50, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5929832, 
+                    "lng": -100.3861416
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5942921802915, 
+                        "lng": -100.3847859197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5915942197085, 
+                        "lng": -100.3874838802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png", 
+            "id": "cd91846903b1f41f1621b482509e09b60b8993f1", 
+            "name": "Puerto Milagros", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 3936, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105017105201914932159/photos\">Mos\u00edah Escobedo</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAO45-2L_CBWt1mmEbxUNU9dlX9S7RML-_TEJg_xjJcOLPHswgeBm83U_4vd90BpL81FmJXhdvbfgNJdZ7o7e2rafHSiNx_d6U-xa-PTso0tBD8EgpZWdkswvSTt12-lT8EhC_dKF43cyycw3FEFPjdr8LGhRSZPhf1XJop57NKXXLOHmu7NOu8w", 
+                    "width": 5248
+                }
+            ], 
+            "place_id": "ChIJ8yVeZ5ha04URNsyr2blQfec", 
+            "rating": 3.8, 
+            "reference": "CmRSAAAAhJpA8gQglIefYMGHRgwkqek7hGIJqMGopEqsQ-NyJ1r9Lh9rnJGK9_EGNyqB5Nqggu6-SUTd1-aWB3O1B8eaeuiaR-ls3io3rVDUlkImBkeBXnX_XAdNa3OmTPSIYwSPEhAkhNCmm8yiedu72ZAr2meDGhQyfiTjMsIrC4B3vmXbP4SyjF_XPQ", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "restaurant", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calle Independencia 97, La Cruz, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5905514, 
+                    "lng": -100.3896721
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5919010302915, 
+                        "lng": -100.3883233697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5892030697085, 
+                        "lng": -100.3910213302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png", 
+            "id": "9781b30e49f341404cee2dce400c959cfab787b8", 
+            "name": "El Rinc\u00f3n de los Sentidos", 
+            "opening_hours": {
+                "open_now": true, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 3968, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/118066246818990543100/photos\">Laura karen avila ramirez</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAwzCrkCSsl1CtEzRggvsnlTCaIzDhXwQX1K4IIqyvN_ugEGlTmhucEpT0TyfO3d9GbfkX2ifB1NhePWC7tMfjKDpx-B5FOB6TTjp9mT0nS7Sw0EjOBgfVvb26YHlD8cWREhDSDOcOORs8nzPEE2EMIX8WGhQFle60f9UC59cGKacosfr7pgeYdA", 
+                    "width": 2976
+                }
+            ], 
+            "place_id": "ChIJl0EQXStb04URovRW-ejOxco", 
+            "rating": 4.3, 
+            "reference": "CmRSAAAAyf9M-NlTcHHBORXQTazLKL6KFu8sFQ71ULT3mMmiTW_goqnWFC9HwZMyMH-8bVOMgExw-weFoZOJeS9BxaYZ0sMMcM7hYbfJnn_ZLnB9jPEM_SO4g0eYPudz7TBqyWbFEhAupg7RnsJkspkDqfLY_RPZGhR340qXhKWINmvEJN4DzqhNGrMDRA", 
+            "scope": "GOOGLE", 
+            "types": [
+                "restaurant", 
+                "bar", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Avenida Reforma Oriente 25, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.59447699999999, 
+                    "lng": -100.386513
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5958281302915, 
+                        "lng": -100.3851647697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.59313016970849, 
+                        "lng": -100.3878627302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png", 
+            "id": "a9e2beb5b40bbd6ed25e06b80acef02e56f6e150", 
+            "name": "La Leyenda 111 / La 111 Bar", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 315, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114717223701742103406/photos\">La Leyenda 111 / La 111 Bar</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAEyix8dOY_SxCbASShV9c1-TenxCG_gWu2y71-h34q_iA_7MQH5WjTeTPtU-_FFQPnqpAuUwft0AKbpGvp-GiMgfx1Z2-mcpkxSwd1cxqomYNuLRE_-mAW9IeHLP0VYNoEhC22S4YeZ3H8cgMSyhvGi4HGhSj2tL3ApsvB9c58naAaBT9VCSYiA", 
+                    "width": 850
+                }
+            ], 
+            "place_id": "ChIJEexoMixb04URdxLPBDerWgg", 
+            "rating": 5, 
+            "reference": "CmRRAAAALyfn6GNG-4fbzVFirFMaYvfsblDO_-a5PuaJNcptKHSgfm5dw4SpP_djRwRShD-iYND8Z-Bu3VD6k2OCSF2v5XbW-EUVPevgqOXYbum6-gfyZ545VPK9byqikDVkM2bWEhCXxDVX7eF8N1n-0ABf_9sdGhQ7Na3NoMVMcFqIKCUbmr9XXN8cTQ", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "restaurant", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calle 5 de Mayo 111, Hercules, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5919813, 
+                    "lng": -100.3911083
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5933538302915, 
+                        "lng": -100.3897680197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5906558697085, 
+                        "lng": -100.3924659802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "b39dd47621c48c4f243d698b27b011ce10a81e7a", 
+            "name": "La Barriada", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 582, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104357269875577420892/photos\">La Barriada</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAALXJQdFF-u6I4bvCa3Eb3UhJCsPi9PQsTU05b3n16qaYncNevDHzF0FaKOsOmbP1TQMGajpEHRJ39hh3gqNRtKl37UPtGcu9mF6GsEhzPBOWdp382QT7El03Cw_ILIw2hEhCO3h70_zwvFzFCz2EQsQKfGhRjsUPcGHenu3XU9Ocr5BXb1cQGaA", 
+                    "width": 1036
+                }
+            ], 
+            "place_id": "ChIJj_sMhytb04URVkR1jJ-RpEg", 
+            "rating": 4.6, 
+            "reference": "CmRRAAAAxW5QU9KHP_aKSVzgrGqrmp_HoaA46n3GjRnlvDpjuUTGl4w3M-orvbhJ5FEy8jvEoQ1JcvveEB3tUyeeKQP3M29ifMejdk_ao-YCftT-CFRTevlJ41emar_SD8q_aCPlEhCtf2GCXaN62ovoT828lbL7GhRO1ANY8CfqX_0sgo9xToPlx08teg", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "bar", 
+                "restaurant", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Andador Libertad 8, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.592111, 
+                    "lng": -100.3915154
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5934006302915, 
+                        "lng": -100.3900409197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5907026697085, 
+                        "lng": -100.3927388802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png", 
+            "id": "e3355f5a4c23dc7dc26ee79cb496c290266c0225", 
+            "name": "Cantina Comalli", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 2448, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106730717690241432824/photos\">Arturo Urdaneta Forte</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAA4rRY89Dj1tgVISwPXHVaiUQOl_L_85taCRm-H5Vu9Nsa3mSgPNGYsovGsds58OwpqD6ll26JyJGe4yzJTIYwFgbd7z6LN6myv4wqoeIPWL-er35IgHlq2rSCSvNHMWN3EhDpYnoNU-ZmJVR4IEK2p9b0GhSG0Fwc_d8IKWRvo8fMPDOPdYnJyg", 
+                    "width": 3264
+                }
+            ], 
+            "place_id": "ChIJH4YlCCtb04UR0jInzseAcjA", 
+            "rating": 4.4, 
+            "reference": "CmRRAAAAJDG2vI6op-0WL6e719d9mGNg7-DO-I3LGDBjanJyRMva6XSDdUcJKuqy1N6GvDxb-aNNTyLXbUBH3Mte3LpDzKo6sPAu5hDuCnI4mu2Ws-FOzL6bbZpWosvQNKZVqohzEhDve5D1fMp49QLAt9mYRS1tGhQS8kA39MVI-fWCoLluz8sYHsuO3A", 
+            "scope": "GOOGLE", 
+            "types": [
+                "restaurant", 
+                "bar", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Andador Libertad 5, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.59306149999999, 
+                    "lng": -100.3904574
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5944104802915, 
+                        "lng": -100.3891084197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.59171251970849, 
+                        "lng": -100.3918063802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "c7aae2208b2fb64128194250f4875bc9b3b56d1d", 
+            "name": "Los esp\u00edritus", 
+            "photos": [
+                {
+                    "height": 3264, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109474769404989537332/photos\">Jose Luis Carmona</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAA-txXnLTuzAkSPK-o1FnPBPem6j37Lohmu47MMEsvs1Z1ybG943lgfTqWcDnYYrP5ng1CvL52e6E7VGyJi7lHO97VmMrrKulb2qvzFXaEkdICDEwRJ4iof07qHBTawY4FEhCvkrtWjfDcbwl0t7qktrCNGhSk4i7EmMisF4XS9klmQCpD3YzoQg", 
+                    "width": 1836
+                }
+            ], 
+            "place_id": "ChIJHS0ulitb04URIOpFJSc0DLE", 
+            "rating": 4.2, 
+            "reference": "CmRSAAAAVAIFPD4DrxrhjlrHfDzAGU25AElFWl4ZwIapnQ9fkpFEAzAIdJoWdkT73gBNnzFaEpRlHk-o2RqGAUbr1YDK4180jpGD12nBi2tNnlC6ista3R6-i4868XY21DoI7_KMEhCDM98V12Jkx93KDKSCZxtIGhQYtrd6h6Nk58YbvJee4UyVCFAhiw", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "76000, Calle 5 de Mayo 14, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5885249, 
+                    "lng": -100.3899946
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5898205302915, 
+                        "lng": -100.3887662697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5871225697085, 
+                        "lng": -100.3914642302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png", 
+            "id": "fd68ae28245dd8fb8ca348b80e2bf51bd6780ba5", 
+            "name": "Sky Garden Roof Top Bar", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 3024, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100152211391899673578/photos\">Juan Luis Perez</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAA3KjYpwcFG8AXq45XkjwjDPdaYmwj7jBsEOzI6FzhSx2AvMUAVztMwyowbW4NJeY-n72sw9RK8McUzubGNwrdlGg6uyZuu_5RE6MkeucUHbn71BGlgh_ZkLV3GwI0E01lEhBEXcFltv4eHA47cSvfs-xEGhQhzOoSPZJeCw5rGGFf1DFnoZCZXQ", 
+                    "width": 4032
+                }
+            ], 
+            "place_id": "ChIJB6UmsNRE04URbh_1EtgvGZY", 
+            "rating": 4.1, 
+            "reference": "CmRSAAAAWmI5EWHSqftPCDULOKEf_EgcS1GcwEqCX1kZQGkewDw6n9ac41sB2g0Z-c-aGdtqDTPB3bMuJq-sL1NEFpApoyglLuItRAC5BF755ekmH4gaHPH621r0twhpBGKohpL8EhA6FGEEBQ7HPC7eYA--9PriGhTvMfehAt0U4wtLSTJ1yR-eYUPoUA", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "restaurant", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calzada Col\u00f3n 1, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5933048, 
+                    "lng": -100.3929616
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5946359802915, 
+                        "lng": -100.3916053697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5919380197085, 
+                        "lng": -100.3943033302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "c7a4aea153af5dbcdda19cd8e23bf3ed4b0acb63", 
+            "name": "Formula Tap Room", 
+            "photos": [
+                {
+                    "height": 3968, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108082487005718417656/photos\">Hector Chilpa</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAi41IHl9_RA-5k5P5fE-oTke3aGE2TVXZ8rAY3IeWM7Phr0EVCG5gifxlEBIWV62vEwJds8nEVVk3-sf726eQ35tP9yJTnQcSfAIx1ihQqoAnFQJmhk43RncDOle2Iio0EhAhL07D3Epuie7DJy6zheAbGhS38JhNNSIp75Xcq9qnYYqfvkYaog", 
+                    "width": 2976
+                }
+            ], 
+            "place_id": "ChIJucLMQCpb04URK9_eCRkkAeA", 
+            "rating": 4.2, 
+            "reference": "CmRSAAAAjA3ub2vyV44Uj5p84fjrXTZl4YARyuIM1hcZj3YMKSvaq0pN4Jpt8KoYHsn_lGC_ERranJ9UK4sJqImuONLizdJFop3WJ-q2abvh4ssSPp_pWYUoTOfwEdz97hYz8X9XEhBa5fS8tm49dP1ikJrF9wG7GhSGlAUXCxDBdnsg_bbj1NUxwf9ACg", 
+            "scope": "GOOGLE", 
+            "types": [
+                "bar", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "76000, Calle 16 de Septiembre 6, Centro, Santiago de Quer\u00e9taro"
+        }
+    ], 
+    "status": "OK"
+}
