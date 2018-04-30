@@ -11,8 +11,8 @@ import urllib.request
 import json
 from django.http import JsonResponse
 
-import requests
-import json
+#import requests
+#import json
 
 
 
