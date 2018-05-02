@@ -1,0 +1,2378 @@
+{
+    "html_attributions": [], 
+    "next_page_token": "CvQD5wEAAM6VOAB5sNWEKvNDl9DU3mNjyNloQZ4C_NpRPtGdftAyvjj5PmkX5LclEyNaRLrxrUSYPPzwJIDV700rclPiJXX3BG9pZE3FVZ4GviFW2PHlPoFF996DG5xbIVC6So0c8QWlIxRkBi-ddbYlDQLb-2tZSCtAtPKMIMHAyE8UV_XF-fw_ESTtzJcoMH9VBP8hXzYeF1P_UrtgClS1aoVnJLDWnA3b7It9IvJEKoYwFRQBVIElsdRv21JnL14zif0RGCaqfH52Z8FUTgfpSKqJOJVHlf3RWf24DQie1f19NLkh5n1Ng3EfgSRgtuiwrx9b3op5OMNVEbYstak7MOASeCadL8wPmmCcGxfS8YLrgwFxtC9MZtSpDaiYZxRYOkMFKE2hVh7EQAHIA2sJKlknPDoQlKEe0Gyf8qJpZyNyurz5t_DOjiDwnPJ-cvUGmuQgTe11INF4n-9YZeWpTELD6wPPZAApaLSGR8rpRZB939Mnq1SM-rFbO3LNRsDPbYD520mVbUNQa22lJk-seiuGKJaMn62JkgUHT9AIt-RmqM-6BPNKNBHopFy1pIY_ewVDfzlyiObVZVbwrn32gKkNqErjMedaBKxy9OsjzKpRpdT4rNbKKqtQ-HjDt-qAlQbTr5mQSrWaReanzMXs4txsGtUSEIVsCorFn80zfSGpys6qp8AaFEy4KVRKGCo89cNpJDFXjao1W8jX", 
+    "results": [
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.59186, 
+                    "lng": -100.391707
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5931697302915, 
+                        "lng": -100.3904507197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5904717697085, 
+                        "lng": -100.3931486802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png", 
+            "id": "7c6e0e3f8a4cb814b10caf5065ba2e5598aac2b3", 
+            "name": "Hank's Quer\u00e9taro", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 1371, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107173361242060239234/photos\">Hank&#39;s Quer\u00e9taro</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAssE_6j5QFYbLFeDzbn_V-NBtS1oUVrgKCGoWtUPK4ZRC4Khrrdt15-uWFHCnqzmrADg7EvwGiyYyrJyCyFOTX5BG9pEsqL6OLYPfPPuM5Yyom5P4QcC2st0qhiZvw5R1EhBI1mZ9cGhFgxwhP5abVe7hGhRw-Fvm--TQBy8BHRVSP6FITXUPaQ", 
+                    "width": 2048
+                }
+            ], 
+            "place_id": "ChIJEXP8_ypb04URcpMHadwogVE", 
+            "rating": 4.5, 
+            "reference": "CmRRAAAADKJCNMJ-wVi5IJ6jzTz5SwK8YfSv7AclR55ZQHlFMO7P_lBqVkrORp_6dZALg4zDhgGXEH58azUv-rokk96fT45yDw-O0Eq0Dty8IwSpQB_caOft2snr2fzTqZ0Gb5HREhATCGQWXBO9Hg11WXg3A-KWGhSwhDt7Jnr5WiicQP7W4l1RjlYNsQ", 
+            "scope": "GOOGLE", 
+            "types": [
+                "restaurant", 
+                "night_club", 
+                "bar", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calle Benito Ju\u00e1rez Sur 7, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5965215, 
+                    "lng": -100.3980456
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5978704802915, 
+                        "lng": -100.3966966197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5951725197085, 
+                        "lng": -100.3993945802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "ddf5d9107494857b4b235669f19cf8e58e50b4a2", 
+            "name": "Sal\u00f3n Ocampo", 
+            "photos": [
+                {
+                    "height": 5184, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/110766456623733055334/photos\">Elena Garcia</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAA7lJ1HSbWgqjz8VaJ9HUmyXNk2G_5Z7CStMSRaaVQ3AlOBxfOM-0YV5sNBIGebvdLc7vTcBu5VPt5cAoz3E9BBTey-NUYGy7DQKNltkHKNJhG9kbG6oIHwFfdQ0VeKLoiEhBBoFe9vrgtdVKaoonxipSBGhSr1L8fe1oJJ-zzWKoP9TtBaOA7Zw", 
+                    "width": 3888
+                }
+            ], 
+            "place_id": "ChIJwXv20dVa04URFVk4nOiwHZ0", 
+            "rating": 3.5, 
+            "reference": "CmRSAAAALuCZUIpxQXp5r88YDvTB7DO8DaTCa_CLnU6-t0MGmXSNCYlytcVAUTS_8Z_7m_9u33HFXzJptqjqxzzGwrGXHhdrJz4D_Px6ilgAAow68NQOuTCoTLXRQRtAujVzL-9UEhD8QZIZGO1n0BZ9NMq8WRGHGhQVoa5bjB0eeOtFELVC4WssRXPIUA", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "bar", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Ocampo 60, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.6100037, 
+                    "lng": -100.3880433
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.6113526802915, 
+                        "lng": -100.3866943197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.6086547197085, 
+                        "lng": -100.3893922802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/shopping-71.png", 
+            "id": "de926f3f335a77d54fdf430f1c498f196f565880", 
+            "name": "La Regadera Canta Bar", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 3024, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102488490005577837430/photos\">Manuel Guzm\u00e1n</a>"
+                    ], 
+                    "photo_reference": "CmRZAAAAECU11EHYDvXIF9Aj7UFqQlkxTJkTFacofP4pR8FWuKAeCzY4lWstzxuMI68TRbQFquyUt2u6H8XYp8yNAJ5cmsKTa2AMOFWfH1U7i3l9JZbI0BZxbyCLVmruvrgvz3zuEhAjs5Pfp1knlxFFu22mYmvJGhQb_uIuSNyw46ILQX4JJGx7lLF_MQ", 
+                    "width": 4032
+                }
+            ], 
+            "place_id": "ChIJo-VMkeVa04URHnq85cw9kdY", 
+            "rating": 3.7, 
+            "reference": "CmRSAAAAJWfCckcW6cfMGIALrFxBncy9miW0d_mRnA2EmcLceh93kegs3A4zrw7Qz6efyhLxfx4ZFUoFeiO_J5M7lTDmMdGVLE7XQeLoYeES5o1vzJ8GUDFVVy6shFxga7WjqP56EhCZVMl7GV2qaamMUgBkmtcVGhS0kyy6urk2bsP8EUH0MPEXB9fbIA", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "bar", 
+                "electronics_store", 
+                "home_goods_store", 
+                "store", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calle Manufactura 6 Int. B, Parque Industriales, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.568328, 
+                    "lng": -100.4098138
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5696769802915, 
+                        "lng": -100.4084648197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.56697901970849, 
+                        "lng": -100.4111627802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png", 
+            "id": "3bbaead11dcf17e19de1364d53d7854a706629b9", 
+            "name": "Bingo Billar", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 768, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115613721456450557168/photos\">efrain Trejo Navarrete</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAdfHylPw9Gs2KuZgNuP4hUihLhjHlmDa6JJ29Mo-OhhRrPxsu149pn_E5PDqG9R1zVz-EuDcHw42qGv9nVunsQeVheMTuPYI4KmuYOOEKXsN4JHSu9xGM-y61SRopRy2BEhA0tCrecjMCjmmttNrc9Vq1GhQ6znOkpeXMfia5axuQAnJQ14j2Ag", 
+                    "width": 1024
+                }
+            ], 
+            "place_id": "ChIJE9PEnstE04URMzQC0ZSzVKM", 
+            "rating": 4.8, 
+            "reference": "CmRSAAAA-X0bFrC6I2E0YcCZbcQYyp6WTCqY05-qLcUh6OiyqmQFcvVxy42BTGaNKPY9PqMVF-_uugtuzOw0k1Zebl1RHLUfI7sQhoO_2pdAh_pGv564si8DrFBGmu54QtNzzpS2EhCAsyWoc_ygEDmHq8KAOkJxGhRRHL9ZMn1c8cZt6Px-18Txv5vsKw", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "bar", 
+                "electronics_store", 
+                "home_goods_store", 
+                "store", 
+                "restaurant", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Hacienda Buenavista 318, Jardines de la Hacienda, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5920776, 
+                    "lng": -100.3908113
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5934265802915, 
+                        "lng": -100.3894623197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5907286197085, 
+                        "lng": -100.3921602802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "9e58cc949329c2d31a53f6b038bdad611b97ce00", 
+            "name": "La Culpable Center", 
+            "photos": [
+                {
+                    "height": 3456, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109052823888577734986/photos\">Erick Sinecio</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAidZh6fcHSWOBREFlz2lEXoUpWvmWMYWjTLLr5wlg-i3gFREGRKQiqSKHjVSyuhjaPjB-wbiTLc99luraF4VARQVTLZrvEhVmJFN_k-TnqZy8RRDKu0VzeENFT9EMeWuPEhDLEZeJcJjT3hY-QbF2EIp4GhRX05UtdyrqXBcLIDJmbztrmsKrkw", 
+                    "width": 4608
+                }
+            ], 
+            "place_id": "ChIJH4YlCCtb04URGw5rBz6Gd6w", 
+            "rating": 3.8, 
+            "reference": "CmRSAAAApKWt7gWlyWWwNNJjn3prVE1ccLtlwLPE7wYgnu6QZvJ_wHhydsiNHB-DEQ8ufK7Df-CO-2nw8Dl4VEfXfU2J_tdsmqVWed22n_U-KZ9BreZ_HFVnMXN8LN3FtnxqHL7GEhBIvngRI2RsA73mUUQplbkgGhQHQev0rwkkuhao75vAx5jROLnSSg", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Libertad 12, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.6090881, 
+                    "lng": -100.3969824
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.6104338802915, 
+                        "lng": -100.3956936197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.6077359197085, 
+                        "lng": -100.3983915802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/shopping-71.png", 
+            "id": "11177330c0b5f5a68bfa266105657229a0f4d995", 
+            "name": "Brincosyrebotes.com Inflables y Rockolas", 
+            "photos": [
+                {
+                    "height": 418, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108044438337456211926/photos\">Brincosyrebotes.com Inflables y Rockolas</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAA64X9bvu0dZ5pGuAshU187ssCRBv1hwLhOVD61nDS91_0un0MpTbbNDeyQ313Pq6rTeHixeb11pn01neFachATwZ_IqqpDyjOdbFOMCnR1T8xD_APZ6KwdTCrvXXVG7-cEhB6U5KHtq52CR9Zy_dGy6XsGhQwzQKBeLHSGQwTKgIU_WyrIQBq1g", 
+                    "width": 600
+                }
+            ], 
+            "place_id": "ChIJ_T7ABt9a04URnNogk7aaFrM", 
+            "reference": "CmRSAAAAhdz8kWs9ou8TTjwpXSwv16_4VhnQz2b-WE3gmthfpmoszmOLtAXXbdxczS20WKBTlxI5R-gT4otYFug8laxJtZwnNWPwZuENWvxSmK492nLe9d5euBesv73Nm7-mfG6NEhCzlF7wNQO2QKkE76EExMc9GhThWeEyEKr3zVXcexe1KcORiFjigg", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "bar", 
+                "electronics_store", 
+                "home_goods_store", 
+                "store", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calle A 43, La Popular, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5951334, 
+                    "lng": -100.3702535
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5964174302915, 
+                        "lng": -100.3689766197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5937194697085, 
+                        "lng": -100.3716745802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "ea073a7017b5cf1f793dc5f2c2533674f701b708", 
+            "name": "BarraHabana", 
+            "photos": [
+                {
+                    "height": 2432, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117191804830601279012/photos\">Dolly Gonzalez</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAfjNc-_vPLYbjylzyiniAcDkxx3UZhvgRmhsFynCOjEYhwvbSChb7evrVhU-WIB2rA7kfbKDGbJTzZ7IlFYKdX5ZgZk-COuJzKd5B8nR36EMcis8asgntQt4iOrKzQIxfEhA4MJQiHVPeJG7WnaZ072rpGhRyR2qYXugohL-MMj8Kj8bc_nzm-g", 
+                    "width": 4320
+                }
+            ], 
+            "place_id": "ChIJuVkiJbNE04URpMvv2oRXY2s", 
+            "rating": 4.1, 
+            "reference": "CmRRAAAAMTAZOO_FfwymHDiIwBEfuLOoe0wUaj39SA9FO8kYAn9jrr2u1McMOxPynv1DQAMP_ey3M86ubLMnj9pSiTf5a3K0EgVsxBN8t-i83YCp9lgAVOxbAJIau_mnRRLbjLeYEhCOxBSvTFD3VHrf-bOewW78GhQLjMgX0L4K-1TvJu-_sSdAGLCInw", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Boulevard Bernardo Quintana 121, Loma Dorada, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.6103442, 
+                    "lng": -100.3820935
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.61169318029151, 
+                        "lng": -100.3807445197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.6089952197085, 
+                        "lng": -100.3834424802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "5db2a8ec31c6fc9fa976c7f3f2a232e29330ca74", 
+            "name": "BaMBaaTa Queretaro", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 2336, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103783682967783664583/photos\">charlii Robles</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAABVat79Bi7w1ds2T-V6Ip9NtvnxDqgBrexf1J5WKy3iqF_P1jPUwg3rSqgQpDI1H2ym2Oymrem5y9ZWvdHSPlc0wsxLsbKH4dD0O76VMCvUX6QClz6jBmaKQ8weWrjf7REhARQuh-BBWLsOx0govsyOKXGhQ3CDnN5xwmEgXqF9osuUdsYz3Gzw", 
+                    "width": 4160
+                }
+            ], 
+            "place_id": "ChIJnaceID1b04URVKu6mOWAQdM", 
+            "rating": 3.9, 
+            "reference": "CmRSAAAAt97rPJyBOr6SAgc39rSVnGQUTtLSaxHwasdwDe6yvz9RjfY_bkHvxjUlcHcpoUFiCZ_rC7gsC4r5TV0ZCXe7of8OKHMGfvmSBEtuPqaIqSZOweKJn9mqmF_Uf9YKXgJ_EhCcYmkcfc4vCi9x2u43twPNGhSTzUYn5QlEEhC51OUu2IRZt54_oQ", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "cafe", 
+                "liquor_store", 
+                "bar", 
+                "store", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Alamos 3ra Secci\u00f3n, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5955437, 
+                    "lng": -100.4504895
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5968304802915, 
+                        "lng": -100.4491484697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5941325197085, 
+                        "lng": -100.4518464302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "957bae9320c136043c685ad71ecbc9b30dc611bf", 
+            "name": "Musa Sal\u00f3n", 
+            "place_id": "ChIJX4OwNgVQ04URVTj2YvWs1e8", 
+            "rating": 3.8, 
+            "reference": "CmRSAAAATPAQYwJcehIkiA1UWpRYdChjiNVyOG3KXZxyiEDdFPow74ZZ0B57pYlnHd8U4mQuiVbsi8xbcJiApQ4MKQt7r6Tr5OLb-oO17PCSFfb_AJPdUPRvyEfcFoAguNr3TVXtEhAAtPmG_cHK-t-mg91caM1cGhSOBeBhkkEUx4lVrxT6zJODaBi5ww", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "bar", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calle Jard\u00edn del Ed\u00e9n, Jardines del Valle, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.640796, 
+                    "lng": -100.382074
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.6421449802915, 
+                        "lng": -100.3807250197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.6394470197085, 
+                        "lng": -100.3834229802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png", 
+            "id": "d530bac7516a806f0ed9d453354ceb09bdf3aaef", 
+            "name": "CIEC producciones", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "place_id": "ChIJQ_5VR6Zb04URIwePmMwVqaY", 
+            "rating": 4.7, 
+            "reference": "CmRSAAAAnRss7nu2ra9Ysm9tyGJGUBZBJV4iotORIHs8hTFpVv-s91ElK2-EwtGT6m6gQz_9ElCnVKmF6-gcjhJ0_WliATOPrZ6QPHdBtJgFT4Q1yIx5WWBTOUVuaaXR6DFPL3vOEhDKHhAnfLMnu1TuGCCW-KuCGhT1FBGCcryZduJrjP1xN2yMGrfwsQ", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "bar", 
+                "electronics_store", 
+                "home_goods_store", 
+                "store", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calle Jalisco, San Jose el Alto, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5936124, 
+                    "lng": -100.3852498
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5949801802915, 
+                        "lng": -100.3838371697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.59228221970849, 
+                        "lng": -100.3865351302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "c0dc34110c7b4da9e3ff371942acd2cfd8cd2729", 
+            "name": "JAja! TEATRO", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 648, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105300416767213317786/photos\">Lupita Arellano</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAapaOrUBQzsedmnuz7GHks8MVdbhHhKnsVUy6nbJiW0M2RgzeKdkQQ__mS7jbKFnZph5ynbj1Gkt1zGEVPEunx88Nqb65HwoURikNC7vq9GXSqMqpuPMNsnmWIS-Ht_KYEhCzaZQ2LyjVrsO70XphpO5yGhSCOnMJF2joSnZpBcMinLhaUBtmxQ", 
+                    "width": 1152
+                }
+            ], 
+            "place_id": "ChIJ9WpKuS1b04URIbqDYluhAxg", 
+            "rating": 4.8, 
+            "reference": "CmRRAAAAKJTjzD3arhq1tVExDaPaiV1wagw7NUtlUghs1wpifoXK0iDO-MQVYPdFy34yJ_sEq-E7Rf20g4dxbrcgasWB4aA-florVPy7y-Wd0ewfZQCxjaW_W80t4k_zydfezCxqEhCp6wTqk-CoCN_1-FpOHXCeGhTrLyL0-J1N-uXlisURjchVGsFUaQ", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "76020, Manuel Guti\u00e9rrez N\u00e1jera 22, La Cruz, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5919813, 
+                    "lng": -100.3911083
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5933538302915, 
+                        "lng": -100.3897680197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5906558697085, 
+                        "lng": -100.3924659802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "b39dd47621c48c4f243d698b27b011ce10a81e7a", 
+            "name": "La Barriada", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 582, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104357269875577420892/photos\">La Barriada</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAA_rWkzUBKGqh4dUXxVGjSgpzh3NlF9ntl-xyrFuhTahHPQDnrGV_m8xr1vnrcOESbQI0ItmG1AJzSJhzhfUNF-_XaNNMu_FskTCCJ6DM2UCsiAPA6Se_x5-JHEqb11XcMEhBWTKguPWi9eRUL5c67hX9xGhSwfm7xc0lH2hFb1jztkSNcUnTwvQ", 
+                    "width": 1036
+                }
+            ], 
+            "place_id": "ChIJj_sMhytb04URVkR1jJ-RpEg", 
+            "rating": 4.6, 
+            "reference": "CmRRAAAA4OhOFPgj6Ueqp40icL4MHaLABNXneTgxBg5mUubiFT_fmqNSs4CoacK_1ONHFAOAbZAa3VRPFYWnSP7sp_qsfPzadCAtee728g50Ib2wGoQeWo-mOIcyJZwe1FSvtcRaEhDknL5w0bC5qKT2jwdzzkC1GhR9k8wokh6eIo0Kx-FL3ZCkYgSk2w", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "bar", 
+                "restaurant", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Andador Libertad 8, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5868337, 
+                    "lng": -100.3851078
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5882831302915, 
+                        "lng": -100.3837594697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5855851697085, 
+                        "lng": -100.3864574302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "caf32ec6456c200e9c3b44ae450632850289eba4", 
+            "name": "Pancho\u00b4s Villa Quer\u00e9taro", 
+            "opening_hours": {
+                "open_now": true, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 1840, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100518001936247900673/photos\">Daymon Torres</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAARw5mNjRQOMCtNfcuiCArLyrKgJ1NkViXcV4qLJZx9tVYS_A8nnFqveLc_FWE9iyX6Lbty2oEk-eSpXhgmhaJ-4jiq1GFQR0qbR8tVrls7Jxo_3I86_GM4ULbXCCnTSH9EhCzGmBjD_aiIVKuR59d8y0qGhTHNGspRIAGV5YzSPp59iiUeE3Dfw", 
+                    "width": 3264
+                }
+            ], 
+            "place_id": "ChIJLZr7jbRE04URWvQypKxr6zE", 
+            "rating": 2.9, 
+            "reference": "CmRRAAAAUCgIA0_06KKb0QSJtCh1180sD9qQ1pzme4nGtJsOA-nsSE84yGvQ48yfarH1U1nzFqtuIzco5_jYDlvrsPGVFydS-08mdXVkSZL8-1uwPGmwtP53ar1S1Y23_rEEmbm2EhA89ghGJpGEvnp8S_l9XcLhGhQZt0Yyc__KQc0IXQOinHrQwPx0rw", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Avenida Constituyentes 117 Oriente, Carretas, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5850322, 
+                    "lng": -100.3869106
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5863730802915, 
+                        "lng": -100.3855941197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5836751197085, 
+                        "lng": -100.3882920802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "f328cbe893f15d72ae06362ec306b2084759d058", 
+            "name": "Cideaa", 
+            "place_id": "ChIJcSnqt9NE04UR328EgcX9NyE", 
+            "rating": 3, 
+            "reference": "CmRRAAAAojReHAXAcu54MtbOAIz2x_aYoq14ufhKp-prmcEG9p3VjjGPFV5YV0AoTcFNicnvUjTrHQLAyF1Dpau5IkXkcEU5rEabxr6h2DzjLOPiboapwrDzX_mJADfPepaiXDtnEhDaEcypmtJ8jzcQgJkbcgU9GhQL0cp8uZfb9glzxi1hTrAIBzGKOw", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Central 12B, zona dos extendida, Centro, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5814926, 
+                    "lng": -100.3873995
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5827977802915, 
+                        "lng": -100.3860320197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5800998197085, 
+                        "lng": -100.3887299802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "d115c82ab24ee50dc0c4e43bf717fc98bbb24944", 
+            "name": "Paula Mercedes de la Pe\u00f1a Alcaide", 
+            "place_id": "ChIJpwQpF9FE04URuC_tTppt-tM", 
+            "reference": "CmRSAAAAwUX1BCFDMQqHTbMFzSce2RCOYDgM3tSnjqR5mQFSa1-hYTcHSf2Vbii-4uLVRfBmJ2xOvL_2fqDE9ZkmigZo_JBKu7oWWYxFgBzyxMn8O0Uz1kI_-JBd2xh_Jnlc3qB4EhAUQ9HpDnpBNG_rw14f-yo3GhRhu9mFhNXV897kXt9O0TM6Odlzvw", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "bar", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Amealco 22, Estrella, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5870687, 
+                    "lng": -100.3774829
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5882633802915, 
+                        "lng": -100.3760987197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.58556541970849, 
+                        "lng": -100.3787966802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "ea36116a8e1695f60669a04c4e455e048e764be3", 
+            "name": "La Dolida", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 4128, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112496351087043504610/photos\">Victor Medina</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAA_5YZhNDebBrZfOcWoOsqk3CpJLTCeGLZfudioppEaZwS9KYHG0VEt5eHnpIM326rZNWTUGLsQMciziHgkcdb2w4ihzbCSZgVU1ahlmJoRAVYis6aAeGstfeTWCG68PJTEhD-_lyx6ilInJtYHvOLb0vaGhSvlITJ3wUEPFkPyXqwBqX78NdMXw", 
+                    "width": 3096
+                }
+            ], 
+            "place_id": "ChIJBaJNf8tE04URoGr6xq3SsUU", 
+            "rating": 3.8, 
+            "reference": "CmRRAAAAp6_25wSvxPvm3Q2KWGDTDRjhaHAYv0ZV6jh62VOnE67r3xhnYIQ4YmrHZQ2UgGtTikYSM3NuNjhrJkThQ5UHfNCGnDpUsEGKpdVNlJaGZkt1AHe1GHVAxuDwC5SkR4huEhDLV5QOSAajk-gIw49T4V6hGhSF1fAdQh01ae9f_9IMXr565TYzlQ", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Avenida Constituyentes 71A, Observatorio, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5894849, 
+                    "lng": -100.4009028
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5907848302915, 
+                        "lng": -100.3995334197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5880868697085, 
+                        "lng": -100.4022313802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "82d6fd58c696fb950ba0a81062169ebbdb748e97", 
+            "name": "LA CASITA Quer\u00e9taro AC.", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 504, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103025730162129316350/photos\">Luis Felipe Zamudio Burgos</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAmuU_QO4E4oxYGasRWzYf5wVAdfiUGT5vxwsvKclF76-mS-89Q1YmBWqSAZB_hv-01008My4cc_5bzRDW0lu0jcOlReB9JNzf4z1bs7jJYh4V9VGUuiH0HXL2gBv0YSOsEhBM7twHG5BrS-5a1Qh9b9UPGhRQCCU7ES4r77pY3itg37Wx53WVGQ", 
+                    "width": 504
+                }
+            ], 
+            "place_id": "ChIJlyQbW9Na04URkA7pfiJHJf0", 
+            "rating": 3, 
+            "reference": "CmRSAAAA0kf-MwDyKDnqjiZ6f6y0XfuepK7lwL4eTyHawuc-yJz9W1LCFtlnnVpTz2Yhbwt-LOGA4a3VdvlYfdyVE2nVZ6nx1up3U286-sqrfHNs-O6wncOXgCOsvX-mpDn6RuX8EhClCBZROvqM13TQjFf1aRyfGhRfUBqG5iC7avCy1O7EffVJQ9LWFQ", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calle Francisco I. Madero 180, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.595853, 
+                    "lng": -100.371166
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5972019802915, 
+                        "lng": -100.3698170197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5945040197085, 
+                        "lng": -100.3725149802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "2e396783898073938483dca0032710bfb8d7a485", 
+            "name": "Majadera Quer\u00e9taro", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 4128, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/108188020555518027727/photos\">Diana Guerrero</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAsTZXGRYTEe_1Er-xVZeaPuwAls6IGgyqRsAPASa1PHEFpEyMPQZs0aOE-Y6zTf8pDuoAdDLbaqhe0D2QT7NamDZpbJNbMjX6IvSpqLwUWoB7ZACdXvmB7Mdu8Desn1biEhBYG86oziF3-4K1F1fp04lnGhT7WHl4HiVY2b5s0s6ShTwFhayDwQ", 
+                    "width": 3096
+                }
+            ], 
+            "place_id": "ChIJAQAQH0pb04URtom-4FGotCs", 
+            "rating": 3.4, 
+            "reference": "CmRRAAAAWhgdqrVfmLTPTRWBYVKc8oRma8W9fn_F1K_l9jSK6_zLrB1S0dT17wkP5ju063P1SvrxVAxxb8AswEm4RGTKfUE-4_lBiU6RDg2QS31kl4vMAdEB5vnS4MRN912DhF0QEhAg6z3p400k_I0fgBY6fHYKGhSqz94aNtgz11nvtRLx74S6bf7Zpw", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Boulevard Bernardo Quintana 109-A, Loma Dorada, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5886447, 
+                    "lng": -100.3681407
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5898480802915, 
+                        "lng": -100.3667629697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5871501197085, 
+                        "lng": -100.3694609302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "4ea1f2b6db5d70b1febe22db08c9260ae81e05b3", 
+            "name": "Bowie Club", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 2336, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117187794122457887191/photos\">Angel Gonsalez</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAfgXNR-v35t9bRn6vanwKcCkrl198735qYChuUG4MMEXcEwrq0HweJcKfJqaEG2uwG_DeW5vbwP3FIgQ_kx-ILtGpnejEGSECuuLN-TP5XnSxaixYX5d402RDgIqFx4g8EhDfiLD7hggK6FmvZ1mZekUJGhQyT5OwtALZrqgEqBcgi56_cHGtPQ", 
+                    "width": 4160
+                }
+            ], 
+            "place_id": "ChIJpR9o5bRE04URvJKi-80Ci-I", 
+            "rating": 3.9, 
+            "reference": "CmRSAAAAAjZjAARs8zt6OO7ZVzYa1HjSLYlrKv_6Yrhx7PZNEuGV7MNd_SvEdpDnpFoE2z9EmT-YGD634EGyZvPlRTfLTHIhuggqplnYnwUj7CH5ShJE1NWtdVftkfMZPxjtz3LwEhBsV9FtvoLqaBMjegUCL2uvGhQBy2zir-XF4_6hxPashaWyZStoTw", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Av. local 6 Col., Avenida Constituyentes 111, Villas del Oriente, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5978444, 
+                    "lng": -100.4091124
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5991278802915, 
+                        "lng": -100.4078120197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5964299197085, 
+                        "lng": -100.4105099802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "639e023fc65b3fcb940a428f040b2add53423365", 
+            "name": "Alcoholics Anonymous", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 2448, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/106275956565225069564/photos\">Jayro alfonso Echeverria valenzuela</a>"
+                    ], 
+                    "photo_reference": "CmRZAAAA5pMtMeLDpMn7eDx_vc_NlXjXtAFc4qlj1JOBL-tVvuOFaItNgzrusi9Ko0Ya7s4xjYBcntQDI7WzaZRzl8clMeCFLQSLir96zixDYc_OvtVJnTCzD1jGjMziMDK61jJBEhBKDhr4s_rtOlO0G_EsFodXGhQLWtmrsn0r2zge5oL8VBPHfHCxHw", 
+                    "width": 3264
+                }
+            ], 
+            "place_id": "ChIJ3R3NDs9a04URO-2T97II5hE", 
+            "rating": 5, 
+            "reference": "CmRRAAAAm_rVSiiO556wY7TYTHKde9CbeHxKG1G9bCv_5N_Rd0VzkbfUIbEpxPf2xbwfo1XvbVgUN4jhAr74srQovJOwCcr648mKbhKGccF1Q1UkjPt4XGoIvKqWJ2JVMPSRmPS1EhCb7EsEXJDxypXfnaOr9l5bGhS7uKjX7Kqj18chvrcHVupmn_-p4w", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "76150, Avenida Tecnol\u00f3gico 198, La Piedad, Santiago de Quer\u00e9taro"
+        }
+    ], 
+    "status": "OK"
+}
+{
+    "html_attributions": [], 
+    "next_page_token": "CpQFhwIAAPK9Iz-se594o6fQMlw3pFz6PHcLjlNOe5VEUgIQA3ZfkjPDFP_gQahH_DOe-yof2huCcVZKBi6CkZFs86gcM71czsLAIJjmoY9OWvx7XeOo7-2orCaJOdXldFiryTKxepKY6kJxhU10XRpj_0crych5D4lnMQVcURaLKmymxDzaZ68ZkFtLOMUXjrjkALb59SyvYo2qwvIPcp9AHVpGi5_Aieyo6xUpmiNEADw4BI2TGgnhVD1HnpK15JfxIIjsmrYvrudLfi5sqPFkykc6l3SSdX4R96u_LuSLC1h-tFlpzAuW0V19Fc5NqCoPwCclSuhRX8qqiS-4RD0DHdMWIKUPXTxITvHmwYlLRLRatZRHDcJVZekd-Ze9voIKylplyH0d_-AuMJd4Xzj3VzKZexnW2XVrpzb77MOyz3abVD_wYoog7wgoNys_kiYLrry28cGLvpHV4Tj2iHiyX6t0Bl1TdYpO71c21TWRllzzwBtrK8BwJwzSWATwt0tI1Lz1r63PD8oaQZLL0DSIuB7TIYoaJkwssQUvTU-ANQ7O1C3fykCs1NNKVX3ygAPeuihbHQ0KfHSGfjdN4OAN9eAbrVNYE_CICm1adH3sKTEtH0Q8PC6Lz3zuRnWem3HRdmInYqBNvE86atVhqm73Z6-I_0682MF73eIGVE4VsWdMc41bLTYkY0ULfLZbT8RwjL3uRq7qMWZj-6-hcmY_nnyviMC8a8-DONSWuPq6zsvdcor9W1m_HxA8da-LfcTmxkhVsFGRxapOW87AiNjxtarY-r7r00jECr1nfyuWwoBOF8qRA3UsiWPv3W83FJGSEyznalqa_qyQz60039QIn7TAn64_W-fzIQ9Golr7cwA5_q6eEhB6HKqft8WmkyGX_6s33yGBGhQGLM5y7cuQOyEeG12fgz64TjB9sA", 
+    "results": [
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.563257, 
+                    "lng": -100.381268
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.56460598029151, 
+                        "lng": -100.3799190197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5619080197085, 
+                        "lng": -100.3826169802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/shopping-71.png", 
+            "id": "1ba10ce36255f2c7b53c27cb23e593942d4cd595", 
+            "name": "Karaomix de Kikekaraoke", 
+            "photos": [
+                {
+                    "height": 480, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102204606242569251333/photos\">Karaomix de Kikekaraoke</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAIt03Dt3EOprDyChnBdIV3mTKWNG7zrdSGVAPksoJaI8-irsUWmxPmmSkPSzu2dlzBErg6O_FpFy23bO_nspVGQd7JUiaDFDkPa39dqWnGfmYlJMePPdOIfG-oQ2g7A7zEhCxJlue4TkacOaT44dtNtUZGhTQlj_PKw2bhDjKkZog59Jo5bYj1Q", 
+                    "width": 640
+                }
+            ], 
+            "place_id": "ChIJKwRasitb04URpRUGFovMMJo", 
+            "rating": 4.5, 
+            "reference": "CmRSAAAAL9AOfo3mcCCyiIh_bMj8mmilMtiHLv5mg7_3cE4fCO_pyVygEJCQXEgU6zhimCMRG_PIT8FK2jv6RpXF51tzZ9XI6ttLXyPjrsytNtFZU6BFelg5Xcgr3aj1N0JyKGVSEhCE9AzearlKgXxOHu4Tltr_GhQLtqa5W7pr0F3H5oiSMaQ9Mx_QqQ", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "bar", 
+                "electronics_store", 
+                "home_goods_store", 
+                "store", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calle 5 5 217, Comerciantes, Lazaro Cardenas III, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.6141859, 
+                    "lng": -100.4103251
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.6155348802915, 
+                        "lng": -100.4089761197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.6128369197085, 
+                        "lng": -100.4116740802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "9eef521516ffeb960ba9f8947b69ae64c6481851", 
+            "name": "Silvana", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 2848, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112917341282461566624/photos\">Javier Rodr\u00edguez</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAIkqQiv2_BgyiR0Slyd2Kb-Uz5r54HUzkpSFbO9h8Aqn03ZDvzTqE0x_jIrLDHleqbdhq63Em8Y-iuiV-CMY3ZAnwQ8dQ6v9exoK4Q250F7oWN3t7JFhDFvoz91X4KiwOEhBr4tyWYc9cgz_R2BiQWxSFGhRGMhMgAPTLnVdFdRyTYeoe06hhDQ", 
+                    "width": 4272
+                }
+            ], 
+            "place_id": "ChIJQaIfn-la04URiQVwSgcp1L0", 
+            "rating": 4.2, 
+            "reference": "CmRSAAAAWcvbRMr-AjZnSA-RQGLxwISCS6HhpdpdgpZSxz55q3g0PxSlWWp64sc0vgO0YKt8k3gyzKMGdFwXS-BTwapkz9Pogg115SQVIDULLpxpNGG3Rtjjpnhdd1aKHPhGJ-HHEhB-CUCXoOfkBz_l3awvhScXGhSAIpZnQOA0jqZPeiUFX8oYzV4xnA", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Prolongaci\u00f3n Tecnol\u00f3gico Norte 950, San Pablo, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5367555, 
+                    "lng": -100.4045868
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.53810163029151, 
+                        "lng": -100.4032375197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5354036697085, 
+                        "lng": -100.4059354802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "33eb536d00d895ac31924182b1c7e4554edb0b62", 
+            "name": "Salon/jardin De Eventos Cielito Mio", 
+            "photos": [
+                {
+                    "height": 3096, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102987426638207762751/photos\">Roger Flowers</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAEoU-AokN1JxbE305yuriQI46ijCqBy0K_DAcuFLQVmOn05zWKz72klc_VTq1m-x0P5gWJSOpv8c0i49zX9MQGwVEZQariwEBciu3sisP-TEIWvHZSYhs8YjCdhxYs5dXEhBlctDFqJD2mU-N3QvU4wGSGhTLTlUSeh042nMVxmYKzJoj16xa1w", 
+                    "width": 4128
+                }
+            ], 
+            "place_id": "ChIJmVHlv6hF04UR0PuZJn3bU80", 
+            "rating": 3.3, 
+            "reference": "CmRSAAAAceEHbcYwJKML9fBSPdOFfb7eYhhkiVx1FAPBoZz2-YXLgy90HPxp2weH_ty1GF9xeRCiJy0Q94TN_Jyxo7bWFoUVjPH30Dsedo5tkwztSeYWuNuddO7osK36J_wXXA62EhBuRv_JqeIKgUe03njMOyL6GhSiRdVnc2S9yDn_JjyK0Nc1ZMthsw", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Fresno 66, Los Olvera"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.6490731, 
+                    "lng": -100.4021118
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.6505701802915, 
+                        "lng": -100.4007367197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.6478722197085, 
+                        "lng": -100.4034346802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "ffb8586e3de1ad24985751932f4ccfe966a19771", 
+            "name": "Casa De La Malena", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "place_id": "ChIJKb3JRk5a04URRmgiXzYFi_U", 
+            "rating": 5, 
+            "reference": "CmRSAAAAw_-gFrOIaSJ7x2YZmnOG_9n3ar_DFM6EIJtMxdVgJeZBBooyqMZ_R2nr0nSTqHNNwz4ow0xkBzOwqYE4L-qEcJJJV1WPaWwVMBcqH1wJyExL15o22GyfeUMmRbyFIqgJEhCxsaLe7NcYrXAPuamRW6WJGhTt6TBX4isGKJj_tMzFu9C7UOFbKA", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Del Diezmo 57, Lomas de San Pedrito, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.6411243, 
+                    "lng": -100.4566476
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.6424732802915, 
+                        "lng": -100.4552986197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.6397753197085, 
+                        "lng": -100.4579965802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "ce91704f51c349c779a03c36e4d49f5a40c1e7de", 
+            "name": "Fiesta Charra VIP", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 1200, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113258133293852768198/photos\">Santiago Martinez</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAjCK8CiO4lVdP4MED6xKjzVVhZlrCXK1N5le2bSgHIHL4qLCuykmhPEoe-ujm3xPOJRTS_FJXRhbgvRhNbAKGJ7xRVWiNDywzwxnM-8HoxbdhdKETjwjpoBW184fHz-kjEhASjG60V4k6uqBW3mCBmt7wGhRlKQWh-OH8NqhCJk7dEASLiYeSGw", 
+                    "width": 1600
+                }
+            ], 
+            "place_id": "ChIJAQAA8IVQ04URIQKbGwgPhFU", 
+            "rating": 4, 
+            "reference": "CmRRAAAAFH3Kj9bJccxqJY_C-45qFBehN119jc2lqRRjNrjlxv2cSCgetjvuc1CwboS-YaBdzOz3J9lcHgNPyhtvJB8xjtVz4UvuL7nX2FOYECJWYYoiGNZs3zTUG7_3jTnL7KOIEhC1eLOe9QEb97bRtx9veD3_GhTfk-nfnIgA-OoX-8yhKERR0_9Aqg", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Mompani S/N, Santa Ana, Ampliaci\u00f3n Sat\u00e9lite, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5959605, 
+                    "lng": -100.4516451
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5973074302915, 
+                        "lng": -100.4502963697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5946094697085, 
+                        "lng": -100.4529943302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png", 
+            "id": "fe974476c66fc26ea314d942e7eeeb8e48bb9ca8", 
+            "name": "Studio Karaoke Quer\u00e9taro", 
+            "photos": [
+                {
+                    "height": 3024, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101149063076981420481/photos\">Luz Santoyo</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAA4wjNIBqXm7RLMpQ6C1_80Yk9NjwMb3405zB_4JL5_KUBBE-WM9QXpPbS1MJHnEVmZ-0rH1u4y7IxEjKkCQznro034Zf1mRpD9bi8ciR-kqwa233xVNBiR7bq9fM9Z9PlEhBtW-L8YJ-9U5dJsre8_bLHGhSYAW7JlWLajZ_mO5oOHIuXOe5gJw", 
+                    "width": 4032
+                }
+            ], 
+            "place_id": "ChIJc_yjuRpQ04URZKZeuFStJ8M", 
+            "rating": 5, 
+            "reference": "CmRSAAAAcVKyU_2DTWcnqCT8JkKTAKWnzTqjVZmcOB7X1CCk7uA4KtCPrO1fNPshIfSwRx1-zN2QjhvmO3dUU-eMsvcHrqc1JVbjXeLM9Qnz5hAWAVJMq0K1NlSWNgdur-iWOwCXEhBrg2_jodchwpLvASoOFk4uGhTMw-3xVp6xyGBhIc7sRQunvjq7Yw", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "bar", 
+                "electronics_store", 
+                "home_goods_store", 
+                "store", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Estrella del Sur 405, La Aurora, Santa Mar\u00eda Magdalena"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.6349646, 
+                    "lng": -100.4359016
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.6363135802915, 
+                        "lng": -100.4345526197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.6336156197085, 
+                        "lng": -100.4372505802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "cb96d9c3f241fe92e0c5954e10890fe2e2f12f16", 
+            "name": "Indorama", 
+            "place_id": "ChIJEZ-eOH5a04UReAkP3J18DLo", 
+            "reference": "CmRSAAAAAj5-kvBsEH4Jok7suO8W-SOZOJjqZckrlPZKzPBLjfh0iMNxZOsxVk700_AjfuAtkRTvQqM9Gl1Ec_5sg50n_Iz4js9EVnQizbCZ83FQdK5cLzPXOzP-xMtBPj-V7xX4EhBT8XT7c0afNojgRwWjDv3tGhSCeJDWM88SL2rfCN0zFx34vfE__g", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "76115, Calle de la Brisa 4A, Satelite Secci\u00f3n Andadores, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5518095, 
+                    "lng": -100.441323
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5531583802915, 
+                        "lng": -100.4399615697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5504604197085, 
+                        "lng": -100.4426595302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "3f326c1814f6752c63d5ccabef02b09b5c3e87f6", 
+            "name": "Salon Villa Granados", 
+            "photos": [
+                {
+                    "height": 1920, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104876346496683472670/photos\">Salon Villa Granados</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAEsBd7E0511tpNPzQLr4VqH0RiUjnRfXGfmM_-HBDfnS1tOGQ3ADOkVk8ItLNhaORYkHKxB3dO-qoMojXdUXyvYMVo1nfD9qxWyQdg1p2_yE4ZUFRjDqvGX3P3NBqphxPEhCmn3uOkfkdDDSgTdhNTRoCGhRwhZ0tE_gPdGzL7NfH-NMbUvq7oQ", 
+                    "width": 1080
+                }
+            ], 
+            "place_id": "ChIJ1dOSbYhP04URw5G03ArIv34", 
+            "reference": "CmRRAAAApf1_2PhiuYmBMzZAoKRK4o9AdjVcle8q7q4aaUiH5WUg7oYYtX7vC1d46RwpK4NoptP3rcCqxtMQacSOMWSGAdq-od8U-y1mG-pArWgxP5lbom-KDvRtBai2f9R0EvosEhCFEqcY6SMpzDi5g90U6zaMGhQM4mKWP83OqWMROMprqSjNOrYHUg", 
+            "scope": "GOOGLE", 
+            "types": [
+                "cafe", 
+                "night_club", 
+                "bar", 
+                "food", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Capit\u00e1n Pedro Urtiaga 42, Emiliano Zapata, El Pueblito"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5302477, 
+                    "lng": -100.4441994
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5315884302915, 
+                        "lng": -100.4428636697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5288904697085, 
+                        "lng": -100.4455616302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "04d7f35e2bcab3e97efcc926bab6f86b0af12b61", 
+            "name": "Sal\u00f3n \"El Potrillo\"", 
+            "photos": [
+                {
+                    "height": 2322, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111924162419008070422/photos\">daniel huitzil</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAkAhco8_fzBln1AYm6TynmMUgNxLJ5pJePCbX4_bgaNbod30syp0gOUzLfXN5f3yGabrEqGpvHqwOVNirEV5m2L0TMeq8ABeO39y9ZXhJVk74ayqLZSWm7wlHgy72AjBJEhClL2bR-i0Hw8B4_naFtyMSGhREfmXgnQlw5zslZaIsYJHHSM-fjg", 
+                    "width": 4128
+                }
+            ], 
+            "place_id": "ChIJnc9xYXxP04URjElWm7SNXvk", 
+            "rating": 3.4, 
+            "reference": "CmRSAAAArIJ-E8PEQN90pPQTeRAyyGG3rz5T-WA4-DxW_qb4V8aupkY8_EY-udHaMloG0Kwo05n7sZySwBRBxwwj18RppvpUQ5TCv14HJQNB84qGclPamA5hd9HYPffZdUuJ1KoGEhDjYfJeQTnoIvD_yE6gwcMZGhQl8TkoaWAPSu-O1Ub6JWPTx49F1Q", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "bar", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calle Heroico Colegio Militar 100, El Pueblito"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5938118, 
+                    "lng": -100.388153
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5951978802915, 
+                        "lng": -100.3868175197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5924999197085, 
+                        "lng": -100.3895154802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "73ec5895cabb729c7abcbc6a6e01bdd1cd8f01a7", 
+            "name": "Rhodesia Hist\u00f3rico", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 3456, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115522927840111407264/photos\">paloma vazquez</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAANWotf2fasBaoA7GpMF9dtudJwogQZO0ZYrsQwv-JL6Low_qwb4OEbdjZIDzp8rPVIIw_tHzv-x_vGsbbOpe6503Gu85kOwkvPoZQLfkxYQxPv09DLhTl7jXwzLjiQ_keEhAobrcP0UmWXYIVPPu4nb3uGhQ9YkL7Y3rog8xscEBTekxRRF5pQw", 
+                    "width": 4608
+                }
+            ], 
+            "place_id": "ChIJcZsXEyxb04URF4cHVlkhlZ4", 
+            "rating": 4.2, 
+            "reference": "CmRSAAAAKlAg1l-G06lyats97ueQu8cCNae9sCsX1SD1pVUZLD0WpsDzzaxuZ9ccyTLKRl-RHPDvaqTkGfZxIsnRgooZz7ler00Jxpm1i-X8IuZDYOus4A_yOyG9J8zg-wIUDI5gEhA8i6Dw7pi86EelS4Ax-RK1GhSkqA8W9mhSVJ1xjPdlju81HTf3Vw", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "bar", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calle 5 de Mayo 58, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.58806569999999, 
+                    "lng": -100.3841256
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5895298802915, 
+                        "lng": -100.3828926697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.58683191970849, 
+                        "lng": -100.3855906302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "9e2e6e90ff7f71b5b315d9145d8a7b2e43569619", 
+            "name": "Salon Baby", 
+            "place_id": "ChIJj7IJmNJE04UR_tbhC5M5mcc", 
+            "reference": "CmRSAAAAwfDlIlrzXTKbIJbM4C4rxpdaiDd2nALwUS4dRyhFNf8qa5YfIGlEJbfUgPozUWFE9a00WiGETRrWdgierD-1QtXFU7Gi5_reQklp2giQvu2bB2AEnkmGGv_oWw2g4K80EhDRJv5haO50_hEfGsVjSY1eGhTb7Bsa_wC-Tm9dp8idpVtIT5hpkg", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "76058, Cedros 2A, San Francisquito, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5956669, 
+                    "lng": -100.3825955
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5970182802915, 
+                        "lng": -100.3812318697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5943203197085, 
+                        "lng": -100.3839298302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "57d1b18684a659732ac73c80cf785db5a6cab30e", 
+            "name": "Mappy's Club", 
+            "place_id": "ChIJl5dS9jFb04URllOrf1MzzKM", 
+            "reference": "CmRSAAAAea18bl3o2S2MnKtteke7E36Gd4L_qKNriPXgDEboHd6i2VUbM0m96eo7L4eQu8uAuunclrw3sTexWzKa0vfjYTWR45DybwVDC0bL_rd4rT5IezybM98jY22GXPVImQ9ZEhAXhYGRig5HoN4NpLFDnBufGhTp-iaRXtAYU1pytIs7UwpVVN8jPQ", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calle 3 Guerras 4A, La Cruz, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5861225, 
+                    "lng": -100.3880404
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5874419802915, 
+                        "lng": -100.3866795697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5847440197085, 
+                        "lng": -100.3893775302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "fba5a9e66e63e70af26a3d0aa3b7c9baac593ae2", 
+            "name": "Negri Para Bedebah", 
+            "place_id": "ChIJNYSdntNE04URSia_rXaxkE0", 
+            "reference": "CmRRAAAAPzOEJ2R2eV6C4aFvNbHO8AXLwDUwCK0R1uzOmcYTlto09WH3jcpMxN1Eq4-RChGFDzR7gdtygIv-gSrlL545CI5oNcBUGfui0fzfjLp6AOm0OCN9OZLGKwRPbelwRfA5EhCbnfWQ33TPkNZUsiHAKRHxGhRr5HBxBybATWpM8Cx8G_X4ePAuJw", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Avenida Constituyentes, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5986512, 
+                    "lng": -100.3907753
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5999790802915, 
+                        "lng": -100.3894243697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5972811197085, 
+                        "lng": -100.3921223302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "8b91e466e2cfb9143bba789d0d1d0d32105e58d4", 
+            "name": "La Encrucijada", 
+            "place_id": "ChIJm_AW5ihb04URO1vetHEqIuE", 
+            "rating": 2, 
+            "reference": "CmRSAAAAZFQ9sfavVuCW1Rig5wa5y9-CR3SCMt1Kd-LR1pIpgHNMYp9r9rrcE5wXrF0IoAMEGEUxLiOAZ1hTRdTbZtHr_K9ZC5X0p2jpxv6vuSVK0VHzdB-NxwWl0ldoPSrmGXV-EhBuxSQwzO8f3qe6ars5Q_ggGhRBGYnItlBNchEERkZA2Rigv_TV2Q", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Avenida Universidad 67, San Sebastian, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5921678, 
+                    "lng": -100.3802159
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5935167802915, 
+                        "lng": -100.3788669197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5908188197085, 
+                        "lng": -100.3815648802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "d9744a635b861c0865e6d76e5717f4bd8624a5b3", 
+            "name": "Kaah Antro Bar", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 3120, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/102448368080142510804/photos\">Gilberto Rivera</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAwrB6FxwYccPhAihqPoGcZu6SErG10RVw_K7mXaAomZ378I7-n_vL7u51xf-sRZdpFLcYpjCj1kN6_WIfFJ_za-dLSJjq9UXzJuiEXaqQF7YaBXlpjq5Le0RC7FCQvLWJEhCVOcadCkQ6zOZOK66R3Av-GhST5uDZcQWUtG4FaKNmj2V-4MftAA", 
+                    "width": 4160
+                }
+            ], 
+            "place_id": "ChIJoW0VBjNb04URn8WYUX6ya3w", 
+            "rating": 4, 
+            "reference": "CmRRAAAALpHnPRvzGbwE47PMexmiros2Zo1kuLKO9zoF5yDDTZcEkndAqjDOoD3VoPylYG1SqlV43VsmbW7Xz2aD0ZyL78PqL5P3Xm6uad55dRnOWifl2mun4PQDiBZjpWq2o0PdEhD0pMK0RU3cGvjHYpA14dj2GhQcaTp41SlJSLLNcsEPm9PbhNnShA", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Ej\u00e9rcito Republicano 49, La Cruz, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5923718, 
+                    "lng": -100.3800332
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5937273302915, 
+                        "lng": -100.3786770697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5910293697085, 
+                        "lng": -100.3813750302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "8dfdc1d4cb88bf0363e94a6a5b9a129b4d597eaa", 
+            "name": "Karlota Contempo Club", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 640, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100340482248208860255/photos\">Selene Roxana Galindo Gomez</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAOzi-ca5TOzeUHWwnljjt6lkVhnnCmIa-9OtCdWx4ubz5fOfqRtlUlm16qoN6zT28odX9nQTqXIGZ7zgBHEuJSQE-4k2Tsc3mFqSV8fArUWsHvD9Un_u_GnSa3_YZ6QzXEhAtPBYcLvacYTWNGPAjmWDHGhQUzaynmFYt2tFLT7BtQUUMoiXd7Q", 
+                    "width": 640
+                }
+            ], 
+            "place_id": "ChIJv_AJBjNb04URedsosD8cGZE", 
+            "rating": 4.3, 
+            "reference": "CmRSAAAAVs3weMTEZxqgFX7DelTca735A_oSbL7v72XGITCxFvTEdNOAdDEd8jOmzn0oh-OJ-AEnYugKXiqH7jdZ9t_1ZBGGHuOGYp1AwMob7PTveSfZGN38zHG4B9OFyUfTiOZsEhAnsUxVmmJdeBoXBzuGNI2dGhTK1ZiyuFqlh4Pt8mPFcJoZjAdYfQ", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Ej\u00e9rcito Republicano 2, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5850293, 
+                    "lng": -100.3899272
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5863508802915, 
+                        "lng": -100.3886487197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.58365291970849, 
+                        "lng": -100.3913466802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "e685b3255e4ea147b5531851841c873fd3aa44f8", 
+            "name": "Fher Alegra Barberia, Salon, Estudio de Maquillaje", 
+            "place_id": "ChIJuQ66bdRE04URQ-3eNuW2lO8", 
+            "reference": "CmRSAAAApEy1hnstKjQe1e1Zudm49oPy8J_aUFBLmhGgZfA7jmxalMEAKQoPBr72v-elXscrXBsJbTP_nO0UvXCtPA6sScwCknYRJbxMFEL_c0fa-JUlcO2yHuqtQ-CxlrAfu-b3EhDJ_WfDXaNSVNzBik2u0GvAGhT-Tcnv-Q1OTOPDy63KAzFwQ-7W-A", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "bar", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Calle Carlos Septi\u00e9n Garc\u00eda 3, Cimatario, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5984633, 
+                    "lng": -100.3939145
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5998306302915, 
+                        "lng": -100.3925928697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5971326697085, 
+                        "lng": -100.3952908302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "a86274c7a172d6ff68d48b28df7253a03f9aa363", 
+            "name": "Discoteca El Rey", 
+            "place_id": "ChIJjeNsMChb04UR_-Ade-RwK2k", 
+            "reference": "CmRRAAAA41EKpZXkanIaFATJ0U1ht5dz_IczlbLIMXa10NucR8QEsskfaBxse362-1xmraY1Y8MqNlaxzJoSQzCyi-sJN0Vfpxp7ARNG-nyOLWOFajgvl6bWaDOPry6lQyWBs71WEhAMUrx95Fp9DEIki99DvagFGhTS_c6dw-gW6iuvGiiFLdnIoACR9w", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Avenida Universidad, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.58476349999999, 
+                    "lng": -100.3932501
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5859646802915, 
+                        "lng": -100.3918453197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.58326671970849, 
+                        "lng": -100.3945432802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "261ddb8bb84bd71a733dc0488b7794b1e1d946e7", 
+            "name": "Melao Club", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 2988, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114273531226772227893/photos\">Manuel Guti\u00e9rrez Mor\u00edn</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAypON6RztNpANQyD4yyagqTjSlCV1b0xjfULBk8PenrAGuekiauY1Vzxd4mWzmsN7jpjfH_3TrQZxRvVuqCWr9AmZF7nCeSDGpYBJubhvu8B0NWAJHOBTdHmLecDOc3DCEhC7xIGojcA7fVJlR5JotHGYGhSL7Uignrc5W_eEBmCIwr2A1-dz-g", 
+                    "width": 5312
+                }
+            ], 
+            "place_id": "ChIJt4vAOzZb04URvsrk-1cB_fQ", 
+            "rating": 4.4, 
+            "reference": "CmRSAAAAEbcmrH3szHmTv9VT6fu2l10zEnjI6QxxASq1keUxcRRR1fx-A23IIPDlDf42ZgCKXUd-YgLpxvnjtRCxhHKAeBIYua0ZeSUGz9IY60Pe-I7Nx8Y0DqCOHJ2_U-UTOYS7EhAoZesPZ-FV68gx1SbECgQKGhSCATT4kkc3m9glTgbuI-5XG25kLA", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Avenida Constituyentes No. 42, Centro, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5869278, 
+                    "lng": -100.3774859
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5882767802915, 
+                        "lng": -100.3761369197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.58557881970849, 
+                        "lng": -100.3788348802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "36fc4bb356c0d5a04a2d144b99a16348cddad2d1", 
+            "name": "UOMO", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 540, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/114486945321411449527/photos\">Alisson</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAjRrrLXnrbHLFqYtu8HG9bhnYPMp01YPKWct9Vq8Ri3VnuQy7f6_wI50xbFCc5bqKDGuK46RR5xJ1u-1az4HW1YnPL3GcZLDhylEM8tBewUpxp000LoRpgcUt3y7HW5K1EhDIU9MUpPB8n1Nj7VCKfKjkGhQxFt2KreKTwZHQpfFOt8x12Dc0Fw", 
+                    "width": 720
+                }
+            ], 
+            "place_id": "ChIJk5T0gctE04UR586WnpwWMQg", 
+            "rating": 3.9, 
+            "reference": "CmRRAAAA7O-0IbfZlvur2yxgg66vYaab4VEMJuZ-gLzsFaALTkPxGzYZKew10ii4sRZxelxhEkW3KCENB5Q2vtpynMhvJwJerZ5_NBJOImeQmFAw-xysGba65gyHgXrHgL4ODybVEhDSiwW4F3IEcs2mjyzG1BC5GhQ9sOOaJ-QwGbsvuB5RX46YvIVd3g", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Avenida Constituyentes 63, Observatorio, Santiago de Quer\u00e9taro"
+        }
+    ], 
+    "status": "OK"
+}
+{
+    "html_attributions": [], 
+    "results": [
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.6053532, 
+                    "lng": -100.3875844
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.6067466302915, 
+                        "lng": -100.3861689197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.60404866970849, 
+                        "lng": -100.3888668802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "6020d7e74b9b8893568a2d41c031342722123883", 
+            "name": "Estudio 54", 
+            "place_id": "ChIJnyVfQCRb04URJGc4zygUe3g", 
+            "reference": "CmRRAAAAJV1Z82Giy-VT-j47D1jN1iN1jYm8Tvi2z27MxrdC6babYEtqqCqSYV9Uofqyc-PqjQ_PMO1BZGrOPI_g_SYJQ__P2ZBA1jrHmRg78IPNJGl7acPEl1W5tAEFNh5XPtuHEhCsuoPyL-q0QGlGzjkJuXScGhQbwWe68f6RnxL67EsF1BJx5vYToA", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Marte 139, La Trinidad, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5963119, 
+                    "lng": -100.4015351
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5976766302915, 
+                        "lng": -100.4001933197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5949786697085, 
+                        "lng": -100.4028912802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "f38e9e36df97d76f51dcead9b9846cac9a6afa51", 
+            "name": "panini", 
+            "place_id": "ChIJZQc2PNFa04URlgDVDETnh_A", 
+            "reference": "CmRSAAAA1E3-RZcn2mt_HUKbTQ_1ZttwFanOKKHqijZ9uBZHVzNrIIxLmMw74kZblJWVF0bbHjiTSDhGwEx4LFkqcLaJYPI01YaJN3SzYIcd9n_NQAz3GA_alLsuDlrejTuHYOwnEhD9I8-eJsPa9jakGfShxcJrGhR2kaHIFwk-SkW9fQTMd4_l6T-a-g", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "76154, Avenida Universidad 184, El Retablo, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5992836, 
+                    "lng": -100.4002323
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.6006171802915, 
+                        "lng": -100.3989530697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5979192197085, 
+                        "lng": -100.4016510302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "fbe818bb5f0d755d2bbdf8a0b1a1e34eebfafa55", 
+            "name": "Salon De PEMEX", 
+            "place_id": "ChIJGxv2TNda04UR50vcdqYAEd8", 
+            "reference": "CmRSAAAAWtHFU9F6dBpx7wTNwo5e2oHl1Zl3sWl99Rj2tmFPYCLGxCRW16t3rRaGP-Vv2z_6E2FxjKpHByvRRrwjj_hgN0kNYFPWJlRYUEHFWg6W9F_1ozowPcswGAWbbzCfil4ZEhDYSrCEqCGwrZxZaxTMMG13GhQC7IMYitgSs20JD1cIVIdj2zRbug", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Est\u00edo 44, La Era, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.604407, 
+                    "lng": -100.3809549
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.6060394802915, 
+                        "lng": -100.3794529197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.6033415197085, 
+                        "lng": -100.3821508802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "1955c7ce2cfee5047309a5960774a0828ad283b7", 
+            "name": "B505", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "place_id": "ChIJ400X_jpb04URHd-8uaxDuIk", 
+            "reference": "CmRSAAAAKO3APW78nUd-g_d-L2aTcQdhBuw4Wj7UZ-dj-0XwzLdW4_3BXZInFLVziqLjwHY4TC53XVNipPLTGhNOtRQdyRSJAep-2Bmyc4fkDw2z-08UZYGHOMjK_Wn0tpShM1lAEhA9q3rXF82KH2072w8QnPTkGhSpvrmQwH8KMIHGoUzG8c84WF8LFw", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Avenida Industrializaci\u00f3n 12, Alamos 2da Secci\u00f3n, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5810616, 
+                    "lng": -100.379134
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5823989802915, 
+                        "lng": -100.3777832697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5797010197085, 
+                        "lng": -100.3804812302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "d209a9a4395af33e6c0ceb3e742cd68b9daaacfc", 
+            "name": "taller mecanica burgos", 
+            "place_id": "ChIJUVOF385E04UR_O2t65lJEYY", 
+            "reference": "CmRSAAAA0wAwvN6S4yHRePOdJFiwWdMBbbMfAibiB3Qvp7rpuWUv239JP9vpycYGqkL7e5ec2RfYj3-2CMPuW_-dGFAznl_MhCBo9TXr3ylsVa6vvi2TcUOG1SLlT7rTvI1GZG0NEhANW6_ZYYlSPgrNAokdMixNGhT3fXYGdagVjXGezcIk7NkizTuk7g", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Sierra de Xich\u00fa 108, Villas del Sol, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5788858, 
+                    "lng": -100.3942892
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5802438802915, 
+                        "lng": -100.3929109197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5775459197085, 
+                        "lng": -100.3956088802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "7e8c416ef99f2a2c4d4a9d96da9e08ee5a08f34d", 
+            "name": "Salon Galerias", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 1836, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/107483508195962041201/photos\">Rodolfo CARRANZA</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAYBfIj1veXxpmU0K2e-4LZlbZhyfQFJfFczYbnc3qNS1n_djRvCbxwYXd40AT9irgTB8mW_fcoAnrPhaEiqN4IO9clr-3mZ8bv7EYpxywRkst4BxXgnvTLl9d7IDEsFnGEhADf4lNWgWUn1-PQ4wPtjMTGhRkBSyBZBWtcljRa5uGjdUodVlGRQ", 
+                    "width": 3264
+                }
+            ], 
+            "place_id": "ChIJ-cc-3NdE04URMHQX4-suRgg", 
+            "rating": 5, 
+            "reference": "CmRRAAAAL513M6ZSqptqLosYVo_A52LS-06cHAggUePfEE8lcunoFQjBJ1XotYKhB5IFcHSNPu2ZNKCSvDhGmM3u-DjFjtdr_ZvW5OyLnT_3GEqejHlqRVPl1awiUL15NtXsAQGcEhCboXFTHX7P8R2s5rrKC6mhGhTnk0HOkOddApaSQ87ZmiwEyDtFGA", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "88BIS, 76030, Belisario Dom\u00ednguez, Casa Blanca, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5833399, 
+                    "lng": -100.3738177
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5846888802915, 
+                        "lng": -100.3724687197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5819909197085, 
+                        "lng": -100.3751666802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "ae98d03b2743cd7c9de6ba0421985492abc967e7", 
+            "name": "La Casa De Wendy", 
+            "place_id": "ChIJCdoAk8lE04URMQmrDedUsQs", 
+            "reference": "CmRRAAAAbQQrkpyElKd0Bu9_GOwa-M5bp_7CsCNhHxiy7MGoS9sIi_r_dAfT_Jb1Rv_AwAQpZUvmFxpt7CJTmD7sO7aHIk9nChoCnxuYrZ0KtDNBeqo5juJIxYHsXOFku1URfTxKEhB03CCs0pp9c9VlkdKoJDtvGhSLyXraouTzXctYrdg1fL4Qf0ZHWw", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Las Torres, Heroica Puebla de Zaragoza"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5947065, 
+                    "lng": -100.3709549
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5960554802915, 
+                        "lng": -100.3696059197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.59335751970849, 
+                        "lng": -100.3723038802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/shopping-71.png", 
+            "id": "02700febbb374ca412fd682cc8ae96a642504c7f", 
+            "name": "El Canto De Las Ranas", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 3264, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100368575992475187018/photos\">hugo enrique herrera</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAw41tus857jx0GiRIp0A2lmadhJUIo5e_1uJ-Lcgfi0_up8D89q1Qapc5VZW0DnpgXFqVm0K3XZFtjOpWllFr_V_3QfYMY0msTtETaRO3wUPniasAAKf9q9pEibCsmZGgEhA7nkvEMTIBNqfZIQs2vZf_GhQzk10WmQfuctQDUYGACiUE_6osiQ", 
+                    "width": 1836
+                }
+            ], 
+            "place_id": "ChIJX-PFakpb04URR84M9KHXg8s", 
+            "rating": 4, 
+            "reference": "CmRSAAAAXzotUM5lrIeQUwHXSCU54wRBAO5u4tsA8gyaY_aCGFgaoGk4OWjgw8ZFJMvq90ZGPKVT4gsVEJfjv2bWhsVM3s5mkuWRjBwF02qX0HX6GISgR2GFUIy0gSVB1H7LUPcZEhDXzywEPx89ANC33iQgd3-cGhSxrlHss5aga_YLZZO-Ogu-zR3iSQ", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "bar", 
+                "electronics_store", 
+                "home_goods_store", 
+                "store", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Boulevard Bernardo Quintana 24, Carretas, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5959806, 
+                    "lng": -100.3709498
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5972291302915, 
+                        "lng": -100.3697140197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5945311697085, 
+                        "lng": -100.3724119802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "95e8e3d199f4a6cfe18755f0a9446d534b902bfd", 
+            "name": "HYPE Club", 
+            "photos": [
+                {
+                    "height": 4160, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101853667531616424059/photos\">Areli Gil</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAy4uutmCAJ6md4HycgWtSZI42RbZRkC6XEFHCHrP-dMMsSjGo1ckOV-OW9b8SYE8KcR1r88y1HLVCOWWEJQbOcnj8hW7XQ0fXit6UT0wlullvBWxjBZiI9cNbwc2YNx4wEhDwMDbJcnCp8eLnG8SufeFyGhQJTTAMrUWGSfJlBM3G7kOCUSEj7w", 
+                    "width": 3120
+                }
+            ], 
+            "place_id": "ChIJw9c8GUpb04URSc64ie6zI4k", 
+            "rating": 4, 
+            "reference": "CmRSAAAAB_3QgEkl7UbSwOo5YYU5t83aLSPzRDBBLpkbtnKtro5IYQIc5rY2mtGNke4Cyo7Mmxf9SBPOSG6_-6E581i_EVMBlPg-sVLkHXnPEGLfzRLkFH4iED4vQl21ciP0B7dfEhCJgbHgczNBZPmsJ9MBv3PGGhR1GoUWlejzWs87HfACiQ3SNhaYcw", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Boulevard Bernardo Quintana 109, Loma Dorada, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5753034, 
+                    "lng": -100.3864621
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5766448302915, 
+                        "lng": -100.3851115697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5739468697085, 
+                        "lng": -100.3878095302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "4587850b878c6e7224a5a17362ccc96d05e3530b", 
+            "name": "Piu", 
+            "place_id": "ChIJx1inV9pE04URyyXNs421Nys", 
+            "reference": "CmRRAAAA4JldhHorijZrI5H9y34yDRzxvPUNSxOlNgCBYh3zg4YTULrZVpA3ENmgkFS0uRh3TsiZF_QCpBAL8tUbjmqYKTMvQGbVhI-DFCdf67rADZAyCb98FOo0uLYuUn6jcf_pEhBAonNf6FVdom3GPLh5ydO9GhRQGJ87dhsfjeUFMP3j0lSNqd54Tw", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "76070, Cerro Viejo 145, Vista Habitacional, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5792199, 
+                    "lng": -100.4002256
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5805578302915, 
+                        "lng": -100.3988862197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5778598697085, 
+                        "lng": -100.4015841802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "3376c42b26b6c3eaca46f29aaf33465f5356342f", 
+            "name": "Bailar Queretaro", 
+            "place_id": "ChIJ_T0Z0yhF04UR1G6d94i4YIA", 
+            "rating": 1, 
+            "reference": "CmRSAAAABrroIdZHeySSM0P7A-tjpfdWRIAaxZ5s9U4mkLOj87yBBiig2yBXShWsHjOOYtP1okETnjQrwK4TPRMUt84CfR9S-sWqfpF6pz_FA3RQOEefgx0ZDCFjMwlQudcG8pgWEhBKurqvCe0IDiOWd0Dfdf09GhQnhuxUKBhej-cHo7W9eiOxNxmysg", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Heriberto Allera 4, Casa Blanca"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5788123, 
+                    "lng": -100.3997429
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5801745302915, 
+                        "lng": -100.3983824197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5774765697085, 
+                        "lng": -100.4010803802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "b6f0c4d95e696dfa9d208ad00d51386e4d61977f", 
+            "name": "The Yeguita S.A. de C.V.", 
+            "photos": [
+                {
+                    "height": 4128, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100185788952036902630/photos\">Alejandro Quevedo</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAApY3ioZuYigpuECD2Pw0JY06pfagmO_phn5mMk7geZaO-0OqNw1hMR3d78Mhui_pBR3xGCDi9zNnvDmnHFy8kl8WqSl6Uwfui0wHuF5lX5v8ZQQeQAMS8YkLChf-xZy1ZEhCIWo-9bhuIUVbLD4cLCC5rGhTl3J6JUHVUe1DmoYBGoxEckdgsdQ", 
+                    "width": 3096
+                }
+            ], 
+            "place_id": "ChIJU0cOzyhF04URJI94My_eV0A", 
+            "rating": 4.2, 
+            "reference": "CmRRAAAAmN1CO0nul7gR47XnhGJsA11U5z3Pg47iL2k5-DMAX1Qm0uDRDvFKlXctxICuYjKL5EiU6EsnozM7K33AfR8G1tpVYPmnlRx3cIr4YxAUYD-rsnvWTxYKxG3agbtp7Zl2EhAAz7QK4M-rUh3GzLwpa5ZhGhRxscTCxidYwwqbqmMtxgMsfHxfMA", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Heriberto Allera 4, Casa Blanca, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5935048, 
+                    "lng": -100.4078226
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5948624302915, 
+                        "lng": -100.4064757697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5921644697085, 
+                        "lng": -100.4091737302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "60a785f97b93084d00cbc9d8d3f6c8cdbb807e13", 
+            "name": "Club De Leones De Quer\u00e9taro A.C.", 
+            "photos": [
+                {
+                    "height": 4128, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104770367193062053707/photos\">Laura Ferreyra</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAASJzU3iOAM_TRa2esNQ7LmoHy_ARJwHxo8A4uQj-FHg2-D312a6W8fSjHpeKdgnZQylj39VHRTgZc34Rx35v_VA5gOVhGbrJcaAN98ps5eKeEILq-Haqd8mylVE3DjtGpEhBY3QPWwJLN-RbnWLvfGvPTGhQeEO2ffISC4tbMfRqkgm2URdEwjg", 
+                    "width": 3096
+                }
+            ], 
+            "place_id": "ChIJ2_y6281a04URaE1vARR65bQ", 
+            "reference": "CmRSAAAAvapo7olH9Y0X7UoCJN4C5P4J5ReQGfo1X2oRe-UMhKaxMsFwxvsNaoP5_VeJMlDobYPV5l-nnB6XwMGEzC0nucFVn8d4Hx8KYbGLt3siEnhMD4U9pDfT23cuknRmRXUmEhC-kxB_NedboK-9uiWAoPgyGhQxbVcL1x_39OkFkDDBnEtT2mR6sQ", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "76010, Justo Sierra 10, Centro Universitario, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5885427, 
+                    "lng": -100.3668015
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5898565802915, 
+                        "lng": -100.3654499697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5871586197085, 
+                        "lng": -100.3681479302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "b34542d75d740e3a4bdf1b8263fdbb99b7e561df", 
+            "name": "Juan El Caminante Qro", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 405, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/105818864859903339498/photos\">Fortino Javier RH Poblano</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAADspthxng1Q0kpxRYJy_DByLUMZEZ2b_62DRxbO0V3SifDHAFdLWRTSiJJv13aruMFMS4fE-bAnMQPm0oJeWW-0xbPpgisME4pAi4E_UXNCw662ugQEJbEPWDlSR3eLApEhCoYmt4CCV-J-BX52tRt9n4GhRz1U53MCw6xJEC3BcGxuK1uIcO8A", 
+                    "width": 720
+                }
+            ], 
+            "place_id": "ChIJG-ZynbRE04URHS4GacVjFlQ", 
+            "rating": 3.8, 
+            "reference": "CmRRAAAApmGzZYoxeD2iiESyEtR3E_QuyR-GIHJRcFbUHhb8UBaF_kw8ty39ng3suILy0uINPOmapaT6_zOwfNbBDbDwkuNWSbRv-FS7pvmsYE-v7PWfJKfcoRTnGcRWjzyHfDP4EhBm4ROG6H33J3VKz9jwPyvdGhSrmKlnQVH4eJZhNnStwYqJb3oTSg", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Avenida Constituyentes 121, Villas del Oriente, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.588564, 
+                    "lng": -100.366652
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5898719802915, 
+                        "lng": -100.3653000697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5871740197085, 
+                        "lng": -100.3679980302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png", 
+            "id": "aeb4160bf0f2a8f3efeb2a0b800cffe365ec21cd", 
+            "name": "AZUCAR QUERETARO", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "photos": [
+                {
+                    "height": 540, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103758718777360899601/photos\">AZUCAR QUERETARO</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAbzNVy9x6hO2v2hvoYdgxpsq_RBP0oliZsS3n6FA0qn2xVSwh4a7VmooWaPnjWJdEcPxlIX59sYLGOtNfLXBXt4Pkn9oZgEoKEYX6uE1YenBgxdrHq_83l-EeJHz0LcnjEhBvUW8APXWYncBrepVpMqETGhSPkOOYe-ExviDubfTwOOFSblDJTQ", 
+                    "width": 960
+                }
+            ], 
+            "place_id": "ChIJL0pfBSRb04UR1LYiVFjekbY", 
+            "reference": "CmRSAAAA9u1ZdairA3bnT3M3sEm2fcIE0EzHHOnK8AfpSv9clz9U8wjx1lf69-rLV27nU1D_I1j-xpqH1sokUJBQVIzT8365EcevLbz-FzrqHLoGvuxXqX2PiEBAg1rRRQBdAeBdEhBfi9Cuv5JfkYz6jCehzoRoGhTOvLzq0mLg-xsqH4dU0cGLgaUWeg", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Avenida Constituyentes 121, Carretas, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.6001618, 
+                    "lng": -100.3676877
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.60148593029151, 
+                        "lng": -100.3663151197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5987879697085, 
+                        "lng": -100.3690130802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "e136646f63c3e9c41d5fecb774de0fb322ed6085", 
+            "name": "Victoria\u00b4s Rumors", 
+            "photos": [
+                {
+                    "height": 4032, 
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103675256012187792003/photos\">Karen Cano</a>"
+                    ], 
+                    "photo_reference": "CmRaAAAAUPI5J6hURg_wpiF69q22YCQWPhCkOu9aD-lt6P1Q63XEZ8wVjKVDsw3mSGKi2FZyZF6WYXbsy4bIrzFN9cCov5LRE1uuk1LS34ewzXd8ubdaGZTkk1QAdZjEmsy-ll9EEhBFWHKbSdgry4gzI5zbUkyfGhT_fhdkiSEcTmSqKdtHVYqRQLHhLw", 
+                    "width": 3024
+                }
+            ], 
+            "place_id": "ChIJy2rIxEhb04UR-nVnB3SMa1E", 
+            "rating": 4.1, 
+            "reference": "CmRRAAAAYyIzLqdnZnxqkwtIOsQaADVetJ7PxyBng8sJTyVTcX2lhSMq3bYseWOHpmEpeb6SnrKrJxB-9S1n3wCSU6PiJKavBaq8IhmEdAeQjzo7Zj_Mx2ZWfh9bTMOegbooOxzGEhAJoczxunPdCEV7hqgyVxZ3GhTsbU7td9OkxfDUOFnIrBay_AiY0Q", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "76024, Los Arcos y Loma de la Canad\u00e1 203, Los Arcos, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.5887381, 
+                    "lng": -100.3662767
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.58997128029151, 
+                        "lng": -100.3649193197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.5872733197085, 
+                        "lng": -100.3676172802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "9c4ea4a52a4f0e14a723a7dcba807abcfc3f99a7", 
+            "name": "KELLY Club", 
+            "opening_hours": {
+                "open_now": false, 
+                "weekday_text": []
+            }, 
+            "place_id": "ChIJp-cHZLNE04URZQ2tQ8UVrl4", 
+            "rating": 5, 
+            "reference": "CmRRAAAAygjJySae4kzDFTLvitZDj6e6zsD1-OobJA1yn7Pe7ims3wGQYsSiUgw0wLFbOZGgJhXolrzGikO8gGGpu6gKPfPuiBeAwqBMXO5aaSxqSOn_z2YUGluBFyYAOsftt2VzEhCJDastutkEGVO20ypCxtQ2GhR8m74KM2WnX64E-IRbsp-0ccf-ig", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "76050, Avenida Constituyentes 125, Carretas, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.59341, 
+                    "lng": -100.365212
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.5947589802915, 
+                        "lng": -100.3638630197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.59206101970849, 
+                        "lng": -100.3665609802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "9a323793c14b01242b27e7514ec9f6f002cd3d3c", 
+            "name": "Mirador", 
+            "place_id": "ChIJ2zXS9Exb04URz91QNlr3BLg", 
+            "reference": "CmRSAAAAaZErk1I-o-xkGm3uRq8bsRU4MF7rzFy28M5SexdQo7_jgRXVoFDQcarb62-9GuHQFzBgN92iQEDVIHhx0wZpRNSeW1ZRCAEpBbX9DXiZk35rSdTDHZ8sJkbl84wayD-LEhBTInoT6I7BbH_rbzn5GGlOGhR0YZ7u8EwIu9-ZR1d3GO35za1Jtw", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Fraccionamento Loma Dorada, Loma Dorada, Santiago de Quer\u00e9taro"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.6034035, 
+                    "lng": -100.4071365
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.6047524802915, 
+                        "lng": -100.4057875197085
+                    }, 
+                    "southwest": {
+                        "lat": 20.6020545197085, 
+                        "lng": -100.4084854802915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "808fa6dd1347e68e5befd734612a723cd4baf302", 
+            "name": "Rincon CAMPESTRE SALON DE FIESTA", 
+            "place_id": "ChIJFzVX3MRa04URuRrZhBTOwsg", 
+            "reference": "CmRSAAAAHqjmf1kLM9I720YpygjEIi0Xvj5yAzZSzqyvlathvr16zCMpjQxWyrVeDM0BWZslZCCsIAy9JVEQAGXGU_AJ32PMJ7Wc70qLmrED7vxvFAqSBv1BqFKRJ3QMJfmU6O5uEhD1_atyWjmesYi63vpbawByGhTYx9tKG4qpruTvE6W8SnQItMjpUg", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Alcanfores, Camino Real de Tetelpan, Ciudad de M\u00e9xico"
+        }, 
+        {
+            "geometry": {
+                "location": {
+                    "lat": 20.6042441, 
+                    "lng": -100.4072124
+                }, 
+                "viewport": {
+                    "northeast": {
+                        "lat": 20.6056198302915, 
+                        "lng": -100.4058358697085
+                    }, 
+                    "southwest": {
+                        "lat": 20.60292186970849, 
+                        "lng": -100.4085338302915
+                    }
+                }
+            }, 
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png", 
+            "id": "f608e2a8561aa1587ad3accc5f644310c9169913", 
+            "name": "Frenos y Clutchs El Migue", 
+            "place_id": "ChIJ72pdwMRa04URK5tU6ALgMJk", 
+            "reference": "CmRSAAAAXPWqdLi2bNrNLoYpLWtE2ExwYggK35Q1CvNgWPDTU7ARVfTzHQUAyhY7S-Y9-vGX_8JEJDAmFnzZlNaSbW-y8RfZQOJ0fprUeNjilLGNptBm855NuvbHAv0978Dhw4nvEhDfAVa9UH7o8BDar7rmuCqGGhS03qC-PDg2p7EI0PtPb1PTqapMVQ", 
+            "scope": "GOOGLE", 
+            "types": [
+                "night_club", 
+                "point_of_interest", 
+                "establishment"
+            ], 
+            "vicinity": "Avenida San Roque 247B, San Gregorio, Santiago de Quer\u00e9taro"
+        }
+    ], 
+    "status": "OK"
+}
