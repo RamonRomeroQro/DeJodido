@@ -30,7 +30,7 @@ response = json.loads(requests.get(url).text)
 #db.busquedas.insert(response)
 
 print(str(response['status']))
-print(str(response['results'][0]))git
+print(str(response['results'][0]))
 
 
 '''
