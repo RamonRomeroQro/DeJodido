@@ -1,12 +1,9 @@
-# ownJodido
-Python 3.6.5
-pip-9.0.2
-
-pip install psycopg2-binary"
-pip install psycopg2
+##De A Jodido by Template
 
 
-
-#MongoDB
-
-mongod --dbpath <path to data directory>
+**Colaboradores**
+<ul>
+    <li>Alejandro López, @AleLopezPerez1312</li>
+    <li>Daniel Amezcua, </li>
+    <li>Ramón Romero, @ramonromerotec</li>
+</ul>
