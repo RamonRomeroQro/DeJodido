@@ -1,7 +1,7 @@
 
 
 
-'''
+
 import requests
 import json
 import pymongo
@@ -25,14 +25,15 @@ response = json.loads(requests.get(url).text)
 
 
 
-connection = pymongo.MongoClient("mongodb://localhost")
-db=connection.jodido
-db.busquedas.insert(response)
+#connection = pymongo.MongoClient("mongodb://localhost")
+#db=connection.jodido
+#db.busquedas.insert(response)
 
 print(str(response['status']))
+print(str(response['results'][0]))git
 
 
-
+'''
 
 import matplotlib.pyplot as plt
 
@@ -176,11 +177,6 @@ equator represents 111,319.9 meters or approximately 111.32 km.
 
 
 
-'''
-
-
-
-
 
 import math
 class Coord:
@@ -209,8 +205,6 @@ class Coord:
 def ev(c):
     return c
 
-
-'''
 >>> eq
 >>> 
 >>> 
@@ -224,7 +218,6 @@ def ev(c):
 >>> 50/adegree
 0.00044915602235930617
 
-'''
 
 y=20.5121348
 x=-100.5072866
@@ -260,7 +253,6 @@ while (inicial.y < limitey):
         inicial.x=thex-equidistancia
 
 
-
-
+'''
 
 
