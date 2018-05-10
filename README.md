@@ -1,4 +1,4 @@
-# _De A Jodido:_<br>an idea by _Template_
+# _De A Jodido:_<br>_an idea by Template_
 
 ## Idea
 
@@ -10,9 +10,17 @@ _**De A Jodido** es un portal en el cual uno busca diferentes opciones de salida
 * Daniel Amezcua,
 * Ramón Romero, @ramonromerotec
 
+
+## Estándares Branching
+* Ramas Base: <ul><li>**Desarrollo (develop):** Rama base de desarrollo, ramas-feature y ramas-fixes surgen de ella.</li><li>**Producción (master):** Rama desplegada en servidor, revisión de 2 colaboradores en Pull Request, unicamente hace conexión con 'develop'</li></ul>
+* El nombre de las rams debe de seguir el siguiente formato: **[Nombre]/[DescripcionBreveFeatureOFix]**
+* Las ramas (branches) deben ser elimindas tras juntarse (Merge) con la rama de desarrollo (develop)</li></ul>
+* **Cambios en documentación unicamente permitidos en develop**
+
 ## Arquitectura, Diseño y Documentación
 
 **La documentación con la cual se gestionará el proyecto deberá de estar dentro del directorio [docs](https://github.com/RamonRomeroTec/NewJodido/tree/develop/docs) y en esa se basara el proyecto.**
+
 
 ## Planificación y Cambios
 
