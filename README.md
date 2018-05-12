@@ -1,4 +1,4 @@
-# _De A Jodido:_<br>_an idea by Template_
+# _De A Jodido:_<br>_an idea by BlackEMail
 
 ## Idea
 
@@ -17,13 +17,6 @@ _**De A Jodido** es un portal en el cual uno busca diferentes opciones de salida
 * Las ramas (branches) deben ser elimindas tras juntarse (Merge) con la rama de desarrollo (develop)</li></ul>
 * **Cambios en documentación unicamente permitidos en develop**
 
-## Arquitectura, Diseño y Documentación
-
-**La documentación con la cual se gestionará el proyecto deberá de estar dentro del directorio [docs](https://github.com/RamonRomeroTec/NewJodido/tree/develop/docs) y en esa se basara el proyecto.**
-
-
-## Planificación y Cambios
+## Arquitectura, Diseño, Planificación y Cambios
 
 * [Unidad de Equipo](https://drive.google.com/drive/folders/0AG0T7qc4GG5OUk9PVA)
-</li></ul>
-
