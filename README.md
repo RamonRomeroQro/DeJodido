@@ -1,4 +1,4 @@
-# _De A Jodido:_<br>_an idea by BlackEMail
+# _De A Jodido:_<br>_an idea by BlackEMail_
 
 ## Idea
 
@@ -20,3 +20,8 @@ _**De A Jodido** es un portal en el cual uno busca diferentes opciones de salida
 ## Arquitectura, Diseño, Planificación y Cambios
 
 * [Unidad de Equipo](https://drive.google.com/drive/folders/0AG0T7qc4GG5OUk9PVA)
+
+## Código
+
+* Clases con mayusculas iniciales e intermedias (camello)
+* variables con minúsculas
