@@ -3,6 +3,11 @@ from django.db import models
 
 
 
+class TipoLugar(models.Model):
+    descripcion = models.CharField(max_length=20, verbose_name="Tipo de Lugar")
+
+
+
 class Lugar(models.Model):
     tipo = models.ManyToManyField(TipoLugar)
     nombre = models.CharField(max_length=100, verbose_name='Nombre del Lugar')
@@ -11,7 +16,3 @@ class Lugar(models.Model):
     id_yelp = models.CharField(max_length=20, verbose_name="ID Yelp", default=None )
     id_foursquare = models.CharField(max_length=20, verbose_name="ID FourSquare", default=None )
     calificacion = models.FloatField()
-
-
-class TipoLugar(models.Model):
-    descripcion = models.CharField(max_length=20, verbose_name="Tipo de Lugar")
