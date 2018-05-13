@@ -3,6 +3,16 @@ from django.db import models
 
 
 
+class Ciudad(models.Model):
+    ciudad=models.CharField(max_length=100, verbose_name='Ciudad')
+    pais=models.CharField(max_length=100, verbose_name='Pais')
+    latitud=models.FloatField(verbose_name='Latitud')
+    longitud=models.FloatField(verbose_name='Longitud')
+
+    def __str__(self):
+        return 'Ciudad: %s Pais: %s latitud: %s longitud: %s' % (self.ciudad, self.pais, self.latitud, self.latitud)
+
+
 class TipoLugar(models.Model):
     descripcion = models.CharField(max_length=20, verbose_name="Tipo de Lugar")
 
