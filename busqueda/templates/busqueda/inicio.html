@@ -1,0 +1,222 @@
+
+<!doctype html>
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+
+
+<script type="text/javascript">
+
+    var nav = null;
+
+    function requestPosition() {
+        if (nav == null) {
+            nav = window.navigator;
+        }
+
+        var geoloc = nav.geolocation;
+        if (geoloc != null) {
+            geoloc.getCurrentPosition(successCallback, errorCallback);
+        }
+
+    }
+
+    function successCallback(position) {
+        document.getElementById("latitude").value =
+            position.coords.latitude;
+        document.getElementById("longitude").value =
+            position.coords.longitude;
+
+    }
+
+    function errorCallback(error) {
+        var strMessage = "";
+
+        // Check for known errors
+        switch (error.code) {
+            case error.PERMISSION_DENIED:
+                strMessage = "Access to your location is turned off. "  +
+                    "Change your settings to turn it back on.";
+                break;
+            case error.POSITION_UNAVAILABLE:
+                strMessage = "Data from location services is " +
+                    "currently unavailable.";
+                break;
+            case error.TIMEOUT:
+                strMessage = "Location could not be determined " +
+                    "within a specified timeout period.";
+                break;
+            default:
+                break;
+        }
+
+        document.getElementById("status").innerHTML = strMessage;
+    }
+
+</script>
+
+ <div class="navbar-fixed">
+
+<nav>
+    <div class="nav-wrapper black">
+      <a href="#!" class="brand-logo"><i class="material-icons">cloud</i>Logo</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="sass.html"><i class="material-icons">search</i></a></li>
+        <li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
+        <li><a href="#"><i class="material-icons">refresh</i></a></li>
+        <li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li>
+      </ul>
+    </div>
+  </nav>
+  </div>
+
+
+
+
+    <container>
+        <br>
+
+<form class="container flex" method="POST" enctype="multipart/form-data" >
+  {% csrf_token %}
+
+
+
+    <div class="row" >
+
+         <div class="input-field col s12 m3 l3" id="city">
+                                          <i class="material-icons prefix">place</i>
+          <input  type="text" name="city" class="validate" value="Querétaro" >
+          <label for="city">Ciudad</label>
+        </div>
+
+
+
+           <div class="col s12 m3 l3" >
+               <br>
+      <label onclick="requestPosition()">
+        <input type="checkbox" id="chk" />
+        <span>Usar Ubicación Actual</span>
+      </label>
+        </div>
+
+           <div class="col s12 m3 l3" >
+               <br>
+      <label>
+        <input type="checkbox" />
+        <span>Wasted AF if account</span>
+      </label>
+        </div>
+
+
+        <div class="input-field col s12 m3 l3">
+                          <i class="material-icons prefix">attach_money</i>
+          <input id="presupuesto" name="presupuesto" type="number" class="validate" value="1">
+          <label for="presupuesto">Presupuesto</label>
+        </div>
+
+
+
+    </div>
+
+
+
+
+            <div class="row" class="debug">
+
+
+
+
+        <div class="input-field col s12 m4 l4">
+                                      <i class="material-icons prefix">border_vertical</i>
+
+          <input id="latitude" name="latitude" type="text" class="validate" value="20.59" >
+          <label for="latitude">Latitud</label>
+        </div>
+
+            <div class="input-field col s12 m4 l4">
+                          <i class="material-icons prefix">border_horizontal</i>
+
+          <input id="longitude" name="longitude" type="text" class="validate" value="-100.38" >
+          <label for="longitude">Longitud</label>
+        </div>
+
+             <div class="input-field col s12 m4 l4">
+                                      <i class="material-icons prefix">wifi_tethering</i>
+
+
+          <input id="Radio" name="radio" type="text" class="validate" required value="100" >
+          <label for="Radio">Radio</label>
+        </div>
+        </div>
+
+    <div class="row">
+                <div class="col s12 m12 l12" id="status"></div>
+    </div>
+
+
+
+<div class="row">
+        <div class="input-field col s12 m12 l12">
+
+
+
+  <button class="btn waves-effect waves-light black" type="submit" name="action">Submit
+    <i class="material-icons right">send</i>
+  </button>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+</form>
+
+
+            </container>
+
+
+<script>
+    $(function() {
+
+      var checkbox = $("#chk");
+      var hidden1 = $("#city");
+
+      checkbox.change(function() {
+        // Check to see if the checkbox is checked.
+        // If it is, show the fields and populate the input.
+        // If not, hide the fields.
+        if (checkbox.is(':checked')) {
+          // Show the hidden fields.
+          hidden1.hide();
+          // Populate the input.
+
+        } else {
+          // Make sure that the hidden fields are indeed
+          // hidden.
+          hidden1.show();
+
+          // You may also want to clear the value of the
+          // hidden fields here. Just in case somebody
+          // shows the fields, enters data to them and then
+          // unticks the checkbox.
+          //
+          // This would do the job:
+          //
+          // $("#hidden_field").val("");
+        }
+      });
+    });
+
+
+  </script>
+
+
+{% endblock %}
+

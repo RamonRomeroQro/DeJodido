@@ -1,99 +1,73 @@
 from django.shortcuts import render
-
-# Create your views here.
-
-import urllib, json, ssl
-
-from deajodido.settings import GMAPS_API_KEY
 from django.http import HttpResponse
 
-import urllib.request
+import requests
 import json
-from django.http import JsonResponse
 
-#import requests
-#import json
+GMAPS_API_KEY = 'AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ'
+
+class startpoint():
+#https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=<latitude>,<longitude>&radius=<radio>&type=<type>&key=<GMAPS_API_KEY
+    latitude=0
+    longitude=0
+    radio=0
+    tipodebusqueda=0
+
+    def __init__(self):
+        self.latitude = 0
+        self.longitude = 0
+        self.radio = 0
+        self.type = 0
+
+
+    def __init__(self, lat, long, type):
+        self.latitude = lat
+        self.longitude = long
+        self.radio = 5000
+        self.type = type
+
+
+
+#connection = pymongo.MongoClient("mongodb://localhost")
+#db=connection.jodido
+#db.busquedas.insert(response)
+
 
 
 
 def inicio(request):
     if (request.method=='POST'):
-        '''
-        print('post request')
-        url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + request.POST[
-            'latitude'] + ',' + request.POST['longitude'] + '&radius=' + request.POST[
-                  'radio'] +'&type= point_of_interest'+ '&key='+GMAPS_API_KEY
 
 
-        gcontext = ssl.SSLContext(ssl.PROTOCOL_TLSv1)  # Only for gangstars
-
-        googleResponse = urllib.request.urlopen(url, context=gcontext)
-
-
-        jsonResponse = json.loads(googleResponse.read())
-        
-        return HttpResponse(jsonResponse["status"])
-        
-        '''
+        r = startpoint(request.POST['latitude'], request.POST['longitude'], 0)
+        types=''
+        if r.type==0:
+            types='amusement_park,aquarium,art_gallery,bar, bowling_alley,cafe,campground,'
+            types=types+'casino,church,city_hall,local_government_office,movie_theater,'
+            types=types+'museum,night_club,park,restaurant,shopping_mall,spa,'
+            types=types+'stadium,synagogue,zoo'
+        else:
+            types='bar'
 
 
 
-        # This restores the same behavior as before.
-        '''
-        import ssl
-
-        conte= ssl._create_default_https_context
-
-        url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + request.POST[
-            'latitude'] + ',' + request.POST['longitude'] + '&radius=' + request.POST[
-                  'radio'] + '&type= point_of_interest' + '&key='+GMAPS_API_KEY
-
-        req = urllib.request.Request(url)
-        conte.verify_mode = ssl.CERT_NONE
-        conte.check_hostname = None
-        conte.sock = None
-        conte.wrap_socket = None
-
-        #errpor 400, in form request
-
-
-        ##parsing response
-
-        print( urllib.request.urlopen(req, context=conte).read())
-        r = urllib.request.urlopen(req, context=conte).read()
-        cont = json.loads(r.decode('utf-8'))
-        counter = 0
-
-        ##parcing json
-
-        ##print formated
-        # print (json.dumps(cont, indent=4, sort_keys=True))
-        print( cont['status'] )
-        
-        '''
-
-
-
-        url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + request.POST[
-            'latitude'] + ',' + request.POST['longitude'] + '&radius=' + request.POST[
-                  'radio'] + '&type=bar' + '&key=' + GMAPS_API_KEY
+        url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + str(r.latitude) + ',' + str(
+            r.longitude) + '&radius=' + str(r.radio) + '&types=' + types + '&key=' + GMAPS_API_KEY
 
         response = json.loads(requests.get(url).text)
-        json_string = json.dumps(response)
-        return render(request, "busqueda/lista.html", {'results': json_string})
+
+        html = url+'\n\n'+(str(response['status']))
 
 
-        #html = '<html><body>Referred URL:  <a href="'+url+'">GO</a></body></html>'
-        #response = JsonResponse({'foo': 'bar'})
 
-        #return render(request, 'busqueda/lista.html', {'resultados': resultados})
-        #return JsonResponse(response)
+
+
+        return HttpResponse(html)
+
 
 
 
     else:
-
-
         return render(request, 'busqueda/inicio.html')
 
 
