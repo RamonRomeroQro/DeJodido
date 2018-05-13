@@ -26,3 +26,4 @@ class Lugar(models.Model):
     id_yelp = models.CharField(max_length=20, verbose_name="ID Yelp", default=None )
     id_foursquare = models.CharField(max_length=20, verbose_name="ID FourSquare", default=None )
     calificacion = models.FloatField()
+
