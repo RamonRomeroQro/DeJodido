@@ -61,6 +61,7 @@ def inicio(request):
 
 
 
+
         return HttpResponse(html)
 
 
