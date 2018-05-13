@@ -6,6 +6,9 @@ import requests
 import json
 import pymongo
 
+
+#https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ
+
 GMAPS_API_KEY = 'AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ'
 
 class startpoint():
