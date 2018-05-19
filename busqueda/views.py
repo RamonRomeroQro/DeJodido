@@ -1,68 +1,54 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Ciudad
 
 import requests
 import json
+from django.db.models import Count
 
 GMAPS_API_KEY = 'AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ'
 
-class startpoint():
 #https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=<latitude>,<longitude>&radius=<radio>&type=<type>&key=<GMAPS_API_KEY
-    latitude=0
-    longitude=0
-    radio=0
-    tipodebusqueda=0
-
-    def __init__(self):
-        self.latitude = 0
-        self.longitude = 0
-        self.radio = 0
-        self.type = 0
-
-
-    def __init__(self, lat, long, type):
-        self.latitude = lat
-        self.longitude = long
-        self.radio = 5000
-        self.type = type
-
-
-
-#connection = pymongo.MongoClient("mongodb://localhost")
-#db=connection.jodido
-#db.busquedas.insert(response)
-
 
 
 
 def inicio(request):
+
+    types = 'bar'
+
     if (request.method=='POST'):
 
 
-        r = startpoint(request.POST['latitude'], request.POST['longitude'], 0)
-        types=''
-        if r.type==0:
-            types='amusement_park,aquarium,art_gallery,bar, bowling_alley,cafe,campground,'
-            types=types+'casino,church,city_hall,local_government_office,movie_theater,'
-            types=types+'museum,night_club,park,restaurant,shopping_mall,spa,'
-            types=types+'stadium,synagogue,zoo'
+        if ( request.POST['city']=='' ):
+
+            if ( request.POST['latitude'] == '' or   request.POST['longitude']==''):
+
+                return render(request, 'busqueda/inicio.html', {'error': "ingrese nombre de ciudad o use ubicacion"})
+
+            else:
+
+                url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' +  request.POST['latitude']+ ',' + request.POST['longitude'] + '&radius=5000' + '&types=' + types + '&key=' + GMAPS_API_KEY
+                response = json.loads(requests.get(url).text)
+
+                html = '<p>'+ url + '</p><p>' + (str(response['status'])) + '</p>'
+                return HttpResponse(html)
+
         else:
-            types='bar'
+
+
+            lugar=[]
+            lugar = request.POST['city'].split(', ')
+
+            instance = Ciudad.objects.get(ciudad=lugar[0], pais=lugar[1])
 
 
 
-        url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + str(r.latitude) + ',' + str(
-            r.longitude) + '&radius=' + str(r.radio) + '&types=' + types + '&key=' + GMAPS_API_KEY
+            url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + str(instance.latitud) + ',' + str(instance.longitud) + '&radius=5000' +  '&types=' + types + '&key=' + GMAPS_API_KEY
 
-        response = json.loads(requests.get(url).text)
+            response = json.loads(requests.get(url).text)
 
-        html = url+'\n\n'+(str(response['status']))
-
-
-
-
-
-        return HttpResponse(html)
+            html = '<p>' + url + '</p><p>' + (str(response['status'])) + '</p>'
+            return HttpResponse(html)
 
 
 
@@ -70,6 +56,21 @@ def inicio(request):
     else:
         return render(request, 'busqueda/inicio.html')
 
+
+def listaciudades(request):
+    if request.is_ajax():
+        q = request.GET.get('term', '')
+        cities = Ciudad.objects.filter(ciudad__icontains=q).annotate(Count('ciudad'))[:3]
+        results = []
+        for c in cities:
+            place_json = {}
+            place_json = c.ciudad + ", " + c.pais
+            results.append(place_json)
+        data = json.dumps(results)
+    else:
+        data = 'fail'
+    mimetype = 'application/json'
+    return HttpResponse(data, mimetype)
 
 '''
 
