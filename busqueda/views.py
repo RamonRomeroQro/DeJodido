@@ -5,16 +5,45 @@ from .models import Ciudad
 import requests
 import json
 from django.db.models import Count
+from .models import TipoLugar
+from .models import Lugar
+import  time
 
 GMAPS_API_KEY = 'AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ'
 
 #https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=<latitude>,<longitude>&radius=<radio>&type=<type>&key=<GMAPS_API_KEY
 
 
+def busquedaGMaps(latitude,longitude, type):
+    url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + latitude + ',' + longitude + '&radius=5000' + '&types=' + type + '&key=' + GMAPS_API_KEY
+    print (url)
+    response = json.loads(requests.get(url).text)
+    return response
+
+def deployname(arr):
+
+    count = 0
+    while (count < len(arr['results'])):
+        print (arr['results'][count]['name'])
+        count = count + 1
+
+    if 'next_page_token' in arr:
+        time.sleep(2)
+        url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken=' + str(arr["next_page_token"]) + '&key=' + GMAPS_API_KEY
+        print (url)
+        new = json.loads(requests.get(url).text)
+        print (new['status'])
+        deployname(new)
+
+    else:
+        print ('eof')
+
+
+
 
 def inicio(request):
 
-    types = 'bar'
+    type1 = 'bar'
 
     if (request.method=='POST'):
 
@@ -27,10 +56,14 @@ def inicio(request):
 
             else:
 
-                url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' +  request.POST['latitude']+ ',' + request.POST['longitude'] + '&radius=5000' + '&types=' + types + '&key=' + GMAPS_API_KEY
-                response = json.loads(requests.get(url).text)
+                response = busquedaGMaps(request.POST['latitude'], request.POST['longitude'], type1)
 
-                html = '<p>'+ url + '</p><p>' + (str(response['status'])) + '</p>'
+                deployname(response)
+
+
+
+
+                html = '<p>' + (str(response['status'])) + '</p>'
                 return HttpResponse(html)
 
         else:
@@ -38,16 +71,11 @@ def inicio(request):
 
             lugar=[]
             lugar = request.POST['city'].split(', ')
-
             instance = Ciudad.objects.get(ciudad=lugar[0], pais=lugar[1])
+            response = busquedaGMaps(str(instance.latitud), str(instance.longitud), type1)
+            deployname(response)
 
-
-
-            url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + str(instance.latitud) + ',' + str(instance.longitud) + '&radius=5000' +  '&types=' + types + '&key=' + GMAPS_API_KEY
-
-            response = json.loads(requests.get(url).text)
-
-            html = '<p>' + url + '</p><p>' + (str(response['status'])) + '</p>'
+            html = '<p>' + (str(response['status'])) + '</p>'
             return HttpResponse(html)
 
 

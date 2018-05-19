@@ -4,7 +4,6 @@
 
 import requests
 import json
-import pymongo
 
 
 #https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ
@@ -32,8 +31,13 @@ response = json.loads(requests.get(url).text)
 #db=connection.jodido
 #db.busquedas.insert(response)
 
-print(str(response['status']))
-print(str(response['results'][0]))
+print (url)
+
+count=0
+while (count < len(response['results'])):
+    print (response['results'][count]['name'])
+    count = count + 1
+
 
 
 '''
