@@ -21,6 +21,8 @@ class TipoLugar(models.Model):
 class Lugar(models.Model):
     tipo = models.ManyToManyField(TipoLugar)
     nombre = models.CharField(max_length=100, verbose_name='Nombre del Lugar')
+    lat = models.FloatField( verbose_name='Latitud')
+    lng = models.FloatField(verbose_name='Longitud')
     id_google = models.CharField(max_length=20, verbose_name="ID Google", default=None )
     id_facebook = models.CharField(max_length=20, verbose_name="ID Facebook", default=None )
     id_yelp = models.CharField(max_length=20, verbose_name="ID Yelp", default=None )
