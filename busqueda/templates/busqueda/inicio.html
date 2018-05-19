@@ -4,8 +4,24 @@
 {% load staticfiles %}
 {% block content %}
 
+<script>
 
-<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+  $(function() {
+    $("#city").autocomplete({
+      source: "/listaciudades",
+      select: function (event, ui) { //item selected
+        AutoCompleteSelectHandler(event, ui)
+      },
+      minLength: 2,
+    });
+  });
+
+  function AutoCompleteSelectHandler(event, ui)
+  {
+    var selectedObj = ui.item;
+  }
+
+  </script>
 
 
 <script type="text/javascript">
@@ -58,135 +74,63 @@
 
 </script>
 
- <div class="navbar-fixed">
-
-<nav>
-    <div class="nav-wrapper black">
-      <a href="#!" class="brand-logo"><i class="material-icons">cloud</i>Logo</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="sass.html"><i class="material-icons">search</i></a></li>
-        <li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
-        <li><a href="#"><i class="material-icons">refresh</i></a></li>
-        <li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li>
-      </ul>
-    </div>
-  </nav>
-  </div>
-
 
 
 
     <container>
-        <br>
 
-<form class="container flex" method="POST" enctype="multipart/form-data" >
+        {{ error }}
+
+
+<form  method="POST" enctype="multipart/form-data" >
   {% csrf_token %}
 
 
 
-    <div class="row" >
-
-         <div class="input-field col s12 m3 l3" id="city">
-                                          <i class="material-icons prefix">place</i>
-          <input  type="text" name="city" class="validate" value="Querétaro" >
-          <label for="city">Ciudad</label>
-        </div>
+<div class="ui-widget" id="loc">
+   <label for="city">Ciudad: </label>
+  <input name="city"  id="city" >
+</div>
 
 
 
-           <div class="col s12 m3 l3" >
-               <br>
-      <label onclick="requestPosition()">
-        <input type="checkbox" id="chk" />
-        <span>Usar Ubicación Actual</span>
-      </label>
-        </div>
 
-           <div class="col s12 m3 l3" >
-               <br>
-      <label>
-        <input type="checkbox" />
-        <span>Wasted AF if account</span>
-      </label>
-        </div>
-
-
-        <div class="input-field col s12 m3 l3">
-                          <i class="material-icons prefix">attach_money</i>
-          <input id="presupuesto" name="presupuesto" type="number" class="validate" value="1">
-          <label for="presupuesto">Presupuesto</label>
-        </div>
+<div>
+    <label>Usar Ubicación Actual</label>
+        <input type="checkbox" id="chk" onclick="requestPosition()" />
+</div>
 
 
 
+
+
+          <input id="latitude" name="latitude" type="text" class="validate"  hidden >
+          <input id="longitude" name="longitude" type="text" class="validate" hidden  >
+
+
+
+    <div>
+                <div  id="status"></div>
     </div>
 
 
 
-
-            <div class="row" class="debug">
-
-
-
-
-        <div class="input-field col s12 m4 l4">
-                                      <i class="material-icons prefix">border_vertical</i>
-
-          <input id="latitude" name="latitude" type="text" class="validate" value="20.59" >
-          <label for="latitude">Latitud</label>
-        </div>
-
-            <div class="input-field col s12 m4 l4">
-                          <i class="material-icons prefix">border_horizontal</i>
-
-          <input id="longitude" name="longitude" type="text" class="validate" value="-100.38" >
-          <label for="longitude">Longitud</label>
-        </div>
-
-             <div class="input-field col s12 m4 l4">
-                                      <i class="material-icons prefix">wifi_tethering</i>
-
-
-          <input id="Radio" name="radio" type="text" class="validate" required value="100" >
-          <label for="Radio">Radio</label>
-        </div>
-        </div>
-
-    <div class="row">
-                <div class="col s12 m12 l12" id="status"></div>
-    </div>
-
-
-
-<div class="row">
-        <div class="input-field col s12 m12 l12">
-
-
-
-  <button class="btn waves-effect waves-light black" type="submit" name="action">Submit
-    <i class="material-icons right">send</i>
-  </button>
-
-        </div>
-    </div>
-
-
-
-
-
-
-
+<div>
+      <button type="submit">Buscar</button>
+</div>
 </form>
+    </container>
 
 
-            </container>
+
 
 
 <script>
     $(function() {
 
       var checkbox = $("#chk");
-      var hidden1 = $("#city");
+      var hidden1 = $("#loc");
+
 
       checkbox.change(function() {
         // Check to see if the checkbox is checked.
@@ -202,6 +146,7 @@
           // hidden.
           hidden1.show();
 
+
           // You may also want to clear the value of the
           // hidden fields here. Just in case somebody
           // shows the fields, enters data to them and then
@@ -216,7 +161,6 @@
 
 
   </script>
-
 
 {% endblock %}
 
