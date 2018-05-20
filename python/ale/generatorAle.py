@@ -14,7 +14,7 @@ class startpoint():
 r = startpoint()
 counter=0
 
-url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + str(r.latitude) + ',' + str(r.longitude) + '&radius=' + str(r.radio) + '&type='+ r.type + '&key=' + GMAPS_API_KEY
+url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=20.5915833,-100.4075112&radius=1000&type=bar&key=AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ'
 response = json.loads(requests.get(url).text)
 lugares = json.dumps(response, indent=4, sort_keys=True)
 

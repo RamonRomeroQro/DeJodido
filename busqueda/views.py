@@ -5,7 +5,6 @@ from .models import Ciudad
 import requests
 import json
 from django.db.models import Count
-from .models import TipoLugar
 from .models import Lugar
 import  time
 
@@ -16,38 +15,66 @@ GMAPS_API_KEY = 'AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ'
 
 def busquedaGMaps(latitude,longitude, type):
     url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + latitude + ',' + longitude + '&radius=5000' + '&types=' + type + '&key=' + GMAPS_API_KEY
-    #print (url)
+    print (url)
     response = json.loads(requests.get(url).text)
     return response
 
-def saveLocal(arr):
+def saveLocal(arr, q):
 
     count = 0
     while (count < len(arr['results'])):
-        print (arr['results'][count]['name'])
-        print (arr['results'][count]['place_id'])
+
+
+
+        name=  (arr['results'][count]['name'])
+        place_id= (arr['results'][count]['place_id'])
 
         try:
-            print (arr['results'][count]['rating'])
+            rating =  (arr['results'][count]['rating'])
         except KeyError:
-            print (0.0)
+            rating = (0)
 
-        print (arr['results'][count]['vicinity'])
-        print (arr['results'][count]['geometry']['location']['lat'])
-        print (arr['results'][count]['geometry']['location']['lng'])
-        print ('-----------------------')
+        vicinity=  (arr['results'][count]['vicinity'])
+        lat =  (arr['results'][count]['geometry']['location']['lat'])
+        lng =  (arr['results'][count]['geometry']['location']['lng'])
+        '''
+        t=0
+        while (t < len(arr['results'][count]['types'])):
+            print (arr['results'][count]['types'][t])
+            t=t+1
+        '''
+
+        obj, created = Lugar.objects.get_or_create(
+            nombre= name,
+            lat = lat,
+            lng = lng,
+            direccion = vicinity,
+            place_id = place_id,
+            rating = rating
+        )
+        print ('>>>>>>>>>>>>>>'+obj.nombre)
+
+        q.append(obj)
+
+
+
+
+
         count = count + 1
 
     if 'next_page_token' in arr:
         time.sleep(2)
         url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken=' + str(arr["next_page_token"]) + '&key=' + GMAPS_API_KEY
-        #print (url)
+        print (url)
         new = json.loads(requests.get(url).text)
-        #print (new['status'])
-        saveLocal(new)
+        print (new['status'])
+        saveLocal(new, q)
 
     else:
+
         print ('eof')
+
+    return  q
 
 
 
@@ -69,14 +96,14 @@ def inicio(request):
             else:
 
                 response = busquedaGMaps(request.POST['latitude'], request.POST['longitude'], type1)
+                lista=[]
+                q=[]
+                lista = saveLocal(response, q)
 
-                saveLocal(response)
+                print  (lista)
 
+                return render(request, 'busqueda/lista.html', {'lista': lista})
 
-
-
-                html = '<p>' + (str(response['status'])) + '</p>'
-                return HttpResponse(html)
 
         else:
 
@@ -85,12 +112,13 @@ def inicio(request):
             lugar = request.POST['city'].split(', ')
             instance = Ciudad.objects.get(ciudad=lugar[0], pais=lugar[1])
             response = busquedaGMaps(str(instance.latitud), str(instance.longitud), type1)
-            saveLocal(response)
+            lista = []
+            q = []
+            lista = saveLocal(response, q)
 
-            html = '<p>' + (str(response['status'])) + '</p>'
-            return HttpResponse(html)
+            print  (lista)
 
-
+            return render(request, 'busqueda/lista.html', {'lista': lista})
 
 
     else:
