@@ -12,9 +12,12 @@ GMAPS_API_KEY = 'AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ'
 
 #https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=<latitude>,<longitude>&radius=<radio>&type=<type>&key=<GMAPS_API_KEY
 
+#  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#POR QUESTIONES DE FILTRADO, SE USA KEYWORD EN LUGAR DE TYPE
+#  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 def busquedaGMaps(latitude,longitude, type):
-    url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + latitude + ',' + longitude + '&radius=5000' + '&types=' + type + '&key=' + GMAPS_API_KEY
+    url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + latitude + ',' + longitude + '&radius=5000' + '&keyword=' + type + '&key=' + GMAPS_API_KEY
     print (url)
     response = json.loads(requests.get(url).text)
     return response
