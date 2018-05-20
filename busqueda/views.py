@@ -52,6 +52,7 @@ def saveLocal(arr):
 
 
 
+
 def inicio(request):
 
     type1 = 'bar'
