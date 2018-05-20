@@ -13,6 +13,11 @@
     {% for Lugar in lista %}
 
             <li> {{Lugar.nombre}} </li>
+                <ul>
+                    <li>{{Lugar.nombre}}</li>
+                    <li>{{Lugar.direccion}}</li>
+                    <li>{{Lugar.rating}}</li>
+                </ul>
     {% empty %}
     <li>No hay jugadoras registradas aun.</li>
     {% endfor %}

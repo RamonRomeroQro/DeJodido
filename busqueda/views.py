@@ -55,7 +55,7 @@ def saveLocal(arr, q):
             place_id = place_id,
             rating = rating
         )
-        print ('>>>>>>>>>>>>>>'+obj.nombre)
+        #print ('>>>>>>>>>>>>>>'+obj.nombre)
 
         q.append(obj)
 
@@ -68,16 +68,20 @@ def saveLocal(arr, q):
     if 'next_page_token' in arr:
         time.sleep(2)
         url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken=' + str(arr["next_page_token"]) + '&key=' + GMAPS_API_KEY
-        print (url)
+        #print (url)
         new = json.loads(requests.get(url).text)
         print (new['status'])
         saveLocal(new, q)
 
-    else:
 
-        print ('eof')
+
+        #print ('eof')
+
+     # sort by age
 
     return  q
+
+
 
 
 
@@ -103,7 +107,7 @@ def inicio(request):
                 q=[]
                 lista = saveLocal(response, q)
 
-                print  (lista)
+                #print  (lista)
 
                 return render(request, 'busqueda/lista.html', {'lista': lista})
 
@@ -119,7 +123,7 @@ def inicio(request):
             q = []
             lista = saveLocal(response, q)
 
-            print  (lista)
+            #print  (lista)
 
             return render(request, 'busqueda/lista.html', {'lista': lista})
 
