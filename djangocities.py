@@ -5,7 +5,7 @@ with open('cities.csv') as csvfile:
     spamreader = csv.reader(csvfile)
     for row in spamreader:
 
-        instance = Ciudad.get_or_create(
+        obj, created = Ciudad.objects.get_or_create(
             ciudad=row[0],
             pais=row[5],
             latitud=row[2],
