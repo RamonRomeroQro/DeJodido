@@ -5,16 +5,84 @@ from .models import Ciudad
 import requests
 import json
 from django.db.models import Count
+from .models import Lugar
+import  time
 
 GMAPS_API_KEY = 'AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ'
 
 #https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=<latitude>,<longitude>&radius=<radio>&type=<type>&key=<GMAPS_API_KEY
 
 
+def busquedaGMaps(latitude,longitude, type):
+    url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + latitude + ',' + longitude + '&radius=5000' + '&types=' + type + '&key=' + GMAPS_API_KEY
+    print (url)
+    response = json.loads(requests.get(url).text)
+    return response
+
+def saveLocal(arr, q):
+
+    count = 0
+    while (count < len(arr['results'])):
+
+
+
+        name=  (arr['results'][count]['name'])
+        place_id= (arr['results'][count]['place_id'])
+
+        try:
+            rating =  (arr['results'][count]['rating'])
+        except KeyError:
+            rating = (0)
+
+        vicinity=  (arr['results'][count]['vicinity'])
+        lat =  (arr['results'][count]['geometry']['location']['lat'])
+        lng =  (arr['results'][count]['geometry']['location']['lng'])
+        '''
+        t=0
+        while (t < len(arr['results'][count]['types'])):
+            print (arr['results'][count]['types'][t])
+            t=t+1
+        '''
+
+        obj, created = Lugar.objects.get_or_create(
+            nombre= name,
+            lat = lat,
+            lng = lng,
+            direccion = vicinity,
+            place_id = place_id,
+            rating = rating
+        )
+        print ('>>>>>>>>>>>>>>'+obj.nombre)
+
+        q.append(obj)
+
+
+
+
+
+        count = count + 1
+
+    if 'next_page_token' in arr:
+        time.sleep(2)
+        url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken=' + str(arr["next_page_token"]) + '&key=' + GMAPS_API_KEY
+        print (url)
+        new = json.loads(requests.get(url).text)
+        print (new['status'])
+        saveLocal(new, q)
+
+    else:
+
+        print ('eof')
+
+    return  q
+
+
+
+
 
 def inicio(request):
 
-    types = 'bar'
+    type1 = 'bar'
 
     if (request.method=='POST'):
 
@@ -27,30 +95,30 @@ def inicio(request):
 
             else:
 
-                url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' +  request.POST['latitude']+ ',' + request.POST['longitude'] + '&radius=5000' + '&types=' + types + '&key=' + GMAPS_API_KEY
-                response = json.loads(requests.get(url).text)
+                response = busquedaGMaps(request.POST['latitude'], request.POST['longitude'], type1)
+                lista=[]
+                q=[]
+                lista = saveLocal(response, q)
 
-                html = '<p>'+ url + '</p><p>' + (str(response['status'])) + '</p>'
-                return HttpResponse(html)
+                print  (lista)
+
+                return render(request, 'busqueda/lista.html', {'lista': lista})
+
 
         else:
 
 
             lugar=[]
             lugar = request.POST['city'].split(', ')
-
             instance = Ciudad.objects.get(ciudad=lugar[0], pais=lugar[1])
+            response = busquedaGMaps(str(instance.latitud), str(instance.longitud), type1)
+            lista = []
+            q = []
+            lista = saveLocal(response, q)
 
+            print  (lista)
 
-
-            url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + str(instance.latitud) + ',' + str(instance.longitud) + '&radius=5000' +  '&types=' + types + '&key=' + GMAPS_API_KEY
-
-            response = json.loads(requests.get(url).text)
-
-            html = '<p>' + url + '</p><p>' + (str(response['status'])) + '</p>'
-            return HttpResponse(html)
-
-
+            return render(request, 'busqueda/lista.html', {'lista': lista})
 
 
     else:
