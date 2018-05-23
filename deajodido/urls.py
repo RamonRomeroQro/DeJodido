@@ -23,5 +23,6 @@ from django.conf import settings
 
 urlpatterns = [
     path('', include('django.contrib.auth.urls')),
-    path('', include('busqueda.urls')),
+    path('admin/', admin.site.urls),
+
 ]
