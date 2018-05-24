@@ -14,26 +14,85 @@ GMAPS_API_KEY = 'AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ'
 
 omits=['el', 'la', 'los', 'las', 'bar', 'un', 'un', 'restaurante', ]
 
+import json, requests
+
+
+def busquedaYelp(regex, lat, lng):
+    url = "https://api.yelp.com/v3/businesses/search?term="+regex+"&latitude="+lat+"&longitude="+lng
+    headers={'Authorization':'Bearer CpMKG2Z-E_WAiDNoHTnGCUzZ2wUCTPsOwd2B6egscNf6p7BNOY81zt6JjtScUNRaQqq6ttHEqEYLW5PySrEVMe9KFpyeNY9q0Ao7U3ujCGbObr2IDRXTFUD-D1gEW3Yx'}
+    response = json.loads(requests.get(url,headers=headers).text)
+    print (response['businesses'][0]['id'])
+    print (response['businesses'][0]['rating'])
+    print (response['businesses'][0]['price'])
+
+def busquedaFoursquare(regex,lat,lng):
+    url = 'https://api.foursquare.com/v2/venues/search'
+
+    params2 = dict(
+        client_id='0U1M35P3PWR3C3NW41MCVIP1OPSYMJJPXDG5EOFPNWTFVUY5',
+        client_secret='2P50CX0GU1TBMLTWXO5052XV5JKTT03A3EAQAFXZWWZ0YLTK',
+        v='20180323',
+    )
+
+    params = dict(
+        client_id='0U1M35P3PWR3C3NW41MCVIP1OPSYMJJPXDG5EOFPNWTFVUY5',
+        client_secret='2P50CX0GU1TBMLTWXO5052XV5JKTT03A3EAQAFXZWWZ0YLTK',
+        v='20180323',
+        ll=str(lat)+','+str(lng),
+        name=regex,
+        intent='match',
+        limit=4
+    )
+
+    resp = requests.get(url=url, params=params)
+    data = json.loads(resp.text)
+
+    if len(data['response']['venues']) > 0:
+
+        print('foursquare_name: ' +data['response']['venues'][0]['name'])
+        print('foursquare_id: ' +data['response']['venues'][0]['id'])
+
+        urlrating='https://api.foursquare.com/v2/venues/'+data['response']['venues'][0]['id']
+        resp2 = requests.get(url=urlrating, params=params2)
+        data2 = json.loads(resp2.text)
+
+
+        try:
+            print('foursquare_price: ' + str((data2['response']['venue']['price']['tier'])))
+            print('foursquare_rating: ' + str((data2['response']['venue']['rating'])/2))
+        except KeyError:
+            print('foursquare_rating: NO DISP')
+
+    else:
+        print('NO HAY INFORMACION DE FOURSQUARES')
+
+
+
 
 
 def busquedaFacebook(regex, lat, lng):
     # specific="bar los amigos"
-    token = 'EAAcqB1ocdIUBAJd6E0kAQaalP46qrbMdDosbhiVZAOO9O10yoccZCqQZCkjoBbD8Gujb8gMQ8RdZAs9BzDKUOo8pxqVz1I6EKkrLSBDZB3wYQ63YblQqxJqGNzTkrRSLw00oaL7yCAaybyEWetYAYPguSgL2MbFrZBD1fp5rhs2g6vyyfTZAEApecoIdLNJo4Bkg4MIeSxtkwZDZD'
+    token = 'EAAcqB1ocdIUBAMxl7Gc0ad5IOOKqzVugvwcxVlg6Nh2HGxLnoO2yZATS8KOiqzFqBElYHI72VLBPYrgmfWtPjgaQtH6tmzzILsGD2wtSFyX09vI5GpAZAch8IlPaESr7dCZBZAVEK1chyDNHc5xw8OfP8JTE3Ve2ZCrylmz9x40ztZCbsEg6ZCB1NelCxMEeBoZD'
 
     urlFB = "https://graph.facebook.com/v3.0/search?type=place&center=" + lat + "," + lng + "&distance=5000&q=" + regex + "&fields=name,link,overall_star_rating,website&access_token=" + token
     response = json.loads(requests.get(urlFB).text)
-    if len(response['data']) >0:
-        print('nombre FB: ' + response['data'][0]['name'])
-        print('facebook_ID: ' + response['data'][0]['id'])
-        print('facebook_ID: ' + response['data'][0]['link'])
 
-        try:
-            print('rating FB: ' + str(response['data'][0]['overall_star_rating']))
+    try:
+        if len(response['data']) >0:
+            print('nombre FB: ' + response['data'][0]['name'])
+            print('facebook_ID: ' + response['data'][0]['id'])
+            print('facebook_ID: ' + response['data'][0]['link'])
 
-        except KeyError:
-            print ('rating FB: NO DISP')
-    else:
+            try:
+                print('rating FB: ' + str(response['data'][0]['overall_star_rating']))
 
+            except KeyError:
+                print ('rating FB: NO DISP')
+        else:
+
+            print ('info de fb no disponible')
+
+    except KeyError:
         print ('info de fb no disponible')
 
 
@@ -63,7 +122,7 @@ def saveLocal(arr):
         print (arr['results'][count]['geometry']['location']['lng'])
 
         busquedaFacebook(str(arr['results'][count]['name']), str(arr['results'][count]['geometry']['location']['lat']), str(arr['results'][count]['geometry']['location']['lng']))
-
+        busquedaFoursquare(str(arr['results'][count]['name']), str(arr['results'][count]['geometry']['location']['lat']), str(arr['results'][count]['geometry']['location']['lng']))
 
 
         print  ('---------------------')
