@@ -4,6 +4,7 @@ import json
 import time
 import pprint
 
+#from lugares.models import Lugar
 GMAPS_API_KEY = 'AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ'
 
 #https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=<latitude>,<longitude>&radius=<radio>&type=<type>&key=<GMAPS_API_KEY
@@ -16,62 +17,78 @@ omits=['el', 'la', 'los', 'las', 'bar', 'un', 'un', 'restaurante', ]
 
 import json, requests
 
-nombre = ""
-direccion = ""
-latitud = 0.0
-longitud = 0.0
-botana = None
-validado = False
-rating = 0.0
-precio = 0.0
-id_google = ''
-id_yelp = ''
-id_foursquare = ''
-id_facebook = ''
-tags = None
-ciudad = 777
 
-count_rt=0
-count_pr=0
+def creacioDBO(gobj, fobj, sobj, yobj):
 
-def printeo():
-    print (nombre)
-    print (direccion)
-    print (latitud)
-    print (longitud)
-    print (botana)
-    print (validado)
-    print (rating)
-    print (precio)
-    print (id_google)
-    print (id_yelp)
-    print (id_foursquare)
-    print (id_facebook)
-    print (tags)
-    print (ciudad)
+    rt=[gobj['google_rating'], yobj['yelp_rating'], sobj['foursquare_rating'], fobj['facebook_rating']]
+    #pprint.pprint(rt)
+    crt=rt.count(-100)
+    sm=sum(rt)+(crt*100)
+    d=len(rt)-crt
+    try:
+        avrt=sm/d
+        r=avrt
+    except ZeroDivisionError:
+        r=None
 
+
+    rt=[gobj['google_price'], yobj['yelp_price'], sobj['foursquare_price'], fobj['facebook_price']]
+    #pprint.pprint(rt)
+    crt = rt.count(-100)
+    sm = sum(rt) + (crt * 100)
+    d = len(rt) - crt
+    try:
+        avrt=sm/d
+        p=avrt
+    except ZeroDivisionError:
+        p=None
+
+
+    obj, created = Lugar.objects.get_or_create(
+        nombre=gobj['google_nombre'],
+        direccion = gobj['google_direccion'],
+        latitud = gobj['google_latitud'],
+        longitud = gobj['google_longitud'],
+        botana = None,
+        validado = False,
+        id_google=gobj['google_id'],
+        id_yelp = yobj['yelp_id'],
+        id_foursquare = sobj['foursquare_id'],
+        id_facebook = fobj['facebook_if'],
+        tags = 1,
+        ciudad = 1,
+        rating=r,
+        precio=p,
+
+    )
 
 def busquedaYelp(regex, lat, lng):
     url = "https://api.yelp.com/v3/businesses/search?term="+regex+"&latitude="+lat+"&longitude="+lng
     headers={'Authorization':'Bearer CpMKG2Z-E_WAiDNoHTnGCUzZ2wUCTPsOwd2B6egscNf6p7BNOY81zt6JjtScUNRaQqq6ttHEqEYLW5PySrEVMe9KFpyeNY9q0Ao7U3ujCGbObr2IDRXTFUD-D1gEW3Yx'}
     response = json.loads(requests.get(url,headers=headers).text)
     try:
-        a=len(response['businesses'])
-        if (a > 0):
-            try:
 
-                print ("yelp_name: " + response['businesses'][0]['name'])
-                print ("yelp_id: " + response['businesses'][0]['id'])
+        #print ("yelp_name: " + response['businesses'][0]['name'])
+        yelp_id= (response['businesses'][0]['id'])
+        try:
+            yelp_rating= response['businesses'][0]['rating']
+        except KeyError:
+            yelp_rating = -100
+        try:
+            yelp_price = len(response['businesses'][0]['price'])
+        except KeyError:
+            yelp_price = -100
 
-                print ("yelp_rating: " + str(response['businesses'][0]['rating']))
-                print ("yelp_price: " + response['businesses'][0]['price'])
-            except KeyError:
-                print('NO HAY INFORMACION DE YELP')
-        else:
-            print('NO HAY INFORMACION DE YELP')
+    except (KeyError, IndexError) as e:
 
-    except KeyError:
-        print('NO HAY INFORMACION DE YELP')
+        yelp_id = -100
+
+        yelp_rating = -100
+
+        yelp_price = -100
+
+
+    return {'yelp_id': yelp_id, 'yelp_rating': yelp_rating, 'yelp_price': yelp_price}
 
 
 def busquedaFoursquare(regex,lat,lng):
@@ -98,8 +115,8 @@ def busquedaFoursquare(regex,lat,lng):
 
     try:
 
-        print('foursquare_name: ' +data['response']['venues'][0]['name'])
-        print('foursquare_id: ' +data['response']['venues'][0]['id'])
+        #print('foursquare_name: ' +data['response']['venues'][0]['name'])
+        foursquare_id = data['response']['venues'][0]['id']
 
         urlrating='https://api.foursquare.com/v2/venues/'+data['response']['venues'][0]['id']
         resp2 = requests.get(url=urlrating, params=params2)
@@ -107,13 +124,26 @@ def busquedaFoursquare(regex,lat,lng):
 
 
         try:
-            print('foursquare_price: ' + str((data2['response']['venue']['price']['tier'])))
-            print('foursquare_rating: ' + str((data2['response']['venue']['rating'])/2))
+            foursquare_price = (data2['response']['venue']['price']['tier'])
         except KeyError:
-            print('NO HAY INFORMACION DE FOURSQUARE')
+            foursquare_price = -100
+
+        try:
+            foursquare_rating = (data2['response']['venue']['rating']) / 2
+        except KeyError:
+            foursquare_rating = -100
+
+
 
     except (KeyError, IndexError) as e:
-        print('NO HAY INFORMACION DE FOURSQUARE')
+        foursquare_id=-100
+        foursquare_price=-100
+        foursquare_rating=-100
+
+        #print('NO HAY INFORMACION DE FOURSQUARE')
+
+    return {'foursquare_id': foursquare_id, 'foursquare_price': foursquare_price, 'foursquare_rating': foursquare_rating}
+
 
 
 
@@ -125,19 +155,23 @@ def busquedaFacebook(regex, lat, lng):
     response = json.loads(requests.get(urlFB).text)
     #pprint.pprint(response)
     try:
-        if len(response['data']) >0:
-            print('facebook_name: ' + response['data'][0]['name'])
-            print('facebook_ID: ' + response['data'][0]['id'])
-            print('facebook_page: ' + response['data'][0]['link'])
-            try:
-                print('facebook_rating: ' + str(response['data'][0]['overall_star_rating']))
-                print('facebook_price: ' + response['data'][0]['price_range'])
-            except KeyError:
-                print ('NO HAY INFORMACION DE FACEBOOK')
-        else:
-            print ('NO HAY INFORMACION DE FACEBOOK')
-    except KeyError:
-        print ('NO HAY INFORMACION DE FACEBOOK')
+        #print('facebook_name: ' + response['data'][0]['name'])
+        facebook_id = response['data'][0]['id']
+        #print('facebook_page: ' + response['data'][0]['link'])
+        try:
+            facebook_rating = response['data'][0]['overall_star_rating']
+        except KeyError:
+            facebook_rating=-100
+        try:
+            facebook_price = len(response['data'][0]['price_range'])
+        except KeyError:
+            facebook_price = -100
+
+    except (KeyError, IndexError) as e:
+        facebook_id = -100
+        facebook_rating = -100
+        facebook_price = -100
+    return {'facebook_id': facebook_id, 'facebook_rating': facebook_rating, 'facebook_price': facebook_price}
 
 
 
@@ -152,37 +186,28 @@ def saveLocal(arr):
 
     count = 0
     while (count < len(arr['results'])):
-        print ('google_nombre: '+ arr['results'][count]['name'])
-        print  ('google_id: '+ arr['results'][count]['place_id'])
+        google_nombre =  arr['results'][count]['name']
+        google_id = arr['results'][count]['place_id']
         try:
-            print  ('google_rating: ', arr['results'][count]['rating'])
+            google_rating=arr['results'][count]['rating']
         except KeyError:
-            print  ('google_rating: Desconocido')
+            google_rating=-100
 
-        print  ('google_direccion: ' + (arr['results'][count]['vicinity']))
-        print  ('google_latitud: ' ,arr['results'][count]['geometry']['location']['lat'])
-        print ('google_longitud: ' , arr['results'][count]['geometry']['location']['lng'])
-
-
-        #pprint.pprint(arr)
+        google_direccion = arr['results'][count]['vicinity']
+        google_latitud = arr['results'][count]['geometry']['location']['lat']
+        google_longitud = arr['results'][count]['geometry']['location']['lng']
 
         try:
-            print  ('google_price: ' + arr['results'][count]['price_level'])
+            google_price=arr['results'][count]['price_level']
         except KeyError:
-            print ('PRICE NO DISPONIBLE')
+            google_price= -100
 
+        gobj={'google_nombre': google_nombre, 'google_id': google_id, 'google_rating':google_rating, 'google_direccion': google_direccion, 'google_latitud': google_latitud, 'google_longitud': google_longitud, 'google_price':google_price}
+        fobj=busquedaFacebook(str(arr['results'][count]['name']), str(arr['results'][count]['geometry']['location']['lat']), str(arr['results'][count]['geometry']['location']['lng']))
+        yobj=busquedaYelp(str(arr['results'][count]['name']), str(arr['results'][count]['geometry']['location']['lat']), str(arr['results'][count]['geometry']['location']['lng']))
+        sobj=busquedaFoursquare(str(arr['results'][count]['name']), str(arr['results'][count]['geometry']['location']['lat']), str(arr['results'][count]['geometry']['location']['lng']))
 
-        print ('-----------')
-        busquedaFacebook(str(arr['results'][count]['name']), str(arr['results'][count]['geometry']['location']['lat']), str(arr['results'][count]['geometry']['location']['lng']))
-        print ('-----------')
-        busquedaYelp(str(arr['results'][count]['name']), str(arr['results'][count]['geometry']['location']['lat']), str(arr['results'][count]['geometry']['location']['lng']))
-        print ('-----------')
-        busquedaFoursquare(str(arr['results'][count]['name']), str(arr['results'][count]['geometry']['location']['lat']), str(arr['results'][count]['geometry']['location']['lng']))
-
-        print  ('\n')
-        print  ('<><><><><><><><><><><><><><>')
-        print  ('\n')
-
+        creacioDBO(gobj, fobj, sobj, yobj)
 
         '''
         
@@ -217,7 +242,7 @@ lng='-100.3788854'
 kyword='bar'
 
 
-response = busquedaGMaps(lat, lng, 'nightclub')
+response = busquedaGMaps(lat, lng, kyword)
 saveLocal(response)
 
 
