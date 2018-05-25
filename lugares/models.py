@@ -44,6 +44,7 @@ class Lugar(models.Model):
     botana=models.NullBooleanField(verbose_name='Botana')
     validado=models.BooleanField(verbose_name='Validado')
     rating=models.FloatField(verbose_name='Rating', null=True, blank=True)
+    precio=models.FloatField(verbose_name='Precio', null=True, blank=True)
     id_google=models.CharField(verbose_name='ID Google Places', null=True, blank=True, max_length=500)
     id_yelp=models.CharField(verbose_name='ID Yelp', null=True, blank=True, max_length=500)
     id_foursquare=models.CharField(verbose_name='ID FourSquare', null=True, blank=True, max_length=500)
