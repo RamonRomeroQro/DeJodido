@@ -1,24 +1,43 @@
-
-import requests
 import json
+import requests
 import time
 import pprint
 
-#from lugares.models import Lugar
+from lugares.models import Lugar, Ciudad, Estado, Pais
+from lugares.models import Tags
 GMAPS_API_KEY = 'AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ'
 
-#https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=<latitude>,<longitude>&radius=<radio>&type=<type>&key=<GMAPS_API_KEY
-
-#  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-#POR QUESTIONES DE FILTRADO, SE USA KEYWORD EN LUGAR DE TYPE
-#  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 omits=['el', 'la', 'los', 'las', 'bar', 'un', 'un', 'restaurante', ]
 
-import json, requests
+def city(c,e,p):
+    pais, cr1 = Pais.objects.get_or_create(
+        nombre=p
+    )
+
+    estado, cr2 = Estado.objects.get_or_create(
+        nombre=e,
+        pais=pais
+    )
 
 
-def creacioDBO(gobj, fobj, sobj, yobj):
+    ciudad, cr3 = Ciudad.objects.get_or_create(
+        nombre=c,
+        estado = estado
+    )
+
+
+    return ciudad
+
+def taging(kw):
+    tag, cr1 = Tags.objects.get_or_create(
+        descripcion=kw
+    )
+
+
+    return tag
+
+def creacioDBO(gobj, fobj, sobj, yobj, kw, c,e,p):
 
     rt=[gobj['google_rating'], yobj['yelp_rating'], sobj['foursquare_rating'], fobj['facebook_rating']]
     #pprint.pprint(rt)
@@ -27,9 +46,9 @@ def creacioDBO(gobj, fobj, sobj, yobj):
     d=len(rt)-crt
     try:
         avrt=sm/d
-        r=avrt
+        rat=avrt
     except ZeroDivisionError:
-        r=None
+        rat=-100
 
 
     rt=[gobj['google_price'], yobj['yelp_price'], sobj['foursquare_price'], fobj['facebook_price']]
@@ -39,10 +58,13 @@ def creacioDBO(gobj, fobj, sobj, yobj):
     d = len(rt) - crt
     try:
         avrt=sm/d
-        p=avrt
+        price=avrt
     except ZeroDivisionError:
-        p=None
+        price=-100
 
+
+    c=city(c, e, p)
+    t=taging(kw)
 
     obj, created = Lugar.objects.get_or_create(
         nombre=gobj['google_nombre'],
@@ -54,13 +76,14 @@ def creacioDBO(gobj, fobj, sobj, yobj):
         id_google=gobj['google_id'],
         id_yelp = yobj['yelp_id'],
         id_foursquare = sobj['foursquare_id'],
-        id_facebook = fobj['facebook_if'],
-        tags = 1,
-        ciudad = 1,
-        rating=r,
-        precio=p,
+        id_facebook = fobj['facebook_id'],
+        ciudad = c,
+        rating=rat,
+        precio=price,
 
     )
+    obj.tags.add(t)
+    obj.save()
 
 def busquedaYelp(regex, lat, lng):
     url = "https://api.yelp.com/v3/businesses/search?term="+regex+"&latitude="+lat+"&longitude="+lng
@@ -174,8 +197,9 @@ def busquedaFacebook(regex, lat, lng):
     return {'facebook_id': facebook_id, 'facebook_rating': facebook_rating, 'facebook_price': facebook_price}
 
 
-
 def busquedaGMaps(latitude,longitude, kyword):
+    GMAPS_API_KEY = 'AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ'
+
     url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + latitude + ',' + longitude + '&radius=5000' + '&keyword=' + kyword + '&key=' + GMAPS_API_KEY
     #print (url)
     response = json.loads(requests.get(url).text)
@@ -206,25 +230,18 @@ def saveLocal(arr):
         fobj=busquedaFacebook(str(arr['results'][count]['name']), str(arr['results'][count]['geometry']['location']['lat']), str(arr['results'][count]['geometry']['location']['lng']))
         yobj=busquedaYelp(str(arr['results'][count]['name']), str(arr['results'][count]['geometry']['location']['lat']), str(arr['results'][count]['geometry']['location']['lng']))
         sobj=busquedaFoursquare(str(arr['results'][count]['name']), str(arr['results'][count]['geometry']['location']['lat']), str(arr['results'][count]['geometry']['location']['lng']))
+        ###
+        ###
+        ###
+        creacioDBO(gobj, fobj, sobj, yobj, 'bar' ,'Queretaro', 'Queretaro', 'Mexico')
+        print (gobj['google_nombre'])
 
-        creacioDBO(gobj, fobj, sobj, yobj)
-
-        '''
-        
-        
-        obj, created = Lugar.objects.get_or_create(
-            nombre= name,
-            lat = lat,
-            lng = lng,
-            direccion = vicinity,
-            place_id = place_id,
-            rating = rating
-        )
-        '''
         count = count + 1
 
     if 'next_page_token' in arr:
         time.sleep(2)
+        GMAPS_API_KEY = 'AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ'
+
         url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken=' + str(arr["next_page_token"]) + '&key=' + GMAPS_API_KEY
         #print (url)
         new = json.loads(requests.get(url).text)
