@@ -79,12 +79,15 @@ def creacioDBO(gobj, fobj, sobj, yobj, kw, c,e,p):
         id_yelp = yobj['yelp_id'],
         id_foursquare = sobj['foursquare_id'],
         id_facebook = fobj['facebook_id'],
+        facebook_link = fobj['facebook_link'],
         ciudad = c,
         rating=rat,
         precio=price,
 
     )
-    print (created)
+    print ('>>>'+str(created))
+    print ('>>>'+str(rat))
+    print ('>>>'+str(price))
     obj.tags.add(t)
     obj.save()
 
@@ -187,12 +190,18 @@ def busquedaFacebook(regex, lat, lng):
             facebook_price = len(response['data'][0]['price_range'])
         except KeyError:
             facebook_price = -100
+        try:
+            facebook_link = response['data'][0]['link']
+        except KeyError:
+            facebook_link="404"
 
     except (KeyError, IndexError) as e:
         facebook_id = -100
         facebook_rating = -100
         facebook_price = -100
-    return {'facebook_id': facebook_id, 'facebook_rating': facebook_rating, 'facebook_price': facebook_price}
+        facebook_link = "404"
+
+    return {'facebook_id': facebook_id, 'facebook_rating': facebook_rating, 'facebook_price': facebook_price, 'facebook_link': facebook_link}
 
 
 def busquedaGMaps(latitude,longitude, kyword, c, e, p):
@@ -249,7 +258,7 @@ def saveLocal(arr, kyword, c, e, p):
         new = json.loads(requests.get(url).text)
         #print (new['status'])
         #pprint.pprint(new)
-        saveLocal(new)
+        saveLocal(new, kyword, c, e, p)
         #print ('eof')
      # sort by age
 
@@ -274,7 +283,7 @@ class Command(BaseCommand):
                 '--state "Querétaro" ' +
                 '--country "México"')
 
-        self.stdout.write(self.style.ERROR(stri))
+        self.stdout.write(self.style.SUCCESS(stri))
 
         parser.add_argument(
             '--lat', dest='lat', required=True,
