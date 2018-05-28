@@ -1,3 +1,5 @@
+from django.core.management.base import BaseCommand, CommandError
+
 import json
 import requests
 import time
@@ -77,11 +79,15 @@ def creacioDBO(gobj, fobj, sobj, yobj, kw, c,e,p):
         id_yelp = yobj['yelp_id'],
         id_foursquare = sobj['foursquare_id'],
         id_facebook = fobj['facebook_id'],
+        facebook_link = fobj['facebook_link'],
         ciudad = c,
         rating=rat,
         precio=price,
 
     )
+    print ('>>>'+str(created))
+    print ('>>>'+str(rat))
+    print ('>>>'+str(price))
     obj.tags.add(t)
     obj.save()
 
@@ -112,7 +118,6 @@ def busquedaYelp(regex, lat, lng):
 
 
     return {'yelp_id': yelp_id, 'yelp_rating': yelp_rating, 'yelp_price': yelp_price}
-
 
 def busquedaFoursquare(regex,lat,lng):
     url = 'https://api.foursquare.com/v2/venues/search'
@@ -167,10 +172,6 @@ def busquedaFoursquare(regex,lat,lng):
 
     return {'foursquare_id': foursquare_id, 'foursquare_price': foursquare_price, 'foursquare_rating': foursquare_rating}
 
-
-
-
-
 def busquedaFacebook(regex, lat, lng):
     # specific="bar los amigos"
     token = '2016535901926533|shNiHD3XAmykHQ0MiFImMpUX4GE'
@@ -189,24 +190,30 @@ def busquedaFacebook(regex, lat, lng):
             facebook_price = len(response['data'][0]['price_range'])
         except KeyError:
             facebook_price = -100
+        try:
+            facebook_link = response['data'][0]['link']
+        except KeyError:
+            facebook_link="404"
 
     except (KeyError, IndexError) as e:
         facebook_id = -100
         facebook_rating = -100
         facebook_price = -100
-    return {'facebook_id': facebook_id, 'facebook_rating': facebook_rating, 'facebook_price': facebook_price}
+        facebook_link = "404"
+
+    return {'facebook_id': facebook_id, 'facebook_rating': facebook_rating, 'facebook_price': facebook_price, 'facebook_link': facebook_link}
 
 
-def busquedaGMaps(latitude,longitude, kyword):
+def busquedaGMaps(latitude,longitude, kyword, c, e, p):
     GMAPS_API_KEY = 'AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ'
 
     url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + latitude + ',' + longitude + '&radius=5000' + '&keyword=' + kyword + '&key=' + GMAPS_API_KEY
     #print (url)
     response = json.loads(requests.get(url).text)
     #pprint.pprint(response)
-    return response
+    return {'response': response, 'kyword': kyword, 'c': c, 'e': e, 'p':p}
 
-def saveLocal(arr):
+def saveLocal(arr, kyword, c, e, p):
 
     count = 0
     while (count < len(arr['results'])):
@@ -233,8 +240,12 @@ def saveLocal(arr):
         ###
         ###
         ###
-        creacioDBO(gobj, fobj, sobj, yobj, 'bar' ,'Queretaro', 'Queretaro', 'Mexico')
-        print (gobj['google_nombre'])
+        creacioDBO(gobj, fobj, sobj, yobj, kyword, c, e, p)
+        print ('>>>>>>>>>>>>'+gobj['google_nombre'])
+        pprint.pprint(gobj)
+        pprint.pprint(fobj)
+        pprint.pprint(yobj)
+        pprint.pprint(sobj)
 
         count = count + 1
 
@@ -247,21 +258,66 @@ def saveLocal(arr):
         new = json.loads(requests.get(url).text)
         #print (new['status'])
         #pprint.pprint(new)
-        saveLocal(new)
+        saveLocal(new, kyword, c, e, p)
         #print ('eof')
      # sort by age
 
 
 
 
-lat='20.5924074'
-lng='-100.3788854'
-kyword='bar'
-
-
-response = busquedaGMaps(lat, lng, kyword)
-saveLocal(response)
-
-
 #pprint.pprint(response)
 #saveLocal(response)
+
+
+class Command(BaseCommand):
+    help = 'create db'
+
+
+    def add_arguments(self, parser):
+
+        stri = ('Example: \npython3 manage.py createbase ' +
+                '--lat 20.5924074 ' +
+                '--lng -100.3788854 ' +
+                '--keyword bar ' +
+                '--city "Santiago de Querétaro" ' +
+                '--state "Querétaro" ' +
+                '--country "México"')
+
+        self.stdout.write(self.style.SUCCESS(stri))
+
+        parser.add_argument(
+            '--lat', dest='lat', required=True,
+            help='the latitude to process',
+        )
+
+        parser.add_argument(
+            '--lng', dest='lng', required=True,
+            help='the longitude to process',
+        )
+
+        parser.add_argument(
+            '--keyword', dest='keyword', required=True,
+            help='the keyword to process',
+        )
+
+        parser.add_argument(
+            '--city', dest='city', required=True,
+            help='the city to process',
+        )
+        parser.add_argument(
+            '--state', dest='state', required=True,
+            help='the state to process',
+        )
+        parser.add_argument(
+            '--country', dest='country', required=True,
+            help='the country to process',
+        )
+
+
+
+
+
+    def handle(self, *args, **options):
+        response = busquedaGMaps(str(options['lat']), str(options['lng']), str(options['keyword']), str(options['city']), str(options['state']), str(options['country']))
+        saveLocal(response['response'], response['kyword'], response['c'], response['e'], response['p'])
+        self.stdout.write(self.style.SUCCESS('Successfully'))

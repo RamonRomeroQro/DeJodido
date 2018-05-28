@@ -1,3 +1,4 @@
+'''
 from busqueda.models import Ciudad
 import csv
 
@@ -15,3 +16,7 @@ with open('cities.csv') as csvfile:
         print('City: ' + row[0]+'\tCountry: ' + row[5]+'\tlat: ' + row[2]+'\tlong: ' + row[3])
 
 
+'''
+import json
+
+exec(open("./python/MasiveLoad/generator.py").read())

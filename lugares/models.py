@@ -44,10 +44,12 @@ class Lugar(models.Model):
     botana=models.NullBooleanField(verbose_name='Botana')
     validado=models.BooleanField(verbose_name='Validado')
     rating=models.FloatField(verbose_name='Rating', null=True, blank=True)
-    id_google=models.CharField(verbose_name='ID Google Places', null=True, blank=True, max_length=500)
+    precio=models.FloatField(verbose_name='Precio', null=True, blank=True)
+    id_google=models.CharField(verbose_name='ID Google Places', null=True, blank=True, max_length=500, unique=True)
     id_yelp=models.CharField(verbose_name='ID Yelp', null=True, blank=True, max_length=500)
     id_foursquare=models.CharField(verbose_name='ID FourSquare', null=True, blank=True, max_length=500)
     id_facebook = models.CharField(verbose_name='ID Facebook Place', null=True, blank=True, max_length=500)
+    facebook_link = models.CharField(verbose_name='ID Facebook Link', null=True, blank=True, max_length=500)
     tags = models.ManyToManyField(Tags, verbose_name='Tags')
     ciudad = models.ForeignKey(Ciudad, verbose_name='Ciudad', on_delete=models.CASCADE,  null=True, blank=True)
 
