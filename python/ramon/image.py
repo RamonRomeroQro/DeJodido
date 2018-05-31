@@ -41,38 +41,7 @@ def saveLocal(arr, kyword, c, e, p):
         except KeyError:
             google_price= -100
 
-        ###DETA
-        from django.core.files.uploadedfile import SimpleUploadedFile;
 
-
-        GMAPS_API_KEY = 'AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ'
-        detalle_url = 'https://maps.googleapis.com/maps/api/place/details/json?placeid='+google_id+'&key=' + GMAPS_API_KEY
-        new = json.loads(requests.get(detalle_url).text)
-        pprint.pprint(new)
-        photo_counter=0
-        while (photo_counter<len(new['result']['photos'])):
-            image_url = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=' + new['result']['photos'][photo_counter]['photo_reference'] + '&key=' + GMAPS_API_KEY
-            print (image_url)
-            photo_counter=photo_counter+1
-        '''
-        im_id=  (new['result']['photos'][0]['photo_reference'])
-        response = requests.get(image_url, stream=True)
-        imagename_place='./'+im_id+'.jpg'
-        with open(imagename_place, 'wb') as out_file:
-            shutil.copyfileobj(response.raw, out_file)
-        del response
-
-        imagen=SimpleUploadedFile(content=open(sys.path[0] + 'g', 'rb').read(),
-                                      content_type='image/jpeg'),
-
-        gobj={'google_nombre': google_nombre, 'google_id': google_id, 'google_rating':google_rating, 'google_direccion': google_direccion, 'google_latitud': google_latitud, 'google_longitud': google_longitud, 'google_price':google_price}
-        ###
-        ###
-        ###
-        
-
-        pprint.pprint(gobj)
-        '''
 
         count = count + 1
 
@@ -100,3 +69,4 @@ options={'lat': lat, 'lng': lng, 'keyword':keyword, 'city':city, 'state': state,
 
 response = busquedaGMaps(str(options['lat']), str(options['lng']), str(options['keyword']), str(options['city']), str(options['state']), str(options['country']))
 saveLocal(response['response'], response['kyword'], response['c'], response['e'], response['p'])
+

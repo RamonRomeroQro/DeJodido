@@ -1,28 +1,180 @@
 <!doctype html>
+
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+
+
+<script type="text/javascript">
+    var nav = null;
+    function requestPosition() {
+        if (nav == null) {
+            nav = window.navigator;
+        }
+        var geoloc = nav.geolocation;
+        if (geoloc != null) {
+            geoloc.getCurrentPosition(successCallback, errorCallback);
+        }
+    }
+    function successCallback(position) {
+        document.getElementById("latitude").value =
+            position.coords.latitude;
+        document.getElementById("longitude").value =
+            position.coords.longitude;
+    }
+    function errorCallback(error) {
+        var strMessage = "";
+        // Check for known errors
+        switch (error.code) {
+            case error.PERMISSION_DENIED:
+                strMessage = "Access to your location is turned off. "  +
+                    "Change your settings to turn it back on.";
+                break;
+            case error.POSITION_UNAVAILABLE:
+                strMessage = "Data from location services is " +
+                    "currently unavailable.";
+                break;
+            case error.TIMEOUT:
+                strMessage = "Location could not be determined " +
+                    "within a specified timeout period.";
+                break;
+            default:
+                break;
+        }
+        document.getElementById("status").innerHTML = strMessage;
+    }
+
+
+     document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.autocomplete');
+    var instances = M.Autocomplete.init(elems, options);
+  });
+
+
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('input.autocomplete').autocomplete({
+      data: {
+        "Apple": null,
+        "Microsoft": null,
+        "Google": 'https://placehold.it/250x250'
+      },
+    });
+  });
+</script>
+
+
+
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block content %}
+<div id="index-banner" class="parallax-container" >
+    <div class="section no-pad-bot" >
+      <div class="container" style="height: 100vh">
+        <br><br>
+        <h2 class="header center white-text text-lighten-2">  <br><br>Diviertete y conoce tu ciudad</h2>
+        <div class="row center">
 
-   <div class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper">
-        <a href="#!" class="brand-logo">Logo</a>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="sass.html">Sass</a></li>
-          <li><a href="badges.html">Components</a></li>
-        </ul>
+
+
+        <div class="input-field col s6 ">
+          <i class="material-icons prefix">location_on</i>
+          <input type="text" id="autocomplete-input" name="city" class="autocomplete">
+          <label for="autocomplete-input"><span class="white-text">Autocomplete</span></label>
+        </div>
+                    <div class="input-field col s6">
+
+            <label onclick="requestPosition()">
+        <input type="checkbox" id="chk" />
+        <span class="white-text">Usar Ubicación Actual</span>
+      </label>
+                    </div>
+
+
+        </div>
+        <div class="row center">
+          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Buscar</a>
+        </div>
+        <br><br>
+
       </div>
-    </nav>
+    </div>
+    <div class="parallax"><img src="{% static 'images/cover.jpg' %}" alt="Unsplashed background img 1"></div>
   </div>
 
-    <div class="container">
-    <div class="row">
-        <div class="col s12 m12 l12">
-            kkkk
-            <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=CmRaAAAASWCJXDnt_I2STmx4HChk7abVb8WQjk8iY9ma9NsxLWmf8CXox9XgZZEK0_ZNu7bksMWsB2Pmuva1s4l8NlH6RtxwFuRab2wvWXZKGcz-o20hfjUEadD4onSJnZlYBLACEhBG4lmQ002VcQtJ997W5yaeGhToFo9nq8cf0ACb5HOwJBmC38tswg&key=AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipNDw7c7qvmZiTtIV69WVsegeaQDQXs6sWXjHVyP=s1600-w400">
+
+  <div class="container" >
+    <div class="section " >
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center">Speeds up development</h5>
+
+            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+          </div>
         </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">User Experience Focused</h5>
+
+            <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
+            <h5 class="center">Easy to work with</h5>
+
+            <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+        </div>
+      </div>
     </div>
+    <div class="parallax"><img src="{% static 'images/background2.jpg' %}" alt="Unsplashed background img 2"></div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send brown-text"></i></h3>
+          <h4>Contact Us</h4>
+          <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="{% static 'images/background3.jpg' %}" alt="Unsplashed background img 3"></div>
+  </div>
 
 {% endblock %}

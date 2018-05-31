@@ -4,9 +4,16 @@ import json
 import requests
 import time
 import pprint
+import shutil
+
 
 from lugares.models import Lugar, Ciudad, Estado, Pais
 from lugares.models import Tags
+from django.conf import settings
+
+from django.core.files.uploadedfile import SimpleUploadedFile
+
+
 GMAPS_API_KEY = 'AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ'
 
 
@@ -30,6 +37,40 @@ def city(c,e,p):
 
 
     return ciudad
+
+
+
+
+
+def getImagePath(g_id, g_name):
+    GMAPS_API_KEY = 'AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ'
+    detalle_url = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + g_id + '&key=' + GMAPS_API_KEY
+    time.sleep(2)
+    print ('detail> '+detalle_url)
+    new = json.loads(requests.get(detalle_url).text)
+    #pprint.pprint(new)
+    try:
+        ######################
+        im_id = new['result']['photos'][0]['photo_reference']
+        image_url = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=' + im_id + '&key=' + GMAPS_API_KEY
+        print ('imageurl> ' + image_url)
+        time.sleep(2)
+        response = requests.get(image_url, stream=True)
+        dir_file = settings.BASE_DIR + '/media/Lugar/' + g_name + '_'+ im_id + '.jpg'
+        with open(dir_file, 'wb') as out_file:
+            shutil.copyfileobj(response.raw, out_file)
+        del response
+        ##########################
+        print ('Imagen recuperada: ' + dir_file)
+        return dir_file
+    except KeyError:
+        dir_file = settings.BASE_DIR + '/media/Lugar/default.jpg'
+        print ('Imagen recuperada: ' + dir_file)
+        return dir_file
+
+
+
+
 
 def taging(kw):
     tag, cr1 = Tags.objects.get_or_create(
@@ -67,6 +108,10 @@ def creacioDBO(gobj, fobj, sobj, yobj, kw, c,e,p):
 
     c=city(c, e, p)
     t=taging(kw)
+    path=getImagePath(gobj['google_id'], gobj['google_nombre'])
+
+
+
 
     obj, created = Lugar.objects.get_or_create(
         nombre=gobj['google_nombre'],
@@ -83,6 +128,8 @@ def creacioDBO(gobj, fobj, sobj, yobj, kw, c,e,p):
         ciudad = c,
         rating=rat,
         precio=price,
+        cover_image=SimpleUploadedFile(name=path, content=open( path, 'rb').read(),content_type='image/jpeg'),
+
 
     )
     print ('>>>'+str(created))
@@ -242,10 +289,10 @@ def saveLocal(arr, kyword, c, e, p):
         ###
         creacioDBO(gobj, fobj, sobj, yobj, kyword, c, e, p)
         print ('>>>>>>>>>>>>'+gobj['google_nombre'])
-        pprint.pprint(gobj)
-        pprint.pprint(fobj)
-        pprint.pprint(yobj)
-        pprint.pprint(sobj)
+        #pprint.pprint(gobj)
+        #pprint.pprint(fobj)
+        #pprint.pprint(yobj)
+        #pprint.pprint(sobj)
 
         count = count + 1
 
