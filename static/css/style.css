@@ -70,5 +70,5 @@ textarea:focus, input:focus {
 }
 
 .debug{
-  visibility: visible;
+  visibility: hidden;
 }
