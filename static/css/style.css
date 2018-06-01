@@ -61,3 +61,14 @@ footer.page-footer {
 i.icon-white {
     color: white;
 }
+input, select, textarea{
+    color: #fff;
+}
+
+textarea:focus, input:focus {
+    color: #fff;
+}
+
+.debug{
+  visibility: visible;
+}

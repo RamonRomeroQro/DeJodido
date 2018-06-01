@@ -14,5 +14,7 @@ app_name = 'landing'
 urlpatterns = [
     #path('', include('django.contrib.auth.urls')),
     path('', views.landing, name='landing'),
+    path('listaciudades', views.listaciudades, name='listaciudades'),
+
 
 ]
