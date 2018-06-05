@@ -19,19 +19,30 @@ def landing(request):
         qcity=Ciudad.objects.filter(estado=qstate).get(nombre=city)
         query = Lugar.objects.filter(ciudad=qcity)
         li={}
+        detail = {}
+
 
 
         for place in query:
             images = Imagen.objects.filter(lugar=place)
+            info={}
+            info['rating']= place.rating
+            info['price'] = place.precio
             obj={}
             for i in images:
                 obj[i.id]=i.imagen.url
 
             li[place.nombre] = obj
+            detail[place.nombre] = info
 
-            #pprint.pprint (li)
 
-        return render(request, 'lugares/list.html', { 'li':li  })
+
+
+
+            pprint.pprint (li)
+            pprint.pprint (detail)
+
+        return render(request, 'lugares/list.html', { 'li':li , 'info': info })
     else:
         return render(request, 'landing/index.html')
 
