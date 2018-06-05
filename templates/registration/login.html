@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="." method="POST">
+    {% csrf_token %}
+                <div class="input-field">
+                    <input type="text" class="validate" name="{{form.username.html_name}}" id="{{ form.username.id_for_label }}" required/>
+                    <label for="{{form.username.id_for_label}}">Usuario</label>
+                </div>
+                <div class="input-field">
+                    <input class="validate" name="password" type="password" name="{{form.password.html_name}}" id="{{ form.password.id_for_label }}" required/>
+                    <label for="{{form.password.id_for_label}}">Contraseña</label>
+                </div>
+                <div class="cta-container">
+                    <button class="submit" type="submit">Iniciar Sesión</button>
+                </div>
+</form>
+<a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
+</body>
+</html>
