@@ -65,6 +65,7 @@ input, select, textarea{
     color: #fff;
 }
 
+
 textarea:focus, input:focus {
     color: #fff;
 }

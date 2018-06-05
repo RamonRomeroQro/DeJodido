@@ -39,8 +39,8 @@
     <div class="col s12 m6">
 
 
-      <div class="lugar" style=" background-color: #230040;!important;
-  border: #ffffff;!important;">
+      <div class="lugar" style=" border-style: solid;
+    border-color: white;">
 
 
         <div class="slider">
@@ -61,7 +61,28 @@
         </ul>
         </div>
       <div class="info">
-                    <p>{{ key }}</p>
+                    <p style="color: white">{{ key }}</p>
+
+
+          {% for k1,v1 in info.items %}
+               <p style="color: white">{{ k1 }}:
+
+              {% if v1 != '-100' %}
+                                {{ v1 }}
+
+                  {% else %}
+               Información no disponible
+
+              {% endif %}
+               </p>
+
+
+
+          {% endfor %}
+
+
+
+
 
       </div>
 
