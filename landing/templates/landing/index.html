@@ -92,19 +92,23 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block content %}
-<div id="index-banner" class="parallax-container" >
-    <div class="section no-pad-bot" >
-      <div class="container" style="height: 100vh">
+<div id="index-banner" class="parallax-container" style="height: 100vh">
+    <div class="section no-pad-bot"  >
+      <div class="container" >
         <br><br>
         <h2 class="header center white-text text-lighten-2">  <br><br>Diviertete y conoce tu ciudad</h2>
+
+                  <form class="container flex" method="POST" enctype="multipart/form-data" novalidate>
+                        {% csrf_token %}
+
         <div class="row center">
 
 
 
-        <div class="input-field col s11 ">
+        <div class="input-field col s11 m11 l11">
           <i class="material-icons prefix">location_on</i>
           <input type="text" id="autocomplete-input" name="city" class="autocomplete">
-          <label for="autocomplete-input"><span class="white-text">Autocomplete</span></label>
+          <label for="autocomplete-input"><span class="white-text">Ciudad</span></label>
         </div>
 
 
@@ -137,7 +141,7 @@
           <!--ROW-->
 
           <!--ROW-->
-
+                  </form>
         <br><br>
 
       </div>
@@ -221,19 +225,6 @@
   </div>
 
 {% endblock %}
-
-
-        <div class="row center">
-
-            <div class="input-field col s12">
-          <i class="material-icons prefix">location_on</i>
-          <input type="text" id="autocomplete-input" class="autocomplete">
-          <label for="autocomplete-input">Autocomplete</label>
-        </div>
-
-
-
-        </div>
 
 
 

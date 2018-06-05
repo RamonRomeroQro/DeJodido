@@ -7,14 +7,11 @@ import pprint
 import shutil
 
 
-from lugares.models import Lugar, Ciudad, Estado, Pais
+from lugares.models import Lugar, Ciudad, Estado, Pais, Imagen
 from lugares.models import Tags
 from django.conf import settings
 
 from django.core.files.uploadedfile import SimpleUploadedFile
-
-
-GMAPS_API_KEY = 'AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ'
 
 
 omits=['el', 'la', 'los', 'las', 'bar', 'un', 'un', 'restaurante', ]
@@ -42,32 +39,34 @@ def city(c,e,p):
 
 
 
-def getImagePath(g_id, g_name):
-    GMAPS_API_KEY = 'AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ'
-    detalle_url = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + g_id + '&key=' + GMAPS_API_KEY
+def getImagePath(g_id):
+    detalle_url = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + g_id + '&key=' + settings.GMAPS_API_KEY
     time.sleep(2)
     print ('detail> '+detalle_url)
     new = json.loads(requests.get(detalle_url).text)
+    links=[]
     #pprint.pprint(new)
     try:
         ######################
-        im_id = new['result']['photos'][0]['photo_reference']
-        image_url = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=' + im_id + '&key=' + GMAPS_API_KEY
-        print ('imageurl> ' + image_url)
-        time.sleep(2)
-        response = requests.get(image_url, stream=True)
-        dir_file = settings.BASE_DIR + '/media/Lugar/' + g_name + '_'+ im_id + '.jpg'
-        with open(dir_file, 'wb') as out_file:
-            shutil.copyfileobj(response.raw, out_file)
-        del response
-        ##########################
-        print ('Imagen recuperada: ' + dir_file)
-        return dir_file
+        cantidad=len(new['result']['photos'])
+        contador=0
+        while contador<cantidad:
+            im_id = new['result']['photos'][contador]['photo_reference']
+            image_url = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=700&photoreference=' + im_id + '&key=' + settings.GMAPS_API_KEY
+            time.sleep(2)
+            response = requests.get(image_url, stream=True)
+            dir_file = settings.BASE_DIR + '/media/Lugar/'  + im_id + '.jpg'
+            with open(dir_file, 'wb') as out_file:
+                shutil.copyfileobj(response.raw, out_file)
+            del response
+            print ('Imagen recuperada: ' + dir_file)
+            links.append(dir_file)
+            contador=contador+1
+        return links
     except KeyError:
         dir_file = settings.BASE_DIR + '/media/Lugar/default.jpg'
-        print ('Imagen recuperada: ' + dir_file)
-        return dir_file
-
+        links.append(dir_file)
+        return links
 
 
 
@@ -108,7 +107,6 @@ def creacioDBO(gobj, fobj, sobj, yobj, kw, c,e,p):
 
     c=city(c, e, p)
     t=taging(kw)
-    path=getImagePath(gobj['google_id'], gobj['google_nombre'])
 
 
 
@@ -128,15 +126,23 @@ def creacioDBO(gobj, fobj, sobj, yobj, kw, c,e,p):
         ciudad = c,
         rating=rat,
         precio=price,
-        cover_image=SimpleUploadedFile(name=path, content=open( path, 'rb').read(),content_type='image/jpeg'),
-
-
     )
     print ('>>>'+str(created))
     print ('>>>'+str(rat))
     print ('>>>'+str(price))
     obj.tags.add(t)
     obj.save()
+    imagenes=getImagePath(gobj['google_id'])
+    #print (imagenes)
+    cont=0
+    while cont<len(imagenes):
+        im = Imagen.objects.get_or_create( lugar=obj, imagen =  SimpleUploadedFile(name=obj.nombre+str(cont)+'.jpg', content=open(imagenes[cont], 'rb').read(), content_type='image/jpeg'),descripcion='Importada desde Google Imagenes')
+        cont=cont+1
+
+
+
+
+
 
 def busquedaYelp(regex, lat, lng):
     url = "https://api.yelp.com/v3/businesses/search?term="+regex+"&latitude="+lat+"&longitude="+lng
@@ -252,12 +258,11 @@ def busquedaFacebook(regex, lat, lng):
 
 
 def busquedaGMaps(latitude,longitude, kyword, c, e, p):
-    GMAPS_API_KEY = 'AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ'
-
-    url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + latitude + ',' + longitude + '&radius=5000' + '&keyword=' + kyword + '&key=' + GMAPS_API_KEY
+    url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + latitude + ',' + longitude + '&radius=5000' + '&keyword=' + kyword + '&key=' + settings.GMAPS_API_KEY
     #print (url)
+
     response = json.loads(requests.get(url).text)
-    #pprint.pprint(response)
+    print(response['status'])
     return {'response': response, 'kyword': kyword, 'c': c, 'e': e, 'p':p}
 
 def saveLocal(arr, kyword, c, e, p):
@@ -298,9 +303,8 @@ def saveLocal(arr, kyword, c, e, p):
 
     if 'next_page_token' in arr:
         time.sleep(2)
-        GMAPS_API_KEY = 'AIzaSyCXm58tMXQ48sO1IKP956SRE-hrwswn1GQ'
 
-        url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken=' + str(arr["next_page_token"]) + '&key=' + GMAPS_API_KEY
+        url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken=' + str(arr["next_page_token"]) + '&key=' + settings.GMAPS_API_KEY
         #print (url)
         new = json.loads(requests.get(url).text)
         #print (new['status'])
@@ -314,7 +318,6 @@ def saveLocal(arr, kyword, c, e, p):
 
 #pprint.pprint(response)
 #saveLocal(response)
-
 
 class Command(BaseCommand):
     help = 'create db'
@@ -368,3 +371,5 @@ class Command(BaseCommand):
         response = busquedaGMaps(str(options['lat']), str(options['lng']), str(options['keyword']), str(options['city']), str(options['state']), str(options['country']))
         saveLocal(response['response'], response['kyword'], response['c'], response['e'], response['p'])
         self.stdout.write(self.style.SUCCESS('Successfully'))
+
+

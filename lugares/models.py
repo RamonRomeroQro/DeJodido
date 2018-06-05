@@ -37,8 +37,8 @@ class Tags(models.Model):
 
 
 
+
 class Lugar(models.Model):
-    cover_image= models.ImageField(upload_to='Lugar', verbose_name='Foto', null=True, blank=True)
     nombre= models.CharField(verbose_name='Nombre', null=True, blank=True, max_length=200)
     direccion= models.CharField(verbose_name='Dirección', null=True, blank=True, max_length=500)
     latitud= models.FloatField(verbose_name='Latitud', null=True, blank=True)
@@ -64,5 +64,14 @@ class Lugar(models.Model):
         if self.imagen:
             if os.path.isfile(self.imagen.path):
                 os.remove(self.imagen.path)
-        super().delete()
+        super(self).delete()
 
+
+class Imagen(models.Model):
+
+    imagen=models.ImageField(upload_to='imagen', verbose_name='Imagen', null=True, blank=True)
+    lugar=models.ForeignKey(Lugar, on_delete=models.CASCADE)
+    descripcion=models.CharField(verbose_name="Descripción", null=True, blank=True, max_length=1000)
+
+    def __str__(self):
+        return self.dir
