@@ -60,21 +60,29 @@
 
         </ul>
         </div>
-      <div class="info">
-                    <p style="color: white">{{ key }}</p>
+
+
+
+
+
+
+
+      <div class="info center white-text">
+                    {{ key }}<br>
 
 
           {% for k1,v1 in info.items %}
-               <p style="color: white">{{ k1 }}:
+             {{ k1 }}:
 
               {% if v1 != '-100' %}
                                 {{ v1 }}
+                  <br></br>
 
                   {% else %}
                Información no disponible
 
               {% endif %}
-               </p>
+
 
 
 
