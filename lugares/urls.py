@@ -9,11 +9,11 @@ from django.views.generic import TemplateView
 from .import views
 from .views import *
 
-app_name = 'landing'
+app_name = 'lugares'
 
 urlpatterns = [
     #path('', include('django.contrib.auth.urls')),
-    path('', views.landing, name='landing'),
+    path('', views.busqueda, name='busqueda'),
     #path('listaciudades', views.listaciudades, name='listaciudades'),
 
 
