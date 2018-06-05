@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'lugares',
+    'landing',
     'usuarios',
     'social_django'
 ]
@@ -142,6 +143,7 @@ STATIC_URL = '/static/'
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -157,6 +159,7 @@ LOGIN_REDIRECT_URL = 'Prueba_login_si'
 
 SOCIAL_AUTH_FACEBOOK_KEY = '470651183392852'  # App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = 'e7751433adbf5c82551c4ec245524552'  # App Secret
+
 
 
 

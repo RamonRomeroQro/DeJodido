@@ -1,6 +1,7 @@
 from django.db import models
 
 # Create your models here.
+import os
 
 
 class Pais(models.Model):
@@ -37,6 +38,7 @@ class Tags(models.Model):
 
 
 class Lugar(models.Model):
+    cover_image= models.ImageField(upload_to='Lugar', verbose_name='Foto', null=True, blank=True)
     nombre= models.CharField(verbose_name='Nombre', null=True, blank=True, max_length=200)
     direccion= models.CharField(verbose_name='Dirección', null=True, blank=True, max_length=500)
     latitud= models.FloatField(verbose_name='Latitud', null=True, blank=True)
@@ -56,4 +58,11 @@ class Lugar(models.Model):
 
     def __str__(self):
         return self.nombre
+
+
+    def delete(self):
+        if self.imagen:
+            if os.path.isfile(self.imagen.path):
+                os.remove(self.imagen.path)
+        super().delete()
 
