@@ -155,11 +155,21 @@ AUTHENTICATION_BACKENDS = (
 
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
-LOGIN_REDIRECT_URL = 'Prueba_login_si'
+LOGIN_REDIRECT_URL = '/usuarios/verificacion_FB'
+
 
 SOCIAL_AUTH_FACEBOOK_KEY = '470651183392852'  # App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = 'e7751433adbf5c82551c4ec245524552'  # App Secret
 
+SOCIAL_AUTH_FACEBOOK_SCOPE = [
+    'email',
+    'user_location',
+]
+
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+    'locale': 'ru_RU',
+    'fields': 'id,name,email',
+}
 
 
 

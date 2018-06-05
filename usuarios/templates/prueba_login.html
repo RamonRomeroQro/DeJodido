@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form method="POST" enctype="multipart/form-data" action="{% url 'usuarios:Prueba_index' %}">
+    {% csrf_token %}
+    {{ forma.as_p }}
+    {{ forma2.as_p }}
+    <button class="submit" type="submit">Enviar</button>
+</form>
+</body>
+</html>
