@@ -1,27 +1,42 @@
+
 <!doctype html>
 {% load static %}
+ <!DOCTYPE html>
+<html lang="en">
+<head>
 
-  <html>
-    <head>
+ <!-- Compiled and minified CSS -->
 
-                <meta charset="utf-8">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-          <link rel="stylesheet" href="{% static '/css/styles.css' %}">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Parallax Template - Materialize</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link   href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <link href="{% static 'css/style.css' %}"type="text/css" rel="stylesheet" media="screen,projection"/>
+
+</head>
+<body>
+  {% include 'navbar.html' %}
+  {% block content %}
+
+  {% endblock %}
+{% include 'footer.html' %}
 
 
+  <!--  Scripts-->
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script src="{% static 'js/materialize.js' %}"></script>
+  <script src="{% static 'js/init.js' %}"></script>
 
-    </head>
-
-    <body>
-
-
-         {% block content %}
-
-        {% endblock content %}
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
 
-      <!--JavaScript at end of body for optimized loading-->
-    </body>
-  </html>
+  </body>
+</html>
