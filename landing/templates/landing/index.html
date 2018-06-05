@@ -1,3 +1,5 @@
+<!--MSFT--->
+
 <!doctype html>
 
 
@@ -56,6 +58,33 @@
       }
     });
   });
+
+/*
+
+     $.ajax({
+            type: 'POST'
+            , url: '/test/get_BackendSystems'
+            , dataType: 'json'
+            , success: function (response) {
+                if (response.success) {
+                    backend_systems = ["Other"];
+                    $.each(response.backend_systems, function (id,system_object) {
+                        backend_systems.push(system_object["system"]);
+                    });
+                }
+                $("#BackEnd").autocomplete({
+                    source: backend_systems,
+                    open: function(){
+                        $(this).data("autocomplete").menu.element.addClass("backend_dropdown");
+                        $('.backend_dropdown').width(432);
+                    }
+                });
+            }
+        }
+    );
+
+    */
+
 </script>
 
 
