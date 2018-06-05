@@ -1,0 +1,125 @@
+
+<!doctype html>
+
+
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script>
+
+     document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.slider');
+    var instances = M.Slider.init(elems, options);
+  });
+
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.slider').slider({    indicators:false,
+    interva:1500,
+    height:300, duration:500
+    });
+  });
+</script>
+
+
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+
+<div class="container">
+
+
+<div class="row">
+
+
+
+
+    {% for key, value in li.items %}
+    <div class="col s12 m6">
+
+
+      <div class="lugar" style=" border-style: solid;
+    border-color: white;">
+
+
+        <div class="slider">
+        <ul class="slides">
+        {% for val, val2 in value.items %}
+
+
+        <li>
+        <img src="{{ val2 }}"> <!-- random image -->
+        <div class="caption center-align">
+        <h3>This is our big Tagline!</h3>
+        <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+        </li>
+
+        {% endfor %}
+
+        </ul>
+        </div>
+
+
+
+
+
+
+
+      <div class="info center white-text">
+                    {{ key }}<br>
+
+
+          {% for k1,v1 in info.items %}
+             {{ k1 }}:
+
+              {% if v1 != '-100' %}
+                                {{ v1 }}
+                  <br></br>
+
+                  {% else %}
+               Información no disponible
+
+              {% endif %}
+
+
+
+
+          {% endfor %}
+
+
+
+
+
+      </div>
+
+
+      </div>
+
+    </div>
+
+        {% endfor %}
+
+
+  </div>
+
+
+
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
