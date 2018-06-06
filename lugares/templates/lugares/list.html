@@ -15,8 +15,8 @@
 
   $(document).ready(function(){
     $('.slider').slider({    indicators:false,
-    interva:1500,
-    height:300, duration:500
+    interva:1300,
+    height:400, duration:500
     });
   });
 </script>
@@ -27,91 +27,85 @@
 {% block content %}
 
 
-<div class="container">
+
+      {% include 'searchbar.html' %}
+<br><br>
+
+{% for place in lugares %}
+    {% if forloop.first %}
+        <div class="row">
+    {% endif %}
+    <div class="col s12 m6 l4">
 
 
-<div class="row">
 
-
-
-
-    {% for key, value in li.items %}
-    <div class="col s12 m6">
-
-
-      <div class="lugar" style=" border-style: solid;
+           <div class="lugar" style=" border-style: solid;
     border-color: white;">
 
 
         <div class="slider">
         <ul class="slides">
-        {% for val, val2 in value.items %}
+        <!-------------------->
 
+
+
+        {% for f in fotos %}
+
+            {% if f.lugar == place %}
 
         <li>
-        <img src="{{ val2 }}"> <!-- random image -->
-        <div class="caption center-align">
-        <h3>This is our big Tagline!</h3>
-        <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        <img src="{{ f.imagen.url }}"> <!-- random image -->
+        <div class="caption right-align " >
+        <br><br><br><br><br><br><br><br><br><br>
+        <h9 class="light grey-text text-lighten-3">
+
+                            {{ f.descripcion }}
+
+
+        </h9>
         </div>
         </li>
+            {% endif %}
 
-        {% endfor %}
+{% endfor %}
+
+
+        <!-------------------->
+
 
         </ul>
         </div>
 
 
-
-
-
-
-
-      <div class="info center white-text">
-                    {{ key }}<br>
-
-
-          {% for k1,v1 in info.items %}
-             {{ k1 }}:
-
-              {% if v1 != '-100' %}
-                                {{ v1 }}
-                  <br></br>
-
-                  {% else %}
+      <div class="info center ">
+                    {{ place.nombre }}<br>
+                    Precio:{% if place.precio == -100 %}
                Información no disponible
-
-              {% endif %}
-
-
-
-
-          {% endfor %}
-
-
-
-
+                  {% else %}
+          {{ place.precio }}
+              {% endif %}<br>
+                    Rating:
+              {% if place.rating == -100 %}
+               Información no disponible
+                  {% else %}
+                  {{ place.rating }}
+              {% endif %}                  <br>
 
       </div>
 
 
       </div>
 
-    </div>
 
-        {% endfor %}
-
-
-  </div>
-
-
+        </div>
+    {% if forloop.counter|divisibleby:3 %}</div>
+        <div class="row">{% endif %}
+    {% if forloop.last %}</div>{% endif %}
+{% endfor %}
 
 
 
 
-
-
-  </div>
 
 
 
