@@ -15,6 +15,7 @@ urlpatterns = [
     #path('', include('django.contrib.auth.urls')),
     path('', views.landing, name='landing'),
     #path('listaciudades', views.listaciudades, name='listaciudades'),
+    path('ajax/get_ciudades/', views.get_ciudades, name='get_ciudades'),
 
 
 ]
