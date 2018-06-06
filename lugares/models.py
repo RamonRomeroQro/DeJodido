@@ -74,4 +74,4 @@ class Imagen(models.Model):
     descripcion=models.CharField(verbose_name="Descripción", null=True, blank=True, max_length=1000)
 
     def __str__(self):
-        return self.dir
+        return self.imagen.url
