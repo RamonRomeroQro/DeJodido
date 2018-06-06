@@ -35,7 +35,7 @@ def prueba_resena(request):
 @login_required
 def verificacion_FB(request):
     try:
-        print(request.user.usuario.fb_id)
+        print(request.user.usuario)
 
     except Usuario.DoesNotExist:
         print("si se pudo")
