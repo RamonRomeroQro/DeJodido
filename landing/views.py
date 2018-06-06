@@ -18,32 +18,18 @@ def landing(request):
         qpais=Pais.objects.get(nombre=country)
         qstate=Estado.objects.filter(pais=qpais).get(nombre=state)
         qcity=Ciudad.objects.filter(estado=qstate).get(nombre=city)
-        query = Lugar.objects.filter(ciudad=qcity)
-        li={}
-        detail = {}
+        lugares = Lugar.objects.filter(ciudad=qcity)
+        fotos=[]
 
 
-
-        for place in query:
-            images = Imagen.objects.filter(lugar=place)
-            info={}
-            info['rating']= place.rating
-            info['price'] = place.precio
-            obj={}
+        for l in lugares:
+            images = Imagen.objects.filter(lugar=l)
             for i in images:
-                obj[i.id]=i.imagen.url
-
-            li[place.nombre] = obj
-            detail[place.nombre] = info
+                fotos.append(i)
+        #pprint.pprint(fotos)
 
 
-
-
-
-            pprint.pprint (li)
-            pprint.pprint (detail)
-
-        return render(request, 'lugares/list.html', { 'li':li , 'info': info })
+        return render(request, 'lugares/list.html', { 'fotos':fotos , 'lugares': lugares })
     else:
         return render(request, 'landing/index.html')
 
