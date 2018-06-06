@@ -4,6 +4,7 @@ from django.shortcuts import render
 from lugares.models import Ciudad, Estado, Pais, Lugar, Imagen
 from django.http import HttpResponse
 import  pprint
+from django.http import JsonResponse
 
 
 #Visualizar partidos en la landing page
@@ -63,3 +64,13 @@ def listaciudades(request):
         data = 'fail'
     mimetype = 'application/json'
     return HttpResponse(data, mimetype)
+
+def get_ciudades(request):
+
+    ciudades = Ciudad.objects.all()
+    data = {}
+
+    for c in ciudades:
+        data.update({c.nombre + ", " + c.estado.nombre + ", " + c.estado.pais.nombre: None})
+    data.update({'Usar Ubicacion Actual': None})
+    return JsonResponse(data)
