@@ -52,7 +52,7 @@ def getImagePath(g_id):
         contador=0
         while contador<cantidad:
             im_id = new['result']['photos'][contador]['photo_reference']
-            image_url = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=700&photoreference=' + im_id + '&key=' + settings.GMAPS_API_KEY
+            image_url = 'https://maps.googleapis.com/maps/api/place/photo?maxheight=1600&photoreference=' + im_id + '&key=' + settings.GMAPS_API_KEY
             time.sleep(2)
             response = requests.get(image_url, stream=True)
             dir_file = settings.BASE_DIR + '/media/Lugar/'  + im_id + '.jpg'
