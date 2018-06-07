@@ -13,7 +13,7 @@ app_name = 'lugares'
 
 urlpatterns = [
     #path('', include('django.contrib.auth.urls')),
-    path('', views.busqueda, name='busqueda'),
+    path('<str:nombre_lugar>-<int:id_lugar>', views.detalle_lugar, name='detalle_lugar'),
     #path('listaciudades', views.listaciudades, name='listaciudades'),
 
 
