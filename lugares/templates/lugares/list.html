@@ -38,7 +38,7 @@
     <div class="col s12 m6 l4">
 
 
-
+<a href="{% url 'lugares:detalle_lugar' place.nombre place.id %}">
            <div class="lugar" style=" border-style: solid;
     border-color: white;">
 
@@ -82,20 +82,20 @@
                     Precio:{% if place.precio == -100 %}
                Información no disponible
                   {% else %}
-          {{ place.precio }}
+          {{ place.precio|floatformat:2  }}
               {% endif %}<br>
                     Rating:
               {% if place.rating == -100 %}
                Información no disponible
                   {% else %}
-                  {{ place.rating }}
+                  {{ place.rating|floatformat:2  }}
               {% endif %}                  <br>
 
       </div>
 
 
       </div>
-
+</a>
 
         </div>
     {% if forloop.counter|divisibleby:3 %}</div>
