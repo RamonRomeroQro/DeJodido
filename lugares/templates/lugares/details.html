@@ -1,0 +1,182 @@
+
+<!doctype html>
+
+
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script>
+
+
+
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.slider').slider({
+    interva:1300,
+    height:400, duration:500
+    });
+  });
+
+
+</script>
+
+
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+
+
+      {% include 'searchbar.html' %}
+
+        <div class="slider">
+        <ul class="slides">
+        <!-------------------->
+
+
+
+        {% for i in imagenes %}
+
+
+        <li>
+        <img src="{{ i.imagen.url }}" style="background-size:auto 100% ;
+    background-repeat: no-repeat; background-color: white "> <!-- random image -->
+        <div class="caption center-align " >
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <h9 class="light grey-text text-lighten-3">
+
+                            {{ i.descripcion }}
+
+
+        </h9>
+        </div>
+        </li>
+
+{% endfor %}
+
+
+
+
+        <!-------------------->
+
+
+        </ul>
+        </div>
+
+    <div class="container">
+    <div class="row">
+
+        <div class="col s12 m9">
+            <div class="card-panel">
+    <h4>{{ lugar.nombre }}</h4>
+
+        <br><br><br>
+
+
+<h5>{{ lugar.rating  }}</h5>
+
+        <br><br><br>
+    <h5>{{ lugar.direccion }}</h5>
+    <h5>{{ lugar.botana }}</h5>
+    <h5>{{ lugar.validado }}</h5>
+    <h5>{{ lugar.ciudad.nombre }}, {{ lugar.ciudad.estado.nombre }}, {{ lugar.ciudad.estado.pais.nombre }}</h5>
+    Tags: <br>{% for t in lugar.tags.all %}{{ t.descripcion }}<br>{% endfor %}
+
+</div>
+
+        </div>
+
+<div class="col s12 m3">
+
+
+        <iframe src="https://www.facebook.com/plugins/page.php?href={{ lugar.facebook_link }}&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=2016535901926533" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+
+
+
+    </div>
+
+
+
+
+    </div>
+
+    <div class="row"  id="map" style="height: 400px;"></div>
+    <script>
+
+      // The following example creates a marker in Stockholm, Sweden using a DROP
+      // animation. Clicking on the marker will toggle the animation between a BOUNCE
+      // animation and no animation.
+
+      var marker;
+
+      function initMap() {
+        var uluru = {lat: {{ lugar.latitud }}, lng: {{ lugar.longitud }}   };
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 13,
+          center: uluru
+        });
+
+        var contentString = '<p>{{lugar.nombre }}</p>'+
+                            '<p>{{lugar.rating }}</p>'+
+                            '<p>{{lugar.precio }}</p>';
+
+        var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString,
+          maxWidth: 200
+        });
+
+        marker = new google.maps.Marker({
+          icon: image,
+          map: map,
+          draggable: true,
+          animation: google.maps.Animation.DROP,
+          position: uluru,
+                    title: 'Uluru (Ayers Rock)'
+
+        });
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+
+
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key={{ gkey }}&callback=initMap">
+    </script>
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+<style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+
+    </style>
