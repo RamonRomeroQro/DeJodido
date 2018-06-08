@@ -1,7 +1,6 @@
 from django.forms import ModelForm
-from .models import Usuario
+from .models import Usuario, UsuarioResenaLugar
 from django.contrib.auth.models import User
-from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
 
@@ -20,3 +19,15 @@ class FormaUsuario(ModelForm):
     class Meta:
         model = Usuario
         fields = ('ciudad','fecha_nacimiento','genero','imagen')
+
+
+class UsuarioReview(ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        super(UsuarioReview, self).__init__(*args, **kwargs)
+        self.fields['calificaicon'].widget.attrs['min'] = '0'
+        self.fields['calificaicon'].widget.attrs['max'] = '5'
+
+    class Meta:
+        model = UsuarioResenaLugar
+        fields =('calificaicon','precio_cerveza','comentario')
