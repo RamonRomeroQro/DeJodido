@@ -22,6 +22,12 @@ class FormaUsuario(ModelForm):
 
 
 class UsuarioReview(ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        super(UsuarioReview, self).__init__(*args, **kwargs)
+        self.fields['calificaicon'].widget.attrs['min'] = '0'
+        self.fields['calificaicon'].widget.attrs['max'] = '5'
+
     class Meta:
         model = UsuarioResenaLugar
         fields =('calificaicon','precio_cerveza','comentario')
