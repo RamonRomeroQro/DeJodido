@@ -51,6 +51,7 @@
 /// AQUI EL JQUERY AJAX PARA RECUPERAR LOS NOMBRES DE CIUDADES, CHECA: def listaciudades(request) en view.py
 
   $(document).ready(function(){
+      $('select').formSelect();
      $.ajax({
                 url: '/ajax/get_ciudades/',
                 data: {},
@@ -64,6 +65,8 @@
                 }
               });
   });
+
+
 
 </script>
 
@@ -93,6 +96,22 @@
           <input type="text" id="autocomplete-input" name="city" class="autocomplete">
           <label for="autocomplete-input"><span class="white-text">Ciudad</span></label>
         </div>
+            <!--
+            AQUI VA LO QUE HIZE LO PONES BONITO
+            -->
+            <div class="input-field col s12">
+                <select multiple id="presupuesto_id" name="presupuesto" class>
+                  <option value="" disabled selected>Que tan corto andas</option>
+                  <option value="1">En Quiebra</option>
+                  <option value="2">Normal</option>
+                  <option value="3">Freson</option>
+                  <option value="4">Dios Mirrey</option>
+                </select>
+                <label>Materialize Select</label>
+             </div>
+            <!--
+            AQUI VA LO QUE HIZE LO PONES BONITO
+            -->
 
 
           <div class="input-field col s1 m1 l1">
