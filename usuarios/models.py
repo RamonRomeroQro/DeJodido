@@ -2,8 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from lugares.models import Ciudad
 from lugares.models import Lugar
-from django.dispatch import receiver
-from django.db.models.signals import post_save
+from django.core.validators import MinValueValidator, MaxValueValidator
+from django.utils import timezone
 
 # Create your models here.
 
@@ -26,10 +26,12 @@ class Usuario(models.Model):
 
 
 class UsuarioResenaLugar(models.Model):
-    fecha = models.DateField(default='')
+    fecha = models.DateTimeField(default=timezone.now)
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     lugar = models.ForeignKey(Lugar, on_delete=models.CASCADE)
-    calificaicon = models.IntegerField(verbose_name='Rating', null=False, blank=False)
+    calificaicon = models.IntegerField(verbose_name='Rating', null=False, blank=False, validators=[MinValueValidator(0),
+                                                                                                   MaxValueValidator(5)]
+                                       )
     precio_cerveza = models.IntegerField(verbose_name='Precio Cerveza', null=False, blank=False)
     comentario = models.TextField(default='', null=True, blank=True)
 

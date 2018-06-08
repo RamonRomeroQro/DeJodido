@@ -1,11 +1,10 @@
 from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
-from .forms import FormaUser, FormaUsuario
+from .forms import FormaUser, FormaUsuario, UsuarioReview
 from django.http import HttpResponseRedirect
-from django.urls import reverse
 from .models import Usuario
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
+from lugares.models import Lugar
 
 # Create your views here.
 
@@ -24,12 +23,24 @@ def Prueba_index(request):
         formaUser = FormaUser(prefix="user")
         formaUsuario = FormaUsuario(prefix="usuario")
 
-    return render(request, 'prueba_login.html', {'forma': formaUser, 'forma2': formaUsuario})
+    return render(request, 'prueba_registrar.html', {'forma': formaUser, 'forma2': formaUsuario})
 
 @login_required
-def prueba_resena(request):
-    print(request.user)
-    return render(request, 'prueba_resena.html')
+def prueba_resena(request,nombre_lugar,id_lugar):
+
+    if request.method == 'POST':
+        formaResena = UsuarioReview(request.POST)
+
+        if formaResena.is_valid():
+            resena = formaResena.save(commit=False)
+            resena.usuario = request.user.usuario
+            resena.lugar_id = id_lugar
+            resena.save()
+
+    formaResena = UsuarioReview
+    lugar = Lugar.objects.get(id=id_lugar)
+
+    return render(request, 'prueba_resena.html', {'forma_resena':formaResena,'lugar':lugar})
 
 
 @login_required
