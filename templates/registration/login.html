@@ -1,11 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<form action="." method="POST">
+
+<!doctype html>
+
+
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script>
+
+
+
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.slider').slider({
+    interva:1300,
+    height:400, duration:500,indicators:false
+    });
+  });
+
+
+</script>
+
+
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+
+
+      {% include 'searchbar.html' %}
+
+<div class="slider ">
+    <ul class="slides">
+      <li>
+        <img src="https://lorempixel.com/580/250/nature/1"> <!-- random image -->
+        <div class="caption center-align">
+            <form action="." method="POST">
     {% csrf_token %}
                 <div class="input-field">
                     <input type="text" class="validate" name="{{form.username.html_name}}" id="{{ form.username.id_for_label }}" required/>
@@ -20,5 +49,18 @@
                 </div>
 </form>
 <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
-</body>
-</html>
+
+          <h3>This is our big Tagline!</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+
+
+
+
+
+{% endblock %}
+

@@ -1,6 +1,14 @@
+{% load staticfiles %}
 <nav class="black" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="{% url 'landing:landing' %}" class="brand-logo white-text">DeAJodido</a>
+      <a id="logo-container" href="{% url 'landing:landing' %}" class="brand-logo white-text">
+          <div class="logo" style="padding: 5px;">
+                        <img src="{% static 'svg/peddy-white.svg' %}" style="    height: 50px;"> peddy
+
+
+          </div>
+          
+      </a>
       <ul class="right hide-on-med-and-down">
         <li><a href="#">  <i class="material-icons icon-white">person</i></a></li>
       </ul>
