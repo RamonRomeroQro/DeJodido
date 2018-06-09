@@ -78,3 +78,7 @@ div.lugar{
 
 }
 
+*, html, html>*, html>*>*{
+font-family: 'Montserrat', sans-serif;!important;
+
+}
