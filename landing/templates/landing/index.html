@@ -6,181 +6,121 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 
 
-<script type="text/javascript">
-    var nav = null;
-    function requestPosition() {
-        if (nav == null) {
-            nav = window.navigator;
-        }
-        var geoloc = nav.geolocation;
-        if (geoloc != null) {
-            geoloc.getCurrentPosition(successCallback, errorCallback);
-        }
-    }
-    function successCallback(position) {
-        document.getElementById("latitude").value =
-            position.coords.latitude;
-        document.getElementById("longitude").value =
-            position.coords.longitude;
-    }
-    function errorCallback(error) {
-        var strMessage = "";
-        // Check for known errors
-        switch (error.code) {
-            case error.PERMISSION_DENIED:
-                strMessage = "Access to your location is turned off. "  +
-                    "Change your settings to turn it back on.";
-                break;
-            case error.POSITION_UNAVAILABLE:
-                strMessage = "Data from location services is " +
-                    "currently unavailable.";
-                break;
-            case error.TIMEOUT:
-                strMessage = "Location could not be determined " +
-                    "within a specified timeout period.";
-                break;
-            default:
-                break;
-        }
-        document.getElementById("status").innerHTML = strMessage;
-    }
-
-  // Or with jQuery
-
-
-/// AQUI EL JQUERY AJAX PARA RECUPERAR LOS NOMBRES DE CIUDADES, CHECA: def listaciudades(request) en view.py
-
-  $(document).ready(function(){
-     $.ajax({
-                url: '/ajax/get_ciudades/',
-                data: {},
-                dataType: 'json',
-                success: function (data) {
-
-                    $('input.autocomplete').autocomplete({
-                      data : data
-                    });
-
-                }
-              });
-  });
-
-</script>
-
-
 
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block content %}
 
       {% include 'navbar.html' %}
+<div id="index-banner" class="parallax-container full">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <br><br>
+            <h2 class="header center white-text text-lighten-2"> <br><br>Diviertete y conoce tu ciudad</h2>
 
-<div id="index-banner" class="parallax-container" style="height: 100vh">
-    <div class="section no-pad-bot"  >
-      <div class="container" >
-        <br><br>
-        <h2 class="header center white-text text-lighten-2">  <br><br>Diviertete y conoce tu ciudad</h2>
+            <form class="container flex" method="POST" enctype="multipart/form-data" novalidate>
+                {% csrf_token %}
 
-                  <form class="container flex" method="POST" enctype="multipart/form-data" novalidate>
-                        {% csrf_token %}
-
-        <div class="row center">
-
-
-
-        <div class="input-field col s11 m11 l11">
-          <i class="material-icons prefix">location_on</i>
-          <input type="text" id="autocomplete-input" name="city" class="autocomplete">
-          <label for="autocomplete-input"><span class="white-text">Ciudad</span></label>
-        </div>
-
-
-          <div class="input-field col s1 m1 l1">
+                <div class="row center">
 
 
 
-  <button class="btn waves-effect waves-light black" type="submit" name="action">Submit
+                    <div class="input-field col s11 m11 l11">
+                        <i class="material-icons prefix">location_on</i>
+                        <input type="text" id="autocomplete-input" name="city" class="autocomplete">
+                        <label for="autocomplete-input"><span class="white-text">Ciudad</span></label>
+                    </div>
+
+
+                    <div class="input-field col s1 m1 l1">
+
+
+
+                        <button class="btn waves-effect waves-light black" type="submit" name="action">Submit
     <i class="material-icons right">send</i>
   </button>
 
-        </div>
+                    </div>
 
 
-
-        </div>
-
-          <!--->
-
-              <div class="row center">
-                <div class="col s12 m12 l12" id="status">
 
                 </div>
-            </div>
+
+                <!--->
+
+                <div class="row center">
+                    <div class="col s12 m12 l12" id="status">
+
+                    </div>
+                </div>
 
 
 
 
 
-          <!--ROW-->
+                <!--ROW-->
 
-          <!--ROW-->
-                  </form>
-        <br><br>
+                <!--ROW-->
+            </form>
+            <br><br>
 
-      </div>
+        </div>
     </div>
     <div class="parallax"><img src="{% static 'images/cover.jpg' %}" alt="Unsplashed background img 1"></div>
-  </div>
+</div>
 
 <div class="container">
     <div class="section">
 
-      <div class="row">
-        <div class="col s12 center">
-          <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4>Contact Us</h4>
-          <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+        <div class="row">
+            <div class="col s12 center">
+                <h3><i class="mdi-content-send brown-text"></i></h3>
+
+                <h4>Peddy</h4>
+                <p class="center-align light">A diferencia de las actuales plataformas de viajes, </p>
+            </div>
         </div>
-      </div>
 
     </div>
-  </div>
-  <div class="parallax-container valign-wrapper">
+</div>
+<div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+        <div class="container">
+            <div class="row center">
+                <h5 class="header col s12 light">Hecha por la R A Z A, para la R A Z A</h5>
+            </div>
         </div>
-      </div>
     </div>
     <div class="parallax"><img src="{% static 'images/background2.jpg' %}" alt="Unsplashed background img 2"></div>
-  </div>
+</div>
 
-  <div class="container">
+<div class="container">
     <div class="section">
 
-      <div class="row">
-        <div class="col s12 center">
-          <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4>Contact Us</h4>
-          <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+        <div class="row">
+            <div class="col s12 center">
+                <h3><i class="mdi-content-send brown-text"></i></h3>
+                <h4>Contact Us</h4>
+                <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id,
+                    viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum
+                    ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+            </div>
         </div>
-      </div>
 
     </div>
-  </div>
+</div>
 
 
-  <div class="parallax-container valign-wrapper">
+<div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+        <div class="container">
+            <div class="row center">
+                <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+            </div>
         </div>
-      </div>
     </div>
     <div class="parallax"><img src="{% static 'images/background3.jpg' %}" alt="Unsplashed background img 3"></div>
-  </div>
+</div>
 
 {% endblock %}
 

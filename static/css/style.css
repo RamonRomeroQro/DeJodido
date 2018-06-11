@@ -78,7 +78,49 @@ div.lugar{
 
 }
 
-*, html, html>*, html>*>*{
-font-family: 'Montserrat', sans-serif;!important;
 
+
+.full{
+  height: 100vh
+}
+
+#back-login{
+  background-image: url("../images/login.jpg");
+    background-size: 100% auto;
+
+}
+
+
+.logo-black-small{
+  background-image: url("../svg/peddy-black.svg");
+  height: 50px;
+  width: 50px;
+  background-size: auto 100%;
+}
+
+
+.logo-white-small {
+  background-image: url("../svg/peddy-white.svg");
+  height: 50px;
+  width: 50px;
+  background-size: auto 100%;
+}
+
+
+.logo-blue-small{
+  background-image: url("../svg/peddy-blue.svg");
+  height: 50px;
+  width: 50px;
+  background-size: auto 100%;
+    margin: 10px;
+
+
+}
+
+#footer-blue, #footer-blue>*, #footer-blue>*>*, .teal, .teal>* {
+  background-color: #3a94c7;
+}
+
+i.icon-blue{
+  color:#3a94c7;
 }
