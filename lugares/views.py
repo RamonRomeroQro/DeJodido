@@ -23,7 +23,6 @@ def busqueda(request):
     qstate = Estado.objects.filter(pais=qpais).get(nombre=state)
     qcity = Ciudad.objects.filter(estado=qstate).get(nombre=city)
     lugares = Lugar.objects.filter(ciudad=qcity)
-    fotos = []
     lugar =[]
 
     presupuesto = request.POST.getlist('presupuesto')
@@ -33,12 +32,4 @@ def busqueda(request):
 
 
 
-
-    for l in lugar:
-        images = Imagen.objects.filter(lugar=l)
-        for i in images:
-            fotos.append(i)
-    #pprint.pprint(fotos)
-
-
-    return render(request, 'lugares/list.html', { 'fotos':fotos , 'lugares': lugar })
+    return render(request, 'lugares/list.html', {'lugares': lugar })
