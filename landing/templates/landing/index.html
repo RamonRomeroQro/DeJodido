@@ -18,7 +18,7 @@
             <br><br>
             <h2 class="header center white-text text-lighten-2"> <br><br>Diviertete y conoce tu ciudad</h2>
 
-            <form class="container flex" method="POST" enctype="multipart/form-data" novalidate>
+            <form class="container flex" method="POST" action="{% url 'lugares:busqueda' %}" enctype="multipart/form-data" novalidate>
                 {% csrf_token %}
 
                 <div class="row center">
@@ -66,7 +66,17 @@
 
         </div>
     </div>
-    <div class="parallax"><img src="{% static 'images/cover.jpg' %}" alt="Unsplashed background img 1"></div>
+    <div class="parallax blue">
+
+
+        <!----
+
+        <img src="" alt="Unsplashed background img 1">
+
+
+
+        ---->
+    </div>
 </div>
 
 <div class="container">
@@ -91,7 +101,9 @@
             </div>
         </div>
     </div>
-    <div class="parallax"><img src="{% static 'images/background2.jpg' %}" alt="Unsplashed background img 2"></div>
+    <div class="parallax blue">
+
+        <img src="{% static 'images/background2.jpg' %}" alt="Unsplashed background img 2"></div>
 </div>
 
 <div class="container">
