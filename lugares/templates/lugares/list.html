@@ -49,9 +49,8 @@
 
 
 
-        {% for f in fotos %}
+        {% for f in place.imagen_set.all %}
 
-            {% if f.lugar == place %}
 
         <li>
         <img src="{{ f.imagen.url }}"> <!-- random image -->
@@ -65,7 +64,6 @@
         </h9>
         </div>
         </li>
-            {% endif %}
 
 {% endfor %}
 
