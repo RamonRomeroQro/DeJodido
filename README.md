@@ -25,3 +25,9 @@ _**De A Jodido** es un portal en el cual uno busca diferentes opciones de salida
 
 * Clases con mayusculas iniciales e intermedias (camello)
 * variables con minúsculas
+
+
+
+#Peddy
+
+58, 148, 199

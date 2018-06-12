@@ -1,12 +1,14 @@
-<nav class="black" role="navigation">
-    <div class="nav-wrapper container">
-      <a id="logo-container" href="{% url 'landing:landing' %}" class="brand-logo white-text">DeAJodido</a>
+{% load staticfiles %}
+<nav class="white" role="navigation" >
+    <div class="nav-wrapper container" >
+      <a  href="{% url 'landing:landing' %}" class="brand-logo white-text">
+          <div class="logo-blue-small" ></div></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#">  <i class="material-icons icon-white">person</i></a></li>
+        <li><a href="#"> Acceso|Registro</a></li>
       </ul>
 
       <ul id="nav-mobile" class="sidenav">
-        <li><a href="#">  <i class="material-icons">person</i></a></li>
+        <li><a href="#">Acceso|Registro</a></li>
       </ul>
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>

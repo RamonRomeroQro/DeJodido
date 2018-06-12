@@ -1,17 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<form action="." method="POST">
-    {% csrf_token %}
-                <div class="input-field">
+
+<!doctype html>
+
+
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script>
+
+</script>
+
+
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+
+
+      {% include 'searchbar.html' %}
+
+
+
+    <div class="section  full white center-align center"  >
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text">
+            </h2>
+          </div>
+        </div>
+
+        <div class="col s12 m4 center center-align">
+            <br><br><br>
+<h4>Inicia sesión.</h4>
+            <form action="." method="POST">
+                            {% csrf_token %}
+                            <div class="input-field s4 m4 ">                    					          <i class="material-icons iconis prefix">account_box</i>
+
                     <input type="text" class="validate" name="{{form.username.html_name}}" id="{{ form.username.id_for_label }}" required/>
-                    <label for="{{form.username.id_for_label}}">Usuario</label>
+
+                                <label for="{{form.username.id_for_label}}">Usuario</label>
                 </div>
                 <div class="input-field">
+                    					          <i class="material-icons iconis prefix">enhanced_encryption</i>
                     <input class="validate" name="password" type="password" name="{{form.password.html_name}}" id="{{ form.password.id_for_label }}" required/>
                     <label for="{{form.password.id_for_label}}">Contraseña</label>
                 </div>
@@ -19,6 +50,21 @@
                     <button class="submit" type="submit">Iniciar Sesión</button>
                 </div>
 </form>
-<a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
-</body>
-</html>
+
+            <a href="{% url 'social:begin' 'facebook' %}"><img src="{% static 'images/log-fb.png' %}" width="100%" height="auto" >  </a>
+      </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text">
+            </h2>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+{% endblock %}
+
