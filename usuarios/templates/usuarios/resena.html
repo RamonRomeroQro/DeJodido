@@ -1,0 +1,9 @@
+
+<h1>reseña</h1>
+{{ request.user.usuario.fb_id }}
+
+<form method="POST" enctype="multipart/form-data" action="{% url 'usuarios:Prueba_resena' lugar.nombre lugar.id %}">
+    {% csrf_token %}
+    {{ forma_resena.as_p }}
+    <button class="submit" type="submit">Enviar</button>
+</form>
