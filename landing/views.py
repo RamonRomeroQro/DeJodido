@@ -13,6 +13,10 @@ def landing(request):
     return render(request, 'landing/index.html')
 
 
+def test(request):
+    return render(request, 'landing/test.html')
+
+
 
 
 def listaciudades(request):
