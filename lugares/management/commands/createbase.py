@@ -307,6 +307,7 @@ def saveLocal(arr, kyword, c, e, p):
         url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken=' + str(arr["next_page_token"]) + '&key=' + settings.GMAPS_API_KEY
         #print (url)
         new = json.loads(requests.get(url).text)
+        print(new['status'])
         #print (new['status'])
         #pprint.pprint(new)
         saveLocal(new, kyword, c, e, p)

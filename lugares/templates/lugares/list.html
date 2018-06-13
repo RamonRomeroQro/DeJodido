@@ -82,7 +82,7 @@
                     Precio:{% if place.precio == -100 %}
                Información no disponible
                   {% else %}
-          {{ place.precio|floatformat:2  }}
+          {{ place.precio|floatformat:0  }}
               {% endif %}<br>
                     Rating:
               {% if place.rating == -100 %}
