@@ -15,6 +15,9 @@ urlpatterns = [
     #path('', include('django.contrib.auth.urls')),
     path('<str:nombre_lugar>-<int:id_lugar>', views.detalle_lugar, name='detalle_lugar'),
     path('busqueda', views.busqueda, name='busqueda'),
+    path('ajax/google/<str:id_google>', views.googleReviews, name='googleReviews'),
+    path('ajax/foursquare/<str:id_foursquare>', views.foursquareReviews, name='foursquareReviews'),
+    path('ajax/yelp/<str:id_yelp>', views.yelpReviews, name='yelpReviews'),
     #path('listaciudades', views.listaciudades, name='listaciudades'),
 
 

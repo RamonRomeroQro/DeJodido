@@ -17,6 +17,45 @@
     });
   });
 
+   $(document).ready(function(){
+    $('.tabs').tabs();
+  });
+
+
+$(document).ready(function(){
+
+    $("#googlereview").one( "click", function() {
+        $.ajax(
+            {
+                url: "/ajax/google/"+$('#google').html(),
+                success: function(result){
+                                         $("#google").css('visibility','visible'),
+
+                    $("#google").html(result);
+        }});
+    });
+    $("#yelpreview").one( "click", function() {
+        $.ajax(
+            {
+                url: "/ajax/yelp/"+$('#yelp').html(),
+                success: function(result){
+                                         $("#yelp").css('visibility','visible'),
+
+                    $("#yelp").html(result);
+        }});
+    });
+    $("#foursquarereview").one( "click", function() {
+        $.ajax(
+            {
+                url: "/ajax/foursquare/"+$('#foursquare').html(),
+                success: function(result){
+                                         $("#foursquare").css('visibility','visible'),
+
+                    $("#foursquare").html(result);
+        }});
+    });
+});
+
 
 </script>
 
@@ -64,36 +103,50 @@
         </div>
 
     <div class="container">
+
+
+
+
     <div class="row">
 
-        <div class="col s12 m9">
-            <div class="card-panel">
-    <h4>{{ lugar.nombre }}</h4>
-
-        <br><br><br>
 
 
-<h5>{{ lugar.rating  }}</h5>
 
-        <br><br><br>
-    <h5>{{ lugar.direccion }}</h5>
-    <h5>{{ lugar.botana }}</h5>
-    <h5>{{ lugar.validado }}</h5>
-    <h5>{{ lugar.ciudad.nombre }}, {{ lugar.ciudad.estado.nombre }}, {{ lugar.ciudad.estado.pais.nombre }}</h5>
+        <div class="card">
+    <div class="card-content">
+
+
+        <p>{{ lugar.nombre }}</p>
+<p>{{ lugar.rating  }}</p>
+    <p>{{ lugar.direccion }}</p>
+    <p>{{ lugar.botana }}</p>
+    <p>{{ lugar.validado }}</p>
+    <p>{{ lugar.ciudad.nombre }}, {{ lugar.ciudad.estado.nombre }}, {{ lugar.ciudad.estado.pais.nombre }}</p>
     Tags: <br>{% for t in lugar.tags.all %}{{ t.descripcion }}<br>{% endfor %}
 
-</div>
-
-        </div>
-
-<div class="col s12 m3">
-
-
-        <iframe src="https://www.facebook.com/plugins/page.php?href={{ lugar.facebook_link }}&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=2016535901926533" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-
-
-
     </div>
+    <div class="card-tabs">
+      <ul class="tabs tabs-fixed-width">
+        <li id="peddyreview" class="tab"><a class="active" href="#peddy">Peddy Review</a></li>
+        <li id="googlereview" class="tab"><a href="#google">Google Review</a></li>
+        <li id="foursquarereview" class="tab"><a href="#foursquare">FourSquare Review</a></li>
+        <li id="facebookreview" class="tab"><a href="#facebook">Facebook Review</a></li>
+        <li id="yelpreview" class="tab"><a href="#yelp">Yelp Review</a></li>
+      </ul>
+    </div>
+    <div class="card-content grey lighten-4">
+      <div id="peddy">Test 1
+      {% include 'usuarios/resena.html' %}
+
+      </div>
+      <div id="google" style="visibility: hidden">{{ lugar.id_google }}</div>
+      <div id="foursquare" style="visibility: hidden">{{ lugar.id_foursquare }}</div>
+      <div id="facebook" class="center">
+                  <iframe src="https://www.facebook.com/plugins/page.php?href={{ lugar.facebook_link }}&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=2016535901926533" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+      </div>
+      <div id="yelp" style="visibility: hidden">{{ lugar.id_yelp }}</div>
+    </div>
+  </div>
 
 
 

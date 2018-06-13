@@ -109,10 +109,10 @@ div.lugar{
 
 .logo-blue-small{
   background-image: url("../svg/peddy-blue.svg");
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   background-size: auto 100%;
-    margin: 8px;
+    margin: 12px;
 
 
 }
