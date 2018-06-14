@@ -163,10 +163,14 @@ $(document).ready(function(){
     <div class="card-content grey lighten-4">
       <div id="peddy">Test 1
 
+
+
+
+
+{% if user.is_authenticated %}
           <div class="card">
               <div class="card-content">
 
-            <div class="formaresena">
 
               <div class="row">
                 <div class="input-field col s6">
@@ -197,9 +201,7 @@ $(document).ready(function(){
                     {{ forma.comentario.help_text|safe }}
                     </div>
                 </div>
-
-
-                    </div>
+                 </div>
 
 
 
@@ -217,7 +219,6 @@ $(document).ready(function(){
                     </div>
 
 
-            </div>
 
 
 
@@ -225,6 +226,19 @@ $(document).ready(function(){
               </div>
 
           </div>
+
+{% else %}
+
+    <div class="card">
+        <div class="card-content">
+
+             <p><a href="{% url 'usuarios:singup' %}" class="blue-text"> Regístrate </a> o <a href="/login" class="blue-text"> Inicia Sesión</a> para dejar tu recomendación</p>
+
+        </div>
+    </div>
+
+
+      {% endif %}
 
       <div class="card">
 
