@@ -118,3 +118,9 @@ var nav = null;
                 }
               });
   });
+
+
+
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
