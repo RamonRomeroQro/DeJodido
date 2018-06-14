@@ -1,70 +1,79 @@
-
-<!doctype html>
-
-
-
-<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-<script>
-
-</script>
-
-
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load staticfiles %}
+
 {% block content %}
+{% include 'searchbar.html' %}
+    <div class="container">
 
+    <div class="row">
+      <div class="col s8 offset-s2 card">
+          <div class="card-content">
 
+              <h5 class="center center-align">Inicio de Sesión Peddy</h5>
 
-      {% include 'searchbar.html' %}
+              {% for message in messages %}
+   {{ message }}
+{% endfor %}
 
-
-
-    <div class="section  full white center-align center"  >
-
-      <!--   Icon Section   -->
-      <div class="row">
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text">
-            </h2>
-          </div>
-        </div>
-
-        <div class="col s12 m4 center center-align">
-            <br><br><br>
-<h4>Inicia sesión.</h4>
             <form action="." method="POST">
                             {% csrf_token %}
-                            <div class="input-field s4 m4 ">                    					          <i class="material-icons iconis prefix">account_box</i>
+
+                <div class="row">
+                            <div class="input-field s12">                    					          <i class="material-icons iconis prefix">account_box</i>
 
                     <input type="text" class="validate" name="{{form.username.html_name}}" id="{{ form.username.id_for_label }}" required/>
 
                                 <label for="{{form.username.id_for_label}}">Usuario</label>
                 </div>
-                <div class="input-field">
+
+                    </div>
+
+                <div class="row">
+
+                <div class="input-field s12">
                     					          <i class="material-icons iconis prefix">enhanced_encryption</i>
                     <input class="validate" name="password" type="password" name="{{form.password.html_name}}" id="{{ form.password.id_for_label }}" required/>
                     <label for="{{form.password.id_for_label}}">Contraseña</label>
                 </div>
-                <div class="cta-container">
-                    <button class="submit" type="submit">Iniciar Sesión</button>
                 </div>
-</form>
+ <div class="row ">
 
-            <a href="{% url 'social:begin' 'facebook' %}"><img src="{% static 'images/log-fb.png' %}" width="100%" height="auto" >  </a>
-      </div>
+                  <div class="input-field col s12 center center-align">
+<button class="btn waves-effect waves-light" type="submit" name="action">Acceder
+    <i class="material-icons right">send</i>
+  </button>
 
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text">
-            </h2>
+                                  <a href="{% url 'social:begin' 'facebook' %}"><img src="{% static 'images/log-fb.png' %}" width="100%" height="auto" >  </a>
+
+
+
+                  </div>
+
+                                 </div>
+            </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           </div>
-        </div>
+
       </div>
-
     </div>
-
-
+    </div>
 
 {% endblock %}
 
