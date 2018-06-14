@@ -20,6 +20,7 @@ def singup(request):
             user = formaUser.save()
             usuario = formaUsuario.save(commit=False)
             usuario.user = user
+            #usuario.ciudad_id= request.POST['city']
             usuario.save()
             print ('usuario creado')
 
@@ -71,7 +72,8 @@ def verificacion_FB(request):
             fb_id=request.user.social_auth.get(provider='facebook').extra_data['id']
         )
 
-    return HttpResponseRedirect(reverse('usuarios:Prueba_resena'))
+    return render(request, 'landing/index.html')
+
 
 
 
