@@ -61,10 +61,13 @@ class Lugar(models.Model):
 
 
     def delete(self):
-        if self.imagen:
-            if os.path.isfile(self.imagen.path):
-                os.remove(self.imagen.path)
-        super(self).delete()
+        imagenes=Imagen.objects.filter(lugar=self.id)
+        for i in imagenes:
+            i.delete()
+        super().delete()
+
+
+
 
 
 class Imagen(models.Model):
@@ -75,3 +78,9 @@ class Imagen(models.Model):
 
     def __str__(self):
         return self.imagen.url
+
+    def delete(self):
+        if self.imagen:
+            if os.path.isfile(self.imagen.path):
+                os.remove(self.imagen.path)
+        super().delete()

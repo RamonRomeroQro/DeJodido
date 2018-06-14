@@ -18,6 +18,46 @@
     interva:1300,
     height:400, duration:500
     });
+
+    //Agreagar a fucion scroll on load
+    var clase=$('.stars');
+    var i;
+    for (i = 0; i < clase.length; i++) {
+        var span = clase[i].id;
+        var str=$("#"+span).html();
+        var value= parseFloat(str);
+
+
+        if (value<1) {
+            $("#"+span).html('');
+        } else if (value>=1 && value<1.7){
+            $("#"+span).html('&#x2b50;');
+        }else if (value>=1.7 && value<2.7){
+            $("#"+span).html('&#x2b50;&#x2b50;');
+        }else if (value>=2.7 && value<3.7){
+            $("#"+span).html('&#x2b50;&#x2b50;&#x2b50;');
+        }else if (value>=3.7 && value<4.7){
+            $("#"+span).html('&#x2b50;&#x2b50;&#x2b50;&#x2b50;');
+        }else if (value>=4.7 && value<=5){
+            $("#"+span).html('&#x2b50;&#x2b50;&#x2b50;&#x2b50;&#x2b50;');
+        }else {
+            $("#"+span).html('Error');
+        }
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
   });
 </script>
 
@@ -77,17 +117,19 @@
 
       <div class="info center ">
                     {{ place.nombre }}<br>
-                    Precio:{% if place.precio == -100 %}
-               Información no disponible
-                  {% else %}
-          {{ place.precio|floatformat:0  }}
-              {% endif %}<br>
+
                     Rating:
               {% if place.rating == -100 %}
                Información no disponible
                   {% else %}
-                  {{ place.rating|floatformat:2  }}
+
+                  <span id="{{ place.id }}" class="stars" >{{ place.rating|floatformat:2 }}</span>[{{ place.rating|floatformat:2  }}]
               {% endif %}                  <br>
+      Precio:{% if place.precio == -100 %}
+               Información no disponible
+                  {% else %}
+          {{ place.precio|floatformat:0  }}
+              {% endif %}<br>
 
       </div>
 
