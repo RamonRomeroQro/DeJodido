@@ -146,6 +146,8 @@ def googleReviews(request, id_google):
         return HttpResponse(html)
     else:
         return HttpResponse('error')
+from django.conf import settings
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 #Visualizar partidos en la landing page
@@ -158,7 +160,7 @@ def detalle_lugar(request, nombre_lugar,id_lugar):
 
 
 def busqueda(request):
-    fullname = request.POST['city']
+    fullname = request.GET['city']
     parsedlocation = fullname.split(', ')
     city = parsedlocation[0]
     state = parsedlocation[1]
@@ -169,13 +171,13 @@ def busqueda(request):
     lugares = Lugar.objects.filter(ciudad=qcity)
     lugar =[]
 
-    presupuesto = request.POST.getlist('presupuesto')
+    presupuesto = request.GET.getlist('presupuesto')
 
     for lug in lugares.filter(precio__range=(min(presupuesto), max(presupuesto))).order_by('-rating'):
         lugar.append(lug)
 
+    page = request.GET.get('page', 1)
 
-    #agregando desconocidos
 
 
     noPrecio=lugares.filter(precio='-100').order_by('-rating')
@@ -183,7 +185,22 @@ def busqueda(request):
     for l in noPrecio:
         lugar.append(l)
 
+    paginator = Paginator(lugar, 3)
+    # agregando desconocidos
 
 
 
-    return render(request, 'lugares/list.html', {'lugares': lugar })
+
+    try:
+        numbers = paginator.page(page)
+    except PageNotAnInteger:
+        numbers = paginator.page(1)
+    except EmptyPage:
+        numbers = paginator.page(paginator.num_pages)
+
+
+    return render(request, 'lugares/list.html', {'lugares': lugar, 'id_ciudad': qcity.id, 'min_lugar': min(presupuesto),
+                                                 'max_lugar:': max(presupuesto), 'numbers': numbers})
+
+
+
