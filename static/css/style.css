@@ -62,12 +62,12 @@ i.icon-white {
     color: white;
 }
 input, select, textarea{
-    color: #fff;
+    color: #000;
 }
 
 
 textarea:focus, input:focus {
-    color: #fff;
+    color: #000;
 }
 
 .debug{
@@ -130,4 +130,11 @@ div.lugar{
 
 i.icon-blue{
   color:#3a94c7;
+}
+
+.help, .help>*, .help>*>*, .help>*>*>*{
+
+    font-size: x-small;
+  color: gray;
+
 }

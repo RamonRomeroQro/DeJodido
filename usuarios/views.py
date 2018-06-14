@@ -5,10 +5,12 @@ from .models import Usuario
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from lugares.models import Lugar
+from django.shortcuts import redirect
+
 
 # Create your views here.
 
-def Prueba_index(request):
+def singup(request):
 
     if request.method == 'POST':
         formaUser = FormaUser(request.POST, prefix="user")
@@ -19,11 +21,22 @@ def Prueba_index(request):
             usuario = formaUsuario.save(commit=False)
             usuario.user = user
             usuario.save()
+            print ('usuario creado')
+
+            #return redirect('/login')
+        else:
+            print ('usuario NO creado')
+
+            #request.user.message_set.create(message='no creado')
+            #return redirect('/login')
+
+
+
     else:
         formaUser = FormaUser(prefix="user")
         formaUsuario = FormaUsuario(prefix="usuario")
 
-    return render(request, 'prueba_registrar.html', {'forma': formaUser, 'forma2': formaUsuario})
+    return render(request, 'singup.html', {'forma': formaUser, 'forma2': formaUsuario})
 
 @login_required
 def prueba_resena(request,nombre_lugar,id_lugar):

@@ -1,0 +1,195 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'searchbar.html' %}
+    <div class="container">
+
+    <div class="row">
+      <div class="col s10 offset-s1 card">
+          <div class="card-content">
+
+              <h3 class="center center-align">Registro Peddy</h3>
+
+
+
+             <form method="POST" enctype="multipart/form-data" action="{% url 'usuarios:singup' %}">
+                {% csrf_token %}
+
+                <!---fields = ('username', 'first_name', 'last_name', 'email','password1', 'password2')
+        fields = ('ciudad','fecha_nacimiento','genero','imagen')
+----->
+                <div class="row">
+                <div class="input-field col s12">
+                    {{ forma.username }}
+                    {{ forma.username.label_tag }}
+                    <div class="help">
+                    {{ forma.username.errors }}
+                    {{ forma.username.help_text|safe }}
+                    </div>
+                </div>
+                    </div>
+
+                                 <div class="row">
+
+                <div class="input-field col s12">
+                    {{ forma.email }}
+                    {{ forma.email.label_tag }}
+                            <div class="help">
+
+                    {{ forma.email.errors }}
+                    {{ forma.email.help_text|safe }}
+                            </div>
+                </div>
+
+                                 </div>
+
+                                 <div class="row">
+
+
+                <div class="input-field col s12 m6">
+                    {{ forma.password1 }}
+                    {{ forma.password1.label_tag }}
+                            <div class="help">
+
+                    {{ forma.password1.errors }}
+                    {{ forma.password1.help_text|safe }}
+                            </div>
+                </div>
+
+                <div class="input-field col s12 m6">
+                    {{ forma.password2 }}
+                    {{ forma.password2.label_tag }}
+                            <div class="help">
+
+                    {{ forma.password2.errors }}
+                    {{ forma.password2.help_text|safe }}
+                            </div>
+                </div>
+                                 </div>
+
+                                 <div class="row">
+
+
+                <div class="input-field col s12 m6">
+                    {{ forma.first_name }}
+                    {{ forma.first_name.label_tag }}
+                            <div class="help">
+
+                    {{ forma.first_name.errors }}
+                    {{ forma.first_name.help_text|safe }}
+                            </div>
+                </div>
+
+                  <div class="input-field col s12 m6">
+                    {{ forma.last_name }}
+                    {{ forma.last_name.label_tag }}
+                            <div class="help">
+
+                    {{ forma.last_name.errors }}
+                    {{ forma.last_name.help_text|safe }}
+                            </div>
+                </div>
+
+                                 </div>
+
+
+                                <div class="row">
+
+                <div class="input-field col s12 m6">
+                    {{ forma2.fecha_nacimiento }}
+                    {{ forma2.fecha_nacimiento.label_tag }}
+                            <div class="help">
+
+                    {{ forma2.fecha_nacimiento.errors }}
+                    {{ forma2.fecha_nacimiento.help_text|safe }}
+                            </div>
+                </div>
+
+                 <div class="input-field col s12 m6">
+                    {{ forma2.genero }}
+                    {{ forma2.genero.label_tag }}
+                            <div class="help">
+
+                    {{ forma2.genero.errors }}
+                    {{ forma2.genero.help_text|safe }}
+                            </div>
+                </div>
+
+                                </div>
+
+                <div class="row">
+
+
+
+                <div class="input-field col s12">
+                    <input type="text" id="autocomplete-input" name="city" class="autocomplete">
+                    {{ forma2.ciudad.label_tag }}
+                            <div class="help">
+
+                    {{ forma2.ciudad.errors }}
+                    {{ forma2.ciudad.help_text|safe }}
+                            </div>
+                </div>
+                </div>
+
+                                 <div class="row">
+
+
+                <div class="file-field input-field col s12">
+                  <div class="btn">
+                    {{ forma2.imagen.label }}
+                    {{ forma2.imagen }}
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                  </div>
+                    <div class="help">
+
+                    {{ forma2.imagen.errors }}
+                    {{ forma2.imagen.help_text|safe }}
+                            </div>
+                </div>
+
+                                 </div>
+                 <div class="row center center-align">
+
+
+                 <div class="input-field col s12  center center-align">
+                     <label class="center center-align">
+        <input type="checkbox" class="center center-align"/>
+        <span class="center center-align">Acepto los terminos y condiciones de uso de Peddy</span>
+      </label>
+                </div>
+
+                </div>
+                 <br>
+
+                                 <div class="row ">
+
+                  <div class="input-field col s12 center center-align">
+<button class="btn waves-effect waves-light" type="submit" name="action">Enviar
+    <i class="material-icons right">send</i>
+  </button>
+                  </div>
+
+                                 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+            </form>
+          </div>
+
+      </div>
+    </div>
+    </div>
+
+{% endblock %}
