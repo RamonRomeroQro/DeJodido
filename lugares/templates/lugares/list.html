@@ -6,10 +6,6 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script>
 
-     document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.slider');
-    var instances = M.Slider.init(elems, options);
-  });
 
   // Or with jQuery
 
@@ -25,6 +21,9 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block content %}
+      <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'js/infinite.min.js' %}"></script>
+
 
 
 
@@ -102,14 +101,39 @@
 {% endfor %}
 
 
+ <div class="infinite-container">
+    {% for number in numbers %}
+      <div class="infinite-item">{{ number }}</div>
+    {% endfor %}
+  </div>
+
+  <div class="loading" style="display: none;">
+    Loading...
+  </div>
+
+  {% if numbers.has_next %}
+      <base href="" />
+      <a id="infinite-more-link-id" class="infinite-more-link" {% if numbers.has_next %} href="{{ request.get_full_path }}&page={{ numbers.next_page_number }}" {% endif %}>More</a>
+  {% endif %}
 
 
 
+ <script>
 
 
+    var infinite = new Waypoint.Infinite({
 
+      element: $('.infinite-container')[0],
 
+      onBeforePageLoad: function () {
+          $('.loading').show();
 
+      },
+      onAfterPageLoad: function ($items) {
+          $('.loading').hide();
+      }
+    });
+  </script>
 
 
 {% endblock %}
