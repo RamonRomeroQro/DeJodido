@@ -20,8 +20,8 @@
             <br><br>
             <h2 class="header center white-text text-lighten-2"> <br><br>Diviertete y conoce tu ciudad</h2>
 
-            <form class="container flex" method="POST" action="{% url 'lugares:busqueda' %}" enctype="multipart/form-data" novalidate>
-                {% csrf_token %}
+            <form class="container flex" method="GET" action="{% url 'lugares:busqueda' %}" novalidate>
+
 
                 <div class="row center">
 
