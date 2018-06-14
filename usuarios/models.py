@@ -14,6 +14,15 @@ GENEROS = (
 )
 
 
+calificaciones = (
+    (0, ''),
+    (1, '⭐'),
+    (2, '⭐⭐'),
+    (3, '⭐⭐⭐'),
+    (4, '⭐⭐⭐⭐'),
+    (5, '⭐⭐⭐⭐⭐')
+)
+
 class Usuario(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     fecha_nacimiento = models.DateField(default='', verbose_name='Fecha de Nacimiento', null=False, blank=False)
@@ -21,15 +30,15 @@ class Usuario(models.Model):
     imagen = models.ImageField(upload_to='imagen_usuarios', verbose_name='Imágen de Perfil', null=True, blank=True)
     ciudad = models.ForeignKey(Ciudad, on_delete=models.CASCADE, verbose_name="Ciudad de Residencia")
     fb_id = models.CharField(max_length=20, unique=True, blank=True, null=True)
-    resena = models.ManyToManyField(Lugar, through='UsuarioResenaLugar')
 
 
 
-class UsuarioResenaLugar(models.Model):
+class Resena(models.Model):
     fecha = models.DateTimeField(default=timezone.now)
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     lugar = models.ForeignKey(Lugar, on_delete=models.CASCADE)
-    calificaicon = models.IntegerField(verbose_name='Rating', null=False, blank=False, validators=[MinValueValidator(0),
+
+    calificacion = models.IntegerField(choices=calificaciones,verbose_name='Rating', null=False, blank=False, validators=[MinValueValidator(0),
                                                                                                    MaxValueValidator(5)]
                                        )
     precio_cerveza = models.IntegerField(verbose_name='Precio Cerveza', null=False, blank=False)

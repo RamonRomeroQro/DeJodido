@@ -6,6 +6,7 @@ import json
 import requests
 import datetime
 from django.http import HttpResponse
+from usuarios.forms import UsuarioReview
 
 
 
@@ -150,9 +151,9 @@ def googleReviews(request, id_google):
 #Visualizar partidos en la landing page
 def detalle_lugar(request, nombre_lugar,id_lugar):
     l = get_object_or_404(Lugar, id=id_lugar)
-    imagenes = Imagen.objects.filter(lugar=l)
     gkey=settings.GMAPS_API_KEY_JS
-    return render(request, 'lugares/details.html' , { 'lugar': l, 'imagenes': imagenes, 'gkey':gkey })
+    formresena=UsuarioReview(prefix="resena")
+    return render(request, 'lugares/details.html' , { 'lugar': l, 'gkey':gkey, 'forma':formresena })
 
 
 
