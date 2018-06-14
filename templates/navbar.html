@@ -4,13 +4,30 @@
       <a  href="{% url 'landing:landing' %}" class="brand-logo white-text">
           <div class="logo-blue-small" ></div></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="{% url 'usuarios:singup' %}" class="blue-text"> Regístrate </a></li>
+        {% if user.is_authenticated %}
+                                <li><a href="" class="blue-text disabled"> Hola {{ user.first_name }}</a></li>
+
+                                <li><a href="/logout" class="blue-text"> Salir</a></li>
+
+                        {% else %}
+
+                        <li><a href="{% url 'usuarios:singup' %}" class="blue-text"> Regístrate </a></li>
         <li><a href="/login" class="blue-text"> Inicia Sesión</a></li>
+
+                    {% endif %}
       </ul>
 
       <ul id="nav-mobile" class="sidenav">
-        <li><a href="{% url 'usuarios:singup' %}" class="blue-text"> Regístrate </a></li>
+        {% if user.is_authenticated %}
+
+                                <li><a href="/logout" class="blue-text"> Salir</a></li>
+
+                        {% else %}
+
+                        <li><a href="{% url 'usuarios:singup' %}" class="blue-text"> Regístrate </a></li>
         <li><a href="/login" class="blue-text"> Inicia Sesión</a></li>
+
+                    {% endif %}
       </ul>
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
