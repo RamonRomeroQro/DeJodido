@@ -14,39 +14,43 @@ def yelpReviews(request,id_yelp):
     headers = {
         'Authorization': 'Bearer CpMKG2Z-E_WAiDNoHTnGCUzZ2wUCTPsOwd2B6egscNf6p7BNOY81zt6JjtScUNRaQqq6ttHEqEYLW5PySrEVMe9KFpyeNY9q0Ao7U3ujCGbObr2IDRXTFUD-D1gEW3Yx'}
     response = json.loads(requests.get(url, headers=headers).text)
-    html='<h2>Yelp</h2><ul class="collection">'
-    for i in range(0,len(response['reviews'])):
-        rating=response['reviews'][i]['rating']
-        text=response['reviews'][i]['text']
-        time=response['reviews'][i]['time_created']
-        url=response['reviews'][i]['url']
-        usuario=response['reviews'][i]['user']['name']
-        profile=response['reviews'][i]['user']['image_url']
-        if profile==None:
-            profile=''
+    try:
+        html='<h2>Yelp</h2><ul class="collection">'
+        for i in range(0,len(response['reviews'])):
+            rating=response['reviews'][i]['rating']
+            text=response['reviews'][i]['text']
+            time=response['reviews'][i]['time_created']
+            url=response['reviews'][i]['url']
+            usuario=response['reviews'][i]['user']['name']
+            profile=response['reviews'][i]['user']['image_url']
+            if profile==None:
+                profile=''
 
-        html=html+'<a href="'+url+'">'
-        html=html+'<li class="collection-item avatar">'
-        html=html+'<img src="'+profile+'" alt="" class="circle">'
-        html=html+'<span class="title">'+usuario+'</span>'
-        html=html+'<p>'+text+'</p>'
-        html=html+'<p>'
-        for i in range(0,rating):
-            html=html+'&#x2b50;'
-        html=html+'</p>'
-        html=html+'<p>'+str(rating)+'</p>'
-        html = html + '<p>' +time+'</p>'
-        html=html+'<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>'
-        html=html+'</li>'
-        html=html+'</a>'
-
-
-
+            html=html+'<a href="'+url+'">'
+            html=html+'<li class="collection-item avatar">'
+            html=html+'<img src="'+profile+'" alt="" class="circle">'
+            html=html+'<span class="title">'+usuario+'</span>'
+            html=html+'<p>'+text+'</p>'
+            html=html+'<p>'
+            for i in range(0,rating):
+                html=html+'&#x2b50;'
+            html=html+'</p>'
+            html=html+'<p>'+str(rating)+'</p>'
+            html = html + '<p>' +time+'</p>'
+            html=html+'<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>'
+            html=html+'</li>'
+            html=html+'</a>'
 
 
-    html=html+'</ul>'
 
-    return HttpResponse(html)
+
+
+        html=html+'</ul>'
+
+        return HttpResponse(html)
+    except KeyError:
+        return HttpResponse('error')
+
 
 
 def foursquareReviews(request,id_foursquare):
@@ -166,11 +170,14 @@ def busqueda(request):
 
     presupuesto = request.POST.getlist('presupuesto')
 
-    for lug in lugares.filter(precio__range=(min(presupuesto), max(presupuesto))):
+    for lug in lugares.filter(precio__range=(min(presupuesto), max(presupuesto))).order_by('-rating'):
         lugar.append(lug)
 
+
     #agregando desconocidos
-    noPrecio=lugares.filter(precio='-100')
+
+
+    noPrecio=lugares.filter(precio='-100').order_by('-rating')
 
     for l in noPrecio:
         lugar.append(l)

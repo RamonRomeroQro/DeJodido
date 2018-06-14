@@ -108,36 +108,45 @@ def creacioDBO(gobj, fobj, sobj, yobj, kw, c,e,p):
     c=city(c, e, p)
     t=taging(kw)
 
+    try:
+        obj = Lugar.objects.get(id_google=gobj['google_id'])
+        print ('>>>' + str(obj.nombre+': recuperado'))
 
+    except Lugar.DoesNotExist:
+        obj = Lugar.objects.create(
+            nombre=gobj['google_nombre'],
+            direccion=gobj['google_direccion'],
+            latitud=gobj['google_latitud'],
+            longitud=gobj['google_longitud'],
+            botana=None,
+            validado=False,
+            id_google=gobj['google_id'],
+            id_yelp=yobj['yelp_id'],
+            id_foursquare=sobj['foursquare_id'],
+            id_facebook=fobj['facebook_id'],
+            facebook_link=fobj['facebook_link'],
+            ciudad=c,
+            rating=rat,
+            precio=price,
+        )
+        imagenes = getImagePath(gobj['google_id'])
+        # print (imagenes)
+        cont = 0
+        while cont < len(imagenes):
+            im = Imagen.objects.get_or_create(lugar=obj, imagen=SimpleUploadedFile(name=obj.nombre + str(cont) + '.jpg',
+                                                                                   content=open(imagenes[cont],
+                                                                                                'rb').read(),
+                                                                                   content_type='image/jpeg'),
+                                              descripcion='Importada desde Google Imagenes')
+            cont = cont + 1
+        obj.save()
+        print ('>>>' + str(obj.nombre+': creado'))
 
-
-    obj, created = Lugar.objects.get_or_create(
-        nombre=gobj['google_nombre'],
-        direccion = gobj['google_direccion'],
-        latitud = gobj['google_latitud'],
-        longitud = gobj['google_longitud'],
-        botana = None,
-        validado = False,
-        id_google=gobj['google_id'],
-        id_yelp = yobj['yelp_id'],
-        id_foursquare = sobj['foursquare_id'],
-        id_facebook = fobj['facebook_id'],
-        facebook_link = fobj['facebook_link'],
-        ciudad = c,
-        rating=rat,
-        precio=price,
-    )
-    print ('>>>'+str(created))
     print ('>>>'+str(rat))
     print ('>>>'+str(price))
     obj.tags.add(t)
-    obj.save()
-    imagenes=getImagePath(gobj['google_id'])
-    #print (imagenes)
-    cont=0
-    while cont<len(imagenes):
-        im = Imagen.objects.get_or_create( lugar=obj, imagen =  SimpleUploadedFile(name=obj.nombre+str(cont)+'.jpg', content=open(imagenes[cont], 'rb').read(), content_type='image/jpeg'),descripcion='Importada desde Google Imagenes')
-        cont=cont+1
+
+
 
 
 
