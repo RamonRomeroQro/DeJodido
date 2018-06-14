@@ -124,3 +124,58 @@ var nav = null;
   $(document).ready(function(){
     $('.datepicker').datepicker();
   });
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.slider');
+    var instances = M.Slider.init(elems, options);
+  });
+
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.slider').slider({    indicators:false,
+    interva:1300,
+    height:400, duration:500
+    });
+
+    //Agreagar a fucion scroll on load
+    var clase=$('.stars');
+    var i;
+    for (i = 0; i < clase.length; i++) {
+        var span = clase[i].id;
+        var str=$("#"+span).html();
+        var value= parseFloat(str);
+
+
+        if (value<1) {
+            $("#"+span).html('');
+        } else if (value>=1 && value<1.7){
+            $("#"+span).html('&#x2b50;');
+        }else if (value>=1.7 && value<2.7){
+            $("#"+span).html('&#x2b50;&#x2b50;');
+        }else if (value>=2.7 && value<3.7){
+            $("#"+span).html('&#x2b50;&#x2b50;&#x2b50;');
+        }else if (value>=3.7 && value<4.7){
+            $("#"+span).html('&#x2b50;&#x2b50;&#x2b50;&#x2b50;');
+        }else if (value>=4.7 && value<=5){
+            $("#"+span).html('&#x2b50;&#x2b50;&#x2b50;&#x2b50;&#x2b50;');
+        }else {
+            $("#"+span).html('Error');
+        }
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+  });

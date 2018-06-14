@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Usuario, UsuarioResenaLugar
+from .models import Usuario, Resena
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
@@ -25,9 +25,9 @@ class UsuarioReview(ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(UsuarioReview, self).__init__(*args, **kwargs)
-        self.fields['calificaicon'].widget.attrs['min'] = '0'
-        self.fields['calificaicon'].widget.attrs['max'] = '5'
+        self.fields['calificacion'].widget.attrs['min'] = '0'
+        self.fields['calificacion'].widget.attrs['max'] = '5'
 
     class Meta:
-        model = UsuarioResenaLugar
-        fields =('calificaicon','precio_cerveza','comentario')
+        model = Resena
+        fields =('calificacion','precio_cerveza','comentario')

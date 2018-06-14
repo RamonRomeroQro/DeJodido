@@ -73,8 +73,7 @@ $(document).ready(function(){
         <!-------------------->
 
 
-
-        {% for i in imagenes %}
+        {% for i in lugar.imagen_set.all %}
 
 
         <li>
@@ -117,12 +116,39 @@ $(document).ready(function(){
 
 
         <p>{{ lugar.nombre }}</p>
-<p>{{ lugar.rating  }}</p>
-    <p>{{ lugar.direccion }}</p>
+    <p>
+
+
+
+     {% if lugar.rating == -100 %}
+               Información no disponible
+                  {% else %}
+
+                  Rating: <span id="{{ lugar.id }}" class="stars" >{{ lugar.rating|floatformat:2 }}</span>[{{ lugar.rating|floatformat:2  }}]
+              {% endif %}
+
+
+</p>
+        <p>
+        Precio:{% if lugar.precio == -100 %}
+               Información no disponible
+                  {% else %}
+          {{ lugar.precio|floatformat:0  }}
+              {% endif %}
+
+    </p>
+
+
+
+
+
+
+
+
+
+    <p>Dirección: {{ lugar.direccion }}, {{ lugar.ciudad.estado.nombre }}, {{ lugar.ciudad.estado.pais.nombre }}</p>
     <p>{{ lugar.botana }}</p>
     <p>{{ lugar.validado }}</p>
-    <p>{{ lugar.ciudad.nombre }}, {{ lugar.ciudad.estado.nombre }}, {{ lugar.ciudad.estado.pais.nombre }}</p>
-    Tags: <br>{% for t in lugar.tags.all %}{{ t.descripcion }}<br>{% endfor %}
 
     </div>
     <div class="card-tabs">
@@ -136,7 +162,90 @@ $(document).ready(function(){
     </div>
     <div class="card-content grey lighten-4">
       <div id="peddy">Test 1
-      {% include 'usuarios/resena.html' %}
+
+          <div class="card">
+              <div class="card-content">
+
+            <div class="formaresena">
+
+              <div class="row">
+                <div class="input-field col s6">
+                    {{ forma.precio_cerveza }}
+                    {{ forma.precio_cerveza.label_tag }}
+                    <div class="help">
+                    {{ forma.precio_cerveza.errors }}
+                    {{ forma.precio_cerveza.help_text|safe }}
+                    </div>
+                </div>
+
+                  <div class="input-field col s6">
+                    {{ forma.calificacion }}
+                    {{ forma.calificacion.label_tag }}
+                    <div class="help">
+                    {{ forma.calificacion.errors }}
+                    {{ forma.calificacion.help_text|safe }}
+                    </div>
+                </div>
+                    </div>
+
+                 <div class="row">
+                <div class="input-field col s12">
+                    {{ forma.comentario }}
+                    {{ forma.comentario.label_tag }}
+                    <div class="help">
+                    {{ forma.comentario.errors }}
+                    {{ forma.comentario.help_text|safe }}
+                    </div>
+                </div>
+
+
+                    </div>
+
+
+
+
+             <div class="row">
+                <div class="file-field input-field s12">
+      <div class="btn">
+        <span>File</span>
+        <input type="file" multiple>
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text" placeholder="Upload one or more files">
+      </div>
+    </div>
+                    </div>
+
+
+            </div>
+
+
+
+
+              </div>
+
+          </div>
+
+      <div class="card">
+
+          <div class="card-content">
+              <ul>
+        {% for r in lugar.resena_set.all %}
+
+        <li>{{ r.comentario }}</li>
+
+            {% empty %}
+
+            <li> No hay reseñas Disponibles</li>
+        {% endfor %}
+    </ul>
+          </div>
+      </div>
+
+
+
+
+
 
       </div>
       <div id="google" style="visibility: hidden">{{ lugar.id_google }}</div>
@@ -165,7 +274,7 @@ $(document).ready(function(){
       function initMap() {
         var uluru = {lat: {{ lugar.latitud }}, lng: {{ lugar.longitud }}   };
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 13,
+          zoom: 14,
           center: uluru
         });
 
