@@ -341,7 +341,7 @@ class Command(BaseCommand):
                 '--keyword bar ' +
                 '--city "Santiago de Querétaro" ' +
                 '--state "Querétaro" ' +
-                '--country "México"')
+                '--country "México"\n\n AL EJECUTAR POR PRIMERA VEZ, ASEGURARSE DE CREAR CIUDAD->... Default e Imagen/Carpetas de descarga y default')
 
         self.stdout.write(self.style.SUCCESS(stri))
 
