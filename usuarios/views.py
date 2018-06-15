@@ -22,7 +22,7 @@ def singup(request):
 
             ciudad = request.POST['city']
 
-            if ", " not in ciudad:
+            if ", "  in ciudad:
                 try:
                     parsedlocation = ciudad.split(', ')
                     city = parsedlocation[0]
