@@ -67,6 +67,7 @@ $(document).ready(function(){
 
 
       {% include 'searchbar.html' %}
+    <br>
 
         <div class="slider">
         <ul class="slides">
@@ -100,6 +101,7 @@ $(document).ready(function(){
 
         </ul>
         </div>
+    <br>
 
     <div class="container">
 
@@ -153,27 +155,31 @@ $(document).ready(function(){
     </div>
     <div class="card-tabs">
       <ul class="tabs tabs-fixed-width">
-        <li id="peddyreview" class="tab"><a class="active" href="#peddy">Peddy Review</a></li>
-        <li id="googlereview" class="tab"><a href="#google">Google Review</a></li>
-        <li id="foursquarereview" class="tab"><a href="#foursquare">FourSquare Review</a></li>
-        <li id="facebookreview" class="tab"><a href="#facebook">Facebook Review</a></li>
-        <li id="yelpreview" class="tab"><a href="#yelp">Yelp Review</a></li>
+        <li id="peddyreview" class="tab "><a class="active blue-text " href="#peddy">DeJodido Review</a></li>
+        <li id="googlereview" class="tab"><a href="#google" class="blue-text ">Google Review</a></li>
+        <li id="foursquarereview" class="tab"><a href="#foursquare" class="blue-text ">FourSquare Review</a></li>
+        <li id="facebookreview" class="tab"><a href="#facebook" class="blue-text ">Facebook </a></li>
+        <li id="yelpreview" class="tab"><a href="#yelp" class="blue-text ">Yelp Review</a></li>
       </ul>
     </div>
     <div class="card-content grey lighten-4">
-      <div id="peddy">Test 1
+      <div id="peddy">DeJodido Reviews
 
 
 
 
 
 {% if user.is_authenticated %}
+
+
           <div class="card">
               <div class="card-content">
 
+             <form method="POST" enctype="multipart/form-data" action="{% url 'usuarios:resena' lugar.nombre lugar.id %}">
+{% csrf_token %}
 
               <div class="row">
-                <div class="input-field col s6">
+                <div class="input-field col s12">
                     {{ forma.precio_cerveza }}
                     {{ forma.precio_cerveza.label_tag }}
                     <div class="help">
@@ -181,8 +187,10 @@ $(document).ready(function(){
                     {{ forma.precio_cerveza.help_text|safe }}
                     </div>
                 </div>
+              </div>
+                  <div class="row">
 
-                  <div class="input-field col s6">
+                  <div class="input-field col s12">
                     {{ forma.calificacion }}
                     {{ forma.calificacion.label_tag }}
                     <div class="help">
@@ -203,7 +211,7 @@ $(document).ready(function(){
                 </div>
                  </div>
 
-
+<!------ Imagenes??
 
 
              <div class="row">
@@ -217,8 +225,16 @@ $(document).ready(function(){
       </div>
     </div>
                     </div>
+                 --->
 
+                      <div class="row center center-align">
+                          <div class="col s12 center center-align">
+                               <button class="btn waves-effect waves-light" type="submit" name="action"><i class="material-icons right">send</i>
+  </button>
+                          </div>
+                      </div>
 
+</form>
 
 
 
@@ -245,6 +261,8 @@ $(document).ready(function(){
           <div class="card-content">
               <ul>
         {% for r in lugar.resena_set.all %}
+
+           {{ r.usuario.user.username }}
 
         <li>{{ r.comentario }}</li>
 

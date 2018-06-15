@@ -10,7 +10,7 @@
       <div class="container">
          <br><br>
          <h2 class="header center white-text text-lighten-2"> <br><br>Diviertete y conoce tu ciudad</h2>
-         <form class="container flex" method="GET" action="{% url 'lugares:busqueda' %}" novalidate>
+         <form class="container flex" method="GET" action="{% url 'lugares:busqueda' %}" >
              {% csrf_token %}
             <div class="row center center-align">
                <div class="input-field col s12 m12 ">
