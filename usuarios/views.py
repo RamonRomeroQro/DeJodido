@@ -37,6 +37,7 @@ def singup(request):
                     usuario.ciudadUnparsable=ciudad
 
             else:
+                usuario.ciudad_id = 1
                 usuario.ciudadUnparsable = ciudad
 
             usuario.save()
