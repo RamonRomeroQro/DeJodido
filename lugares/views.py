@@ -7,6 +7,8 @@ import requests
 import datetime
 from django.http import HttpResponse
 from usuarios.forms import UsuarioReview
+from django.http import HttpResponseRedirect
+
 
 
 
@@ -160,47 +162,53 @@ def detalle_lugar(request, nombre_lugar,id_lugar):
 
 
 def busqueda(request):
-    fullname = request.GET['city']
-    parsedlocation = fullname.split(', ')
-    city = parsedlocation[0]
-    state = parsedlocation[1]
-    country = parsedlocation[2]
-    qpais = Pais.objects.get(nombre=country)
-    qstate = Estado.objects.filter(pais=qpais).get(nombre=state)
-    qcity = Ciudad.objects.filter(estado=qstate).get(nombre=city)
-    lugares = Lugar.objects.filter(ciudad=qcity)
-    lugar =[]
-
-    presupuesto = request.GET.getlist('presupuesto')
-
-    for lug in lugares.filter(precio__range=(min(presupuesto), max(presupuesto))).order_by('-rating'):
-        lugar.append(lug)
-
-    page = request.GET.get('page', 1)
-
-
-
-    noPrecio=lugares.filter(precio='-100').order_by('-rating')
-
-    for l in noPrecio:
-        lugar.append(l)
-
-    paginator = Paginator(lugar, 3)
-    # agregando desconocidos
-
-
-
 
     try:
-        numbers = paginator.page(page)
-    except PageNotAnInteger:
-        numbers = paginator.page(1)
-    except EmptyPage:
-        numbers = paginator.page(paginator.num_pages)
+
+        fullname = request.GET['city']
+        parsedlocation = fullname.split(', ')
+        city = parsedlocation[0]
+        state = parsedlocation[1]
+        country = parsedlocation[2]
+        qpais = Pais.objects.get(nombre=country)
+        qstate = Estado.objects.filter(pais=qpais).get(nombre=state)
+        qcity = Ciudad.objects.filter(estado=qstate).get(nombre=city)
+        lugares = Lugar.objects.filter(ciudad=qcity)
+        lugar =[]
+
+        presupuesto = request.GET.getlist('presupuesto')
+
+        for lug in lugares.filter(precio__range=(min(presupuesto), max(presupuesto))).order_by('-rating'):
+            lugar.append(lug)
+
+        page = request.GET.get('page', 1)
 
 
-    return render(request, 'lugares/list.html', {'lugares': lugar, 'id_ciudad': qcity.id, 'min_lugar': min(presupuesto),
-                                                 'max_lugar:': max(presupuesto), 'numbers': numbers})
 
+        noPrecio=lugares.filter(precio='-100').order_by('-rating')
+
+        for l in noPrecio:
+            lugar.append(l)
+
+        paginator = Paginator(lugar, 3)
+        # agregando desconocidos
+
+
+
+
+        try:
+            numbers = paginator.page(page)
+        except PageNotAnInteger:
+            numbers = paginator.page(1)
+        except EmptyPage:
+            numbers = paginator.page(paginator.num_pages)
+
+
+        return render(request, 'lugares/list.html', {'lugares': lugar, 'id_ciudad': qcity.id, 'min_lugar': min(presupuesto),
+                                                     'max_lugar:': max(presupuesto), 'numbers': numbers})
+
+    except:
+
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
 
