@@ -41,7 +41,7 @@ def singup(request):
                 usuario.ciudadUnparsable = ciudad
 
             usuario.save()
-            return render(request, 'landing/index.html')
+            return redirect('/login')
 
             #return redirect('/login')
         else:
