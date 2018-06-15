@@ -12,6 +12,7 @@
               <h5 class="center center-align">Iniciar Sesión</h5>
 
             <form action="." method="POST">
+                 <input type="hidden" name="next" value="{{ next }}" />
                             {% csrf_token %}
 
                 <div class="row">
