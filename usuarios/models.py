@@ -28,6 +28,7 @@ class Usuario(models.Model):
     genero = models.IntegerField(choices=GENEROS,verbose_name='Género', null=False, blank=False)
     imagen = models.ImageField(upload_to='imagen_usuarios', verbose_name='Imágen de Perfil', null=True, blank=True)
     ciudad = models.ForeignKey(Ciudad, on_delete=models.CASCADE, verbose_name="Ciudad de Residencia")
+    ciudadUnparsable = models.CharField( verbose_name="Ciudad Unparseable", max_length=500, blank=True, null=True, default='OK')
     fb_id = models.CharField(max_length=20, unique=True, blank=True, null=True)
 
 
@@ -36,7 +37,6 @@ class Resena(models.Model):
     fecha = models.DateTimeField(default=timezone.now)
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     lugar = models.ForeignKey(Lugar, on_delete=models.CASCADE)
-
     calificacion = models.IntegerField(choices=calificaciones,verbose_name='Rating', null=False, blank=False, validators=[MinValueValidator(0),
                                                                                                    MaxValueValidator(5)]
                                        )
