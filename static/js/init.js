@@ -126,6 +126,13 @@ var nav = null;
   });
 
 
+
+
+
+
+  localStorage.setItem(key, value);  // set
+localStorage.getItem(key);
+
   // Or with jQuery
 
   $(document).ready(function(){
