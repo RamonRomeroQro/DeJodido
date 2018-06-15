@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from lugares.models import *
 from django.shortcuts import redirect
+from usuarios.models import *
 
 
 # Create your views here.
@@ -58,21 +59,31 @@ def singup(request):
         return render(request, 'singup.html', {'forma': formaUser, 'forma2': formaUsuario})
 
 @login_required
-def prueba_resena(request,nombre_lugar,id_lugar):
+def resena(request,nombre_lugar,id_lugar):
 
-    if request.method == 'POST':
-        formaResena = UsuarioReview(request.POST)
+    print ('sss')
 
-        if formaResena.is_valid():
-            resena = formaResena.save(commit=False)
-            resena.usuario = request.user.usuario
-            resena.lugar_id = id_lugar
-            resena.save()
+    #Poruqe la forma no sale
 
-    formaResena = UsuarioReview
-    lugar = Lugar.objects.get(id=id_lugar)
 
-    return render(request, 'prueba_resena.html', {'forma_resena':formaResena,'lugar':lugar})
+
+    if request.method == 'POST' :
+        resena = Resena.objects.create(
+                usuario=request.user.usuario,
+                lugar = Lugar.objects.get(id=id_lugar),
+                calificacion = request.POST['resena-calificacion'],
+                precio_cerveza = request.POST['resena-precio_cerveza'],
+                comentario = request.POST['resena-comentario']
+        )
+        resena.save()
+
+
+
+
+
+    return redirect('lugares:detalle_lugar', nombre_lugar=nombre_lugar, id_lugar=id_lugar )
+
+
 
 
 @login_required

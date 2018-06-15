@@ -27,6 +27,8 @@ class UsuarioReview(ModelForm):
         super(UsuarioReview, self).__init__(*args, **kwargs)
         self.fields['calificacion'].widget.attrs['min'] = '0'
         self.fields['calificacion'].widget.attrs['max'] = '5'
+        self.fields['precio_cerveza'].widget.attrs['min'] = '0'
+
 
     class Meta:
         model = Resena
