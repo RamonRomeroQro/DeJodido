@@ -155,7 +155,7 @@ AUTHENTICATION_BACKENDS = (
 
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
-LOGIN_REDIRECT_URL = '/usuarios/verificacion_FB'
+#LOGIN_REDIRECT_URL = '/usuarios/verificacion_FB'
 
 
 SOCIAL_AUTH_FACEBOOK_KEY = '470651183392852'  # App ID
