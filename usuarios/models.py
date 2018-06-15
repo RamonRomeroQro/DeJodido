@@ -40,6 +40,6 @@ class Resena(models.Model):
     calificacion = models.IntegerField(choices=calificaciones,verbose_name='Rating', null=False, blank=False, validators=[MinValueValidator(0),
                                                                                                    MaxValueValidator(5)]
                                        )
-    precio_cerveza = models.IntegerField(verbose_name='Precio Cerveza', null=False, blank=False)
+    precio_cerveza = models.IntegerField(verbose_name='Precio Cerveza', null=False, blank=False, validators=[MinValueValidator(0)])
     comentario = models.TextField(default='', null=True, blank=True)
 
