@@ -1,18 +1,31 @@
 
 #!/bin/bash
-cd /home/libelula/
-source my_env/bin/activate
-cd Libelulas/
-pip install -r requirements.txt
+
+source /peddy/venv/bin/activate
+cd /peddy/NewJodido
 git pull origin master
-python manage.py makemigrations jugadora
+pip install -r requirements.txt
+
+
+
+python manage.py makemigrations lugares
 python manage.py migrate
-python manage.py makemigrations equipo
+python manage.py makemigrations usuarios
 python manage.py migrate
-python manage.py makemigrations torneo
+python manage.py makemigrations landing
 python manage.py migrate
-python manage.py makemigrations coaches
-python manage.py migrate
+
+
+
 sudo systemctl restart gunicorn
 deactivate
-cd ~
+cd
+
+
+
+
+
+
+
+
+
