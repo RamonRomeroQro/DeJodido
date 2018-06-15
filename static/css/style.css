@@ -93,17 +93,20 @@ div.lugar{
 
 .logo-black-small{
   background-image: url("../svg/peddy-black.svg");
-  height: 50px;
-  width: 50px;
+    height: 40px;
+  width: 40px;
   background-size: auto 100%;
+    margin: 12px;
 }
 
 
 .logo-white-small {
   background-image: url("../svg/peddy-white.svg");
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   background-size: auto 100%;
+    margin: 12px;
+
 }
 
 
@@ -113,17 +116,6 @@ div.lugar{
   width: 40px;
   background-size: auto 100%;
     margin: 12px;
-
-
-}
-
-#footer-blue, #footer-blue>*, #footer-blue>*>*, .teal, .teal>* {
-  background-color: #3a94c7;
-}
-
-.blue, .blue>*, .blue>*>*, .blue>*>*>*{
-    background-color: #3a94c7;
-
 
 
 }
@@ -146,3 +138,5 @@ i.icon-blue{
   color: red;
 
 }
+
+.navbar-fixed { z-index: 9999; }

@@ -148,6 +148,8 @@ var nav = null;
   // Or with jQuery
 
   $(document).ready(function(){
+          $('.sidenav').sidenav();
+
     $('.slider').slider({    indicators:false,
     interva:1300,
     height:400, duration:500

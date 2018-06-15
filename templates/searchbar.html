@@ -1,74 +1,123 @@
 {% load staticfiles %}
 
 
-
-
-<nav class="white" >
+<div class="navbar-fixed">
+   <nav class="blue" >
             <div class="nav-wrapper container">
               <a id="logo-container" href="{% url 'landing:landing' %}" class="brand-logo white-text">
-          <div class="logo-blue-small" ></div>
+          <div class="logo-white-small" ></div>
       </a>
+                  <a href="#" data-target="nav-mobile" class="sidenav-trigger white-text"><i class="material-icons white-text">menu</i></a>
+
+            <form id="searchform">
                 <ul class="hide-on-med-and-down right">
-                    <li>
-                        <form>
-                            {% csrf_token %}
-                       <div class="center row">
-                          <div class="col s12 " >
-                            <div class="row" id="topbarsearch">
-                              <div class="input-field col s6 s12 red-text">
-                                <i class="blue-text material-icons prefix">search</i>
-                                <input type="text" placeholder="search"  class="autocomplete blue-text" >
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                            </form>
+
+
+                <li>
+
+                     <div class="row center center-align">
+               <div class="input-field col s12 m12 ">
+                  <i class="material-icons prefix">location_on</i>
+                  <input required type="text" id="autocomplete-input" name="city" class="autocomplete">
+                  <label for="autocomplete-input"><span class="white-text">Ciudad</span></label>
+               </div>
+            </div>
+                </li>
+               <!--
+                  AQUI VA LO QUE HIZE LO PONES BONITO
+                  -->
+                <li>
+             <div class="row center center-align">
+               <div class="input-field col s12 m12 ">
+                  <select required multiple id="presupuesto_id" name="presupuesto" class>
+                     <option value="" disabled selected class="center-align center white-text">$</option>
+                     <option value="1">Quebrado</option>
+                     <option value="2">Normal</option>
+                     <option value="3">Freson</option>
+                     <option value="4">Mirrey</option>
+                  </select>
+               </div>
+             </div>
                       </li>
+
+                <li>
+<a href="javascript:$('#searchform').submit();" class="white-text"><i class="material-icons right">search</i></a>
+
+
+
+                </li>
 
 
                     {% if user.is_authenticated %}
-                                <li><a href="/logout" class="blue-text"> Salir</a></li>
+                                <li><a href="/logout" class="white-text"> Salir</a></li>
 
                         {% else %}
 
-                        <li><a href="{% url 'usuarios:singup' %}" class="blue-text"> Regístrate </a></li>
-        <li><a href="/login" class="blue-text"> Inicia Sesión</a></li>
+                        <li><a href="{% url 'usuarios:singup' %}" class="white-text"> Regístrate </a></li>
+        <li><a href="/login" class="white-text"> Inicia Sesión</a></li>
 
                     {% endif %}
 
 
 
                 </ul>
+            </form>
 
 
 
+<form id="searchmovile">
+      <ul id="nav-mobile" class="sidenav blue">
 
-      <ul id="nav-mobile" class="sidenav">
-          <li>
+
+           {% if user.is_authenticated %}
+                                <li><a href="/logout" class="white-text"> Salir</a></li>
+               {% else %}
+                <li><a href="{% url 'usuarios:singup' %}" class="white-text"> Regístrate </a></li>
+        <li><a href="/login" class="white-text"> Inicia Sesión</a></li>
+
+                    {% endif %}
+
+      <li>
                        <div class="center row">
                           <div class="col s12 " >
                             <div class="row" id="topbarsearch">
-                              <div class="input-field col s6 s12 blue-text">
-                                <i class="red-text material-icons prefix">search</i>
-                                <input type="text" placeholder="Ciudad" class="autocomplete blue-text" >
+                              <div class="input-field col s6 s12 white-text">
+                                <i class="white-text material-icons prefix">search</i>
+                                <input required type="text" placeholder="Ciudad" name="city" class="autocomplete white-text" >
                                 </div>
                               </div>
                             </div>
                           </div>
                       </li>
 
-           {% if user.is_authenticated %}
-                                <li><a href="/logout" class="blue-text"> Salir</a></li>
-               {% else %}
-                <li><a href="{% url 'usuarios:singup' %}" class="blue-text"> Regístrate </a></li>
-        <li><a href="/login" class="blue-text"> Inicia Sesión</a></li>
+      <li>
+             <div class="row center center-align">
+               <div class="input-field col s12 m12 ">
+                  <select required multiple id="presupuesto_id" name="presupuesto" class>
+                     <option value="" disabled selected class="center-align center white-text">$</option>
+                     <option value="1">Quebrado</option>
+                     <option value="2">Normal</option>
+                     <option value="3">Freson</option>
+                     <option value="4">Mirrey</option>
+                  </select>
+               </div>
+             </div>
+                      </li>
 
-                    {% endif %}
+       <li>
+<a href="javascript:$('#searchmovile').submit();" class="white-text"><i class="material-icons right">search</i></a>
+
+
+
+                </li>
 
 
 
       </ul>
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            </form>
+
     </div>
   </nav>
+  </div>
+
 

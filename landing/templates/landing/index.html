@@ -11,10 +11,11 @@
          <br><br>
          <h2 class="header center white-text text-lighten-2"> <br><br>Diviertete y conoce tu ciudad</h2>
          <form class="container flex" method="GET" action="{% url 'lugares:busqueda' %}" novalidate>
+             {% csrf_token %}
             <div class="row center center-align">
                <div class="input-field col s12 m12 ">
                   <i class="material-icons prefix">location_on</i>
-                  <input type="text" id="autocomplete-input" name="city" class="autocomplete">
+                  <input type="text" required placeholder="Ciudad" id="autocomplete-input" name="city" class="autocomplete">
                   <label for="autocomplete-input"><span class="white-text">Ciudad</span></label>
                </div>
             </div>
@@ -23,7 +24,7 @@
                   -->
              <div class="row center center-align">
                <div class="input-field col s12 m12 ">
-                  <select multiple id="presupuesto_id" name="presupuesto" class>
+                  <select required multiple id="presupuesto_id" name="presupuesto" class>
                      <option value="" disabled selected class="center-align center">$</option>
                      <option value="1">Quebrado</option>
                      <option value="2">Normal</option>
