@@ -135,6 +135,14 @@ i.icon-blue{
 .help, .help>*, .help>*>*, .help>*>*>*{
 
     font-size: x-small;
-  color: gray;
+  color: #3a94c7;
+
+}
+
+
+.error, .error>*, .error>*>*, .error>*>*>*{
+
+    font-size: x-small;
+  color: red;
 
 }

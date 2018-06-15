@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from .models import Usuario
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
-from lugares.models import Lugar
+from lugares.models import *
 from django.shortcuts import redirect
 
 
@@ -15,29 +15,47 @@ def singup(request):
     if request.method == 'POST':
         formaUser = FormaUser(request.POST, prefix="user")
         formaUsuario = FormaUsuario(request.POST, prefix="usuario")
-
         if formaUser.is_valid() and formaUsuario.is_valid():
             user = formaUser.save()
             usuario = formaUsuario.save(commit=False)
             usuario.user = user
-            #usuario.ciudad_id= request.POST['city']
+
+            ciudad = request.POST['city']
+
+            if ", "  in ciudad:
+                try:
+                    parsedlocation = ciudad.split(', ')
+                    city = parsedlocation[0]
+                    state = parsedlocation[1]
+                    country = parsedlocation[2]
+                    qpais = Pais.objects.get(nombre=country)
+                    qstate = Estado.objects.filter(pais=qpais).get(nombre=state)
+                    qcity = Ciudad.objects.filter(estado=qstate).get(nombre=city)
+                    usuario.ciudad_id = qcity.id
+                except:
+                    usuario.ciudad_id = 1
+                    usuario.ciudadUnparsable=ciudad
+
+            else:
+                usuario.ciudad_id = 1
+                usuario.ciudadUnparsable = ciudad
+
             usuario.save()
-            print ('usuario creado')
+            return render(request, 'landing/index.html')
 
             #return redirect('/login')
         else:
-            print ('usuario NO creado')
+            return render(request, 'singup.html', {'forma': formaUser, 'forma2': formaUsuario})
+
 
             #request.user.message_set.create(message='no creado')
             #return redirect('/login')
 
 
-
     else:
         formaUser = FormaUser(prefix="user")
         formaUsuario = FormaUsuario(prefix="usuario")
-
-    return render(request, 'singup.html', {'forma': formaUser, 'forma2': formaUsuario})
+        return render(request, 'singup.html', {'forma': formaUser, 'forma2': formaUsuario})
 
 @login_required
 def prueba_resena(request,nombre_lugar,id_lugar):

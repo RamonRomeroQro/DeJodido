@@ -18,7 +18,7 @@ class FormaUsuario(ModelForm):
 
     class Meta:
         model = Usuario
-        fields = ('ciudad','fecha_nacimiento','genero','imagen')
+        fields = ('fecha_nacimiento','genero','imagen')
 
 
 class UsuarioReview(ModelForm):
