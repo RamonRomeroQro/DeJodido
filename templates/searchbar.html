@@ -54,7 +54,7 @@
                         {% else %}
 
                         <li><a href="{% url 'usuarios:singup' %}" class="white-text"> Regístrate </a></li>
-        <li><a href="/login" class="white-text"> Inicia Sesión</a></li>
+        <li><a href="/login/?next={{request.get_full_path}}" class="white-text"> Inicia Sesión</a></li>
 
                     {% endif %}
 
@@ -73,7 +73,7 @@
                                 <li><a href="/logout" class="white-text"> Salir</a></li>
                {% else %}
                 <li><a href="{% url 'usuarios:singup' %}" class="white-text"> Regístrate </a></li>
-        <li><a href="/login" class="white-text"> Inicia Sesión</a></li>
+        <li><a href="/login/?next={{request.get_full_path}}" class="white-text"> Inicia Sesión</a></li>
 
                     {% endif %}
 
