@@ -22,14 +22,16 @@
       {% include 'searchbar.html' %}
 <br><br>
 
-{% for place in lugares %}
-    {% if forloop.first %}
-        <div class="row">
-    {% endif %}
-    <div class="col s12 m6 l4">
 
 
-<a href="{% url 'lugares:detalle_lugar' place.nombre place.id %}">
+ <div class="row infinite-container">
+
+    {% for number in numbers %}
+
+            <div class="col s12 m6 l4 infinite-item">
+
+
+<a href="{% url 'lugares:detalle_lugar' number.nombre number.id %}">
            <div class="lugar" style=" border-style: solid;
     border-color: white;">
 
@@ -40,7 +42,7 @@
 
 
 
-        {% for f in place.imagen_set.all %}
+        {% for f in number.imagen_set.all %}
 
 
         <li>
@@ -67,19 +69,19 @@
 
 
       <div class="info center ">
-                    {{ place.nombre }}<br>
+                    {{ number.nombre }}<br>
 
                     Rating:
-              {% if place.rating == -100 %}
+              {% if number.rating == -100 %}
                Información no disponible
                   {% else %}
 
-                  <span id="{{ place.id }}" class="stars" >{{ place.rating|floatformat:2 }}</span>[{{ place.rating|floatformat:2  }}]
+                  <span id="{{ number.id }}" class="stars" >{{ number.rating|floatformat:2 }}</span>[{{ number.rating|floatformat:2  }}]
               {% endif %}                  <br>
-      Precio:{% if place.precio == -100 %}
+      Precio:{% if number.precio == -100 %}
                Información no disponible
                   {% else %}
-          {{ place.precio|floatformat:0  }}
+          {{ number.precio|floatformat:0  }}
               {% endif %}<br>
 
       </div>
@@ -89,20 +91,17 @@
 </a>
 
         </div>
-    {% if forloop.counter|divisibleby:3 %}</div>
-        <div class="row">{% endif %}
-    {% if forloop.last %}</div>{% endif %}
-{% endfor %}
-
-
- <div class="infinite-container">
-    {% for number in numbers %}
-      <div class="infinite-item">{{ number.rating }}</div>
     {% endfor %}
+
   </div>
 
   <div class="loading" style="display: none;">
+           <div class="row">
+
     Loading...
+
+                       </div>
+
   </div>
 
   {% if numbers.has_next %}
@@ -125,6 +124,47 @@
       },
       onAfterPageLoad: function ($items) {
           $('.loading').hide();
+
+
+          var clase=$('.stars');
+    var i;
+    for (i = 0; i < clase.length; i++) {
+        var span = clase[i].id;
+        var str=$("#"+span).html();
+        var value= parseFloat(str);
+
+
+        if (value<1) {
+            $("#"+span).html('');
+        } else if (value>=1 && value<1.7){
+            $("#"+span).html('&#x2b50;');
+        }else if (value>=1.7 && value<2.7){
+            $("#"+span).html('&#x2b50;&#x2b50;');
+        }else if (value>=2.7 && value<3.7){
+            $("#"+span).html('&#x2b50;&#x2b50;&#x2b50;');
+        }else if (value>=3.7 && value<4.7){
+            $("#"+span).html('&#x2b50;&#x2b50;&#x2b50;&#x2b50;');
+        }else if (value>=4.7 && value<=5){
+            $("#"+span).html('&#x2b50;&#x2b50;&#x2b50;&#x2b50;&#x2b50;');
+        }else {
+            $("#"+span).html('Error');
+        }
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
       }
     });
   </script>
