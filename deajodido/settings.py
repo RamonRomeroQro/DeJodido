@@ -25,7 +25,7 @@ SECRET_KEY = '-3eh!c!w_&@pn))c^nrmq*cy(#48orq%+4sj#vw6l_z9b&obu&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', '138.197.223.47', 'dejodido.com']
 
 
 # Application definition
@@ -155,7 +155,7 @@ AUTHENTICATION_BACKENDS = (
 
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
-LOGIN_REDIRECT_URL = '/usuarios/verificacion_FB'
+#LOGIN_REDIRECT_URL = '/usuarios/verificacion_FB'
 
 
 SOCIAL_AUTH_FACEBOOK_KEY = '470651183392852'  # App ID
