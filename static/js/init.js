@@ -4,6 +4,7 @@
     $('.sidenav').sidenav();
     $('.parallax').parallax();
 
+
   }); // end of document ready
 })(jQuery); // end of jQuery name space
 
@@ -107,6 +108,21 @@ var nav = null;
 /// AQUI EL JQUERY AJAX PARA RECUPERAR LOS NOMBRES DE CIUDADES, CHECA: def listaciudades(request) en view.py
   $(document).ready(function(){
       $('select').formSelect();
+
+      if (localStorage.getItem('primera')){
+
+      }else {
+                var modal=localStorage.setItem('primera', true);
+                 $('#accessmodal').modal();
+    $('#accessmodal').modal('open');// set
+
+
+      }
+
+
+
+
+
      $.ajax({
                 url: '/ajax/get_ciudades/',
                 data: {},
@@ -128,10 +144,6 @@ var nav = null;
 
 
 
-
-
-  localStorage.setItem(key, value);  // set
-localStorage.getItem(key);
 
   // Or with jQuery
 

@@ -125,6 +125,11 @@
       onAfterPageLoad: function ($items) {
           $('.loading').hide();
 
+          $('.slider').slider({    indicators:false,
+    interval:1300,
+    height:400, duration:500
+    });
+
 
           var clase=$('.stars');
     var i;
