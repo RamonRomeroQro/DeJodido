@@ -109,10 +109,10 @@ var nav = null;
   $(document).ready(function(){
       $('select').formSelect();
 
-      if (localStorage.getItem('primera')){
+      if (localStorage.getItem('jodido')){
 
       }else {
-                var modal=localStorage.setItem('primera', true);
+                localStorage.setItem('jodido', true);
                  $('#accessmodal').modal();
     $('#accessmodal').modal('open');// set
 
