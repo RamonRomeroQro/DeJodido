@@ -133,7 +133,7 @@ def creacioDBO(gobj, fobj, sobj, yobj, kw, c,e,p):
         # print (imagenes)
         cont = 0
         while cont < len(imagenes):
-            im = Imagen.objects.get_or_create(lugar=obj, imagen=SimpleUploadedFile(name=obj.nombre + str(cont) + '.jpg',
+            im = Imagen.objects.get_or_create(lugar=obj, imagen=SimpleUploadedFile(name=obj.id_google+'-' + str(cont) + '.jpg',
                                                                                    content=open(imagenes[cont],
                                                                                                 'rb').read(),
                                                                                    content_type='image/jpeg'),
