@@ -12,10 +12,13 @@
 
   $(document).ready(function(){
     $('.slider').slider({
+        indicators: true,
     interva:1300,
     height:400, duration:500
     });
   });
+
+
 
    $(document).ready(function(){
     $('.tabs').tabs();
@@ -62,6 +65,7 @@ $(document).ready(function(){
 
 {% extends "base.html" %}
 {% load staticfiles %}
+
 {% block content %}
 
 
@@ -122,12 +126,28 @@ $(document).ready(function(){
 
 
 
-     {% if lugar.rating == -100 %}
-               Información no disponible
-                  {% else %}
+   Rating:
 
-                  Rating: <span id="{{ lugar.id }}" class="stars" >{{ lugar.rating|floatformat:2 }}</span>[{{ lugar.rating|floatformat:2  }}]
+                 {% if lugar.rating < 1.7 %}
+                                        &#x2b50;
+                     {% elif lugar.rating >= 1.7 and  lugar.rating < 2.7 %}
+                                        &#x2b50;&#x2b50;
+
+                     {% elif lugar.rating >= 2.7 and  lugar.rating < 3.7 %}
+                                        &#x2b50;&#x2b50;&#x2b50;
+
+                     {% elif lugar.rating >= 3.7 and  lugar.rating < 4.7 %}
+                                        &#x2b50;&#x2b50;&#x2b50;&#x2b50;
+                     {% elif lugar.rating >= 4.7 and  lugar.rating <= 5 %}
+                                        &#x2b50;&#x2b50;&#x2b50;&#x2b50;&#x2b50;
+
+                     {% elif lugar.rating == -100 %}
+                         Información no dismponible
+                     {% else %}
+                     <span class="error">Error</span>
+
               {% endif %}
+                    [{{ lugar.rating|floatformat:2  }}]
 
 
 </p>
@@ -374,3 +394,23 @@ $(document).ready(function(){
       /* Optional: Makes the sample page fill the window. */
 
     </style>
+
+
+<script>
+
+
+
+  $(document).ready(function(){
+          $('.sidenav').sidenav();
+
+    $('.slider').slider({    indicators:true,
+    interval:2000,
+    height:400, duration:500
+    });
+
+
+
+
+
+  });
+</script>
