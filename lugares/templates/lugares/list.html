@@ -72,41 +72,28 @@
                     {{ number.nombre }}<br>
 
                     Rating:
-              {% if number.rating == -100 %}
-               Información no disponible
-                  {% else %}
 
-                  <p>
+                 {% if number.rating < 1.7 %}
+                                        &#x2b50;
+                     {% elif number.rating >= 1.7 and  number.rating < 2.7 %}
+                                        &#x2b50;&#x2b50;
 
-
-                  {% if number.rating|floatformat:2 < 1.7 %}
-
-                      &#x2b50;
-
-                      {% endif  number.rating|floatformat:2 >= 1.7 and number.rating|floatformat:2 <2.7 %}
-
-                  &#x2b50;&#x2b50;
-
-                  {% elif number.rating|floatformat:2 >= 2.7 and number.rating|floatformat:2 < 3.7 %}
+                     {% elif number.rating >= 2.7 and  number.rating < 3.7 %}
                                         &#x2b50;&#x2b50;&#x2b50;
 
-
-              {% elif number.rating|floatformat:2 >= 3.7 and number.rating|floatformat:2 < 4.7 %}
+                     {% elif number.rating >= 3.7 and  number.rating < 4.7 %}
                                         &#x2b50;&#x2b50;&#x2b50;&#x2b50;
-
-              {% elif number.rating|floatformat:2 >=4.7 && number.rating|floatformat:2<=5%}
+                     {% elif number.rating >= 4.7 and  number.rating <= 5 %}
                                         &#x2b50;&#x2b50;&#x2b50;&#x2b50;&#x2b50;
 
-                  {% else %}
-                  <span class="error"> Error</span>
+                     {% elif number.rating == -100 %}
+                         Información no dismponible
+                     {% else %}
+                     <span class="error">Error</span>
 
-                  {% endif %}
+              {% endif %}
+                    [{{ number.rating|floatformat:2  }}]<br>
 
-
-
-
-          [{{ number.rating|floatformat:2  }}]</p>
-              {% endif %}                  <br>
       Precio:{% if number.precio == -100 %}
                Información no disponible
                   {% else %}
@@ -133,6 +120,8 @@
 
   </div>
 
+
+
   {% if numbers.has_next %}
       <base href="" />
       <a id="infinite-more-link-id" class="infinite-more-link" {% if numbers.has_next %} href="{{ request.get_full_path }}&page={{ numbers.next_page_number }}" {% endif %}>More</a>
@@ -151,12 +140,22 @@
           $('.loading').show();
 
 
-
+$('.slider').slider({    indicators:false,
+    interval:1300,
+    height:400, duration:500
+    });
 
 
       },
       onAfterPageLoad: function ($items) {
           $('.loading').hide();
+
+          $('.slider').slider({    indicators:false,
+    interval:1300,
+    height:400, duration:500
+    });
+
+
 
 
 

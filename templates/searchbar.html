@@ -9,7 +9,7 @@
       </a>
                   <a href="#" data-target="nav-mobile" class="sidenav-trigger white-text"><i class="material-icons white-text">menu</i></a>
 
-            <form id="searchform">
+            <form id="searchform" method="GET" action="{% url 'lugares:busqueda' %}">
                 <ul class="hide-on-med-and-down right">
 
 
@@ -65,7 +65,7 @@
 
 
 
-<form id="searchmovile">
+<form id="searchmovile" method="GET" action="{% url 'lugares:busqueda' %}">
       <ul id="nav-mobile" class="sidenav blue">
 
 
