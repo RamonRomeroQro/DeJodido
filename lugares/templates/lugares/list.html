@@ -72,34 +72,28 @@
                     {{ number.nombre }}<br>
 
                     Rating:
-              {% if number.rating == -100 %}
-               Información no disponible
 
+                 {% if number.rating < 1.7 %}
+                                        &#x2b50;
+                     {% elif number.rating >= 1.7 and  number.rating < 2.7 %}
+                                        &#x2b50;&#x2b50;
 
-                  {% elif number.rating|floatformat:2 < 1.7 %}
+                     {% elif number.rating >= 2.7 and  number.rating < 3.7 %}
+                                        &#x2b50;&#x2b50;&#x2b50;
 
-                       <p>&#x2b50;
+                     {% elif number.rating >= 3.7 and  number.rating < 4.7 %}
+                                        &#x2b50;&#x2b50;&#x2b50;&#x2b50;
+                     {% elif number.rating >= 4.7 and  number.rating <= 5 %}
+                                        &#x2b50;&#x2b50;&#x2b50;&#x2b50;&#x2b50;
 
-                      {% elif  number.rating|floatformat:2 >= 1.7 and number.rating|floatformat:2 < 2.7 %}
-                   <p>&#x2b50;&#x2b50;
+                     {% elif number.rating == -100 %}
+                         Información no dismponible
+                     {% else %}
+                     <span class="error">Error</span>
 
-                  {% elif number.rating|floatformat:2 >= 2.7 and number.rating|floatformat:2 < 3.7 %}
-                  <p>&#x2b50;&#x2b50;&#x2b50;
+              {% endif %}
+                    [{{ number.rating|floatformat:2  }}]<br>
 
-
-              {% elif number.rating|floatformat:2 >= 3.7 and number.rating|floatformat:2 < 4.7 %}
-                   <p>&#x2b50;&#x2b50;&#x2b50;&#x2b50;
-
-              {% elif number.rating|floatformat:2 >= 4.7 and number.rating|floatformat:2 <= 5%}
-                   <p>&#x2b50;&#x2b50;&#x2b50;&#x2b50;&#x2b50;
-
-                  {% else %}
-                   <p><span class="error"> Error</span>
-
-
-
-          [{{ number.rating|floatformat:2  }}]</p>
-              {% endif %}                  <br>
       Precio:{% if number.precio == -100 %}
                Información no disponible
                   {% else %}
@@ -153,7 +147,7 @@
       onAfterPageLoad: function ($items) {
           $('.loading').hide();
 
-          $('.slider').slider({    indicators:true,
+          $('.slider').slider({    indicators:false,
     interval:1300,
     height:400, duration:500
     });
