@@ -126,6 +126,8 @@
 
   </div>
 
+
+
   {% if numbers.has_next %}
       <base href="" />
       <a id="infinite-more-link-id" class="infinite-more-link" {% if numbers.has_next %} href="{{ request.get_full_path }}&page={{ numbers.next_page_number }}" {% endif %}>More</a>
