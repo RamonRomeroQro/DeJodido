@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'lugares',
     'landing',
     'usuarios',
+    'eastereggs',
     'social_django'
 ]
 
