@@ -278,35 +278,44 @@ def saveLocal(arr, kyword, c, e, p):
 
     count = 0
     while (count < len(arr['results'])):
-        google_nombre =  arr['results'][count]['name']
-        google_id = arr['results'][count]['place_id']
         try:
-            google_rating=arr['results'][count]['rating']
-        except KeyError:
-            google_rating=-100
+            obj = Lugar.objects.get(id_google=arr['results'][count]['place_id'])
+            print ('>>>' + str(obj.nombre + ': recuperado'))
 
-        google_direccion = arr['results'][count]['vicinity']
-        google_latitud = arr['results'][count]['geometry']['location']['lat']
-        google_longitud = arr['results'][count]['geometry']['location']['lng']
+        except Lugar.DoesNotExist:
 
-        try:
-            google_price=arr['results'][count]['price_level']
-        except KeyError:
-            google_price= -100
+        
 
-        gobj={'google_nombre': google_nombre, 'google_id': google_id, 'google_rating':google_rating, 'google_direccion': google_direccion, 'google_latitud': google_latitud, 'google_longitud': google_longitud, 'google_price':google_price}
-        fobj=busquedaFacebook(str(arr['results'][count]['name']), str(arr['results'][count]['geometry']['location']['lat']), str(arr['results'][count]['geometry']['location']['lng']))
-        yobj=busquedaYelp(str(arr['results'][count]['name']), str(arr['results'][count]['geometry']['location']['lat']), str(arr['results'][count]['geometry']['location']['lng']))
-        sobj=busquedaFoursquare(str(arr['results'][count]['name']), str(arr['results'][count]['geometry']['location']['lat']), str(arr['results'][count]['geometry']['location']['lng']))
-        ###
-        ###
-        ###
-        creacioDBO(gobj, fobj, sobj, yobj, kyword, c, e, p)
-        print ('>>>>>>>>>>>>'+gobj['google_nombre'])
-        #pprint.pprint(gobj)
-        #pprint.pprint(fobj)
-        #pprint.pprint(yobj)
-        #pprint.pprint(sobj)
+            google_nombre =  arr['results'][count]['name']
+
+            google_id = arr['results'][count]['place_id']
+            try:
+                google_rating=arr['results'][count]['rating']
+            except KeyError:
+                google_rating=-100
+
+            google_direccion = arr['results'][count]['vicinity']
+            google_latitud = arr['results'][count]['geometry']['location']['lat']
+            google_longitud = arr['results'][count]['geometry']['location']['lng']
+
+            try:
+                google_price=arr['results'][count]['price_level']
+            except KeyError:
+                google_price= -100
+
+            gobj={'google_nombre': google_nombre, 'google_id': google_id, 'google_rating':google_rating, 'google_direccion': google_direccion, 'google_latitud': google_latitud, 'google_longitud': google_longitud, 'google_price':google_price}
+            fobj=busquedaFacebook(str(arr['results'][count]['name']), str(arr['results'][count]['geometry']['location']['lat']), str(arr['results'][count]['geometry']['location']['lng']))
+            yobj=busquedaYelp(str(arr['results'][count]['name']), str(arr['results'][count]['geometry']['location']['lat']), str(arr['results'][count]['geometry']['location']['lng']))
+            sobj=busquedaFoursquare(str(arr['results'][count]['name']), str(arr['results'][count]['geometry']['location']['lat']), str(arr['results'][count]['geometry']['location']['lng']))
+            ###
+            ###
+            ###
+            creacioDBO(gobj, fobj, sobj, yobj, kyword, c, e, p)
+            print ('>>>>>>>>>>>>'+gobj['google_nombre'])
+            #pprint.pprint(gobj)
+            #pprint.pprint(fobj)
+            #pprint.pprint(yobj)
+            #pprint.pprint(sobj)
 
         count = count + 1
 
