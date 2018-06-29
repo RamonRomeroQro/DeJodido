@@ -5,25 +5,22 @@
 {% load staticfiles %}
 {% block content %}
 {% include 'navbar.html' %}
-<div id="index-banner" class="parallax-container full">
-   <div class="section no-pad-bot">
-      <div class="container">
+<div id="index-banner" class=" full ">
          <br><br>
          <h2 class="header center white-text text-lighten-2"> <br><br>Diviertete y conoce tu ciudad</h2>
-         <form class="container flex" method="GET" action="{% url 'lugares:busqueda' %}" >
+         <form class="container" method="GET" action="{% url 'lugares:busqueda' %}" >
              {% csrf_token %}
-            <div class="row center center-align">
-               <div class="input-field col s12 m12 ">
-                  <i class="material-icons prefix">location_on</i>
-                  <input type="text" required placeholder="Ciudad" id="autocomplete-input" name="city" class="autocomplete">
-                  <label for="autocomplete-input"><span class="white-text">Ciudad</span></label>
+            <div class="row center center-align white searcher">
+               <div class="input-field col s12 m5  ">
+                  <i class="material-icons prefix blue-text">location_on</i>
+                  <input type="text" required id="autocomplete-input" name="city" class="autocomplete">
+                  <label for="autocomplete-input"><span class="blue-text">Ciudad</span></label>
                </div>
-            </div>
                <!--
                   AQUI VA LO QUE HIZE LO PONES BONITO
                   -->
-             <div class="row center center-align">
-               <div class="input-field col s12 m12 ">
+               <div class="input-field col s12 m5  ">
+
                   <select required multiple id="presupuesto_id" name="presupuesto" class>
                      <option value="" disabled selected class="center-align center">$</option>
                      <option value="1">Quebrado</option>
@@ -33,23 +30,27 @@
                   </select>
                   <label class="white-text">¿Qué tan corto andas?</label>
                </div>
-             </div>
+
+
+
+
+
                <!--
                   AQUI VA LO QUE HIZE LO PONES BONITO
                   -->
-             <div class="row center center-align">
-               <div class="input-field col s12 m12 ">
-                  <button class="btn waves-effect waves-light black" type="submit" name="action">Buscar
-                  <i class="material-icons right">search</i>
+               <div class="input-field col s12 m2 ">
+                  <button class="btn waves-effect waves-light blue" type="submit" name="action"><i class="material-icons right">search</i>
                   </button>
                </div>
             </div>
             <!--->
+             <!--
                <div class="row center">
                    <div class="col s12 m12 l12" id="status">
 
                    </div>
                </div>
+               -->
 
 
 
@@ -59,62 +60,64 @@
             <!--ROW-->
          </form>
          <br><br>
-      </div>
-   </div>
-   <div class="parallax blue">
-      <!----
-         <img src="" alt="Unsplashed background img 1">
 
 
 
-         ---->
-   </div>
 </div>
+
 <div class="container">
-   <div class="section">
       <div class="row">
          <div class="col s12 center">
             <h3><i class="mdi-content-send brown-text"></i></h3>
             <h4>De Jodido</h4>
-            <p class="center-align light">A diferencia de las actuales plataformas de viajes, </p>
+            <p class="center-align light">Permítete redescubrir tu ciudad de manera que ajuste a tu presupuesto, mostrándote alternativas a los “lugares de siempre”</p>
          </div>
       </div>
-   </div>
 </div>
-<div class="parallax-container valign-wrapper">
-   <div class="section no-pad-bot">
-      <div class="container">
-         <div class="row center">
-            <h5 class="header col s12 light">Hecha por la RAZA, para la RAZA</h5>
+
+
+
+
+
+      <div class="row">
+<div class="container ">
+         <div class="col s12 m4  center" >
+                 <img src="{% static 'images/raza1.jpg' %}" height="169px" width="300px" >
+
+
+         </div>
+          <div class="col s12 m4  center" >
+                  <img src="{% static 'images/raza2.jpg' %}" height="169px" width="300px">
+
+         </div>
+          <div class="col s12 m4  center" >
+                  <img src="{% static 'images/raza4.jpg' %}" height="169px" width="300px">
+
          </div>
       </div>
-   </div>
-   <div class="parallax blue">
-      <img src="{% static 'images/background2.jpg' %}" alt="Unsplashed background img 2">
-   </div>
 </div>
+
+
 <div class="container">
-   <div class="section">
       <div class="row">
          <div class="col s12 center">
             <h3><i class="mdi-content-send brown-text"></i></h3>
-            <h4>Contact Us</h4>
-            <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id,
-               viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum
-               ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-            </p>
+            <h4>Nuestro Ideal</h4>
+            <p class="center-align light">DeJodido está hecha por, cómo nos gusta decir, hecha por la raza, para la raza. Esto significa que todas nuestras recomendaciones son hechas por usuarios que ya han tenido estas experiencias y que de igual manera son validadas por otros usuarios</p>
          </div>
       </div>
-   </div>
 </div>
-<div class="parallax-container valign-wrapper">
-   <div class="section no-pad-bot">
-      <div class="container">
-         <div class="row center">
-            <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+
+     <div class="row">
+<div class="container ">
+
+          <div class="col s12 m12  center" id="raza3">
+                  <img src="{% static 'images/raza3.jpg' %}" width="100%" height="auto">
+
          </div>
       </div>
-   </div>
-   <div class="parallax"><img src="{% static 'images/background3.jpg' %}" alt="Unsplashed background img 3"></div>
 </div>
+
 {% endblock %}
+
+
