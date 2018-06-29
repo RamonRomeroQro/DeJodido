@@ -103,9 +103,24 @@ var nav = null;
       if (localStorage.getItem('jodido')){
 
       }else {
-                localStorage.setItem('jodido', true);
-                 $('#accessmodal').modal();
-    $('#accessmodal').modal('open');// set
+                    $('#accessmodal').modal();
+                    $('#accessmodal').modal('open');// set
+                    var hasBeenClicked = false;
+
+
+                    $('#accept').click(function () {
+                    hasBeenClicked = true;
+                    localStorage.setItem('jodido', true);
+
+
+                    });
+
+
+
+
+
+
+
 
 
       }

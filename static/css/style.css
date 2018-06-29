@@ -80,10 +80,6 @@ div.lugar{
 
 
 
-.full{
-  height: 100vh
-}
-
 #back-login{
   background-image: url("../images/login.jpg");
     background-size: 100% auto;
@@ -143,8 +139,35 @@ i.icon-blue{
 
 
 #index-banner{
-  background-image: url("../images/barra.jpg");
-  width: 100%;
-  height: auto;
+background-image: url("./../images/barra.jpg");
+  background-size: auto 100% ;
 
+}
+
+
+
+.full{
+  height: 100vh
+}
+
+.searcher{
+      border-radius: 25px;
+
+}
+
+#raza1{
+  
+}
+#raza2{
+  
+}
+#raza3{
+  
+}
+#razafoot{
+  
+  background-image: url("./../images/raza3.jpg");
+  height: 50vh;
+  background-size: 100% auto;
+  
 }
