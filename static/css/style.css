@@ -140,3 +140,11 @@ i.icon-blue{
 }
 
 .navbar-fixed { z-index: 9999; }
+
+
+#index-banner{
+  background-image: url("../images/barra.jpg");
+  width: 100%;
+  height: auto;
+
+}

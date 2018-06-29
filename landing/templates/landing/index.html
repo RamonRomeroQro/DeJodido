@@ -5,12 +5,10 @@
 {% load staticfiles %}
 {% block content %}
 {% include 'navbar.html' %}
-<div id="index-banner" class="parallax-container full">
-   <div class="section no-pad-bot">
-      <div class="container">
+<div id="index-banner" class="container full">
          <br><br>
          <h2 class="header center white-text text-lighten-2"> <br><br>Diviertete y conoce tu ciudad</h2>
-         <form class="container flex" method="GET" action="{% url 'lugares:busqueda' %}" >
+         <form class="container" method="GET" action="{% url 'lugares:busqueda' %}" >
              {% csrf_token %}
             <div class="row center center-align">
                <div class="input-field col s12 m12 ">
@@ -34,6 +32,11 @@
                   <label class="white-text">¿Qué tan corto andas?</label>
                </div>
              </div>
+
+
+
+
+
                <!--
                   AQUI VA LO QUE HIZE LO PONES BONITO
                   -->
@@ -59,19 +62,12 @@
             <!--ROW-->
          </form>
          <br><br>
-      </div>
-   </div>
-   <div class="parallax blue">
-      <!----
-         <img src="" alt="Unsplashed background img 1">
 
 
 
-         ---->
-   </div>
 </div>
+
 <div class="container">
-   <div class="section">
       <div class="row">
          <div class="col s12 center">
             <h3><i class="mdi-content-send brown-text"></i></h3>
@@ -79,42 +75,37 @@
             <p class="center-align light">A diferencia de las actuales plataformas de viajes, </p>
          </div>
       </div>
-   </div>
 </div>
-<div class="parallax-container valign-wrapper">
-   <div class="section no-pad-bot">
-      <div class="container">
-         <div class="row center">
-            <h5 class="header col s12 light">Hecha por la RAZA, para la RAZA</h5>
-         </div>
-      </div>
-   </div>
-   <div class="parallax blue">
-      <img src="{% static 'images/background2.jpg' %}" alt="Unsplashed background img 2">
-   </div>
-</div>
+
 <div class="container">
-   <div class="section">
       <div class="row">
          <div class="col s12 center">
             <h3><i class="mdi-content-send brown-text"></i></h3>
-            <h4>Contact Us</h4>
-            <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id,
-               viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum
-               ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-            </p>
+            <h4>De Jodido</h4>
+            <p class="center-align light">A diferencia de las actuales plataformas de viajes, </p>
          </div>
       </div>
-   </div>
 </div>
-<div class="parallax-container valign-wrapper">
-   <div class="section no-pad-bot">
-      <div class="container">
-         <div class="row center">
-            <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+
+<div class="container">
+      <div class="row">
+         <div class="col s12 center">
+            <h3><i class="mdi-content-send brown-text"></i></h3>
+            <h4>De Jodido</h4>
+            <p class="center-align light">A diferencia de las actuales plataformas de viajes, </p>
          </div>
       </div>
-   </div>
-   <div class="parallax"><img src="{% static 'images/background3.jpg' %}" alt="Unsplashed background img 3"></div>
+</div>
+
+<div class="container">
+      <div class="row">
+         <div class="col s12 center">
+            <h3><i class="mdi-content-send brown-text"></i></h3>
+            <h4>De Jodido</h4>
+            <p class="center-align light">A diferencia de las actuales plataformas de viajes, </p>
+         </div>
+      </div>
 </div>
 {% endblock %}
+
+
