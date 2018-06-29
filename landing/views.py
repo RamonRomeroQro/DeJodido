@@ -13,6 +13,11 @@ def landing(request):
     return render(request, 'landing/index.html')
 
 
+#Visualizar partidos en la landing page
+def log(request):
+    return render(request, 'landing/log.html')
+
+
 def test(request):
     return render(request, 'landing/test.html')
 

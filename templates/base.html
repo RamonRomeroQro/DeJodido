@@ -5,12 +5,14 @@
  <!DOCTYPE html>
 <html lang="en">
 <head>
+      <link rel="icon" href="{% static 'images/peddy-blue tra.png' %}" type="image/png" sizes="16x16">
+
 
  <!-- Compiled and minified CSS -->
 
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Parallax Template - Materialize</title>
+  <title>DeJodido - ¿qué se arma?</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -25,12 +27,26 @@
 <body>
 
 <div id="accessmodal" class="modal modal-fixed-footer">
-          <div class="modal-content">
-            <h4>DeJodido</h4>
-            <p>De Jodido invita a un consumo y habitos responsables de vida</p>
+          <div class="modal-content center-align">
+            <h4 class="center-align">DeJodido</h4>
+<p>Redescubre tu ciudad de manera que ajuste a tu presupuesto, mostrándote alternativas a los “lugares de siempre”.</p>
+       <p>DeJodido está hecha por, cómo nos gusta decir, hecha por la raza, para la raza. Esto significa que todas nuestras recomendaciones son hechas por usuarios que ya han tenido estas experiencias y que de igual manera son validadas por otros usuarios.</p>
+       <p>Este es un proyecto que ha implicado mucho esfuerzo y dedicación por parte de nuestro equipo en <a href="https://blackemaildevops.wordpress.com/">Black E-Mail DevOps</a> es por ello que solicitamos tu apoyo voluntario para seguir mejorando nuestros productos y servicios y que los desarrolladores puedan comer algo.</p>
+
+              <form class="center center-align" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="36KRU2JD2QCYJ">
+<input type="image" src="https://www.paypalobjects.com/es_XC/MX/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal, la forma más segura y rápida de pagar en línea.">
+<img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
+</form>
+                            <p>Al dar click en el botón de enterado, declaras ser mayor de edad de acuerdo a la legislación de tu localidad</p><br>
+            <p>DeJodido invita a un consumo y hábitos responsables de vida</p>
+
           </div>
+
           <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-red btn-flat" id="enterado">Enterado</a>
+
+            <a href="#!" class="modal-close waves-effect waves-red btn-flat" id="accept">Enterado</a>
           </div>
         </div>
 
