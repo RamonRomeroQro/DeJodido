@@ -111,6 +111,9 @@ var nav = null;
                     $('#accept').click(function () {
                     hasBeenClicked = true;
                     localStorage.setItem('jodido', true);
+                    $('body').css({
+    overflow: 'visible'
+});
 
 
                     });
