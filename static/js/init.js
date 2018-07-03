@@ -107,7 +107,7 @@ var nav = null;
 
 
 
-      if (localStorage.getItem('jodido') == true  ){
+      if (localStorage.getItem('jodido')   ){
 
       }else {
                        $('#accessmodal').modal({    dismissible:false});
