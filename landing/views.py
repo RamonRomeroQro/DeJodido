@@ -46,5 +46,5 @@ def get_ciudades(request):
 
     for c in ciudades:
         data.update({c.nombre + ", " + c.estado.nombre + ", " + c.estado.pais.nombre: None})
-    data.update({'Usar Ubicacion Actual': None})
+    #data.update({'Usar Ubicacion Actual': None})
     return JsonResponse(data)

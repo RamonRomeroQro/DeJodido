@@ -99,30 +99,29 @@ var nav = null;
 /// AQUI EL JQUERY AJAX PARA RECUPERAR LOS NOMBRES DE CIUDADES, CHECA: def listaciudades(request) en view.py
   $(document).ready(function(){
       $('select').formSelect();
+      $('.sidenav').sidenav();
 
-      if (localStorage.getItem('jodido')){
+      $('#accessmodal').modal();
+
+      var hasBeenClicked = false;
+
+
+
+      if (localStorage.getItem('jodido')   ){
 
       }else {
-                    $('#accessmodal').modal();
+                       $('#accessmodal').modal({    dismissible:false});
+
                     $('#accessmodal').modal('open');// set
-                    var hasBeenClicked = false;
 
 
                     $('#accept').click(function () {
-                    hasBeenClicked = true;
-                    localStorage.setItem('jodido', true);
-                    $('body').css({
+                         $('body').css({
     overflow: 'visible'
 });
 
-
-
+                    localStorage.setItem('jodido', true);
                     });
-
-
-
-
-
 
 
 
