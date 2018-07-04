@@ -22,6 +22,10 @@ def test(request):
     return render(request, 'landing/test.html')
 
 
+def test_slider(request):
+    return render(request, 'landing/test_slider.html')
+
+
 
 
 def listaciudades(request):
