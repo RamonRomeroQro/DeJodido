@@ -3,7 +3,8 @@ from django.core.exceptions import PermissionDenied
 from django.shortcuts import redirect
 from usuarios.forms import FormaUserFB, FormaUsuarioFB
 from django.shortcuts import render
-
+from django.http import HttpResponseRedirect
+from django.urls import reverse_lazy
 
 def verificacion_FB(function):
     def wrap(request, *args, **kwargs):
@@ -22,7 +23,8 @@ def verificacion_FB(function):
                     usuario.user = request.user
                     usuario.ciudad_id = 1
                     usuario.save()
-                    return redirect('landing:landing')
+
+                    return HttpResponseRedirect(reverse_lazy('landing:landing'))
 
             FormaUser = FormaUserFB(prefix="user")
             formaUsuario = FormaUsuarioFB(prefix="usuario")
@@ -33,7 +35,6 @@ def verificacion_FB(function):
         else:
             print("Si tiene")
             print(request.user.username)
-
 
         return function(request, *args, **kwargs)
 
