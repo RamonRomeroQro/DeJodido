@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import FormaUser, FormaUsuario, UsuarioReview
+from .forms import FormaUser, FormaUsuario, UsuarioReview, FormaUserFB, FormaUsuarioFB
 from django.http import HttpResponseRedirect
 from .models import Usuario
 from django.contrib.auth.decorators import login_required
@@ -79,6 +79,14 @@ def resena(request,nombre_lugar,id_lugar):
 @verificacion_FB
 def prueba_fb(request):
     return render(request, 'usuarios/prueb_fb.html')
+
+
+
+
+def fb_extras(request):
+    FormaUser = FormaUserFB(prefix="user")
+    formaUsuario = FormaUsuarioFB(prefix="usuario")
+    return render(request, 'usuarios/fb_extras.html', {'forma': FormaUser, 'forma2': formaUsuario})
 
 
 

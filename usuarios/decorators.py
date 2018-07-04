@@ -1,21 +1,34 @@
 from usuarios.models import Usuario
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import redirect
-
+from usuarios.forms import FormaUserFB, FormaUsuarioFB
+from django.shortcuts import render
 
 
 def verificacion_FB(function):
     def wrap(request, *args, **kwargs):
 
-        if not hasattr(request.user, 'usuario'):
-            print("NO tiene")
-            Usuario.objects.create(
-                user=request.user,
-                fecha_nacimiento='2010-10-10',
-                genero=1,
-                ciudad_id=1,
-                fb_id=request.user.social_auth.get(provider='facebook').extra_data['id']
-            )
+        if not hasattr(request.user, 'usuario') and hasattr(request.user, 'social_auth'):
+            print("No tiene usuario pero tiene FB")
+
+            if request.method == "POST":
+                print("recibi un post")
+                formaUser = FormaUserFB(request.POST or None, prefix="user", instance=request.user)
+                formaUsuario = FormaUsuarioFB(request.POST, prefix="usuario")
+
+                if formaUser.is_valid() and formaUsuario.is_valid():
+                    formaUser.save()
+                    usuario = formaUsuario.save(commit=False)
+                    usuario.user = request.user
+                    usuario.ciudad_id = 1
+                    usuario.save()
+                    return redirect('landing:landing')
+
+            FormaUser = FormaUserFB(prefix="user")
+            formaUsuario = FormaUsuarioFB(prefix="usuario")
+            return render(request, 'usuarios/fb_extras.html', {'forma': FormaUser, 'forma2': formaUsuario})
+
+
 
         else:
             print("Si tiene")
