@@ -17,6 +17,7 @@ urlpatterns = [
     path('test', views.test, name='test'),
     path('log', views.log, name='log'),
     #path('listaciudades', views.listaciudades, name='listaciudades'),
+    path('test_slider', views.test_slider, name='test_slider'),
     path('ajax/get_ciudades/', views.get_ciudades, name='get_ciudades'),
 
 
