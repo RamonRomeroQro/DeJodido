@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import FormaUser, FormaUsuario, UsuarioReview
+from .forms import FormaUser, FormaUsuario, UsuarioReview, FormaUserFB, FormaUsuarioFB
 from django.http import HttpResponseRedirect
 from .models import Usuario
 from django.contrib.auth.decorators import login_required
@@ -7,6 +7,7 @@ from django.urls import reverse
 from lugares.models import *
 from django.shortcuts import redirect
 from usuarios.models import *
+from usuarios.decorators import verificacion_FB
 
 
 # Create your views here.
@@ -59,13 +60,8 @@ def singup(request):
         return render(request, 'singup.html', {'forma': formaUser, 'forma2': formaUsuario})
 
 @login_required
+@verificacion_FB
 def resena(request,nombre_lugar,id_lugar):
-
-    print ('sss')
-
-    #Poruqe la forma no sale
-
-
 
     if request.method == 'POST' :
         resena = Resena.objects.create(
@@ -77,31 +73,25 @@ def resena(request,nombre_lugar,id_lugar):
         )
         resena.save()
 
-
-
-
-
     return redirect('lugares:detalle_lugar', nombre_lugar=nombre_lugar, id_lugar=id_lugar )
 
-
-
-
 @login_required
-def verificacion_FB(request):
-    try:
-        print(request.user.usuario)
+@verificacion_FB
+def prueba_fb(request):
+    return render(request, 'usuarios/prueb_fb.html')
 
-    except Usuario.DoesNotExist:
-        print("si se pudo")
-        Usuario.objects.create(
-            user=request.user,
-            fecha_nacimiento='2010-10-10',
-            genero=1,
-            ciudad_id=1,
-            fb_id=request.user.social_auth.get(provider='facebook').extra_data['id']
-        )
 
-    return render(request, 'landing/index.html')
+
+
+def fb_extras(request):
+    FormaUser = FormaUserFB(prefix="user")
+    formaUsuario = FormaUsuarioFB(prefix="usuario")
+    return render(request, 'usuarios/fb_extras.html', {'forma': FormaUser, 'forma2': formaUsuario})
+
+
+
+
+
 
 
 
