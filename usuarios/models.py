@@ -10,7 +10,7 @@ from django.utils import timezone
 GENEROS = (
     (1, 'Mujer'),
     (2, 'Hombre'),
-    (3, 'Otro')
+    (3, 'No Binario')
 )
 
 
