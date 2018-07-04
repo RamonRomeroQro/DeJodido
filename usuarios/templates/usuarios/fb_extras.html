@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>FB EXtra</h1>
+
+     <form method="POST" enctype="multipart/form-data">
+         {% csrf_token %}
+         {{ forma.as_p }}
+         {{ forma2.as_p }}
+         <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
+             <i class="material-icons right">send</i>
+         </button>
+
+     </form>
+
+</body>
+</html>
