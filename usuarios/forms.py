@@ -33,3 +33,19 @@ class UsuarioReview(ModelForm):
     class Meta:
         model = Resena
         fields =('calificacion','precio_cerveza','comentario')
+
+
+class FormaUsuarioFB(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(FormaUsuarioFB, self).__init__(*args, **kwargs)
+        self.fields['fecha_nacimiento'].widget.input_type = 'date'
+
+    class Meta:
+        model = Usuario
+        fields = ('fecha_nacimiento','genero')
+
+class FormaUserFB(UserCreationForm):
+
+    class Meta:
+        model = User
+        fields = ('password1', 'password2')
