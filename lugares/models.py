@@ -83,4 +83,4 @@ class Imagen(models.Model):
         if self.imagen:
             if os.path.isfile(self.imagen.path):
                 os.remove(self.imagen.path)
-        super().delete()
+        super(Imagen, self).delete()
