@@ -31,3 +31,11 @@ GMAPS_API_KEY_JS= 'AIzaSyC3EcXKhyPwcWgVlPAzDGplTa00HkKD0KQ'
 SOCIAL_AUTH_FACEBOOK_KEY = '805766712952383'  # App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = 'd7b13e308d24be4726f0c81721259a97'  # App Secret
 SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
+
+
+
+# Force https redirect
+SECURE_SSL_REDIRECT = True
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# Force HTTPS in the final URIs
