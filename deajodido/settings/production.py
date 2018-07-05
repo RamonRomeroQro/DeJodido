@@ -24,7 +24,7 @@ DATABASES = {
 }
 
 # Google's Keys
-GMAPS_API_KEY = 'AIzaSyAbXCwLfYYs3Hyb8XXvxm5-wzvRNm2JI3Y'
+GMAPS_API_KEY = 'AIzaSyCcoUgaJSJJteLoXlvtY77eu3xam0hWFME'
 GMAPS_API_KEY_JS= 'AIzaSyC3EcXKhyPwcWgVlPAzDGplTa00HkKD0KQ'
 
 #SocialAUTH's Keys
