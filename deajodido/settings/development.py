@@ -4,7 +4,7 @@ from deajodido.settings.common import *
 SECRET_KEY = '-3eh!c!w_&@pn))c^nrmq*cy(#48orq%+4sj#vw6l_z9b&obu&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -24,7 +24,7 @@ DATABASES = {
 
 # Google's Keys
 GMAPS_API_KEY = 'AIzaSyC9nWuYkCMxKm_PFZ6m04gCAuz-SeuCE2g'
-GMAPS_API_KEY_JS= 'AIzaSyC3EcXKhyPwcWgVlPAzDGplTa00HkKD0KQ'
+GMAPS_API_KEY_JS= GMAPS_API_KEY
 
 #SocialAUTH's Keys
 SOCIAL_AUTH_FACEBOOK_KEY = '265813190638953'  # App ID PRUEBA

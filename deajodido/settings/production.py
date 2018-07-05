@@ -5,7 +5,7 @@ with open('/etc/secret_key.txt') as f:
     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['138.197.223.47', 'dejodido.com']
 
@@ -25,7 +25,7 @@ DATABASES = {
 
 # Google's Keys
 GMAPS_API_KEY = 'AIzaSyCcoUgaJSJJteLoXlvtY77eu3xam0hWFME'
-GMAPS_API_KEY_JS= 'AIzaSyC3EcXKhyPwcWgVlPAzDGplTa00HkKD0KQ'
+GMAPS_API_KEY_JS= GMAPS_API_KEY
 
 #SocialAUTH's Keys
 SOCIAL_AUTH_FACEBOOK_KEY = '805766712952383'  # App ID
