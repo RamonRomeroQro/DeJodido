@@ -36,7 +36,7 @@ def verificacion_FB(function):
             print("Si tiene")
             print(request.user.username)
 
-        return function(request, *args, **kwargs)
+        return HttpResponseRedirect(reverse_lazy('landing:landing'))
 
     wrap.__doc__ = function.__doc__
     wrap.__name__ = function.__name__
