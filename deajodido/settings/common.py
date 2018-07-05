@@ -152,6 +152,7 @@ SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
     'locale': 'ru_RU',
     'fields': 'id,name,email',
 }
+SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 
 
 
