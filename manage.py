@@ -5,7 +5,7 @@ import sys
 if __name__ == "__main__":
     #por si la cago
     #os.environ.setdefault("DJANGO_SETTINGS_MODULE", "deajodido.settings")
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "deajodido.settings.development")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "deajodido.settings.production")
 
     try:
         from django.core.management import execute_from_command_line
