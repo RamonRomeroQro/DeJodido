@@ -22,6 +22,8 @@ DATABASES = {
     }
 }
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 # Google's Keys
 GMAPS_API_KEY = 'AIzaSyC9nWuYkCMxKm_PFZ6m04gCAuz-SeuCE2g'
 GMAPS_API_KEY_JS= GMAPS_API_KEY
