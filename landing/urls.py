@@ -19,6 +19,7 @@ urlpatterns = [
     #path('listaciudades', views.listaciudades, name='listaciudades'),
     path('test_slider', views.test_slider, name='test_slider'),
     path('ajax/get_ciudades/', views.get_ciudades, name='get_ciudades'),
+    path('ajax/validar_email/', views.validar_email, name='validar_email'),
 
 
 ]

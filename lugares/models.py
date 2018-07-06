@@ -60,15 +60,6 @@ class Lugar(models.Model):
         return self.nombre
 
 
-    def delete(self):
-        imagenes=Imagen.objects.filter(lugar=self.id)
-        for i in imagenes:
-            i.delete()
-        super().delete()
-
-
-
-
 
 class Imagen(models.Model):
 
@@ -83,4 +74,4 @@ class Imagen(models.Model):
         if self.imagen:
             if os.path.isfile(self.imagen.path):
                 os.remove(self.imagen.path)
-        super().delete()
+        super(Imagen, self).delete()

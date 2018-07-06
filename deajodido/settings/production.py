@@ -23,6 +23,15 @@ DATABASES = {
     }
 }
 
+
+# Email Djnago Parameters
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'help.dejodido@gmail.com'
+EMAIL_HOST_PASSWORD = 'queretaro'
+EMAIL_USE_TLS = True
+
 # Google's Keys
 GMAPS_API_KEY = 'AIzaSyCcoUgaJSJJteLoXlvtY77eu3xam0hWFME'
 GMAPS_API_KEY_JS= GMAPS_API_KEY

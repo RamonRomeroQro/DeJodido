@@ -4,6 +4,7 @@ from lugares.models import Ciudad
 from lugares.models import Lugar
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils import timezone
+import os
 
 # Create your models here.
 
@@ -30,6 +31,14 @@ class Usuario(models.Model):
     ciudad = models.ForeignKey(Ciudad, on_delete=models.CASCADE, verbose_name="Ciudad de Residencia")
     ciudadUnparsable = models.CharField( verbose_name="Ciudad Unparseable", max_length=500, blank=True, null=True, default='OK')
     fb_id = models.CharField(max_length=20, unique=True, blank=True, null=True)
+
+
+    def delete(self):
+        if self.imagen:
+            if os.path.isfile(self.imagen.path):
+                os.remove(self.imagen.path)
+        super(Usuario, self).delete()
+
 
 
 

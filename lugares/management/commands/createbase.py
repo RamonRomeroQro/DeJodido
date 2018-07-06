@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
-
+import os
 import json
 import requests
 import time
@@ -138,6 +138,8 @@ def creacioDBO(gobj, fobj, sobj, yobj, kw, c,e,p):
                                                                                                 'rb').read(),
                                                                                    content_type='image/jpeg'),
                                               descripcion='Importada desde Google Imagenes')
+            if 'default' not in imagenes[cont]:
+                os.remove(imagenes[cont])
             cont = cont + 1
         obj.save()
         print ('>>>' + str(obj.nombre+': creado'))
@@ -381,6 +383,7 @@ class Command(BaseCommand):
             '--country', dest='country', required=True,
             help='the country to process',
         )
+
 
 
 

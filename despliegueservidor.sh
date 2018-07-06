@@ -5,7 +5,6 @@ source venv/bin/activate
 cd NewJodido/
 git pull origin master
 pip install -r requirements.txt
-python manage.py collectstatic
 python manage.py makemigrations landing
 python manage.py migrate
 python manage.py makemigrations lugares
