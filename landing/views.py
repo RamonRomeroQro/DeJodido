@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from django.contrib.auth.models import User
 # Create your views here.
 from lugares.models import Ciudad, Estado, Pais, Lugar, Imagen
 from django.http import HttpResponse
@@ -51,4 +51,13 @@ def get_ciudades(request):
     for c in ciudades:
         data.update({c.nombre + ", " + c.estado.nombre + ", " + c.estado.pais.nombre: None})
     #data.update({'Usar Ubicacion Actual': None})
+    return JsonResponse(data)
+
+def validar_email(request):
+    email = request.GET.get('email', None)
+
+    data = {
+        'is_not_taken': not (User.objects.filter(email__iexact=email).exists())
+    }
+
     return JsonResponse(data)
