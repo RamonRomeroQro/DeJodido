@@ -21,10 +21,10 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 urlpatterns = [
+
     path('', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
     path('usuarios/', include('usuarios.urls')),
@@ -32,6 +32,5 @@ urlpatterns = [
     path('', include('landing.urls')),
     path('', include('eastereggs.urls')),
     path('', include('lugares.urls')),
-]
-urlpatterns += staticfiles_urlpatterns()
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
