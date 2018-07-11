@@ -32,7 +32,6 @@ urlpatterns = [
     path('', include('landing.urls')),
     path('', include('eastereggs.urls')),
     path('', include('lugares.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-
+]
 urlpatterns += staticfiles_urlpatterns()
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
