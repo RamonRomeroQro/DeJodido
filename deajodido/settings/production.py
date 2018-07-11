@@ -23,6 +23,15 @@ DATABASES = {
     }
 }
 
+
+# Email Djnago Parameters
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'help.dejodido@gmail.com'
+EMAIL_HOST_PASSWORD = 'queretaro'
+EMAIL_USE_TLS = True
+
 # Google's Keys
 GMAPS_API_KEY = 'AIzaSyCcoUgaJSJJteLoXlvtY77eu3xam0hWFME'
 GMAPS_API_KEY_JS= GMAPS_API_KEY
@@ -31,7 +40,6 @@ GMAPS_API_KEY_JS= GMAPS_API_KEY
 SOCIAL_AUTH_FACEBOOK_KEY = '805766712952383'  # App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = 'd7b13e308d24be4726f0c81721259a97'  # App Secret
 SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
-SOCIAL_AUTH_FACEBOOK_API_VERSION = '3.0'
 
 
 
