@@ -6,11 +6,12 @@ from django.http import HttpResponse
 import  pprint
 from django.http import JsonResponse
 from itertools import chain
+import os
 
 
 #Visualizar partidos en la landing page
 def landing(request):
-    return render(request, 'landing/index.html')
+    return render(request, 'landing/index.html', {'debug': os.environ.setdefault("DJANGO_SETTINGS_MODULE", "deajodido.settings.development")+'  '+ os.environ['DJANGO_SETTINGS_MODULE'] })
 
 
 #Visualizar partidos en la landing page
