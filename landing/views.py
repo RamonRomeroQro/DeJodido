@@ -11,7 +11,7 @@ import os
 
 #Visualizar partidos en la landing page
 def landing(request):
-    return render(request, 'landing/index.html', {'debug': os.environ.setdefault("DJANGO_SETTINGS_MODULE", "deajodido.settings.development")+'  '+ os.environ['DJANGO_SETTINGS_MODULE'] })
+    return render(request, 'landing/index.html')
 
 
 #Visualizar partidos en la landing page
