@@ -14,6 +14,7 @@ from django.core.wsgi import get_wsgi_application
 # Viejo por si la cago
 #os.environ.setdefault("DJANGO_SETTINGS_MODULE", "deajodido.settings")
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "deajodido.settings.development")
+print(os.environ['DJANGO_SETTINGS_MODULE'])
 
 application = get_wsgi_application()
 
