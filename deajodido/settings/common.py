@@ -55,7 +55,8 @@ INSTALLED_APPS = [
     'landing',
     'usuarios',
     'eastereggs',
-    'social_django'
+    'social_django',
+    'sm',
 ]
 
 MIDDLEWARE = [
