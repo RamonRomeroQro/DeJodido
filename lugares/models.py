@@ -66,6 +66,7 @@ class Imagen(models.Model):
     imagen=models.ImageField(upload_to='imagen', verbose_name='Imagen', null=True, blank=True)
     lugar=models.ForeignKey(Lugar, on_delete=models.CASCADE)
     descripcion=models.CharField(verbose_name="Descripción", null=True, blank=True, max_length=1000)
+    status=models.NullBooleanField(verbose_name='status', default=None ,  null=True)
 
     def __str__(self):
         return self.imagen.url
