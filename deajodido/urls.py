@@ -24,6 +24,8 @@ from django.conf import settings
 
 
 
+
+
 urlpatterns = [
 
     path('', include('django.contrib.auth.urls')),
@@ -33,5 +35,6 @@ urlpatterns = [
     path('', include('landing.urls')),
     path('', include('eastereggs.urls')),
     path('', include('lugares.urls')),
+    path('sm/', include('sm.urls')),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
