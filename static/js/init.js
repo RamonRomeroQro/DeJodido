@@ -99,6 +99,9 @@ var nav = null;
 /// AQUI EL JQUERY AJAX PARA RECUPERAR LOS NOMBRES DE CIUDADES, CHECA: def listaciudades(request) en view.py
   $(document).ready(function(){
       $('select').formSelect();
+
+
+
       $('.sidenav').sidenav();
 
       $('#accessmodal').modal();

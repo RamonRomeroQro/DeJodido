@@ -7,6 +7,16 @@
 <script>
 
 
+  $(document).ready(function(){
+
+$('.slider').slider({    indicators:false,
+    interval:1300,
+    height:400, duration:500
+    });
+  });
+
+
+
 </script>
 
 
@@ -20,7 +30,88 @@
 
 
       {% include 'searchbar.html' %}
-<br><br>
+<a href="{% url 'lugares:detalle_lugar' placerandom.nombre placerandom.id %}">
+
+    <div class="row  blue lighten-5 black-text">
+    <br>
+    <div class="col s12 m6">
+
+    <div class="slider ">
+        <ul class="slides">
+        <!-------------------->
+
+
+
+        {% for f in placerandom.imagen_set.all %}
+
+
+        <li>
+        <img src="{{ f.imagen.url }}"> <!-- random image -->
+        <div class="caption right-align " >
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <h9 class="light grey-text text-lighten-3">
+
+                            {{ f.descripcion }}
+
+
+        </h9>
+        </div>
+        </li>
+
+{% endfor %}
+
+
+        <!-------------------->
+
+
+        </ul>
+        </div>
+    <br>
+
+</div>
+
+
+    <div style="" class="col s12 m6 center  center-align">
+
+    <h3>Te sugerimos:</h3>
+
+                    <h2>{{ placerandom.nombre }}</h2>
+        <br>
+
+                    Rating:
+
+                 {% if placerandom.rating < 1.7 %}
+                                        &#x2b50;
+                     {% elif placerandom.rating >= 1.7 and  placerandom.rating < 2.7 %}
+                                        &#x2b50;&#x2b50;
+
+                     {% elif placerandom.rating >= 2.7 and  placerandom.rating < 3.7 %}
+                                        &#x2b50;&#x2b50;&#x2b50;
+
+                     {% elif placerandom.rating >= 3.7 and  placerandom.rating < 4.7 %}
+                                        &#x2b50;&#x2b50;&#x2b50;&#x2b50;
+                     {% elif placerandom.rating >= 4.7 and  placerandom.rating <= 5 %}
+                                        &#x2b50;&#x2b50;&#x2b50;&#x2b50;&#x2b50;
+
+                     {% elif placerandom.rating == -100 %}
+                         Información no dismponible
+                     {% else %}
+                     <span class="error">Error</span>
+
+              {% endif %}
+                    [{{ placerandom.rating|floatformat:2  }}]<br>
+
+      Precio:{% if placerandom.precio == -100 %}
+               Información no disponible
+                  {% else %}
+          {{ placerandom.precio|floatformat:0  }}
+              {% endif %}<br>
+
+      </div>
+
+
+    </div>
+</a>
 
 
  <div class="row infinite-container">
@@ -153,7 +244,6 @@ $('.slider').slider({    indicators:false,
     interval:1300,
     height:400, duration:500
     });
-
 
 
 
