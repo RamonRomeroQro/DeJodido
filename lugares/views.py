@@ -174,7 +174,7 @@ def busqueda(request):
         qstate = Estado.objects.filter(pais=qpais).get(nombre=state)
         qcity = Ciudad.objects.filter(estado=qstate).get(nombre=city)
         lugares = Lugar.objects.filter(ciudad=qcity)
-        randomp=lugares.order_by('?').first()
+        placerandom=lugares.order_by('?').first()
         lugar =[]
 
         presupuesto = request.GET.getlist('presupuesto')
@@ -206,7 +206,7 @@ def busqueda(request):
 
 
         return render(request, 'lugares/list.html', {'lugares': lugar, 'id_ciudad': qcity.id, 'min_lugar': min(presupuesto),
-                                                     'max_lugar:': max(presupuesto), 'numbers': numbers, 'randomp':randomp})
+                                                     'max_lugar:': max(presupuesto), 'numbers': numbers, 'placerandom':placerandom})
 
     except:
 
