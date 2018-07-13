@@ -68,6 +68,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'social_django.middleware.SocialAuthExceptionMiddleware',
+    'deajodido.middleware.AutoLogout',
 
 ]
 
@@ -141,3 +142,7 @@ SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
     'locale': 'ru_RU',
     'fields': 'id,name,email',
 }
+
+#Auto LogOut
+# Auto logout delay in minutes
+AUTO_LOGOUT_DELAY = 180
