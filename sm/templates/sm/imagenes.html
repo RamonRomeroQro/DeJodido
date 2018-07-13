@@ -1,0 +1,34 @@
+
+
+
+<!doctype html>
+
+
+
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="row">
+
+{% for i in imagenes %}
+
+  <div class="col s4">
+
+
+    <img src="{{ i.imagen.url }}" style="height: 200px; width: auto">
+    {{ i.status }}
+    {{ i.imagen.url }}
+
+
+    </div>
+{% endfor %}
+
+
+</div>
+
+
+
+{% endblock %}
+
+
