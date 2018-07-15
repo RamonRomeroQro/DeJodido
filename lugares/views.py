@@ -210,6 +210,12 @@ def busqueda(request):
 
     except:
 
+        with open('failed_search.log', 'a') as f:
+            f.write(request.GET['city']+'\n')
+        f.closed
+
+
+
         return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
 
