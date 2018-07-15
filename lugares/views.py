@@ -208,10 +208,10 @@ def busqueda(request):
         return render(request, 'lugares/list.html', {'lugares': lugar, 'id_ciudad': qcity.id, 'min_lugar': min(presupuesto),
                                                      'max_lugar:': max(presupuesto), 'numbers': numbers, 'placerandom':placerandom})
 
-    except:
+    except Exception as e:
 
         with open('failed_search.log', 'a') as f:
-            f.write(request.GET['city']+'\n')
+            f.write(str(request.GET)+' | '+str(e)+'\n')
         f.closed
 
 
