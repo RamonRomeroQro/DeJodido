@@ -16,12 +16,8 @@ from django.core.wsgi import get_wsgi_application
 
 import os
 
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "deajodido.settings.production")
 
-if os.path.isfile ('/etc/secret_key.txt'):
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "deajodido.settings.production")
-else:
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "deajodido.settings.development")
-print(os.environ['DJANGO_SETTINGS_MODULE'])
 
 application = get_wsgi_application()
 
