@@ -9,6 +9,10 @@ with open('/etc/secret_key.txt') as f:
 DEBUG = True
 
 
+
+
+
+
 ALLOWED_HOSTS = ['138.197.223.47', 'dejodido.com']
 
 # Database
