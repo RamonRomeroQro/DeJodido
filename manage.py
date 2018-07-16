@@ -5,9 +5,11 @@ import sys
 if __name__ == "__main__":
     #por si la cago
     #os.environ.setdefault("DJANGO_SETTINGS_MODULE", "deajodido.settings")
-
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "deajodido.settings.development")
-
+    if os.path.isfile('/etc/secret_key.txt'):
+        os.environ.setdefault("DJANGO_SETTINGS_MODULE", "deajodido.settings.production")
+    else:
+        os.environ.setdefault("DJANGO_SETTINGS_MODULE", "deajodido.settings.development")
+    print(os.environ['DJANGO_SETTINGS_MODULE'])
 
     try:
         from django.core.management import execute_from_command_line
