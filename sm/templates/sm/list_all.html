@@ -85,25 +85,34 @@ $('.slider').slider({    indicators:true,
         </ul>
         </div>
 
-<a href="{% url 'sm:detalle_lugar' number.nombre number.id %}">
 
-      <div class="info center ">
+       <div class="info center ">
                     {{ number.nombre }}<br>
 
                     Rating:
 
-                 {% if number.rating < 1.7 %}
+                 {% if number.rating >= 0 and number.rating < 1.7 %}
                                         &#x2b50;
+                                         [{{ placerandom.rating|floatformat:2  }}]<br>
+
                      {% elif number.rating >= 1.7 and  number.rating < 2.7 %}
                                         &#x2b50;&#x2b50;
+                                         [{{ placerandom.rating|floatformat:2  }}]<br>
+
 
                      {% elif number.rating >= 2.7 and  number.rating < 3.7 %}
                                         &#x2b50;&#x2b50;&#x2b50;
+                                         [{{ number.rating|floatformat:2  }}]<br>
+
 
                      {% elif number.rating >= 3.7 and  number.rating < 4.7 %}
                                         &#x2b50;&#x2b50;&#x2b50;&#x2b50;
+                                         [{{ number.rating|floatformat:2  }}]<br>
+
                      {% elif number.rating >= 4.7 and  number.rating <= 5 %}
                                         &#x2b50;&#x2b50;&#x2b50;&#x2b50;&#x2b50;
+                                         [{{ number.rating|floatformat:2  }}]<br>
+
 
                      {% elif number.rating == -100 %}
                          Información no dismponible
@@ -111,7 +120,6 @@ $('.slider').slider({    indicators:true,
                      <span class="error">Error</span>
 
               {% endif %}
-                    [{{ number.rating|floatformat:2  }}]<br>
 
       Precio:{% if number.precio == -100 %}
                Información no disponible
@@ -149,7 +157,7 @@ $('.slider').slider({    indicators:true,
 
 
       </div>
-</a>
+           <a href="{% url 'sm:detalle_lugar' number.nombre number.id %}">VER IMAGENES</a>
 
 
 

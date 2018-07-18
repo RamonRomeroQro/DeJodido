@@ -30,7 +30,7 @@ def detalle_lugar(request, nombre_lugar,id_lugar):
     l = get_object_or_404(Lugar, id=id_lugar)
     gkey=settings.GMAPS_API_KEY_JS
     formresena=UsuarioReview(prefix="resena")
-    return render(request, 'lugares/details.html' , { 'lugar': l, 'gkey':gkey, 'forma':formresena })
+    return render(request, 'sm/details.html' , { 'lugar': l, 'gkey':gkey, 'forma':formresena })
 
 @login_required
 def update_place (request,  id_lugar):
@@ -54,7 +54,7 @@ def update_place (request,  id_lugar):
 
 
     elif (request.POST['update_place']=='Delete'):
-        mensaje = str('Borrano: Nombre: '+l.nombre+' id: '+ str(l.id)+' id google: '+ l.id_google+' status: '+ str(l.status))
+        mensaje = str('Borrado: Nombre: '+l.nombre+' id: '+ str(l.id)+' id google: '+ l.id_google+' status: '+ str(l.status))
         l.delete()
         messages.warning(request, mensaje)
 
@@ -65,3 +65,40 @@ def update_place (request,  id_lugar):
 
     #l.status=
     return HttpResponseRedirect(reverse('sm:lugares'))
+
+
+
+@login_required
+def update_image (request,  id_image):
+    i = get_object_or_404(Imagen, id=id_image)
+    previous=str(i.status)
+    lugar=i.lugar
+
+    if (request.POST['update_image']=='True'):
+        i.status=True
+        i.save()
+        mensaje = str('Update: URL: '+i.imagen.url+' from: '+ lugar.nombre +' id: '+ str(i.id)+' status: '+ previous+' -> '+ str(i.status))
+        messages.success(request, mensaje)
+
+
+    elif (request.POST['update_image']=='False'):
+        i.status=False
+        i.save()
+
+
+        mensaje = str('Update: URL: '+i.imagen.url+' from: '+ lugar.nombre +' id: '+ str(i.id)+' status: '+ previous+' -> '+ str(i.status))
+        messages.success(request, mensaje)
+
+
+    elif (request.POST['update_image']=='Delete'):
+        mensaje = str('Borrado: URL: '+i.imagen.url+' from: '+ lugar.nombre +' id: '+ str(i.id)+' status: '+ previous+' -> '+ str(i.status))
+        i.delete()
+        messages.warning(request, mensaje)
+
+    else:
+        mensaje="Error, intenta de nuevo"
+        messages.error(request, mensaje)
+
+
+    #l.status=
+    return HttpResponseRedirect(reverse('sm:detalle_lugar',  kwargs={'nombre_lugar': lugar.nombre,'id_lugar':lugar.id}))

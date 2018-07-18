@@ -79,18 +79,28 @@ $('.slider').slider({    indicators:false,
 
                     Rating:
 
-                 {% if placerandom.rating < 1.7 %}
+                 {% if placerandom.rating >= 0 and placerandom.rating < 1.7 %}
                                         &#x2b50;
+                                         [{{ placerandom.rating|floatformat:2  }}]<br>
+
                      {% elif placerandom.rating >= 1.7 and  placerandom.rating < 2.7 %}
                                         &#x2b50;&#x2b50;
+                                         [{{ placerandom.rating|floatformat:2  }}]<br>
+
 
                      {% elif placerandom.rating >= 2.7 and  placerandom.rating < 3.7 %}
                                         &#x2b50;&#x2b50;&#x2b50;
+                                         [{{ placerandom.rating|floatformat:2  }}]<br>
+
 
                      {% elif placerandom.rating >= 3.7 and  placerandom.rating < 4.7 %}
                                         &#x2b50;&#x2b50;&#x2b50;&#x2b50;
+                                         [{{ placerandom.rating|floatformat:2  }}]<br>
+
                      {% elif placerandom.rating >= 4.7 and  placerandom.rating <= 5 %}
                                         &#x2b50;&#x2b50;&#x2b50;&#x2b50;&#x2b50;
+                                         [{{ placerandom.rating|floatformat:2  }}]<br>
+
 
                      {% elif placerandom.rating == -100 %}
                          Información no dismponible
@@ -98,7 +108,6 @@ $('.slider').slider({    indicators:false,
                      <span class="error">Error</span>
 
               {% endif %}
-                    [{{ placerandom.rating|floatformat:2  }}]<br>
 
       Precio:{% if placerandom.precio == -100 %}
                Información no disponible
@@ -162,18 +171,28 @@ $('.slider').slider({    indicators:false,
 
                     Rating:
 
-                 {% if number.rating < 1.7 %}
+                 {% if number.rating >= 0 and number.rating < 1.7 %}
                                         &#x2b50;
+                                         [{{ placerandom.rating|floatformat:2  }}]<br>
+
                      {% elif number.rating >= 1.7 and  number.rating < 2.7 %}
                                         &#x2b50;&#x2b50;
+                                         [{{ placerandom.rating|floatformat:2  }}]<br>
+
 
                      {% elif number.rating >= 2.7 and  number.rating < 3.7 %}
                                         &#x2b50;&#x2b50;&#x2b50;
+                                         [{{ number.rating|floatformat:2  }}]<br>
+
 
                      {% elif number.rating >= 3.7 and  number.rating < 4.7 %}
                                         &#x2b50;&#x2b50;&#x2b50;&#x2b50;
+                                         [{{ number.rating|floatformat:2  }}]<br>
+
                      {% elif number.rating >= 4.7 and  number.rating <= 5 %}
                                         &#x2b50;&#x2b50;&#x2b50;&#x2b50;&#x2b50;
+                                         [{{ number.rating|floatformat:2  }}]<br>
+
 
                      {% elif number.rating == -100 %}
                          Información no dismponible
@@ -181,7 +200,6 @@ $('.slider').slider({    indicators:false,
                      <span class="error">Error</span>
 
               {% endif %}
-                    [{{ number.rating|floatformat:2  }}]<br>
 
       Precio:{% if number.precio == -100 %}
                Información no disponible
