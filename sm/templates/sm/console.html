@@ -1,0 +1,133 @@
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Circles</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+  <br><br>
+  {% for i in comandos %}
+      {{ i.lat }},
+      {{ i.lng }},
+      {{ i.keyword }},
+      {{ i.city }},
+      {{ i.state }},
+      {{ i.country }},<br>
+    {% endfor %}
+<br><br>
+    <div id="map"></div>
+    <script>
+      // This example creates circles on the map, representing populations in North
+      // America.
+
+      // First, create an object containing LatLng and population for each city.
+      var citymap = {
+
+      {% for c in comandos %}
+          {{ c.id }}: {
+          center: { lat: {{ c.lat }}, lng: {{ c.lng }} },
+            ciudad: "{{ c.city }}",
+            estado: "{{ c.state }}",
+            pais: "{{ c.country }}",
+            keyword: "{{ c.keyword }}",
+
+        },
+
+      {% endfor %}
+
+
+
+
+
+
+      };
+
+      var posible ={
+           n: {
+          center: { lat: 21 , lng: -102 }
+        },
+
+      }
+
+
+      function initMap() {
+        // Create the map.
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 6,
+          center: {lat: 20.5924074, lng: -100.3788854},
+          mapTypeId: 'roadmap'
+        });
+
+        // Construct the circle for each value in citymap.
+        // Note: We scale the area of the circle based on the population.
+
+
+        for (var city in citymap) {
+          // Add the circle for this city to the map.
+
+          var cityCircle = new google.maps.Circle({
+            strokeColor: '#FF0000',
+            strokeOpacity: 1,
+            strokeWeight: 1,
+            fillColor: '#FF0000',
+            fillOpacity: 0.1,
+            map: map,
+            center: citymap[city].center,
+            radius: 5000,
+              draggable: true,
+          geodesic: true,
+              d: citymap[city].ciudad+citymap[city].estado+citymap[city].pais+citymap[city].keyword
+
+          });
+
+
+
+
+
+
+        }
+
+        for  (var p in posible){
+             var cc = new google.maps.Circle({
+            strokeColor: '#4c89ff',
+            strokeOpacity: 1,
+            strokeWeight: 1,
+            fillColor: '#65c6ff',
+            fillOpacity: 0.2,
+            map: map,
+            center: posible[p].center,
+            radius: 5000,
+ draggable: true,
+          geodesic: true
+
+          });
+
+
+
+          google.maps.event.addListener(cc, 'dragend', function() {
+              window.alert(cityCircle.center)
+          });
+
+        }
+
+
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key={{ key }}&callback=initMap">
+    </script>
+  </body>
+</html

@@ -15,6 +15,7 @@ from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from .models import Comando
 
 
 
@@ -102,3 +103,11 @@ def update_image (request,  id_image):
 
     #l.status=
     return HttpResponseRedirect(reverse('sm:detalle_lugar',  kwargs={'nombre_lugar': lugar.nombre,'id_lugar':lugar.id}))
+
+
+
+@login_required
+def consola(request):
+    comandos=Comando.objects.all()
+    key=settings.GMAPS_API_KEY
+    return render(request, 'sm/console.html', {'key':key,  'comandos':comandos})
