@@ -14,63 +14,7 @@ display: inline;
 
 
 <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
-<script>
 
-
-
-  // Or with jQuery
-
-  $(document).ready(function(){
-    $('.slider').slider({
-        indicators: true,
-    interva:1300,
-    height:400, duration:500
-    });
-  });
-
-
-
-   $(document).ready(function(){
-    $('.tabs').tabs();
-  });
-
-
-$(document).ready(function(){
-
-    $("#googlereview").one( "click", function() {
-        $.ajax(
-            {
-                url: "/ajax/google/"+$('#google').html(),
-                success: function(result){
-                    $("#google").css('visibility','visible'),
-
-                    $("#google").html(result);
-        }});
-    });
-    $("#yelpreview").one( "click", function() {
-        $.ajax(
-            {
-                url: "/ajax/yelp/"+$('#yelp').html(),
-                success: function(result){
-                                         $("#yelp").css('visibility','visible'),
-
-                    $("#yelp").html(result);
-        }});
-    });
-    $("#foursquarereview").one( "click", function() {
-        $.ajax(
-            {
-                url: "/ajax/foursquare/"+$('#foursquare').html(),
-                success: function(result){
-                                         $("#foursquare").css('visibility','visible'),
-
-                    $("#foursquare").html(result);
-        }});
-    });
-});
-
-
-</script>
 
 
 {% extends "base.html" %}
@@ -81,404 +25,70 @@ $(document).ready(function(){
 
 
       {% include 'searchbar.html' %}
-    <br>
 
-        <div class="slider">
-        <ul class="slides">
-        <!-------------------->
+
+    <br>
+<h2> Para cambios mas profundos ingresar a la administracion de django</h2>
+{% if messages %}
+
+
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+
+{% endif %}
+
+
+ <div class="row">
+
+
 
 
         {% for i in lugar.imagen_set.all %}
 
+                        <div class="col s12 m6 l4 ">
 
-        <li>
-        <img src="{{ i.imagen.url }}" style="background-size:auto 100% ;
-    background-repeat: no-repeat; background-color: white "> <!-- random image -->
-        <div class="caption center-align " >
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <h9 class="light grey-text text-lighten-3">
 
-                            {{ i.descripcion }}
 
 
-        </h9>
-        </div>
-        </li>
+        <img src="{{ i.imagen.url }}" height="200px" width="auto">
+            <br>{{ i.descripcion }}
+            <br>
+             <form method="POST" enctype="multipart/form-data" action="{% url 'sm:update_image' i.id %}">
+         {% csrf_token %}
 
-{% endfor %}
+          <div class="input-field col s12">
+    <select name="update_image">
+      <option value="{{ i.status }}" disabled selected>Current Status: {{ i.status }}</option>
+      <option value="True">Show: True</option>
+      <option value="False">Show: False</option>
+        <option value="Delete">Action: Delete</option>
 
-
-
-
-        <!-------------------->
-
-
-        </ul>
-        </div>
-    <br>
-
-    <div class="container">
-
-
-
-
-    <div class="row">
-
-
-
-
-        <div class="card">
-    <div class="card-content">
-
-
-        <p>{{ lugar.nombre }}</p>
-    <p>
-
-
-
-   Rating:
-
-                 {% if lugar.rating < 1.7 %}
-                                        &#x2b50;
-                     {% elif lugar.rating >= 1.7 and  lugar.rating < 2.7 %}
-                                        &#x2b50;&#x2b50;
-
-                     {% elif lugar.rating >= 2.7 and  lugar.rating < 3.7 %}
-                                        &#x2b50;&#x2b50;&#x2b50;
-
-                     {% elif lugar.rating >= 3.7 and  lugar.rating < 4.7 %}
-                                        &#x2b50;&#x2b50;&#x2b50;&#x2b50;
-                     {% elif lugar.rating >= 4.7 and  lugar.rating <= 5 %}
-                                        &#x2b50;&#x2b50;&#x2b50;&#x2b50;&#x2b50;
-
-                     {% elif lugar.rating == -100 %}
-                         Información no dismponible
-                     {% else %}
-                     <span class="error">Error</span>
-
-              {% endif %}
-                    [{{ lugar.rating|floatformat:2  }}]
-
-
-</p>
-        <p>
-        Precio:{% if lugar.precio == -100 %}
-               Información no disponible
-                  {% else %}
-          {{ lugar.precio|floatformat:0  }}
-              {% endif %}
-
-    </p>
-
-
-
-
-
-
-
-
-
-    <p>Dirección: {{ lugar.direccion }}, {{ lugar.ciudad.estado.nombre }}, {{ lugar.ciudad.estado.pais.nombre }}</p>
-    <p>{{ lugar.botana }}</p>
-    <p>{{ lugar.validado }}</p>
-
-    <div class="center ">
-
-<div id="share-buttons">
-
-
-
-    <!-- Digg -->
-    <a href="http://www.digg.com/submit?url=https://dejodido.com{{ request.path }}" target="_blank">
-        <img src="https://simplesharebuttons.com/images/somacro/diggit.png" alt="Digg" />
-    </a>
-
-    <!-- Email -->
-    <a href="mailto:?Subject={{ lugar.nombre }}&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 https://dejodido.com{{ request.path }}">
-        <img src="https://simplesharebuttons.com/images/somacro/email.png" alt="Email" />
-    </a>
-
-    <!-- Facebook -->
-    <a href="http://www.facebook.com/sharer.php?u=https://dejodido.com{{ request.path }}" target="_blank">
-        <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
-    </a>
-
-    <!-- Google+ -->
-    <a href="https://plus.google.com/share?url=https://dejodido.com{{ request.path }}" target="_blank">
-        <img src="https://simplesharebuttons.com/images/somacro/google.png" alt="Google" />
-    </a>
-
-    <!-- LinkedIn -->
-    <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://dejodido.com{{ request.path }}" target="_blank">
-        <img src="https://simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" />
-    </a>
-
-    <!-- Pinterest -->
-    <a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','https://dejodido.com{{ request.path }}');document.body.appendChild(e)%7D)());">
-        <img src="https://simplesharebuttons.com/images/somacro/pinterest.png" alt="Pinterest" />
-    </a>
-
-
-    <!-- Reddit -->
-    <a href="http://reddit.com/submit?url=https://dejodido.com{{ request.path }}&amp;title=Simple Share Buttons" target="_blank">
-        <img src="https://simplesharebuttons.com/images/somacro/reddit.png" alt="Reddit" />
-    </a>
-
-
-    <!-- Tumblr-->
-    <a href="http://www.tumblr.com/share/link?url=https://dejodido.com{{ request.path }}&amp;title=Simple Share Buttons" target="_blank">
-        <img src="https://simplesharebuttons.com/images/somacro/tumblr.png" alt="Tumblr" />
-    </a>
-
-    <!-- Twitter -->
-    <a href="https://twitter.com/share?url=https://dejodido.com{{ request.path }}&amp;text=Simple%20Share%20Buttons&amp;hashtags=simplesharebuttons" target="_blank">
-        <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
-    </a>
-
-
-
-</div>
-    </div>
-
-    </div>
-    <div class="card-tabs">
-      <ul class="tabs tabs-fixed-width">
-        <li id="peddyreview" class="tab "><a class="active blue-text " href="#peddy">DeJodido Review</a></li>
-        <li id="googlereview" class="tab"><a href="#google" class="blue-text ">Google Review</a></li>
-        <li id="foursquarereview" class="tab"><a href="#foursquare" class="blue-text ">FourSquare Review</a></li>
-        <li id="facebookreview" class="tab"><a href="#facebook" class="blue-text ">Facebook </a></li>
-        <li id="yelpreview" class="tab"><a href="#yelp" class="blue-text ">Yelp Review</a></li>
-      </ul>
-    </div>
-    <div class="card-content grey lighten-4">
-      <div id="peddy">DeJodido Reviews
-
-
-
-
-
-{% if user.is_authenticated %}
-
-
-          <div class="card">
-              <div class="card-content">
-
-             <form method="POST" enctype="multipart/form-data" action="{% url 'usuarios:resena' lugar.nombre lugar.id %}">
-{% csrf_token %}
-
-              <div class="row">
-                <div class="input-field col s12">
-                    {{ forma.precio_cerveza }}
-                    {{ forma.precio_cerveza.label_tag }}
-                    <div class="help">
-                    {{ forma.precio_cerveza.errors }}
-                    {{ forma.precio_cerveza.help_text|safe }}
-                    </div>
-                </div>
-              </div>
-                  <div class="row">
-
-                  <div class="input-field col s12">
-                    {{ forma.calificacion }}
-                    {{ forma.calificacion.label_tag }}
-                    <div class="help">
-                    {{ forma.calificacion.errors }}
-                    {{ forma.calificacion.help_text|safe }}
-                    </div>
-                </div>
-                    </div>
-
-                 <div class="row">
-                <div class="input-field col s12">
-                    {{ forma.comentario }}
-                    {{ forma.comentario.label_tag }}
-                    <div class="help">
-                    {{ forma.comentario.errors }}
-                    {{ forma.comentario.help_text|safe }}
-                    </div>
-                </div>
-                 </div>
-
-<!------ Imagenes??
-
-
-             <div class="row">
-                <div class="file-field input-field s12">
-      <div class="btn">
-        <span>File</span>
-        <input type="file" multiple>
-      </div>
-      <div class="file-path-wrapper">
-        <input class="file-path validate" type="text" placeholder="Upload one or more files">
-      </div>
-    </div>
-                    </div>
-                 --->
-
-                      <div class="row center center-align">
-                          <div class="col s12 center center-align">
-                               <button class="btn waves-effect waves-light" type="submit" name="action"><i class="material-icons right">send</i>
-  </button>
-                          </div>
-                      </div>
-
-</form>
-
-
-
-
-              </div>
-
-          </div>
-
-{% else %}
-
-    <div class="card">
-        <div class="card-content">
-
-             <p><a href="{% url 'usuarios:singup' %}" class="blue-text"> Regístrate </a> o <a href="/login/?next={{request.get_full_path}}" class="blue-text"> Inicia Sesión</a> para dejar tu recomendación</p>
-
-        </div>
-    </div>
-
-
-      {% endif %}
-
-      <div class="card">
-
-          <div class="card-content">
-              <ul>
-        {% for r in lugar.resena_set.all %}
-
-           {{ r.usuario.user.username }}
-
-        <li>{{ r.comentario }}</li>
-
-            {% empty %}
-
-            <li> No hay reseñas Disponibles</li>
-        {% endfor %}
-    </ul>
-          </div>
-      </div>
-
-
-
-
-
-
-      </div>
-      <div id="google" style="visibility: hidden">{{ lugar.id_google }}</div>
-      <div id="foursquare" style="visibility: hidden">{{ lugar.id_foursquare }}</div>
-      <div id="facebook" class="center">
-                  <iframe src="https://www.facebook.com/plugins/page.php?href={{ lugar.facebook_link }}&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=2016535901926533" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-      </div>
-      <div id="yelp" style="visibility: hidden">{{ lugar.id_yelp }}</div>
-    </div>
+    </select>
+    <label>Update_imagee{{ number.id }}</label>
   </div>
 
 
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <i class="material-icons right">cloud</i>
+    </button>
 
+     </form>
+                        <br>
 
-    </div>
+                        </div>
 
-    <div class="row"  id="map" style="height: 400px;"></div>
-    <script>
+{% endfor %}
 
-      // The following example creates a marker in Stockholm, Sweden using a DROP
-      // animation. Clicking on the marker will toggle the animation between a BOUNCE
-      // animation and no animation.
+ </div>
 
-      var marker;
-
-      function initMap() {
-        var uluru = {lat: {{ lugar.latitud }}, lng: {{ lugar.longitud }}   };
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 14,
-          center: uluru
-        });
-
-        var contentString = '<p>{{lugar.nombre }}</p>'+
-                            '<p>{{lugar.rating }}</p>'+
-                            '<p>{{lugar.precio }}</p>';
-
-        var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
-
-        var infowindow = new google.maps.InfoWindow({
-          content: contentString,
-          maxWidth: 200
-        });
-
-        marker = new google.maps.Marker({
-          icon: image,
-          map: map,
-          draggable: true,
-          animation: google.maps.Animation.DROP,
-          position: uluru,
-                    title: 'Uluru (Ayers Rock)'
-
-        });
-        marker.addListener('click', function() {
-          infowindow.open(map, marker);
-        });
-
-
-      }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key={{ gkey }}&callback=initMap">
-    </script>
-
-
-
-
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
+</div>
+</div>
 
 
 
 
 
 {% endblock %}
-
-<style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-
-    </style>
-
-
-<script>
-
-
-
-  $(document).ready(function(){
-          $('.sidenav').sidenav();
-
-    $('.slider').slider({    indicators:true,
-    interval:2000,
-    height:400, duration:500
-    });
-
-
-
-
-
-  });
-</script>
