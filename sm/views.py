@@ -18,16 +18,19 @@ from django.contrib import messages
 
 
 #Visualizar partidos en la landing page
+@login_required
 def lugares(request):
     numbers=Lugar.objects.all().order_by('nombre')
     return render(request, 'sm/list_all.html', {'numbers':numbers})
 
+@login_required
 def detalle_lugar(request, nombre_lugar,id_lugar):
     l = get_object_or_404(Lugar, id=id_lugar)
     gkey=settings.GMAPS_API_KEY_JS
     formresena=UsuarioReview(prefix="resena")
     return render(request, 'lugares/details.html' , { 'lugar': l, 'gkey':gkey, 'forma':formresena })
 
+@login_required
 def update_place (request,  id_lugar):
     l = get_object_or_404(Lugar, id=id_lugar)
     previous=str(l.status)
