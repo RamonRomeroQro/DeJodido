@@ -13,6 +13,8 @@ python manage.py makemigrations usuarios
 python manage.py migrate
 python manage.py makemigrations eastereggs
 python manage.py migrate
+python manage.py makemigrations sm
+python manage.py migrate
 sudo systemctl restart gunicorn
 deactivate
 cd ~

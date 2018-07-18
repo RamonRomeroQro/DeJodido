@@ -8,6 +8,7 @@ import shutil
 
 
 from lugares.models import Lugar, Ciudad, Estado, Pais, Imagen
+from sm.models import Comando
 from lugares.models import Tags
 from django.conf import settings
 
@@ -451,7 +452,7 @@ class Command(BaseCommand):
 
             newcommand = ('python3 manage.py createbase --lat ' + str(options['lat']) + ' --lng ' + str(
                 options['lng']) + ' --keyword ' + str(options['keyword']) + ' --city "' + str(
-                options['city']) + '" --state "' + str(options['state']) + '" --country "' + str(
+                options['city']) + '" --state "' + str(options['state']) +'" --country "' + str(
                 options['country']) + '"')
             logfile = open('commands.log', 'r')
             loglist = logfile.readlines()
@@ -461,9 +462,9 @@ class Command(BaseCommand):
                 percent = similar(newcommand, line) * 100
                 if percent > 98:
                     print ('\nLOG:\t' + line + '\nNOW:\t' + newcommand)
-                    print ('\nEstas seguro de que deseas ejecutar el comando?, puede ser repetido\n ' + str(
+                    print ('\nComando puede ser repetido\n ' + str(
                         percent) + '% de matching')
-                    k = input('\nEs la misma busqueda? y/n')
+                    k = input('\nEs la misma busqueda?? y/n -> ')
 
                     if k == 'y':
                         found = True
@@ -477,9 +478,14 @@ class Command(BaseCommand):
                 logfile.write(newcommand + "\n")
                 logfile.close()
                 print ('\nExecutando ' + newcommand)
-                response = busquedaGMaps(str(options['lat']), str(options['lng']), str(options['keyword']),
-                                         str(options['city']), str(options['state']), str(options['country']))
+                response = busquedaGMaps(str(options['lat']), str(options['lng']), str(options['keyword']),str(options['city']), str(options['state']), str(options['country']))
                 saveLocal(response['response'], response['kyword'], response['c'], response['e'], response['p'])
+
+                c = Comando.objects.create(
+                    lat=options['lat'],lng =options['lng'],keyword = options['keyword'],
+                    city = options['city'], state = options['state'], country =options['country']);
+                c.save();
+
                 self.stdout.write(self.style.SUCCESS('Successfully'))
 
 
