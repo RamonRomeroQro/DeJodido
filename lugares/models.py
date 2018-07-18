@@ -57,6 +57,15 @@ class Lugar(models.Model):
     status=models.NullBooleanField(verbose_name='status', default=None ,  null=True)
 
 
+    def delete(self):
+
+        imagenes=Imagen.objects.filter(lugar=self.id)
+        for i in imagenes:
+            i.delete()
+        super(Lugar, self).delete()
+
+
+
 
     def __str__(self):
         return self.nombre
