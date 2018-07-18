@@ -1,0 +1,2 @@
+python3 manage.py createbase --lat 20.5924074 --lng -100.3788854 --keyword nightclub --city "Santiago de Querétaro" --state "Querétaro" --country "México"
+python3 manage.py createbase --lat 20.5924074 --lng -100.3788854 --keyword bar --city "Santiago de Querétaro" --state "Querétaro" --country "México"
