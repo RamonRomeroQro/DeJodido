@@ -9,7 +9,7 @@
 
   $(document).ready(function(){
 
-$('.slider').slider({    indicators:false,
+$('.slider').slider({    indicators:true,
     interval:1300,
     height:400, duration:500
     });
@@ -30,88 +30,18 @@ $('.slider').slider({    indicators:false,
 
 
       {% include 'searchbar.html' %}
-<a href="{% url 'lugares:detalle_lugar' placerandom.nombre placerandom.id %}">
 
-    <div class="row  blue lighten-5 black-text">
-    <br>
-    <div class="col s12 m6">
-
-    <div class="slider ">
-        <ul class="slides">
-        <!-------------------->
+    <h2> Para cambios mas profundos ingresar a la administracion de django</h2>
+{% if messages %}
 
 
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
 
-        {% for f in placerandom.imagen_set.all %}
-
-
-        <li>
-        <img src="{{ f.imagen.url }}"> <!-- random image -->
-        <div class="caption right-align " >
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <h9 class="light grey-text text-lighten-3">
-
-                            {{ f.descripcion }}
-
-
-        </h9>
-        </div>
-        </li>
-
-{% endfor %}
-
-
-        <!-------------------->
-
-
-        </ul>
-        </div>
-    <br>
-
-</div>
-
-
-    <div style="" class="col s12 m6 center  center-align">
-
-    <h3>Te sugerimos:</h3>
-
-        <h2>{{ placerandom.nombre }}</h2><br>
-
-                    Rating:
-
-                 {% if placerandom.rating < 1.7 %}
-                                        &#x2b50;
-                     {% elif placerandom.rating >= 1.7 and  placerandom.rating < 2.7 %}
-                                        &#x2b50;&#x2b50;
-
-                     {% elif placerandom.rating >= 2.7 and  placerandom.rating < 3.7 %}
-                                        &#x2b50;&#x2b50;&#x2b50;
-
-                     {% elif placerandom.rating >= 3.7 and  placerandom.rating < 4.7 %}
-                                        &#x2b50;&#x2b50;&#x2b50;&#x2b50;
-                     {% elif placerandom.rating >= 4.7 and  placerandom.rating <= 5 %}
-                                        &#x2b50;&#x2b50;&#x2b50;&#x2b50;&#x2b50;
-
-                     {% elif placerandom.rating == -100 %}
-                         Información no dismponible
-                     {% else %}
-                     <span class="error">Error</span>
-
-              {% endif %}
-                    [{{ placerandom.rating|floatformat:2  }}]<br>
-
-      Precio:{% if placerandom.precio == -100 %}
-               Información no disponible
-                  {% else %}
-          {{ placerandom.precio|floatformat:0  }}
-              {% endif %}<br>
-
-      </div>
-
-
-    </div>
-</a>
-
+{% endif %}
 
  <div class="row infinite-container">
 
@@ -120,7 +50,6 @@ $('.slider').slider({    indicators:false,
             <div class="col s12 m6 l4 infinite-item">
 
 
-<a href="{% url 'lugares:detalle_lugar' number.nombre number.id %}">
            <div class="lugar" style=" border-style: solid;
     border-color: white;">
 
@@ -156,6 +85,7 @@ $('.slider').slider({    indicators:false,
         </ul>
         </div>
 
+<a href="{% url 'sm:detalle_lugar' number.nombre number.id %}">
 
       <div class="info center ">
                     {{ number.nombre }}<br>
@@ -189,11 +119,41 @@ $('.slider').slider({    indicators:false,
           {{ number.precio|floatformat:0  }}
               {% endif %}<br>
 
-      </div>
+
+
+
+      <br>
+     <form method="POST" enctype="multipart/form-data" action="{% url 'sm:update_place' number.id %}">
+         {% csrf_token %}
+
+          <div class="input-field col s12">
+    <select name="update_place">
+      <option value="{{ number.status }}" disabled selected>Current Status: {{ number.status }}</option>
+      <option value="True">Show: True</option>
+      <option value="False">Show: False</option>
+        <option value="Delete">Action: Delete</option>
+
+    </select>
+    <label>Update_place{{ number.id }}</label>
+  </div>
+
+
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <i class="material-icons right">cloud</i>
+    </button>
+
+     </form>
+
+
+
 
 
       </div>
 </a>
+
+
+
+      </div>
 
         </div>
     {% endfor %}

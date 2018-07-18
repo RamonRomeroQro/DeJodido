@@ -13,7 +13,10 @@ app_name = 'sm'
 
 urlpatterns = [
     #path('', include('django.contrib.auth.urls')),
-    path('imagenes', views.imagenes, name='imagenes'),
+    path('lugares', views.lugares, name='lugares'),
+    path('lugar/<str:nombre_lugar>-<int:id_lugar>', views.detalle_lugar, name='detalle_lugar'),
+    path('update_place/<int:id_lugar>', views.update_place, name='update_place'),
+
     #path('listaciudades', views.listaciudades, name='listaciudades'),
 
 ]
