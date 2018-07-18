@@ -14,6 +14,24 @@ from django.conf import settings
 from django.core.files.uploadedfile import SimpleUploadedFile
 
 
+
+
+
+
+
+
+
+from difflib import SequenceMatcher
+
+def similar(a, b):
+    return SequenceMatcher(None, a, b).ratio()
+
+
+
+
+
+
+
 omits=['el', 'la', 'los', 'las', 'bar', 'un', 'un', 'restaurante', ]
 
 def city(c,e,p):
@@ -341,7 +359,15 @@ def saveLocal(arr, kyword, c, e, p):
 #saveLocal(response)
 
 class Command(BaseCommand):
-    help = 'create db'
+    stri = ('Example: \npython3 manage.py createbase ' +
+            '--lat 20.5924074 ' +
+            '--lng -100.3788854 ' +
+            '--keyword bar ' +
+            '--city "Santiago de Querétaro" ' +
+            '--state "Querétaro" ' +
+            '--country "México"\n\n AL EJECUTAR POR PRIMERA VEZ, ASEGURARSE DE CREAR CIUDAD->... Default e Imagen/Carpetas de descarga ("Lugar") y default')
+
+    help = stri
 
 
     def add_arguments(self, parser):
@@ -352,7 +378,7 @@ class Command(BaseCommand):
                 '--keyword bar ' +
                 '--city "Santiago de Querétaro" ' +
                 '--state "Querétaro" ' +
-                '--country "México"\n\n AL EJECUTAR POR PRIMERA VEZ, ASEGURARSE DE CREAR CIUDAD->... Default e Imagen/Carpetas de descarga y default')
+                '--country "México"\n\n AL EJECUTAR POR PRIMERA VEZ, ASEGURARSE DE CREAR CIUDAD->... Default e Imagen/Carpetas de descarga  ("Lugar")y default')
 
         self.stdout.write(self.style.SUCCESS(stri))
 
@@ -390,8 +416,79 @@ class Command(BaseCommand):
 
 
     def handle(self, *args, **options):
+
+        '''
+        logfile = open('commands.log', 'r')
+        loglist = logfile.readlines()
+        logfile.close()
+        found = False
+        for line in loglist:
+            if str(self.CLIENT_HOST) in line:
+                print "Found it"
+                found = True
+
+        if not found:
+            logfile = open('ip.log', 'a')
+            logfile.write(str(self.CLIENT_HOST) + "\n")
+            logfile.close()
+
+
+
+
+        with open('failed_search.log', 'a') as f:
+            f.write(str(request.GET)+' | '+str(e)+'\n')
+        f.closed
+
+
         response = busquedaGMaps(str(options['lat']), str(options['lng']), str(options['keyword']), str(options['city']), str(options['state']), str(options['country']))
         saveLocal(response['response'], response['kyword'], response['c'], response['e'], response['p'])
         self.stdout.write(self.style.SUCCESS('Successfully'))
+
+
+        '''
+
+        if os.path.isfile(settings.BASE_DIR + '/media/Lugar/default.jpg'):
+
+            newcommand = ('python3 manage.py createbase --lat ' + str(options['lat']) + ' --lng ' + str(
+                options['lng']) + ' --keyword ' + str(options['keyword']) + ' --city "' + str(
+                options['city']) + '" --state "' + str(options['state']) + '" --country "' + str(
+                options['country']) + '"')
+            logfile = open('commands.log', 'r')
+            loglist = logfile.readlines()
+            logfile.close()
+            found = False
+            for line in loglist:
+                percent = similar(newcommand, line) * 100
+                if percent > 98:
+                    print ('\nLOG:\t' + line + '\nNOW:\t' + newcommand)
+                    print ('\nEstas seguro de que deseas ejecutar el comando?, puede ser repetido\n ' + str(
+                        percent) + '% de matching')
+                    k = input('\nEs la misma busqueda? y/n')
+
+                    if k == 'y':
+                        found = True
+                        break
+                    else:
+                        print ('Buscando similares . . .')
+
+            if not found:
+                print ('Comando único, ejecutando . . .')
+                logfile = open('commands.log', 'a')
+                logfile.write(newcommand + "\n")
+                logfile.close()
+                print ('\nExecutando ' + newcommand)
+                response = busquedaGMaps(str(options['lat']), str(options['lng']), str(options['keyword']),
+                                         str(options['city']), str(options['state']), str(options['country']))
+                saveLocal(response['response'], response['kyword'], response['c'], response['e'], response['p'])
+                self.stdout.write(self.style.SUCCESS('Successfully'))
+
+
+            else:
+
+                print ('Comando repetido, abortando')
+
+
+        else:
+            print ('ERROR: CREA ' + str(settings.BASE_DIR) + '/media/Lugar/default.jpg')
 
 
