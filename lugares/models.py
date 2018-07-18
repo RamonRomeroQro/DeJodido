@@ -54,6 +54,17 @@ class Lugar(models.Model):
     facebook_link = models.CharField(verbose_name='ID Facebook Link', null=True, blank=True, max_length=500)
     tags = models.ManyToManyField(Tags, verbose_name='Tags')
     ciudad = models.ForeignKey(Ciudad, verbose_name='Ciudad', on_delete=models.CASCADE,  null=True, blank=True)
+    status=models.NullBooleanField(verbose_name='status', default=None ,  null=True)
+
+
+    def delete(self):
+
+        imagenes=Imagen.objects.filter(lugar=self.id)
+        for i in imagenes:
+            i.delete()
+        super(Lugar, self).delete()
+
+
 
 
     def __str__(self):
