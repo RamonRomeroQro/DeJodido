@@ -131,11 +131,10 @@ $('.slider').slider({    indicators:true,
 
 
       <br>
-     <form method="POST" enctype="multipart/form-data" action="{% url 'sm:update_place' number.id %}">
-         {% csrf_token %}
+     <form id="lugar{{ number.id }}" onsubmit="myFunction{{ number.id }}(); return false" name="forma_cambio_lugar" method="POST" enctype="multipart/form-data">
 
           <div class="input-field col s12">
-    <select name="update_place">
+    <select  name="update_place">
       <option value="{{ number.status }}" disabled selected>Current Status: {{ number.status }}</option>
       <option value="True">Show: True</option>
       <option value="False">Show: False</option>
@@ -151,6 +150,32 @@ $('.slider').slider({    indicators:true,
     </button>
 
      </form>
+        <script>
+         function myFunction{{ number.id }}(){
+             var valor = document.getElementById("lugar{{ number.id }}");
+             $.ajax({
+
+                    url : "{% url 'sm:update_place' number.id %}", // the endpoint
+                    type : "POST", // http method
+                    data : {
+                        'update_place':valor.update_place.options[valor.update_place.selectedIndex].value, 'csrfmiddlewaretoken': '{{csrf_token}}' }, // data sent with the post request
+
+                    // handle a successful response
+                    success : function(json) {
+                        console.log("success"); // another sanity check
+                    },
+
+                    // handle a non-successful response
+                    error : function(xhr,errmsg,err) {
+                        $('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
+                            " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+                        console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+                    }
+             });
+
+
+         }
+      </script>
 
 
 
@@ -220,6 +245,7 @@ $('.slider').slider({    indicators:false,
       }
     });
   </script>
+
 
 
 {% endblock %}
