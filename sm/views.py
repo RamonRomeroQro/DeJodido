@@ -27,11 +27,10 @@ def lugares(request):
     return render(request, 'sm/list_all.html', {'numbers':numbers})
 
 @login_required
-def detalle_lugar(request, nombre_lugar,id_lugar):
+def detalle_lugar(request, id_lugar):
     l = get_object_or_404(Lugar, id=id_lugar)
     gkey=settings.GMAPS_API_KEY_JS
-    formresena=UsuarioReview(prefix="resena")
-    return render(request, 'sm/details.html' , { 'lugar': l, 'gkey':gkey, 'forma':formresena })
+    return render(request, 'sm/details.html' , { 'lugar': l, 'gkey':gkey  })
 
 @login_required
 def update_place (request,  id_lugar):
