@@ -17,6 +17,36 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Comando
 
+@login_required
+def imagenes(request):
+    nulls = Imagen.objects.filter(status=None).filter(lugar__status=True).order_by("lugar")
+    trues = Imagen.objects.filter(status=True).filter(lugar__status=True).order_by("lugar")
+    falses = Imagen.objects.filter(status=False).filter(lugar__status=True).order_by("lugar")
+    return render(request, 'sm/imagenes_all.html', {'falses':falses,'trues':trues,'nulls':nulls})
+
+
+#FIX FOR NEXT UPDATE
+@login_required
+def quickimages(request):
+    n = Imagen.objects.filter(status=None).filter(lugar__status=True).order_by("lugar").first()
+    s = n
+    return render(request, 'sm/quick.html', {'s':s})
+
+@login_required
+def atrue(request, id_imagen):
+    i=Imagen.objects.get(id=id_imagen)
+    i.status=True
+    i.save()
+    return HttpResponseRedirect(reverse('sm:quickimages'))
+
+@login_required
+def afalse(request, id_imagen):
+    i=Imagen.objects.get(id=id_imagen)
+    i.status=False
+    i.save()
+    return HttpResponseRedirect(reverse('sm:quickimages'))
+
+
 
 
 
@@ -97,6 +127,15 @@ def update_image (request,  id_image):
 
         mensaje = str('Update: URL: '+i.imagen.url+' from: '+ lugar.nombre +' id: '+ str(i.id)+' status: '+ previous+' -> '+ str(i.status))
         messages.success(request, mensaje)
+
+    elif (request.POST['update_image'] == 'None'):
+        i.status = None
+        i.save()
+
+        mensaje = str('Update: URL: ' + i.imagen.url + ' from: ' + lugar.nombre + ' id: ' + str(
+            i.id) + ' status: ' + previous + ' -> ' + str(i.status))
+        messages.success(request, mensaje)
+
 
 
     elif (request.POST['update_image']=='Delete'):
