@@ -28,9 +28,10 @@ def imagenes(request):
 #FIX FOR NEXT UPDATE
 @login_required
 def quickimages(request):
-    n = Imagen.objects.filter(status=None).filter(lugar__status=True).order_by("lugar").first()
-    s = n
-    return render(request, 'sm/quick.html', {'s':s})
+    q = Imagen.objects.filter(status=None).filter(lugar__status=True).order_by("lugar")
+    n= q.count()
+    s = q.first()
+    return render(request, 'sm/quick.html', {'s':s, 'n':n})
 
 @login_required
 def atrue(request, id_imagen):
