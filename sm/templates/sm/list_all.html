@@ -8,6 +8,7 @@
 
 
   $(document).ready(function(){
+    $('.tabs').tabs();
 
 $('.slider').slider({    indicators:true,
     interval:1300,
@@ -43,11 +44,22 @@ $('.slider').slider({    indicators:true,
 
 {% endif %}
 
- <div class="row infinite-container">
+    <a href="{% url 'sm:lugares' %}">REFRESH</a>
 
-    {% for number in numbers %}
 
-            <div class="col s12 m6 l4 infinite-item">
+    <ul id="tabs-swipe-demo" class="tabs">
+    <li class="tab col s4"><a href="#test-swipe-1">Visibles ({{ numbers1.count }})</a></li>
+    <li class="tab col s4"><a class="active" href="#test-swipe-2">No Visibles ({{ numbers2.count }})</a></li>
+    <li class="tab col s4"><a href="#test-swipe-3"> Desconocido(Por Evaluar) ({{ numbers3.count }})</a></li>
+  </ul>
+  <div id="test-swipe-1" class="col s12 ">
+
+
+ <div class="row ">
+
+    {% for number in numbers1 %}
+
+            <div class="col s12 m6 l4 ">
 
 
            <div class="lugar" style=" border-style: solid;
@@ -138,6 +150,8 @@ $('.slider').slider({    indicators:true,
       <option value="{{ number.status }}" disabled selected>Current Status: {{ number.status }}</option>
       <option value="True">Show: True</option>
       <option value="False">Show: False</option>
+              <option value="None">Show: None</option>
+
         <option value="Delete">Action: Delete</option>
 
     </select>
@@ -193,21 +207,319 @@ $('.slider').slider({    indicators:true,
 
   </div>
 
-  <div class="loading" style="display: none;">
-           <div class="row">
+  </div>
+  <div id="test-swipe-2" class="col s12 ">
 
-    Loading...
 
-                       </div>
+ <div class="row ">
+
+    {% for number in numbers2 %}
+
+            <div class="col s12 m6 l4 ">
+
+
+           <div class="lugar" style=" border-style: solid;
+    border-color: white;">
+
+
+        <div class="slider">
+        <ul class="slides">
+        <!-------------------->
+
+
+
+        {% for f in number.imagen_set.all %}
+
+
+        <li>
+        <img src="{{ f.imagen.url }}"> <!-- random image -->
+        <div class="caption right-align " >
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <h9 class="light grey-text text-lighten-3">
+
+                            {{ f.descripcion }}
+
+
+        </h9>
+        </div>
+        </li>
+
+{% endfor %}
+
+
+        <!-------------------->
+
+
+        </ul>
+        </div>
+
+
+       <div class="info center ">
+                    {{ number.nombre }}<br>
+
+                    Rating:
+
+                 {% if number.rating >= 0 and number.rating < 1.7 %}
+                                        &#x2b50;
+                                         [{{ placerandom.rating|floatformat:2  }}]<br>
+
+                     {% elif number.rating >= 1.7 and  number.rating < 2.7 %}
+                                        &#x2b50;&#x2b50;
+                                         [{{ placerandom.rating|floatformat:2  }}]<br>
+
+
+                     {% elif number.rating >= 2.7 and  number.rating < 3.7 %}
+                                        &#x2b50;&#x2b50;&#x2b50;
+                                         [{{ number.rating|floatformat:2  }}]<br>
+
+
+                     {% elif number.rating >= 3.7 and  number.rating < 4.7 %}
+                                        &#x2b50;&#x2b50;&#x2b50;&#x2b50;
+                                         [{{ number.rating|floatformat:2  }}]<br>
+
+                     {% elif number.rating >= 4.7 and  number.rating <= 5 %}
+                                        &#x2b50;&#x2b50;&#x2b50;&#x2b50;&#x2b50;
+                                         [{{ number.rating|floatformat:2  }}]<br>
+
+
+                     {% elif number.rating == -100 %}
+                         Información no dismponible
+                     {% else %}
+                     <span class="error">Error</span>
+
+              {% endif %}
+
+      Precio:{% if number.precio == -100 %}
+               Información no disponible
+                  {% else %}
+          {{ number.precio|floatformat:0  }}
+              {% endif %}<br>
+
+
+
+
+      <br>
+     <form id="lugar{{ number.id }}" onsubmit="myFunction{{ number.id }}(); return false" name="forma_cambio_lugar" method="POST" enctype="multipart/form-data">
+
+          <div class="input-field col s12">
+    <select  name="update_place">
+      <option value="{{ number.status }}" disabled selected>Current Status: {{ number.status }}</option>
+      <option value="True">Show: True</option>
+      <option value="False">Show: False</option>
+        <option value="None">Show: None</option>
+
+        <option value="Delete">Action: Delete</option>
+
+    </select>
+    <label>Update_place{{ number.id }}</label>
+  </div>
+
+
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <i class="material-icons right">cloud</i>
+    </button>
+
+     </form>
+        <script>
+         function myFunction{{ number.id }}(){
+             var valor = document.getElementById("lugar{{ number.id }}");
+             $.ajax({
+
+                    url : "{% url 'sm:update_place' number.id %}", // the endpoint
+                    type : "POST", // http method
+                    data : {
+                        'update_place':valor.update_place.options[valor.update_place.selectedIndex].value, 'csrfmiddlewaretoken': '{{csrf_token}}' }, // data sent with the post request
+
+                    // handle a successful response
+                    success : function(json) {
+                        console.log("success"); // another sanity check
+                    },
+
+                    // handle a non-successful response
+                    error : function(xhr,errmsg,err) {
+                        $('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
+                            " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+                        console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+                    }
+             });
+
+
+         }
+      </script>
+
+
+
+
+
+      </div>
+           <a href="{% url 'sm:detalle_lugar'  number.id %}">VER IMAGENES</a>
+
+
+
+      </div>
+
+        </div>
+    {% endfor %}
 
   </div>
 
 
+  </div>
+  <div id="test-swipe-3" class="col s12 ">
 
-  {% if numbers.has_next %}
-      <base href="" />
-      <a id="infinite-more-link-id" class="infinite-more-link" {% if numbers.has_next %} href="{{ request.get_full_path }}&page={{ numbers.next_page_number }}" {% endif %}>More</a>
-  {% endif %}
+ <div class="row ">
+
+    {% for number in numbers3 %}
+
+            <div class="col s12 m6 l4 ">
+
+
+           <div class="lugar" style=" border-style: solid;
+    border-color: white;">
+
+
+        <div class="slider">
+        <ul class="slides">
+        <!-------------------->
+
+
+
+        {% for f in number.imagen_set.all %}
+
+
+        <li>
+        <img src="{{ f.imagen.url }}"> <!-- random image -->
+        <div class="caption right-align " >
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <h9 class="light grey-text text-lighten-3">
+
+                            {{ f.descripcion }}
+
+
+        </h9>
+        </div>
+        </li>
+
+{% endfor %}
+
+
+        <!-------------------->
+
+
+        </ul>
+        </div>
+
+
+       <div class="info center ">
+                    {{ number.nombre }}<br>
+
+                    Rating:
+
+                 {% if number.rating >= 0 and number.rating < 1.7 %}
+                                        &#x2b50;
+                                         [{{ placerandom.rating|floatformat:2  }}]<br>
+
+                     {% elif number.rating >= 1.7 and  number.rating < 2.7 %}
+                                        &#x2b50;&#x2b50;
+                                         [{{ placerandom.rating|floatformat:2  }}]<br>
+
+
+                     {% elif number.rating >= 2.7 and  number.rating < 3.7 %}
+                                        &#x2b50;&#x2b50;&#x2b50;
+                                         [{{ number.rating|floatformat:2  }}]<br>
+
+
+                     {% elif number.rating >= 3.7 and  number.rating < 4.7 %}
+                                        &#x2b50;&#x2b50;&#x2b50;&#x2b50;
+                                         [{{ number.rating|floatformat:2  }}]<br>
+
+                     {% elif number.rating >= 4.7 and  number.rating <= 5 %}
+                                        &#x2b50;&#x2b50;&#x2b50;&#x2b50;&#x2b50;
+                                         [{{ number.rating|floatformat:2  }}]<br>
+
+
+                     {% elif number.rating == -100 %}
+                         Información no dismponible
+                     {% else %}
+                     <span class="error">Error</span>
+
+              {% endif %}
+
+      Precio:{% if number.precio == -100 %}
+               Información no disponible
+                  {% else %}
+          {{ number.precio|floatformat:0  }}
+              {% endif %}<br>
+
+
+
+
+      <br>
+     <form id="lugar{{ number.id }}" onsubmit="myFunction{{ number.id }}(); return false" name="forma_cambio_lugar" method="POST" enctype="multipart/form-data">
+
+          <div class="input-field col s12">
+    <select  name="update_place">
+      <option value="{{ number.status }}" disabled selected>Current Status: {{ number.status }}</option>
+      <option value="True">Show: True</option>
+      <option value="False">Show: False</option>
+      <option value="None">Show: None</option>
+        <option value="Delete">Action: Delete</option>
+
+    </select>
+    <label>Update_place{{ number.id }}</label>
+  </div>
+
+
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <i class="material-icons right">cloud</i>
+    </button>
+
+     </form>
+        <script>
+         function myFunction{{ number.id }}(){
+             var valor = document.getElementById("lugar{{ number.id }}");
+             $.ajax({
+
+                    url : "{% url 'sm:update_place' number.id %}", // the endpoint
+                    type : "POST", // http method
+                    data : {
+                        'update_place':valor.update_place.options[valor.update_place.selectedIndex].value, 'csrfmiddlewaretoken': '{{csrf_token}}' }, // data sent with the post request
+
+                    // handle a successful response
+                    success : function(json) {
+                        console.log("success"); // another sanity check
+                    },
+
+                    // handle a non-successful response
+                    error : function(xhr,errmsg,err) {
+                        $('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
+                            " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+                        console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+                    }
+             });
+
+
+         }
+      </script>
+
+
+
+
+
+      </div>
+           <a href="{% url 'sm:detalle_lugar'  number.id %}">VER IMAGENES</a>
+
+
+
+      </div>
+
+        </div>
+    {% endfor %}
+
+  </div>
+
+  </div>
+
 
 
 
