@@ -21,11 +21,15 @@ display: inline;
 {% load staticfiles %}
 
 {% block content %}
-
+<br>
+    quedan {{ n }}
+    <br>
 <a href="{% url 'sm:atrue' s.id %}" class="waves-effect waves-light btn">TRUE</a>
 <a href="{% url 'sm:afalse' s.id %}" class="waves-effect waves-light btn">False</a>
 <br>
-    <img src="{{ s.imagen.url }}" height="100px" width="auto">
+    <br>
+
+    <img src="{{ s.imagen.url }}" height="500px" width="auto">
 
 
 
