@@ -457,12 +457,6 @@ class Command(BaseCommand):
 
         if os.path.isfile(settings.BASE_DIR + '/media/Lugar/default.jpg'):
 
-            response = busquedaGMaps(str(options['lat']), str(options['lng']), str(options['keyword']),
-                                     str(options['city']), str(options['state']), str(options['country']))
-            saveLocal(response['response'], response['kyword'], response['c'], response['e'], response['p'])
-
-            '''
-
             newcommand = ('python3 manage.py createbase --lat ' + str(options['lat']) + ' --lng ' + str(
                 options['lng']) + ' --keyword ' + str(options['keyword']) + ' --city "' + str(
                 options['city']) + '" --state "' + str(options['state']) +'" --country "' + str(
@@ -505,8 +499,7 @@ class Command(BaseCommand):
             else:
 
                 print ('Comando repetido, abortando')
-                
-                '''
+
 
 
         else:
