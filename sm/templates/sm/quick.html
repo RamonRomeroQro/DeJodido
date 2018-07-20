@@ -1,0 +1,35 @@
+
+<!doctype html>
+<style type="text/css">
+
+#share-buttons img {
+width: 35px;
+padding: 5px;
+border: 0;
+box-shadow: 0;
+display: inline;
+}
+
+</style>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
+
+
+
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<a href="{% url 'sm:atrue' s.id %}" class="waves-effect waves-light btn">TRUE</a>
+<a href="{% url 'sm:afalse' s.id %}" class="waves-effect waves-light btn">False</a>
+<br>
+    <img src="{{ s.imagen.url }}" height="100px" width="auto">
+
+
+
+
+
+{% endblock %}
+
