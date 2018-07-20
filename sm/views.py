@@ -23,8 +23,11 @@ from .models import Comando
 #Visualizar partidos en la landing page
 @login_required
 def lugares(request):
-    numbers=Lugar.objects.all().order_by('nombre')
-    return render(request, 'sm/list_all.html', {'numbers':numbers})
+    numbers1=Lugar.objects.filter(status=True).order_by('nombre')
+    numbers2=Lugar.objects.filter(status=False).order_by('nombre')
+    numbers3=Lugar.objects.filter(status=None).order_by('nombre')
+
+    return render(request, 'sm/list_all.html', {'numbers1':numbers1, 'numbers2':numbers2, 'numbers3':numbers3})
 
 @login_required
 def detalle_lugar(request, id_lugar):
@@ -49,6 +52,12 @@ def update_place (request,  id_lugar):
         l.save()
 
 
+        mensaje = str('Update: Nombre: '+l.nombre+' id: '+ str(l.id)+' id google: '+ l.id_google+' status: '+ previous+' -> '+ str(l.status))
+        messages.success(request, mensaje)
+
+    elif (request.POST['update_place']=='None'):
+        l.status=None
+        l.save()
         mensaje = str('Update: Nombre: '+l.nombre+' id: '+ str(l.id)+' id google: '+ l.id_google+' status: '+ previous+' -> '+ str(l.status))
         messages.success(request, mensaje)
 
