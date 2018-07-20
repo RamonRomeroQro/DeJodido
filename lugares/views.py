@@ -173,7 +173,7 @@ def busqueda(request):
         qpais = Pais.objects.get(nombre=country)
         qstate = Estado.objects.filter(pais=qpais).get(nombre=state)
         qcity = Ciudad.objects.filter(estado=qstate).get(nombre=city)
-        lugares = Lugar.objects.filter(ciudad=qcity)
+        lugares = Lugar.objects.filter(ciudad=qcity).filter(status=True)
         placerandom=lugares.order_by('?').first()
         lugar =[]
 
@@ -183,6 +183,8 @@ def busqueda(request):
             lugar.append(lug)
 
         page = request.GET.get('page', 1)
+
+
 
 
 
