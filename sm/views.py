@@ -19,13 +19,13 @@ from .models import Comando
 
 @login_required
 def imagenes(request):
-    nulls = Imagen.objects.filter(status=None).order_by("lugar")
-    trues = Imagen.objects.filter(status=True).order_by("lugar")
-    falses = Imagen.objects.filter(status=False).order_by("lugar")
+    nulls = Imagen.objects.filter(status=None).filter(lugar__status=True).order_by("lugar")
+    trues = Imagen.objects.filter(status=True).filter(lugar__status=True).order_by("lugar")
+    falses = Imagen.objects.filter(status=False).filter(lugar__status=True).order_by("lugar")
     return render(request, 'sm/imagenes_all.html', {'falses':falses,'trues':trues,'nulls':nulls})
 
 
-
+#FIX FOR NEXT UPDATE
 @login_required
 def quickimages(request):
     n = Imagen.objects.filter(status=None).order_by("lugar").first()

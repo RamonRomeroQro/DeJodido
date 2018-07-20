@@ -141,8 +141,10 @@ $('.slider').slider({    indicators:false,
 
 
         {% for f in number.imagen_set.all %}
+  {% if number.imagen_set.count > 1%}
 
-                   {% if f.status  %}
+
+       {% if f.status  %}
 
                         <li>
         <img src="{{ f.imagen.url }}"> <!-- random image -->
@@ -158,6 +160,22 @@ $('.slider').slider({    indicators:false,
         </li>
 
                    {% endif %}
+      {% else %}
+
+       <li>
+        <img src="{{ f.imagen.url }}"> <!-- random image -->
+        <div class="caption right-align " >
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <h9 class="light grey-text text-lighten-3">
+
+                            {{ f.descripcion }}
+
+
+        </h9>
+        </div>
+        </li>
+
+            {% endif %}
 
 
 
