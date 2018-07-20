@@ -88,10 +88,13 @@ $(document).ready(function(){
         <!-------------------->
 
 
+
         {% for i in lugar.imagen_set.all %}
+            {% if lugar.imagen_set.count > 1%}
 
 
-        <li>
+       {% if i.status  %}
+            <li>
         <img src="{{ i.imagen.url }}" style="background-size:auto 100% ;
     background-repeat: no-repeat; background-color: white "> <!-- random image -->
         <div class="caption center-align " >
@@ -104,6 +107,24 @@ $(document).ready(function(){
         </h9>
         </div>
         </li>
+
+            {% endif %}
+                {% else %}
+                 <li>
+        <img src="{{ i.imagen.url }}" style="background-size:auto 100% ;
+    background-repeat: no-repeat; background-color: white "> <!-- random image -->
+        <div class="caption center-align " >
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <h9 class="light grey-text text-lighten-3">
+
+                            {{ i.descripcion }}
+
+
+        </h9>
+        </div>
+        </li>
+
+            {% endif %}
 
 {% endfor %}
 
@@ -132,6 +153,7 @@ $(document).ready(function(){
 
 
         <p>{{ lugar.nombre }}</p>
+
     <p>
 
 

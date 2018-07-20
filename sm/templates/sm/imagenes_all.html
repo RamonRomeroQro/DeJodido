@@ -1,0 +1,296 @@
+
+<!doctype html>
+
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
+<script>
+
+
+  $(document).ready(function(){
+    $('.tabs').tabs();
+
+$('.slider').slider({    indicators:true,
+    interval:1300,
+    height:400, duration:500
+    });
+  });
+
+
+
+</script>
+
+
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+      <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'js/infinite.min.js' %}"></script>
+
+
+
+
+      {% include 'searchbar.html' %}
+
+    <h2> Para cambios mas profundos ingresar a la administracion de django</h2>
+{% if messages %}
+
+
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+
+{% endif %}
+
+    <a href="{% url 'sm:imagenes' %}">REFRESH</a>
+
+
+    <ul id="tabs-swipe-demo" class="tabs">
+    <li class="tab col s4"><a href="#test-swipe-1">Visibles ({{ trues.count }})</a></li>
+    <li class="tab col s4"><a class="active" href="#test-swipe-2">No Visibles ({{ falses.count }})</a></li>
+    <li class="tab col s4"><a href="#test-swipe-3"> Desconocido(Por Evaluar) ({{ nulls.count }})</a></li>
+  </ul>
+  <div id="test-swipe-1" class="col s12 ">
+
+
+
+ <div class="row ">
+
+    {% for number in trues %}
+
+            <div class="col s12 m6 l4 ">
+
+                    <img src="{{ number.imagen.url }}" height="150px" width="auto"> <!-- random image -->
+
+
+
+       <div class="info center ">
+               
+     <form id="imagen{{ number.id }}" onsubmit="myFunction{{ number.id }}(); return false" name="forma_cambio_imagen" method="POST" enctype="multipart/form-data">
+
+          <div class="input-field col s12">
+    <select  name="update_image">
+      <option value="{{ number.status }}" disabled selected>Current Status: {{ number.status }}</option>
+      <option value="True">Show: True</option>
+      <option value="False">Show: False</option>
+      <option value="None">Show: None</option>
+        <option value="Delete">Action: Delete</option>
+
+    </select>
+    <label>update_image{{ number.id }}</label>
+  </div>
+
+
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <i class="material-icons right">cloud</i>
+    </button>
+
+     </form>
+        <script>
+         function myFunction{{ number.id }}(){
+             var valor = document.getElementById("imagen{{ number.id }}");
+             $.ajax({
+
+                    url : "{% url 'sm:update_image' number.id %}", // the endpoint
+                    type : "POST", // http method
+                    data : {
+                        'update_image':valor.update_image.options[valor.update_image.selectedIndex].value, 'csrfmiddlewaretoken': '{{csrf_token}}' }, // data sent with the post request
+
+                    // handle a successful response
+                    success : function(json) {
+                        console.log("success"); // another sanity check
+                    },
+
+                    // handle a non-successful response
+                    error : function(xhr,errmsg,err) {
+                        $('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
+                            " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+                        console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+                    }
+             });
+
+
+         }
+      </script>
+
+
+
+
+
+      </div>
+
+
+
+      </div>
+    {% endfor %}
+
+        </div>
+
+  </div>
+    
+
+
+
+
+  <div id="test-swipe-2" class="col s12 ">
+
+ <div class="row ">
+
+    {% for number in falses %}
+
+            <div class="col s12 m6 l4 ">
+
+                    <img src="{{ number.imagen.url }}" height="150px" width="auto"> <!-- random image -->
+
+
+
+       <div class="info center ">
+
+     <form id="imagen{{ number.id }}" onsubmit="myFunction{{ number.id }}(); return false" name="forma_cambio_imagen" method="POST" enctype="multipart/form-data">
+
+          <div class="input-field col s12">
+    <select  name="update_image">
+      <option value="{{ number.status }}" disabled selected>Current Status: {{ number.status }}</option>
+      <option value="True">Show: True</option>
+      <option value="False">Show: False</option>
+      <option value="None">Show: None</option>
+        <option value="Delete">Action: Delete</option>
+
+    </select>
+    <label>update_image{{ number.id }}</label>
+  </div>
+
+
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <i class="material-icons right">cloud</i>
+    </button>
+
+     </form>
+        <script>
+         function myFunction{{ number.id }}(){
+             var valor = document.getElementById("imagen{{ number.id }}");
+             $.ajax({
+
+                    url : "{% url 'sm:update_image' number.id %}", // the endpoint
+                    type : "POST", // http method
+                    data : {
+                        'update_image':valor.update_image.options[valor.update_image.selectedIndex].value, 'csrfmiddlewaretoken': '{{csrf_token}}' }, // data sent with the post request
+
+                    // handle a successful response
+                    success : function(json) {
+                        console.log("success"); // another sanity check
+                    },
+
+                    // handle a non-successful response
+                    error : function(xhr,errmsg,err) {
+                        $('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
+                            " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+                        console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+                    }
+             });
+
+
+         }
+      </script>
+
+
+
+
+
+      </div>
+
+
+
+      </div>
+    {% endfor %}
+
+        </div>
+
+
+  </div>
+  <div id="test-swipe-3" class="col s12 ">
+
+
+ <div class="row ">
+
+    {% for number in nulls %}
+
+            <div class="col s12 m6 l4 ">
+
+                    <img src="{{ number.imagen.url }}" height="150px" width="auto"> <!-- random image -->
+
+
+
+       <div class="info center ">
+
+     <form id="imagen{{ number.id }}" onsubmit="myFunction{{ number.id }}(); return false" name="forma_cambio_imagen" method="POST" enctype="multipart/form-data">
+
+          <div class="input-field col s12">
+    <select  name="update_image">
+      <option value="{{ number.status }}" disabled selected>Current Status: {{ number.status }}</option>
+      <option value="True">Show: True</option>
+      <option value="False">Show: False</option>
+      <option value="None">Show: None</option>
+        <option value="Delete">Action: Delete</option>
+
+    </select>
+    <label>update_image{{ number.id }}</label>
+  </div>
+
+
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <i class="material-icons right">cloud</i>
+    </button>
+
+     </form>
+        <script>
+         function myFunction{{ number.id }}(){
+             var valor = document.getElementById("imagen{{ number.id }}");
+             $.ajax({
+
+                    url : "{% url 'sm:update_image' number.id %}", // the endpoint
+                    type : "POST", // http method
+                    data : {
+                        'update_image':valor.update_image.options[valor.update_image.selectedIndex].value, 'csrfmiddlewaretoken': '{{csrf_token}}' }, // data sent with the post request
+
+                    // handle a successful response
+                    success : function(json) {
+                        console.log("success"); // another sanity check
+                    },
+
+                    // handle a non-successful response
+                    error : function(xhr,errmsg,err) {
+                        $('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
+                            " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+                        console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+                    }
+             });
+
+
+         }
+      </script>
+
+
+
+
+
+      </div>
+
+
+
+      </div>
+    {% endfor %}
+
+        </div>
+
+  </div>
+
+
+
+
+
+{% endblock %}
+
+
