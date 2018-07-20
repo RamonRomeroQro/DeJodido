@@ -301,6 +301,13 @@ def saveLocal(arr, kyword, c, e, p):
     while (count < len(arr['results'])):
         try:
             obj = Lugar.objects.get(id_google=arr['results'][count]['place_id'])
+            t, created = Tags.objects.get_or_create(
+                descripcion=kyword
+            )
+            if obj.tags.filter(descripcion=kyword).exists() == False:
+                obj.tags.add(t)
+                print ('tag agregada')
+
             print ('>>>' + str(obj.nombre + ': recuperado'))
 
         except Lugar.DoesNotExist:
@@ -450,6 +457,12 @@ class Command(BaseCommand):
 
         if os.path.isfile(settings.BASE_DIR + '/media/Lugar/default.jpg'):
 
+            response = busquedaGMaps(str(options['lat']), str(options['lng']), str(options['keyword']),
+                                     str(options['city']), str(options['state']), str(options['country']))
+            saveLocal(response['response'], response['kyword'], response['c'], response['e'], response['p'])
+
+            '''
+
             newcommand = ('python3 manage.py createbase --lat ' + str(options['lat']) + ' --lng ' + str(
                 options['lng']) + ' --keyword ' + str(options['keyword']) + ' --city "' + str(
                 options['city']) + '" --state "' + str(options['state']) +'" --country "' + str(
@@ -492,6 +505,8 @@ class Command(BaseCommand):
             else:
 
                 print ('Comando repetido, abortando')
+                
+                '''
 
 
         else:
