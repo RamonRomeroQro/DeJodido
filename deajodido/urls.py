@@ -32,8 +32,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('usuarios/', include('usuarios.urls')),
     path('oauth/', include('social_django.urls', namespace='social')),
+    path('api/', include('api.urls')),
     path('', include('landing.urls')),
-    path('', include('eastereggs.urls')),
     path('', include('lugares.urls')),
     path('sm/', include('sm.urls')),
 
