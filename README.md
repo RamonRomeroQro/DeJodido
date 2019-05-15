@@ -15,9 +15,9 @@ _**De A Jodido** es un portal en el cual uno busca diferentes opciones de salida
 
 ### Colaboradores:
 
-* Alejandro López, @AleLopezPerez1312
+* Alejandro López, @AleLopezPerez
 * Daniel Amezcua,
-* Ramón Romero, @ramonromerotec
+* Ramón Romero, @RamonRomero!ro
 
 
 ## Estándares Branching
@@ -35,9 +35,4 @@ _**De A Jodido** es un portal en el cual uno busca diferentes opciones de salida
 * Clases con mayusculas iniciales e intermedias (camello)
 * variables con minúsculas
 
-
-
-#Peddy
-
-58, 148, 199
 
