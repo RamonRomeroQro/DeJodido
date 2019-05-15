@@ -1,3 +1,6 @@
+# Released 15th May 2019.<br>Under the GNU General Public License v3.0
+
+
 # _De A Jodido:_<br>_an idea by BlackEMail_
 
 ## Idea
@@ -16,23 +19,7 @@ _**De A Jodido** es un portal en el cual uno busca diferentes opciones de salida
 ### Colaboradores:
 
 * Alejandro López, @AleLopezPerez
-* Daniel Amezcua,
-* Ramón Romero, @RamonRomero!ro
+* Ramón Romero, @RamonRomeroQro
 
-
-## Estándares Branching
-* Ramas Base: <ul><li>**Desarrollo (develop):** Rama base de desarrollo, ramas-feature y ramas-fixes surgen de ella.</li><li>**Producción (master):** Rama desplegada en servidor, revisión de 2 colaboradores en Pull Request, unicamente hace conexión con 'develop'</li></ul>
-* El nombre de las rams debe de seguir el siguiente formato: **[Nombre]/[DescripcionBreveFeatureOFix]**
-* Las ramas (branches) deben ser elimindas tras juntarse (Merge) con la rama de desarrollo (develop)</li></ul>
-* **Cambios en documentación unicamente permitidos en develop**
-
-## Arquitectura, Diseño, Planificación y Cambios
-
-* [Unidad de Equipo](https://drive.google.com/drive/folders/0AG0T7qc4GG5OUk9PVA)
-
-## Código
-
-* Clases con mayusculas iniciales e intermedias (camello)
-* variables con minúsculas
-
+# Thanks for the support to all those who supported the development of the idea.
 
