@@ -1,7 +1,61 @@
-# Released 15th May 2019.<br>Under the GNU General Public License v3.0
-
 
 # _De A Jodido:_<br>_an idea by BlackEMail_
+
+
+### General Structure
+
+* ./api/: Django Rest API FRAMEWORK
+* ./deajodido/: Settings, urls, keys and deployment
+* ./landing/: General Landing Search
+* ./lugares/: Models and views for places
+* ./sm/: Super Management and administrative module
+* ./static/: FrontEnd Framework dependencies
+* ./static/: FrontEnd Framework dependencies
+* ./usuarios/: User Models
+
+### Setup Up
+
+1. Create virtual enviroment
+
+    ``` bash
+
+    python3 -m venv venv
+
+    ```
+2. Initialize  virtual enviroment
+
+    ``` bash
+    source venv/bin/activate
+ 
+    ```
+3. Upgrade Package Manager (PIP) 
+
+    ``` bash
+    pip3 install --upgrade pip
+ 
+    ```
+4. Install dependencies
+
+    ``` bash
+    pip3 install -r requirements.txt
+ 
+    ```
+5. Setup Postgresql
+
+6. Migrate and run
+
+    ``` bash
+    python3 manage.py makemigrations landing
+    python3 manage.py migrate
+    python3 manage.py makemigrations lugares
+    python3 manage.py migrate
+    python3 manage.py makemigrations usuarios
+    python3 manage.py migrate
+    python3 manage.py makemigrations eastereggs
+    python3 manage.py migrate
+    python3 manage.py makemigrations sm
+    python3 manage.py migrate
+    ```
 
 ## Idea
 
@@ -23,3 +77,4 @@ _**De A Jodido** es un portal en el cual uno busca diferentes opciones de salida
 
 # Thanks for the support to all those who supported the development of the idea.
 
+----
