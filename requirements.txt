@@ -6,7 +6,7 @@ djangorestframework==3.8.2
 gunicorn==19.8.1
 idna==2.6
 oauthlib==2.1.0
-Pillow==5.1.0
+Pillow==6.2.0
 psycopg2==2.7.4
 psycopg2-binary==2.7.4
 PyJWT==1.6.4
