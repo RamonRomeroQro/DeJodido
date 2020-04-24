@@ -42,6 +42,27 @@
     ```
 5. Setup Postgresql
 
+    ```` bash
+   
+
+
+
+
+    # remove old database files (If there was any)# install the binary
+
+    brew install postgresql
+
+    brew services start postgresql
+    initdb /usr/local/var/postgres
+    /usr/local/opt/postgres/bin/createuser -s postgres
+    brew services start postgresql
+    psql -d postgres -U postgres -c="create database deajodido;"
+    
+
+
+
+    ```
+
 6. Migrate and run
 
     ``` bash
@@ -50,8 +71,6 @@
     python3 manage.py makemigrations lugares
     python3 manage.py migrate
     python3 manage.py makemigrations usuarios
-    python3 manage.py migrate
-    python3 manage.py makemigrations eastereggs
     python3 manage.py migrate
     python3 manage.py makemigrations sm
     python3 manage.py migrate
