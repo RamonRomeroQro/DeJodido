@@ -6,8 +6,9 @@ from django.conf import settings
 from .views import *
 from django.urls import path
 from django.views.generic import TemplateView
-from .import views
+from . import views
 from .views import *
+from . import master
 
 app_name = 'sm'
 
