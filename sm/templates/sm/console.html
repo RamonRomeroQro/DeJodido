@@ -19,15 +19,23 @@
   </head>
   <body>
   <br><br>
+  {% if comandos %}
   {% for i in comandos %}
-      {{ i.lat }},
-      {{ i.lng }},
-      {{ i.keyword }},
-      {{ i.city }},
-      {{ i.state }},
-      {{ i.country }},<br>
-    {% endfor %}
+      <p class="executed {{ i.status_exec }}" ev="{{ i.status_exec }}">{{ i.lat }}|{{ i.lng }}|{{ i.keyword }}|{{ i.city }}|{{ i.state }}|{{ i.country }} -> {{ i.status_exec }}</p>
+   {% endfor %}
+  {% else %}
+      <p>No comandos</p>
+
+  {% endif %}
 <br><br>
+  <form id="newCommandForm">
+  <label for="lat">lat:</label><input class="comInput" type="number" id="lat" name="lat"><br>
+  <label for="lng">lng:</label><input class="comInput" type="number" id="lng" name="lng"><br>
+  <label for="keyword">First name:</label><input class="comInput" type="text" id="keyword" name="keyword"><br>
+  <label for="city">city:</label><input class="comInput" type="text" id="city" name="city"><br>
+  <label for="state">state:</label><input class="comInput" type="text" id="state" name="state"><br>
+  <label for="country">country:</label><input class="comInput" type="text" id="country" name="country"><br>
+  </form>
     <div id="map"></div>
     <script>
       // This example creates circles on the map, representing populations in North
@@ -126,6 +134,105 @@
 
       }
     </script>
+
+
+  <script>
+
+      function JaroWrinker(s1, s2) {
+        var m = 0;
+
+        // Exit early if either are empty.
+        if ( s1.length === 0 || s2.length === 0 ) {
+            return 0;
+        }
+
+        // Exit early if they're an exact match.
+        if ( s1 === s2 ) {
+            return 1;
+        }
+
+        var range     = (Math.floor(Math.max(s1.length, s2.length) / 2)) - 1,
+            s1Matches = new Array(s1.length),
+            s2Matches = new Array(s2.length);
+
+        for ( i = 0; i < s1.length; i++ ) {
+            var low  = (i >= range) ? i - range : 0,
+                high = (i + range <= s2.length) ? (i + range) : (s2.length - 1);
+
+            for ( j = low; j <= high; j++ ) {
+            if ( s1Matches[i] !== true && s2Matches[j] !== true && s1[i] === s2[j] ) {
+                ++m;
+                s1Matches[i] = s2Matches[j] = true;
+                break;
+            }
+            }
+        }
+
+        // Exit early if no matches were found.
+        if ( m === 0 ) {
+            return 0;
+        }
+
+        // Count the transpositions.
+        var k = n_trans = 0;
+
+        for ( i = 0; i < s1.length; i++ ) {
+            if ( s1Matches[i] === true ) {
+            for ( j = k; j < s2.length; j++ ) {
+                if ( s2Matches[j] === true ) {
+                k = j + 1;
+                break;
+                }
+            }
+
+            if ( s1[i] !== s2[j] ) {
+                ++n_trans;
+            }
+            }
+        }
+
+        var weight = (m / s1.length + m / s2.length + (m - (n_trans / 2)) / m) / 3,
+            l      = 0,
+            p      = 0.1;
+
+        if ( weight > 0.7 ) {
+            while ( s1[l] === s2[l] && l < 4 ) {
+            ++l;
+            }
+
+            weight = weight + l * p * (1 - weight);
+        }
+
+        return weight;
+      }
+      const form  = document.getElementById('newCommand');
+
+
+
+
+
+form.addEventListener('submit', function (event) {
+  // if the email field is valid, we let the form submit
+    var commands = document.getElementsByClassName("executed").map(x => x.innerHTML);
+      var newcom = document.getElementsByClassName("comInput").map(x => x.value).join("|");
+
+      var i = 0;
+      for (i=0; i<commands.length; i++){
+          JaroWrinker(commands[i], newcom)
+      }
+
+  if(!email.validity.valid) {
+    // If it isn't, we display an appropriate error message
+    showError();
+    // Then we prevent the form from being sent by canceling the event
+    event.preventDefault();
+  }
+});
+
+function showError() {
+
+}
+  </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key={{ key }}&callback=initMap">
     </script>

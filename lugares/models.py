@@ -55,6 +55,7 @@ class Lugar(models.Model):
     tags = models.ManyToManyField(Tags, verbose_name='Tags')
     ciudad = models.ForeignKey(Ciudad, verbose_name='Ciudad', on_delete=models.CASCADE,  null=True, blank=True)
     status=models.NullBooleanField(verbose_name='status', default=None ,  null=True)
+    update_command = models.DateField(auto_now=True)
 
 
     def delete(self):
