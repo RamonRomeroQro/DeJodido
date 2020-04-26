@@ -16,8 +16,6 @@ from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Comando
-
-
 from django.core.management.base import BaseCommand, CommandError
 import os
 import json
@@ -27,10 +25,11 @@ import shutil
 from lugares.models import Lugar, Ciudad, Estado, Pais, Imagen
 from sm.models import Comando
 from lugares.models import Tags
-from django.conf import settings
 from django.core.files.uploadedfile import SimpleUploadedFile
 from difflib import SequenceMatcher
+from django.conf import settings
 
+log_file=None
 
 def similar(a, b):
     return SequenceMatcher(None, a, b).ratio()
@@ -61,7 +60,7 @@ def getImagePath(g_id):
     detalle_url = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + \
                   g_id + '&key=' + settings.GMAPS_API_KEY
     time.sleep(2)
-    print('detail> ' + detalle_url)
+    log_file.write('\ndetail> ' + detalle_url)
     new = json.loads(requests.get(detalle_url).text)
     links = []
     # pprint.pprint(new)
@@ -79,7 +78,7 @@ def getImagePath(g_id):
             with open(dir_file, 'wb') as out_file:
                 shutil.copyfileobj(response.raw, out_file)
             del response
-            print('Imagen recuperada: ' + dir_file)
+            log_file.write('\nImagen recuperada: ' + dir_file)
             links.append(dir_file)
             contador = contador + 1
         return links
@@ -127,7 +126,7 @@ def creacioDBO(gobj, fobj, sobj, yobj, kw, c, e, p):
 
     try:
         obj = Lugar.objects.get(id_google=gobj['google_id'])
-        print('>>>' + str(obj.nombre + ': recuperado'))
+        log_file.write('\n>>>' + str(obj.nombre + ': recuperado'))
 
     except Lugar.DoesNotExist:
         obj = Lugar.objects.create(
@@ -160,10 +159,10 @@ def creacioDBO(gobj, fobj, sobj, yobj, kw, c, e, p):
                 os.remove(imagenes[cont])
             cont = cont + 1
         obj.save()
-        print('>>>' + str(obj.nombre + ': creado'))
+        log_file.write('\n>>>' + str(obj.nombre + ': creado'))
 
-    print('>>>' + str(rat))
-    print('>>>' + str(price))
+    log_file.write('\n>>>' + str(rat))
+    log_file.write('\n>>>' + str(price))
     obj.tags.add(t)
 
 
@@ -298,7 +297,7 @@ def busquedaGMaps(latitude, longitude, kyword, c, e, p):
     # print (url)
 
     response = json.loads(requests.get(url).text)
-    print(response['status'])
+    # print(response['status'])
     if response['status'] != "OK":
         raise Exception("Fallo Google PLACES-API: check: settings.GMAPS_API_KEY")
     return {'response': response, 'kyword': kyword, 'c': c, 'e': e, 'p': p}
@@ -376,6 +375,7 @@ def saveLocal(arr, kyword, c, e, p):
         # print ('eof')
     # sort by age
 
+
 def exec_command(request):
     comandos = Comando.objects.all()
     key = settings.GMAPS_API_KEY
@@ -384,11 +384,18 @@ def exec_command(request):
         return render(request, 'sm/console.html', {'key': key, 'comandos': comandos})
     else:
         options=request.POST
-        log_strings=[]
+        log_base=str(settings.BASE_DIR) + '/Logs/'
+        if not os.path.isdir(log_base):
+            os.makedirs(log_base)
+        timestamp = (time.strftime("%d-%m-%Y-%H:%M"))
+        log_file_p=log_base+timestamp+".log"
+        log_file = open(log_file_p, 'w+')
+
+
         base = str(settings.BASE_DIR) + '/media/Lugar/'
         if not (os.path.isfile(settings.BASE_DIR + '/media/Lugar/default.jpg')):
             os.makedirs(base)
-            log_strings.append('INFO: CHECK: ' + base + 'default.jpg')
+            log_file.write('\nINFO: CHECK: ' + base + 'default.jpg')
             f = open(base + 'default.jpg', 'w+')
             f.write('default')
             f.close()
@@ -401,16 +408,17 @@ def exec_command(request):
 
             c = Comando.objects.create(
                 lat=options['lat'], lng=options['lng'], keyword=options['keyword'],
-                city=options['city'], state=options['state'], country=options['country'], status_exec=True)
+                city=options['city'], state=options['state'], country=options['country'], status_exec=True, log_file_path=log_file_p)
 
         except Exception as e:
-            log_strings.append(str(e))
+            log_file.write("\n"+str(e))
 
             c = Comando.objects.create(
                 lat=options['lat'], lng=options['lng'], keyword=options['keyword'],
-                city=options['city'], state=options['state'], country=options['country'], status_exec=False)
-            log_strings.append(str(c))
+                city=options['city'], state=options['state'], country=options['country'],
+                status_exec=False, log_file_path=log_file_p)
+            log_file.write('\n'+str(c))
 
         c.save()
 
-        return render(request, 'sm/console.html', {'key': key, 'comandos': comandos, 'errors': log_strings})
+        return render(request, 'sm/console.html', {'key': key, 'comandos': comandos, })

@@ -23,6 +23,7 @@ urlpatterns = [
     path('afalse/<int:id_imagen>', views.afalse, name='afalse'),
     path('imagenes', views.imagenes, name='imagenes'),
     path('', views.consola, name='consola'),
+    path('log/<int:id_comando>', views.log, name='log'),
 
     #path('listaciudades', views.listaciudades, name='listaciudades'),
 

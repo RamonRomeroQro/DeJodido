@@ -12,6 +12,8 @@ class Comando(models.Model):
     state = models.CharField(verbose_name='state', null=True, blank=True, max_length=200)
     country = models.CharField(verbose_name='country', null=True, blank=True, max_length=200)
     status_exec = models.BooleanField(verbose_name="execution result", blank=True, default=False)
+    timestamp = models.DateField(auto_now=True)
+    log_file_path = models.CharField(verbose_name='log_file_path', null=False, blank=False, max_length=500)
 
     def __str__(self):
         return "|".join(list(map(str, [self.lat, self.lng, self.keyword, self.city, self.state, self.country])))

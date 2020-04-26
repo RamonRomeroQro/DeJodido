@@ -66,6 +66,7 @@
 6. Migrate and run
 
     ``` bash
+
     python3 manage.py makemigrations landing
     python3 manage.py migrate
     python3 manage.py makemigrations lugares
