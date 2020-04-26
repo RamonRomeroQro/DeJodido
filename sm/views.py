@@ -1,22 +1,13 @@
-from lugares.models import Imagen
 from django.shortcuts import render
 from lugares.models import *
 from django.shortcuts import get_object_or_404
-from  django.conf import  settings
-from django.shortcuts import redirect
 
-import json
-import requests
-import datetime
-from django.http import HttpResponse
-from usuarios.forms import UsuarioReview
-from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Comando
-import deajodido.settings as settings
+import deajodido.settings.final as settings
 
 @login_required
 def imagenes(request):

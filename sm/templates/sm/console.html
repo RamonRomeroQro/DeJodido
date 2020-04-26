@@ -273,14 +273,13 @@ form.addEventListener('submit', function (event) {
 
            }
       }
-      var pass = true;
 
         if(!(pass)) {
         // If it isn't, we display an appropriate error message
 
         // Then we prevent the form from being sent by canceling the event
 
-        posible=posible.join("\n");
+        posible=posible.join("\n\n");
         var answer = window.confirm("¿Ejecutar?\n"+posible)
         if (answer) {
 
