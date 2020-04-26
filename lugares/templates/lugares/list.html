@@ -1,4 +1,3 @@
-
 <!doctype html>
 
 
@@ -43,8 +42,6 @@ $('.slider').slider({    indicators:false,
 
 
         {% for f in placerandom.imagen_set.all %}
-  {% if placerandom.imagen_set.count > 1%}
-            {% if f.status %}
 
 
         <li>
@@ -59,21 +56,6 @@ $('.slider').slider({    indicators:false,
         </h9>
         </div>
         </li>
-            {% endif %}
-            {% else %}
-       <li>
-        <img src="{{ f.imagen.url }}"> <!-- random image -->
-        <div class="caption right-align " >
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <h9 class="light grey-text text-lighten-3">
-
-                            {{ f.descripcion }}
-
-
-        </h9>
-        </div>
-        </li>
-            {% endif %}
 
 {% endfor %}
 
@@ -158,12 +140,9 @@ $('.slider').slider({    indicators:false,
 
 
         {% for f in number.imagen_set.all %}
-  {% if number.imagen_set.count > 1%}
 
 
-       {% if f.status  %}
-
-                        <li>
+        <li>
         <img src="{{ f.imagen.url }}"> <!-- random image -->
         <div class="caption right-align " >
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -175,28 +154,6 @@ $('.slider').slider({    indicators:false,
         </h9>
         </div>
         </li>
-
-                   {% endif %}
-      {% else %}
-
-       <li>
-        <img src="{{ f.imagen.url }}"> <!-- random image -->
-        <div class="caption right-align " >
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <h9 class="light grey-text text-lighten-3">
-
-                            {{ f.descripcion }}
-
-
-        </h9>
-        </div>
-        </li>
-
-            {% endif %}
-
-
-
-
 
 {% endfor %}
 
@@ -315,5 +272,3 @@ $('.slider').slider({    indicators:false,
 
 
 {% endblock %}
-
-

@@ -153,7 +153,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 #Visualizar partidos en la landing page
-def detalle_lugar(request, nombre_lugar,id_lugar):
+def detalle_lugar(request, nombre_lugar, id_lugar):
     l = get_object_or_404(Lugar, id=id_lugar)
     gkey=settings.GMAPS_API_KEY_JS
     formresena=UsuarioReview(prefix="resena")

@@ -4,7 +4,7 @@ from lugares.models import *
 from django.shortcuts import get_object_or_404
 from django.conf import settings
 from django.shortcuts import redirect
-
+import traceback
 import json
 import requests
 import datetime
@@ -28,8 +28,15 @@ from lugares.models import Tags
 from django.core.files.uploadedfile import SimpleUploadedFile
 from difflib import SequenceMatcher
 from django.conf import settings
-
+from django.conf import settings
 log_file=None
+GMAPS_API_KEY = 'AIzaSyAyWoMzx2h4NwDk5NRmUqsODLC6vJKD_KA'
+GMAPS_API_KEY_JS = GMAPS_API_KEY
+FBTOKEN = '544112989843154|hBY39frkP-_8ovjnNsR3al2A08I'
+YELP_AUTH="Bearer HEumDTz_X--m2lBW9-ZDlrMkQ_JlbuFFuF-6T7fzCJVlHrKYUhm7d7kF_LRCFGA7INdPcVPjd5Bo3LiDrUc9mEh-r5kV7LhSqazuQNB_AULEToDQ07leabVba5yjXnYx"
+FSQ_client_id='TFLJCZKNWYCSSZPARN4JDZDRGPUENHKA12JOXYUHN4L5N5I5'
+FSQ_client_secret='SCLJLKDKO2TSJHUGI0RIEOL53G3FV3HR42NCN00SC3LG5EHN'
+FSQ_v='20180323'
 
 def similar(a, b):
     return SequenceMatcher(None, a, b).ratio()
@@ -58,9 +65,8 @@ def city(c, e, p):
 
 def getImagePath(g_id):
     detalle_url = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + \
-                  g_id + '&key=' + settings.GMAPS_API_KEY
+                  g_id + '&key=' + GMAPS_API_KEY
     time.sleep(2)
-    log_file.write('\ndetail> ' + detalle_url)
     new = json.loads(requests.get(detalle_url).text)
     links = []
     # pprint.pprint(new)
@@ -71,14 +77,13 @@ def getImagePath(g_id):
         while contador < cantidad:
             im_id = new['result']['photos'][contador]['photo_reference']
             image_url = 'https://maps.googleapis.com/maps/api/place/photo?maxheight=1600&photoreference=' + \
-                        im_id + '&key=' + settings.GMAPS_API_KEY
+                        im_id + '&key=' + GMAPS_API_KEY
             time.sleep(2)
             response = requests.get(image_url, stream=True)
             dir_file = settings.BASE_DIR + '/media/Lugar/' + im_id + '.jpg'
             with open(dir_file, 'wb') as out_file:
                 shutil.copyfileobj(response.raw, out_file)
             del response
-            log_file.write('\nImagen recuperada: ' + dir_file)
             links.append(dir_file)
             contador = contador + 1
         return links
@@ -126,7 +131,6 @@ def creacioDBO(gobj, fobj, sobj, yobj, kw, c, e, p):
 
     try:
         obj = Lugar.objects.get(id_google=gobj['google_id'])
-        log_file.write('\n>>>' + str(obj.nombre + ': recuperado'))
 
     except Lugar.DoesNotExist:
         obj = Lugar.objects.create(
@@ -159,17 +163,14 @@ def creacioDBO(gobj, fobj, sobj, yobj, kw, c, e, p):
                 os.remove(imagenes[cont])
             cont = cont + 1
         obj.save()
-        log_file.write('\n>>>' + str(obj.nombre + ': creado'))
 
-    log_file.write('\n>>>' + str(rat))
-    log_file.write('\n>>>' + str(price))
     obj.tags.add(t)
 
 
 def busquedaYelp(regex, lat, lng):
     url = "https://api.yelp.com/v3/businesses/search?term=" + \
           regex + "&latitude=" + lat + "&longitude=" + lng
-    headers = {'Authorization': settings.YELP_AUTH}
+    headers = {'Authorization': YELP_AUTH}
     response = json.loads(requests.get(url, headers=headers).text)
     # pprint.pprint(response)
     if "error" in response:
@@ -201,16 +202,21 @@ def busquedaYelp(regex, lat, lng):
 def busquedaFoursquare(regex, lat, lng):
     url = 'https://api.foursquare.com/v2/venues/search'
 
+    a=FSQ_client_id
+    b=FSQ_client_secret
+    c=FSQ_v
+
+
     params2 = dict(
-        client_id=settings.FSQ_client_id,
-        client_secret=settings.FSQ_client_secret,
-        v=settings.FSQ_v,
+        client_id= a ,
+        client_secret= b ,
+        v= c ,
     )
 
     params = dict(
-        client_id=settings.FSQ_client_id,
-        client_secret=settings.FSQ_client_secret,
-        v=settings.FSQ_v,
+        client_id= a ,
+        client_secret= b ,
+        v= c ,
         ll=str(lat) + ',' + str(lng),
         name=regex,
         intent='match',
@@ -257,7 +263,7 @@ def busquedaFoursquare(regex, lat, lng):
 
 def busquedaFacebook(regex, lat, lng):
     # specific="bar los amigos"
-    token = settings.FBTOKEN
+    token = FBTOKEN
     urlFB = "https://graph.facebook.com/v3.0/search?type=place&center=" + lat + "," + lng + "&distance=5000&q=" + \
             regex + "&fields=name,link,overall_star_rating,price_range,website&access_token=" + token
     response = json.loads(requests.get(urlFB).text)
@@ -293,13 +299,13 @@ def busquedaFacebook(regex, lat, lng):
 def busquedaGMaps(latitude, longitude, kyword, c, e, p):
     url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + latitude + \
           ',' + longitude + '&radius=5000' + '&keyword=' + \
-          kyword + '&key=' + settings.GMAPS_API_KEY
+          kyword + '&key=' + GMAPS_API_KEY
     # print (url)
 
     response = json.loads(requests.get(url).text)
     # print(response['status'])
     if response['status'] != "OK":
-        raise Exception("Fallo Google PLACES-API: check: settings.GMAPS_API_KEY")
+        raise Exception("Fallo Google PLACES-API: check: GMAPS_API_KEY")
     return {'response': response, 'kyword': kyword, 'c': c, 'e': e, 'p': p}
 
 
@@ -365,7 +371,7 @@ def saveLocal(arr, kyword, c, e, p):
         time.sleep(2)
 
         url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken=' + \
-              str(arr["next_page_token"]) + '&key=' + settings.GMAPS_API_KEY
+              str(arr["next_page_token"]) + '&key=' + GMAPS_API_KEY
         # print (url)
         new = json.loads(requests.get(url).text)
         print(new['status'])
@@ -378,7 +384,7 @@ def saveLocal(arr, kyword, c, e, p):
 
 def exec_command(request):
     comandos = Comando.objects.all()
-    key = settings.GMAPS_API_KEY
+    key = GMAPS_API_KEY
 
     if request.method != "POST":
         return render(request, 'sm/console.html', {'key': key, 'comandos': comandos})
@@ -390,12 +396,9 @@ def exec_command(request):
         timestamp = (time.strftime("%d-%m-%Y-%H:%M"))
         log_file_p=log_base+timestamp+".log"
         log_file = open(log_file_p, 'w+')
-
-
         base = str(settings.BASE_DIR) + '/media/Lugar/'
         if not (os.path.isfile(settings.BASE_DIR + '/media/Lugar/default.jpg')):
             os.makedirs(base)
-            log_file.write('\nINFO: CHECK: ' + base + 'default.jpg')
             f = open(base + 'default.jpg', 'w+')
             f.write('default')
             f.close()
@@ -411,13 +414,14 @@ def exec_command(request):
                 city=options['city'], state=options['state'], country=options['country'], status_exec=True, log_file_path=log_file_p)
 
         except Exception as e:
-            log_file.write("\n"+str(e))
+
+            log_file.write("\n\n"+str(e)+traceback.format_exc())
 
             c = Comando.objects.create(
                 lat=options['lat'], lng=options['lng'], keyword=options['keyword'],
                 city=options['city'], state=options['state'], country=options['country'],
                 status_exec=False, log_file_path=log_file_p)
-            log_file.write('\n'+str(c))
+            log_file.write("\n\n"+str(c))
 
         c.save()
 
