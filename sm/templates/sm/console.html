@@ -22,10 +22,37 @@
   </head>
   <body >
   <br><br>
+
+
+
+
+
+
+
   {% if comandos %}
-  {% for i in comandos %}
-      <p class="executed {{ i.status_exec }}" ev="{{ i.status_exec }}">{{ i.lat }}|{{ i.lng }}|{{ i.keyword }}|{{ i.city }}|{{ i.state }}|{{ i.country }} -> {{ i.status_exec }}</p>
-   {% endfor %}
+
+  <table style="width:100%">
+  <tr>
+    <th>command</th>
+    <th>result</th>
+    <th>logfile</th>
+  </tr>
+      {% for i in comandos %}
+          <tr>
+    <td class="executed">{{ i.lat }}|{{ i.lng }}|{{ i.keyword }}|{{ i.city }}|{{ i.state }}|{{ i.country }}</td>
+    <td>{{ i.status_exec }}</td>
+    <td><a href="{% url 'sm:log' i.id %}" >{{ i.log_file_path }}</a> </td>
+  </tr>
+
+
+
+
+
+      {% endfor %}
+
+
+</table>
+
   {% else %}
       <p>No comandos</p>
 
@@ -50,6 +77,7 @@
       var citymap = {
 
       {% for c in comandos %}
+          {% if c.status_exec == True %}
           {{ c.id }}: {
           center: { lat: {{ c.lat }}, lng: {{ c.lng }} },
             ciudad: "{{ c.city }}",
@@ -58,6 +86,7 @@
             keyword: "{{ c.keyword }}",
 
         },
+          {% endif %}
 
       {% endfor %}
 
@@ -92,10 +121,10 @@
           // Add the circle for this city to the map.
 
           var cityCircle = new google.maps.Circle({
-            strokeColor: '#FF0000',
+            strokeColor: '#59ff00',
             strokeOpacity: 1,
             strokeWeight: 1,
-            fillColor: '#FF0000',
+            fillColor: '#568e41',
             fillOpacity: 0.1,
             map: map,
             center: citymap[city].center,
@@ -234,22 +263,35 @@ form.addEventListener('submit', function (event) {
       var i = 0;
       var ratio = 0;
       var posible=[];
+      var pass = true;
+
       for (i=0; i<commands.length; i++){
            ratio = JaroWrinker(commands[i], newcom);
            if (ratio > .9){
                posible.push(commands)
+               pass = false;
 
            }
       }
-      const flag = true;
+      var pass = true;
 
-        if(flag) {
+        if(!(pass)) {
         // If it isn't, we display an appropriate error message
 
         // Then we prevent the form from being sent by canceling the event
-        event.preventDefault();
 
-        alert(newcom+"modal we")
+        posible=posible.join("\n");
+        var answer = window.confirm("¿Ejecutar?\n"+posible)
+        if (answer) {
+
+
+        }
+        else {
+            event.preventDefault();
+        }
+
+
+
         }
 
 });
