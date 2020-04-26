@@ -153,7 +153,7 @@ def creacioDBO(log, gobj, fobj, sobj, yobj, kw, c, e, p):
             rating=rat,
             precio=price,
         )
-    if obj.imagen_set.count()==0:
+    if obj.imagen_set.all().count()==0:
 
         imagenes = getImagePath(log ,gobj['google_id'])
         # print (imagenes)
@@ -172,7 +172,7 @@ def creacioDBO(log, gobj, fobj, sobj, yobj, kw, c, e, p):
             cont = cont + 1
 
     obj.save()
-    log.write("\nSaved Object " + imagenes[cont])
+    log.write("\nSaved Object " + str(obj.nombre))
 
     obj.tags.add(t)
     log.write("\ntag added " + kw)
@@ -408,49 +408,44 @@ def saveLocal(log, arr, kyword, c, e, p):
 
 
 def exec_command(request):
-    comandos = Comando.objects.all()
-    key = GMAPS_API_KEY
 
-    if request.method != "POST":
-        return render(request, 'sm/console.html', {'key': key, 'comandos': comandos})
-    else:
-        options=request.POST
-        log_base=str(settings.BASE_DIR) + '/Logs/'
-        if not os.path.isdir(log_base):
-            os.makedirs(log_base)
-        timestamp = (time.strftime("%d-%m-%Y-%H:%M"))
-        log_file_p=log_base+timestamp+".log"
-        log_file = open(log_file_p, 'w+')
-        base = str(settings.BASE_DIR) + '/media/Lugar/'
-        if not (os.path.isfile(settings.BASE_DIR + '/media/Lugar/default.jpg')):
-            log_file.write("\n Created: /media/Lugar/default.jpg ")
-            os.makedirs(base)
-            f = open(base + 'default.jpg', 'w+')
-            f.write('default')
-            f.close()
+    options=request.POST
+    log_base=str(settings.BASE_DIR) + '/Logs/'
+    if not os.path.isdir(log_base):
+        os.makedirs(log_base)
+    timestamp = (time.strftime("%d-%m-%Y-%H:%M"))
+    log_file_p=log_base+timestamp+".log"
+    log_file = open(log_file_p, 'w+')
+    base = str(settings.BASE_DIR) + '/media/Lugar/'
+    if not (os.path.isfile(settings.BASE_DIR + '/media/Lugar/default.jpg')):
+        log_file.write("\n Created: /media/Lugar/default.jpg ")
+        os.makedirs(base)
+        f = open(base + 'default.jpg', 'w+')
+        f.write('default')
+        f.close()
 
-        try:
-            response = busquedaGMaps(log_file, str(options['lat']), str(options['lng']), str(
-                options['keyword']), str(options['city']), str(options['state']), str(options['country']))
+    try:
+        response = busquedaGMaps(log_file, str(options['lat']), str(options['lng']), str(
+            options['keyword']), str(options['city']), str(options['state']), str(options['country']))
 
 
-            saveLocal(log_file, response['response'], response['kyword'],
-                      response['c'], response['e'], response['p'])
+        saveLocal(log_file, response['response'], response['kyword'],
+                  response['c'], response['e'], response['p'])
 
-            c = Comando.objects.create(
-                lat=options['lat'], lng=options['lng'], keyword=options['keyword'],
-                city=options['city'], state=options['state'], country=options['country'], status_exec=True, log_file_path=log_file_p)
+        c = Comando.objects.create(
+            lat=options['lat'], lng=options['lng'], keyword=options['keyword'],
+            city=options['city'], state=options['state'], country=options['country'], status_exec=True, log_file_path=log_file_p)
 
-        except Exception as e:
+    except Exception as e:
 
-            log_file.write("\n\n"+str(e)+traceback.format_exc())
+        log_file.write("\n\n"+str(e)+traceback.format_exc())
 
-            c = Comando.objects.create(
-                lat=options['lat'], lng=options['lng'], keyword=options['keyword'],
-                city=options['city'], state=options['state'], country=options['country'],
-                status_exec=False, log_file_path=log_file_p)
-            log_file.write("\n\n"+str(c))
+        c = Comando.objects.create(
+            lat=options['lat'], lng=options['lng'], keyword=options['keyword'],
+            city=options['city'], state=options['state'], country=options['country'],
+            status_exec=False, log_file_path=log_file_p)
 
-        c.save()
+    log_file.write("\n\n"+str(c))
+    c.save()
+    log_file.close()
 
-        return render(request, 'sm/console.html', {'key': key, 'comandos': comandos, })
