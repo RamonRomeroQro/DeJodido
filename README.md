@@ -56,7 +56,8 @@
     initdb /usr/local/var/postgres
     /usr/local/opt/postgres/bin/createuser -s postgres
     brew services start postgresql
-    psql -d postgres -U postgres -c="create database deajodido;"
+    psql -d postgres -U postgres -c "drop database deajodido;"
+    psql -d postgres -U postgres -c "create database deajodido;"
     
 
 
@@ -66,7 +67,11 @@
 6. Migrate and run
 
     ``` bash
-
+   find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
+    find . -path "*/migrations/*.pyc"  -delete
+    
+    python3 manage.py makemigrations 
+    python3 manage.py migrate 
     python3 manage.py makemigrations landing
     python3 manage.py migrate
     python3 manage.py makemigrations lugares

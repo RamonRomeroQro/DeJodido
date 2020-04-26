@@ -29,7 +29,6 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 from difflib import SequenceMatcher
 from django.conf import settings
 from django.conf import settings
-log_file=None
 GMAPS_API_KEY = 'AIzaSyAyWoMzx2h4NwDk5NRmUqsODLC6vJKD_KA'
 GMAPS_API_KEY_JS = GMAPS_API_KEY
 FBTOKEN = '544112989843154|hBY39frkP-_8ovjnNsR3al2A08I'
@@ -63,11 +62,14 @@ def city(c, e, p):
     return ciudad
 
 
-def getImagePath(g_id):
+def getImagePath(log, g_id):
     detalle_url = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + \
                   g_id + '&key=' + GMAPS_API_KEY
     time.sleep(2)
     new = json.loads(requests.get(detalle_url).text)
+    if new["status"]!="OK":
+        raise Exception("Fallo recuperacion imagen: "+detalle_url)
+    log.write("Retrived info photo: "+ detalle_url)
     links = []
     # pprint.pprint(new)
     try:
@@ -84,6 +86,8 @@ def getImagePath(g_id):
             with open(dir_file, 'wb') as out_file:
                 shutil.copyfileobj(response.raw, out_file)
             del response
+            log.write("\nDownloaded image "+ dir_file)
+
             links.append(dir_file)
             contador = contador + 1
         return links
@@ -101,7 +105,7 @@ def taging(kw):
     return tag
 
 
-def creacioDBO(gobj, fobj, sobj, yobj, kw, c, e, p):
+def creacioDBO(log, gobj, fobj, sobj, yobj, kw, c, e, p):
     rt = [gobj['google_rating'], yobj['yelp_rating'],
           sobj['foursquare_rating'], fobj['facebook_rating']]
     # pprint.pprint(rt)
@@ -149,22 +153,27 @@ def creacioDBO(gobj, fobj, sobj, yobj, kw, c, e, p):
             rating=rat,
             precio=price,
         )
-        imagenes = getImagePath(gobj['google_id'])
-        # print (imagenes)
-        cont = 0
-        while cont < len(imagenes):
-            im = Imagen.objects.get_or_create(lugar=obj,
-                                              imagen=SimpleUploadedFile(name=obj.id_google + '-' + str(cont) + '.jpg',
-                                                                        content=open(imagenes[cont],
-                                                                                     'rb').read(),
-                                                                        content_type='image/jpeg'),
-                                              descripcion='Importada desde Google Imagenes')
-            if 'default' not in imagenes[cont]:
-                os.remove(imagenes[cont])
-            cont = cont + 1
-        obj.save()
+    imagenes = getImagePath(log ,gobj['google_id'])
+    # print (imagenes)
+    cont = 0
+    while cont < len(imagenes):
+        im = Imagen.objects.get_or_create(lugar=obj,
+                                          imagen=SimpleUploadedFile(name=obj.id_google + '-' + str(cont) + '.jpg',
+                                                                    content=open(imagenes[cont],
+                                                                                 'rb').read(),
+                                                                    content_type='image/jpeg'),
+                                          descripcion='Importada desde Google Imagenes')
+        log.write("\nSaved image "+ imagenes[cont])
+        # Descargar y luego asignar y borrar
+        if 'default' not in imagenes[cont]:
+            os.remove(imagenes[cont])
+        cont = cont + 1
+
+    obj.save()
+    log.write("\nSaved Object " + imagenes[cont])
 
     obj.tags.add(t)
+    log.write("\ntag added " + kw)
 
 
 def busquedaYelp(regex, lat, lng):
@@ -296,7 +305,7 @@ def busquedaFacebook(regex, lat, lng):
             'facebook_link': facebook_link}
 
 
-def busquedaGMaps(latitude, longitude, kyword, c, e, p):
+def busquedaGMaps(log, latitude, longitude, kyword, c, e, p):
     url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + latitude + \
           ',' + longitude + '&radius=5000' + '&keyword=' + \
           kyword + '&key=' + GMAPS_API_KEY
@@ -306,10 +315,13 @@ def busquedaGMaps(latitude, longitude, kyword, c, e, p):
     # print(response['status'])
     if response['status'] != "OK":
         raise Exception("Fallo Google PLACES-API: check: GMAPS_API_KEY")
+    else:
+
+        log.write("\n+"+url+"Google: "+response['status'])
     return {'response': response, 'kyword': kyword, 'c': c, 'e': e, 'p': p}
 
 
-def saveLocal(arr, kyword, c, e, p):
+def saveLocal(log, arr, kyword, c, e, p):
     count = 0
     while count < len(arr['results']):
         try:
@@ -320,9 +332,9 @@ def saveLocal(arr, kyword, c, e, p):
             )
             if obj.tags.filter(descripcion=kyword).exists() == False:
                 obj.tags.add(t)
-                print('tag agregada')
+                log.write("\n"+'tag agregada: '+kyword)
 
-            print('>>>' + str(obj.nombre + ': recuperado'))
+            log.write('\n>>>' + str(obj.nombre + ': recuperado'))
 
         except Lugar.DoesNotExist:
 
@@ -343,23 +355,30 @@ def saveLocal(arr, kyword, c, e, p):
             except KeyError:
                 google_price = -100
 
+
             gobj = {'google_nombre': google_nombre, 'google_id': google_id, 'google_rating': google_rating,
                     'google_direccion': google_direccion,
                     'google_latitud': google_latitud, 'google_longitud': google_longitud, 'google_price': google_price}
+            log.write('\n>>>>>>>>>>>>' + gobj['google_nombre'] + "Update Google")
+
             fobj = busquedaFacebook(str(arr['results'][count]['name']), str(
                 arr['results'][count]['geometry']['location']['lat']),
                                     str(arr['results'][count]['geometry']['location']['lng']))
+            log.write('\n>>>>>>>>>>>>' + gobj['google_nombre'] + "Update FB")
+
             yobj = busquedaYelp(str(arr['results'][count]['name']), str(
                 arr['results'][count]['geometry']['location']['lat']),
                                 str(arr['results'][count]['geometry']['location']['lng']))
+            log.write('\n>>>>>>>>>>>>' + gobj['google_nombre'] + "Update Yelp")
+
             sobj = busquedaFoursquare(str(arr['results'][count]['name']), str(
                 arr['results'][count]['geometry']['location']['lat']),
                                       str(arr['results'][count]['geometry']['location']['lng']))
+            log.write('\n>>>>>>>>>>>>' + gobj['google_nombre'] + "Update fsq")
+
             ###
             ###
-            ###
-            creacioDBO(gobj, fobj, sobj, yobj, kyword, c, e, p)
-            print('>>>>>>>>>>>>' + gobj['google_nombre'])
+            creacioDBO(log, gobj, fobj, sobj, yobj, kyword, c, e, p)
             # pprint.pprint(gobj)
             # pprint.pprint(fobj)
             # pprint.pprint(yobj)
@@ -374,7 +393,11 @@ def saveLocal(arr, kyword, c, e, p):
               str(arr["next_page_token"]) + '&key=' + GMAPS_API_KEY
         # print (url)
         new = json.loads(requests.get(url).text)
-        print(new['status'])
+        if new['status']!="OK":
+            raise Exception("Fail next page: "+url+": "+new['status'])
+
+        log.write("OK next page: "+url+": "+new['status'])
+
         # print (new['status'])
         # pprint.pprint(new)
         saveLocal(new, kyword, c, e, p)
@@ -398,15 +421,18 @@ def exec_command(request):
         log_file = open(log_file_p, 'w+')
         base = str(settings.BASE_DIR) + '/media/Lugar/'
         if not (os.path.isfile(settings.BASE_DIR + '/media/Lugar/default.jpg')):
+            log_file.write("\n Created: /media/Lugar/default.jpg ")
             os.makedirs(base)
             f = open(base + 'default.jpg', 'w+')
             f.write('default')
             f.close()
 
         try:
-            response = busquedaGMaps(str(options['lat']), str(options['lng']), str(
+            response = busquedaGMaps(log_file, str(options['lat']), str(options['lng']), str(
                 options['keyword']), str(options['city']), str(options['state']), str(options['country']))
-            saveLocal(response['response'], response['kyword'],
+
+
+            saveLocal(log_file, response['response'], response['kyword'],
                       response['c'], response['e'], response['p'])
 
             c = Comando.objects.create(
