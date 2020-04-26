@@ -146,12 +146,18 @@ def update_image (request,  id_image):
 
 
 from .master import exec_command
+import multiprocessing
 
 @login_required
 def consola(request):
-    return exec_command(request)
+    comandos = Comando.objects.all()
+    key  = 'AIzaSyAyWoMzx2h4NwDk5NRmUqsODLC6vJKD_KA'
 
+    if request.method=="POST":
+        exec_command(request)
 
+    n = Lugar.objects.all().count()
+    return render(request, 'sm/console.html', {'key': key, 'n': n, 'comandos': comandos })
 
 
 import os
