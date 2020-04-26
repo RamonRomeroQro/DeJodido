@@ -376,11 +376,11 @@ def saveLocal(arr, kyword, c, e, p):
         # print ('eof')
     # sort by age
 
-@login_required
-def imagenes(request):
+def exec_command(request):
     comandos = Comando.objects.all()
+    key = settings.GMAPS_API_KEY
+
     if request.method != "POST":
-        key = settings.GMAPS_API_KEY
         return render(request, 'sm/console.html', {'key': key, 'comandos': comandos})
     else:
         options=request.POST
@@ -404,9 +404,13 @@ def imagenes(request):
                 city=options['city'], state=options['state'], country=options['country'], status_exec=True)
 
         except Exception as e:
+            log_strings.append(str(e))
 
             c = Comando.objects.create(
                 lat=options['lat'], lng=options['lng'], keyword=options['keyword'],
                 city=options['city'], state=options['state'], country=options['country'], status_exec=False)
+            log_strings.append(str(c))
 
         c.save()
+
+        return render(request, 'sm/console.html', {'key': key, 'comandos': comandos, 'errors': log_strings})
