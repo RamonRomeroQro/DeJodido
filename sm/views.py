@@ -156,6 +156,8 @@ def update_image (request,  id_image):
 
 @login_required
 def consola(request):
+    if request.method=="POST":
+        print("post", request.POST)
     comandos=Comando.objects.all()
     key=settings.GMAPS_API_KEY
     return render(request, 'sm/console.html', {'key':key,  'comandos':comandos})
