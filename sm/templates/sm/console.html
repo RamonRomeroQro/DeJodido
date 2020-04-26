@@ -17,7 +17,7 @@
       }
     </style>
   </head>
-  <body>
+  <body >
   <br><br>
   {% if comandos %}
   {% for i in comandos %}
@@ -28,14 +28,17 @@
 
   {% endif %}
 <br><br>
-  <form id="newCommandForm">
+  <form id="newCommand" method="post" action="{% url 'sm:consola' %}" >
+      {% csrf_token %}
   <label for="lat">lat:</label><input class="comInput" type="number" id="lat" name="lat"><br>
   <label for="lng">lng:</label><input class="comInput" type="number" id="lng" name="lng"><br>
-  <label for="keyword">First name:</label><input class="comInput" type="text" id="keyword" name="keyword"><br>
+  <label for="keyword">keyword:</label><input class="comInput" type="text" id="keyword" name="keyword"><br>
   <label for="city">city:</label><input class="comInput" type="text" id="city" name="city"><br>
   <label for="state">state:</label><input class="comInput" type="text" id="state" name="state"><br>
   <label for="country">country:</label><input class="comInput" type="text" id="country" name="country"><br>
+  <input type="submit" value="Submit">
   </form>
+  <p onclick="mames()">exec</p>
     <div id="map"></div>
     <script>
       // This example creates circles on the map, representing populations in North
@@ -210,31 +213,51 @@
 
 
 
-
 form.addEventListener('submit', function (event) {
   // if the email field is valid, we let the form submit
-    var commands = document.getElementsByClassName("executed").map(x => x.innerHTML);
-      var newcom = document.getElementsByClassName("comInput").map(x => x.value).join("|");
+
+        var commands_html = document.getElementsByClassName("executed");
+   var newcom_html = document.getElementsByClassName("comInput");
+   var commands =[];
+   var i=0;
+   for (i=0; i< commands_html.length; i++){
+       commands.push(commands_html[i].innerHTML)
+   }
+   var newcom = [];
+   for (i=0; i< newcom_html.length; i++){
+       newcom.push(newcom_html[i].value)
+   }
+   newcom=newcom.join('|')
 
       var i = 0;
+      var ratio = 0;
+      var posible=[];
       for (i=0; i<commands.length; i++){
-          JaroWrinker(commands[i], newcom)
-      }
+           ratio = JaroWrinker(commands[i], newcom);
+           if (ratio > .9){
+               posible.push(commands)
 
-  if(!email.validity.valid) {
-    // If it isn't, we display an appropriate error message
-    showError();
-    // Then we prevent the form from being sent by canceling the event
-    event.preventDefault();
-  }
+           }
+      }
+      const flag = true;
+
+        if(flag) {
+        // If it isn't, we display an appropriate error message
+
+        // Then we prevent the form from being sent by canceling the event
+        event.preventDefault();
+
+        alert(newcom+"modal we")
+        }
+
 });
 
-function showError() {
 
-}
+
   </script>
+
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key={{ key }}&callback=initMap">
     </script>
   </body>
-</html
+</html>
