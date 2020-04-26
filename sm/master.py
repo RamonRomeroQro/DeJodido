@@ -153,21 +153,23 @@ def creacioDBO(log, gobj, fobj, sobj, yobj, kw, c, e, p):
             rating=rat,
             precio=price,
         )
-    imagenes = getImagePath(log ,gobj['google_id'])
-    # print (imagenes)
-    cont = 0
-    while cont < len(imagenes):
-        im = Imagen.objects.get_or_create(lugar=obj,
-                                          imagen=SimpleUploadedFile(name=obj.id_google + '-' + str(cont) + '.jpg',
-                                                                    content=open(imagenes[cont],
-                                                                                 'rb').read(),
-                                                                    content_type='image/jpeg'),
-                                          descripcion='Importada desde Google Imagenes')
-        log.write("\nSaved image "+ imagenes[cont])
-        # Descargar y luego asignar y borrar
-        if 'default' not in imagenes[cont]:
-            os.remove(imagenes[cont])
-        cont = cont + 1
+    if obj.imagen_set.count()==0:
+
+        imagenes = getImagePath(log ,gobj['google_id'])
+        # print (imagenes)
+        cont = 0
+        while cont < len(imagenes):
+            im = Imagen.objects.get_or_create(lugar=obj,
+                                              imagen=SimpleUploadedFile(name=obj.id_google + '-' + str(cont) + '.jpg',
+                                                                        content=open(imagenes[cont],
+                                                                                     'rb').read(),
+                                                                        content_type='image/jpeg'),
+                                              descripcion='Importada desde Google Imagenes')
+            log.write("\nSaved image "+ imagenes[cont])
+            # Descargar y luego asignar y borrar
+            if 'default' not in imagenes[cont]:
+                os.remove(imagenes[cont])
+            cont = cont + 1
 
     obj.save()
     log.write("\nSaved Object " + imagenes[cont])
