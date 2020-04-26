@@ -153,11 +153,8 @@ def update_image (request,  id_image):
     return HttpResponseRedirect(reverse('sm:detalle_lugar',  kwargs={'nombre_lugar': lugar.nombre,'id_lugar':lugar.id}))
 
 
+from .master import exec_command
 
 @login_required
 def consola(request):
-    if request.method=="POST":
-        print("post", request.POST)
-    comandos=Comando.objects.all()
-    key=settings.GMAPS_API_KEY
-    return render(request, 'sm/console.html', {'key':key,  'comandos':comandos})
+    return exec_command(request)

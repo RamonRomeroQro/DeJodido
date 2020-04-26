@@ -1,3 +1,6 @@
+
+
+
 <html>
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
@@ -30,15 +33,14 @@
 <br><br>
   <form id="newCommand" method="post" action="{% url 'sm:consola' %}" >
       {% csrf_token %}
-  <label for="lat">lat:</label><input class="comInput" type="number" id="lat" name="lat"><br>
-  <label for="lng">lng:</label><input class="comInput" type="number" id="lng" name="lng"><br>
-  <label for="keyword">keyword:</label><input class="comInput" type="text" id="keyword" name="keyword"><br>
-  <label for="city">city:</label><input class="comInput" type="text" id="city" name="city"><br>
-  <label for="state">state:</label><input class="comInput" type="text" id="state" name="state"><br>
-  <label for="country">country:</label><input class="comInput" type="text" id="country" name="country"><br>
+  <label for="lat">lat:</label><input class="comInput" value="20.592996" type="number" id="lat" name="lat"><br>
+  <label for="lng">lng:</label><input class="comInput" value="-100.3918293" type="number" id="lng" name="lng"><br>
+  <label for="keyword">keyword:</label><input class="comInput" value="bar" type="text" id="keyword" name="keyword"><br>
+  <label for="city">city:</label><input class="comInput" value="Santiago de Querétaro" type="text" id="city" name="city"><br>
+  <label for="state">state:</label><input class="comInput" value="Querétaro" type="text" id="state" name="state"><br>
+  <label for="country">country:</label><input class="comInput" value="México" type="text" id="country" name="country"><br>
   <input type="submit" value="Submit">
   </form>
-  <p onclick="mames()">exec</p>
     <div id="map"></div>
     <script>
       // This example creates circles on the map, representing populations in North
