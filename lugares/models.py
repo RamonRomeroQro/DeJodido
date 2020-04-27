@@ -54,8 +54,12 @@ class Lugar(models.Model):
     facebook_link = models.CharField(verbose_name='ID Facebook Link', null=True, blank=True, max_length=500)
     tags = models.ManyToManyField(Tags, verbose_name='Tags')
     ciudad = models.ForeignKey(Ciudad, verbose_name='Ciudad', on_delete=models.CASCADE,  null=True, blank=True)
+    phoneFB= models.CharField(verbose_name='fb-phone', default=None, null=True, blank=True, max_length=500)
+    phoneG= models.CharField(verbose_name='g-phone', default=None, null=True, blank=True, max_length=500)
+    website= models.CharField(verbose_name='website', default="404", null=True, blank=True, max_length=500)
     status=models.NullBooleanField(verbose_name='status', default=None ,  null=True)
     update_command = models.DateField(auto_now=True)
+
 
 
     def delete(self):
