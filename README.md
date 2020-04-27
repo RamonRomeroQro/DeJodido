@@ -42,21 +42,62 @@
     ```
 5. Setup Postgresql
 
+    ```` bash
+   
+
+
+
+
+    # remove old database files (If there was any)# install the binary
+
+    brew install postgresql
+
+    brew services start postgresql
+    initdb /usr/local/var/postgres
+    /usr/local/opt/postgres/bin/createuser -s postgres
+    brew services start postgresql
+    psql -d postgres -U postgres -c "drop database deajodido;"
+    psql -d postgres -U postgres -c "create database deajodido;"
+    
+
+
+
+    ```
+
 6. Migrate and run
 
     ``` bash
+   find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
+    find . -path "*/migrations/*.pyc"  -delete
+    
+    python3 manage.py makemigrations 
+    python3 manage.py migrate 
     python3 manage.py makemigrations landing
     python3 manage.py migrate
     python3 manage.py makemigrations lugares
     python3 manage.py migrate
     python3 manage.py makemigrations usuarios
     python3 manage.py migrate
-    python3 manage.py makemigrations eastereggs
-    python3 manage.py migrate
     python3 manage.py makemigrations sm
     python3 manage.py migrate
     ```
 
+7. SU Creation
+
+    ``` bash
+
+    python3 manage.py createsuperuser
+
+    ```
+
+
+7. RUN
+
+    ``` bash
+
+    python3 manage.py runserver
+
+    ```
 ## Idea
 
 _**De A Jodido** es un portal en el cual uno busca diferentes opciones de salidas (viajes, tours, vida noctura, etc.) con base a tu presupuesto y preferencias (+ API's). De igual manera, se podrán armar grupos en la mismo portal para expandir la experiencia social y conocer los gustos y recomendaciones del mismo. <br><br>**De A Jodido** ,  a diferencia de las actuales plataformas de viajes o salidas, está hecha por, cómo nos gusta decir, hecha por la raza, para la raza. Esto significa que todas nuestras recomendaciones son hechas por usuarios que ya han tenido estas experiencias y de igual manera son calificadas por otros usuarios._
