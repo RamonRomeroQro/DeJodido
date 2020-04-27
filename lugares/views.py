@@ -1,62 +1,59 @@
+from random import randint
+
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 from lugares.models import *
 from django.shortcuts import get_object_or_404
-from  django.conf import  settings
+from django.conf import settings
 import json
 import requests
 import datetime
 from django.http import HttpResponse
 from usuarios.forms import UsuarioReview
 from django.http import HttpResponseRedirect
+import pprint
+import traceback
+from lugares import urls
 
-
-
-
-def yelpReviews(request,id_yelp):
+def yelpReviews(request, id_yelp):
     url = 'https://api.yelp.com/v3/businesses/'+id_yelp+'/reviews'
     headers = {
         'Authorization': 'Bearer CpMKG2Z-E_WAiDNoHTnGCUzZ2wUCTPsOwd2B6egscNf6p7BNOY81zt6JjtScUNRaQqq6ttHEqEYLW5PySrEVMe9KFpyeNY9q0Ao7U3ujCGbObr2IDRXTFUD-D1gEW3Yx'}
     response = json.loads(requests.get(url, headers=headers).text)
     try:
-        html='<h2>Yelp</h2><ul class="collection">'
-        for i in range(0,len(response['reviews'])):
-            rating=response['reviews'][i]['rating']
-            text=response['reviews'][i]['text']
-            time=response['reviews'][i]['time_created']
-            url=response['reviews'][i]['url']
-            usuario=response['reviews'][i]['user']['name']
-            profile=response['reviews'][i]['user']['image_url']
-            if profile==None:
-                profile=''
+        html = '<h2>Yelp</h2><ul class="collection">'
+        for i in range(0, len(response['reviews'])):
+            rating = response['reviews'][i]['rating']
+            text = response['reviews'][i]['text']
+            time = response['reviews'][i]['time_created']
+            url = response['reviews'][i]['url']
+            usuario = response['reviews'][i]['user']['name']
+            profile = response['reviews'][i]['user']['image_url']
+            if profile == None:
+                profile = ''
 
-            html=html+'<a href="'+url+'">'
-            html=html+'<li class="collection-item avatar">'
-            html=html+'<img src="'+profile+'" alt="" class="circle">'
-            html=html+'<span class="title">'+usuario+'</span>'
-            html=html+'<p>'+text+'</p>'
-            html=html+'<p>'
-            for i in range(0,rating):
-                html=html+'&#x2b50;'
-            html=html+'</p>'
-            html=html+'<p>'+str(rating)+'</p>'
-            html = html + '<p>' +time+'</p>'
-            html=html+'<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>'
-            html=html+'</li>'
-            html=html+'</a>'
+            html = html+'<a href="'+url+'">'
+            html = html+'<li class="collection-item avatar">'
+            html = html+'<img src="'+profile+'" alt="" class="circle">'
+            html = html+'<span class="title">'+usuario+'</span>'
+            html = html+'<p>'+text+'</p>'
+            html = html+'<p>'
+            for i in range(0, rating):
+                html = html+'&#x2b50;'
+            html = html+'</p>'
+            html = html+'<p>'+str(rating)+'</p>'
+            html = html + '<p>' + time+'</p>'
+            html = html+'<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>'
+            html = html+'</li>'
+            html = html+'</a>'
 
-
-
-
-
-        html=html+'</ul>'
+        html = html+'</ul>'
 
         return HttpResponse(html)
     except KeyError:
         return HttpResponse('error')
 
-
-
-def foursquareReviews(request,id_foursquare):
+def foursquareReviews(request, id_foursquare):
     url = 'https://api.foursquare.com/v2/venues/'+id_foursquare+'/tips'
     params = dict(
         client_id='0U1M35P3PWR3C3NW41MCVIP1OPSYMJJPXDG5EOFPNWTFVUY5',
@@ -68,23 +65,25 @@ def foursquareReviews(request,id_foursquare):
     )
     resp = requests.get(url=url, params=params)
     data = json.loads(resp.text)
-    if (data['meta']['code']==200):
-        html='<h2>FourSquare</h2><ul class="collection">'
+    if (data['meta']['code'] == 200):
+        html = '<h2>FourSquare</h2><ul class="collection">'
 
         for i in range(0, len(data['response']['tips']['items'])):
 
-            likes=data['response']['tips']['items'][i]['agreeCount']
-            url=data['response']['tips']['items'][i]['canonicalUrl']
-            unixtime= data['response']['tips']['items'][i]['createdAt']
-            dislikes=data['response']['tips']['items'][i]['disagreeCount']
+            likes = data['response']['tips']['items'][i]['agreeCount']
+            url = data['response']['tips']['items'][i]['canonicalUrl']
+            unixtime = data['response']['tips']['items'][i]['createdAt']
+            dislikes = data['response']['tips']['items'][i]['disagreeCount']
             try:
-                photoplace=        data['response']['tips']['items'][i]['photourl']
+                photoplace = data['response']['tips']['items'][i]['photourl']
             except KeyError:
-                photoplace=''
+                photoplace = ''
 
-            text=        data['response']['tips']['items'][i]['text']
-            usuario=                data['response']['tips']['items'][i]['user']['firstName']+' '+data['response']['tips']['items'][i]['user']['lastName']
-            profile= data['response']['tips']['items'][i]['user']['photo']['prefix']+data['response']['tips']['items'][i]['user']['photo']['suffix']
+            text = data['response']['tips']['items'][i]['text']
+            usuario = data['response']['tips']['items'][i]['user']['firstName'] + \
+                ' '+data['response']['tips']['items'][i]['user']['lastName']
+            profile = data['response']['tips']['items'][i]['user']['photo']['prefix'] + \
+                data['response']['tips']['items'][i]['user']['photo']['suffix']
 
             html = html + '<a href="' + url + '">'
             html = html + '<li class="collection-item avatar">'
@@ -94,7 +93,9 @@ def foursquareReviews(request,id_foursquare):
             html = html + '<p>Likes' + str(likes) + '</p>'
             html = html + '<p>Dislikes' + str(dislikes) + '</p>'
             html = html + '<img src="'+photoplace+'" height="300px" width="auto">'
-            html = html + '<p>' +datetime.datetime.fromtimestamp(int(unixtime)).strftime('%Y-%m-%d %H:%M:%S')+'</p>'
+            html = html + '<p>' + \
+                datetime.datetime.fromtimestamp(
+                    int(unixtime)).strftime('%Y-%m-%d %H:%M:%S')+'</p>'
             html = html + '<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>'
             html = html + '</li>'
             html = html + '</a>'
@@ -105,12 +106,9 @@ def foursquareReviews(request,id_foursquare):
         return HttpResponse('error')
 
 
-
-
-
-
 def googleReviews(request, id_google):
-    detalle_url = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + id_google + '&key=' + settings.GMAPS_API_KEY
+    detalle_url = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + \
+        id_google + '&key=' + settings.GMAPS_API_KEY
     new = json.loads(requests.get(detalle_url).text)
     if (new['status'] == 'OK'):
         i = 0
@@ -135,7 +133,9 @@ def googleReviews(request, id_google):
                 html = html + '&#x2b50;'
             html = html + '</p>'
             html = html + '<p>' + str(rate) + '</p>'
-            html = html + '<p>' + datetime.datetime.fromtimestamp(int(time)).strftime('%Y-%m-%d %H:%M:%S') + '</p>'
+            html = html + '<p>' + \
+                datetime.datetime.fromtimestamp(int(time)).strftime(
+                    '%Y-%m-%d %H:%M:%S') + '</p>'
             html = html + '<p>' + relativetime + '</p>'
             html = html + '<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>'
             html = html + '</li>'
@@ -148,17 +148,14 @@ def googleReviews(request, id_google):
         return HttpResponse(html)
     else:
         return HttpResponse('error')
-from django.conf import settings
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
-#Visualizar partidos en la landing page
-def detalle_lugar(request, nombre_lugar,id_lugar):
-    l = get_object_or_404(Lugar, id=id_lugar)
-    gkey=settings.GMAPS_API_KEY_JS
-    formresena=UsuarioReview(prefix="resena")
-    return render(request, 'lugares/details.html' , { 'lugar': l, 'gkey':gkey, 'forma':formresena })
-
+# Visualizar partidos en la landing page
+def detalle_lugar(request, name, id_l):
+    l = get_object_or_404(Lugar, id=id_l)
+    gkey = settings.GMAPS_API_KEY_JS
+    formresena = UsuarioReview(prefix="resena")
+    return render(request, 'lugares/details.html', {'lugar': l, 'gkey': gkey, 'forma': formresena})
 
 
 def busqueda(request):
@@ -173,30 +170,32 @@ def busqueda(request):
         qpais = Pais.objects.get(nombre=country)
         qstate = Estado.objects.filter(pais=qpais).get(nombre=state)
         qcity = Ciudad.objects.filter(estado=qstate).get(nombre=city)
-        lugares = Lugar.objects.filter(ciudad=qcity).filter(status=True)
-        placerandom=lugares.order_by('?').first()
-        lugar =[]
 
+        # lugares = Lugar.objects.filter(ciudad=qcity).filter(status=True)
+        lugares = Lugar.objects.filter(ciudad=qcity)
+        c=lugares.all().count()
+        if c==0:
+            f=open('failed_search.log', 'a')
+            f.write(str(request.GET) + ' | ' +'Count 0\n')
+            f.close()
+
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+
+        placerandom = lugares.all()[randint(0, c - 1)]
+        lugar = []
         presupuesto = request.GET.getlist('presupuesto')
 
         for lug in lugares.filter(precio__range=(min(presupuesto), max(presupuesto))).order_by('-rating'):
             lugar.append(lug)
 
         page = request.GET.get('page', 1)
-
-
-
-
-
-        noPrecio=lugares.filter(precio='-100').order_by('-rating')
+        noPrecio = lugares.filter(precio='-100').order_by('-rating')
 
         for l in noPrecio:
             lugar.append(l)
 
         paginator = Paginator(lugar, 3)
         # agregando desconocidos
-
-
 
 
         try:
@@ -207,16 +206,17 @@ def busqueda(request):
             numbers = paginator.page(paginator.num_pages)
 
 
-        return render(request, 'lugares/list.html', {'lugares': lugar, 'id_ciudad': qcity.id, 'min_lugar': min(presupuesto),
-                                                     'max_lugar:': max(presupuesto), 'numbers': numbers, 'placerandom':placerandom})
+        d={'lugares': lugar, 'id_ciudad': qcity.id, 'min_lugar': min(presupuesto),
+                                                     'max_lugar:': max(presupuesto), 'numbers': numbers, 'placerandom': placerandom}
+        
+        pprint.pprint(d)
+        return render(request, 'lugares/list.html', d)
 
     except Exception as e:
 
-        with open('failed_search.log', 'a') as f:
-            f.write(str(request.GET)+' | '+str(e)+'\n')
-        f.closed
-
-
+        f=open('failed_search.log', 'a')
+        f.write(str(request.GET)+' | '+str(e)+'|'+traceback.format_exc()+'\n')
+        f.close()
 
         return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
