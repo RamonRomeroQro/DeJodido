@@ -27,7 +27,11 @@
 
 
 
-<p>{{ n }}</p>
+<p>Número de lugares: {{ n }}</p>
+  <ul>
+      <li><a href="/admin">Admin Django</a> </li>
+      <li><a href="{% url 'sm:lugares' %}">Admin Lugares</a> </li>
+  </ul>
 
   {% if comandos %}
 

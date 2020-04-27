@@ -75,7 +75,7 @@ def getImagePath(log, g_id):
     try:
         phoneG=new['result']["international_phone_number"]
     except Exception as e:
-        log.write("No phone: "+e)
+        log.write("No phone: "+str(e))
         phoneG = None
 
     try:
