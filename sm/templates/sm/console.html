@@ -83,36 +83,109 @@
       {% for c in comandos %}
           {% if c.status_exec == True %}
           {{ c.id }}: {
-          center: { lat: {{ c.lat }}, lng: {{ c.lng }} },
-            ciudad: "{{ c.city }}",
-            estado: "{{ c.state }}",
-            pais: "{{ c.country }}",
-            keyword: "{{ c.keyword }}",
+                    center: {
+                        lat: {{ c.lat }},
+                        lng: {{ c.lng }}
+                            },
+                    ciudad: "{{ c.city }}",
+                    estado: "{{ c.state }}",
+                    pais: "{{ c.country }}",
+                    keyword: "{{ c.keyword }}",
+                    posibles:{},
 
         },
           {% endif %}
 
       {% endfor %}
-
-
-
-
-
-
       };
 
-      var posible ={
-           n: {
-          center: { lat: 21 , lng: -102 }
-        },
+
+function getCors(lat_x,lon_x,degrees){
+
+
+var brng = degrees_to_radians(degrees);
+var d = 5 // Distance in km
+var lat1 = degrees_to_radians(lat_x) //#Current lat point converted to radians
+var lon1 = degrees_to_radians(lon_x) //#Current long point converted to radians
+
+var lat2 = Math.asin( Math.sin(lat1)*Math.cos(d/R) +
+     Math.cos(lat1)*Math.sin(d/R)*Math.cos(brng))
+
+var lon2 = lon1 + Math.atan2(Math.sin(brng)*Math.sin(d/R)*Math.cos(lat1),
+             Math.cos(d/R)-Math.sin(lat1)*Math.sin(lat2))
+
+var lat2 = radians_to_degrees(lat2)
+var lon2 = radians_to_degrees(lon2)
+  // console.log(lat2)
+  // console.log(lon2)
+  return [lat2, lon2]
+}
+function degrees_to_radians(degrees)
+{
+  var pi = Math.PI;
+  return degrees * (pi/180);
+}
+
+function radians_to_degrees(radians)
+{
+  var pi = Math.PI;
+  return radians * (180/pi);
+}
+
+
+
+const R = 6378.1 ;
+
+
+var pointPosible={}
+
+      for (var k in citymap){
+
+          var d=0
+          for( d=0; d<360; d+=60){
+
+              var firstEval = getCors(citymap[k].center.lat, citymap[k].center.lng, parseInt(d))
+
+              var second = (getCors(firstEval[0], firstEval[1], parseInt(d)+60))
+
+              citymap[k]["posibles"][k.toString()+"-"+d.toString()]={
+                  center:{
+                      lat:second[0],
+                      lng:second[1]
+                  }
+              }
+              pointPosible[k.toString()+"-"+d.toString()]=citymap[k]["posibles"][k.toString()+"-"+d.toString()]
+
+          }
+
+
 
       }
+
+/*
+      var posible ={
+           n: {
+          center: { lat: 20.660365061593655, lng:-100.3502573183909 }
+        },
+          s: {
+          center: {
+
+              lat: 20.637902091385058
+
+, lng:-100.3918354307636 }
+        },
+
+
+
+      }
+
+ */
 
 
       function initMap() {
         // Create the map.
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 6,
+          zoom: 10,
           center: {lat: 20.5924074, lng: -100.3788854},
           mapTypeId: 'roadmap'
         });
@@ -146,7 +219,7 @@
 
         }
 
-        for  (var p in posible){
+        for  (var p in pointPosible){
              var cc = new google.maps.Circle({
             strokeColor: '#4c89ff',
             strokeOpacity: 1,
@@ -154,7 +227,7 @@
             fillColor: '#65c6ff',
             fillOpacity: 0.2,
             map: map,
-            center: posible[p].center,
+            center: pointPosible[p].center,
             radius: 5000,
  draggable: true,
           geodesic: true
@@ -171,6 +244,7 @@
 
 
       }
+
     </script>
 
 
@@ -266,13 +340,13 @@ form.addEventListener('submit', function (event) {
 
       var i = 0;
       var ratio = 0;
-      var posible=[];
+      var posibleAns=[];
       var pass = true;
 
       for (i=0; i<commands.length; i++){
            ratio = JaroWrinker(commands[i], newcom);
            if (ratio > .9){
-               posible.push(commands)
+               posibleAns.push(commands)
                pass = false;
 
            }
@@ -283,8 +357,8 @@ form.addEventListener('submit', function (event) {
 
         // Then we prevent the form from being sent by canceling the event
 
-        posible=posible.join("\n\n");
-        var answer = window.confirm("¿Ejecutar?\n"+posible)
+        posibleAns=posibleAns.join("\n\n");
+        var answer = window.confirm("¿Ejecutar?\n"+posibleAns)
         if (answer) {
 
 
