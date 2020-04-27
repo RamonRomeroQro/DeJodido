@@ -68,10 +68,16 @@ def getImagePath(log, g_id):
     time.sleep(2)
     new = json.loads(requests.get(detalle_url).text)
     if new["status"]!="OK":
-        raise Exception("Fallo recuperacion imagen: "+detalle_url)
-    log.write("Retrived info photo: "+ detalle_url)
+        raise Exception("Fallo recuperacion imagen: "+detalle_url+ " "+ str(new["status"]))
+    log.write("\nRetrived info place: "+ detalle_url)
     links = []
     # pprint.pprint(new)
+    try:
+        phoneG=new['result']["international_phone_number"]
+    except Exception as e:
+        log.write("No phone: "+e)
+        phoneG = None
+
     try:
         ######################
         cantidad = len(new['result']['photos'])
@@ -90,11 +96,11 @@ def getImagePath(log, g_id):
 
             links.append(dir_file)
             contador = contador + 1
-        return links
+        return links, phoneG
     except KeyError:
         dir_file = settings.BASE_DIR + '/media/Lugar/default.jpg'
         links.append(dir_file)
-        return links
+        return links, phoneG
 
 
 def taging(kw):
@@ -152,10 +158,14 @@ def creacioDBO(log, gobj, fobj, sobj, yobj, kw, c, e, p):
             ciudad=c,
             rating=rat,
             precio=price,
+            phoneFB=fobj["facebook_phone"],
+            website=fobj["facebook_website"],
         )
     if obj.imagen_set.all().count()==0:
 
-        imagenes = getImagePath(log ,gobj['google_id'])
+        imagenes, phone_google = getImagePath(log ,gobj['google_id'])
+        obj.phoneG=phone_google
+        log.write("\n Attached phone")
         # print (imagenes)
         cont = 0
         while cont < len(imagenes):
@@ -185,7 +195,7 @@ def busquedaYelp(regex, lat, lng):
     response = json.loads(requests.get(url, headers=headers).text)
     # pprint.pprint(response)
     if "error" in response:
-        raise Exception("Break Yelp")
+        raise Exception("Break Yelp "+ url +" "+ str(response))
     try:
 
         # print ("yelp_name: " + response['businesses'][0]['name'])
@@ -237,7 +247,7 @@ def busquedaFoursquare(regex, lat, lng):
     resp = requests.get(url=url, params=params)
     data = json.loads(resp.text)
     if data["meta"]["code"] != 200:
-        raise Exception("Error FSQ APi", data["meta"]["code"])
+        raise Exception("Error FSQ APi "+ str(data["meta"]["code"])+" "+url)
 
     try:
 
@@ -249,7 +259,7 @@ def busquedaFoursquare(regex, lat, lng):
         resp2 = requests.get(url=urlrating, params=params2)
         data2 = json.loads(resp2.text)
         if data2["meta"]["code"] != 200:
-            raise Exception("Error FSQ APi", data2["meta"]["code"])
+            raise Exception("Error FSQ APi: "+ str(data2["meta"]["code"])+ " "+urlrating)
 
         try:
             foursquare_price = (data2['response']['venue']['price']['tier'])
@@ -276,10 +286,10 @@ def busquedaFacebook(regex, lat, lng):
     # specific="bar los amigos"
     token = FBTOKEN
     urlFB = "https://graph.facebook.com/v3.0/search?type=place&center=" + lat + "," + lng + "&distance=5000&q=" + \
-            regex + "&fields=name,link,overall_star_rating,price_range,website&access_token=" + token
+            regex + "&fields=name,link,overall_star_rating,price_range,website,phone&access_token=" + token
     response = json.loads(requests.get(urlFB).text)
     if "error" in response:
-        raise Exception("broken fb api")
+        raise Exception("broken fb api: "+urlFB +" " +str(response))
     try:
         # print('facebook_name: ' + response['data'][0]['name'])
         facebook_id = response['data'][0]['id']
@@ -297,14 +307,25 @@ def busquedaFacebook(regex, lat, lng):
         except KeyError:
             facebook_link = "404"
 
+        try:
+            facebook_website = response['data'][0]['website']
+        except KeyError:
+            facebook_website = "404"
+        try:
+            facebook_phone = response['data'][0]['phone']
+        except KeyError:
+            facebook_phone = None
+
     except (KeyError, IndexError) as e:
         facebook_id = -100
         facebook_rating = -100
         facebook_price = -100
         facebook_link = "404"
+        facebook_website = "404"
+        facebook_phone = None
 
     return {'facebook_id': facebook_id, 'facebook_rating': facebook_rating, 'facebook_price': facebook_price,
-            'facebook_link': facebook_link}
+            'facebook_link': facebook_link, 'facebook_website':facebook_website, "facebook_phone": facebook_phone}
 
 
 def busquedaGMaps(log, latitude, longitude, kyword, c, e, p):
@@ -316,7 +337,7 @@ def busquedaGMaps(log, latitude, longitude, kyword, c, e, p):
     response = json.loads(requests.get(url).text)
     # print(response['status'])
     if response['status'] != "OK":
-        raise Exception("Fallo Google PLACES-API: check: GMAPS_API_KEY")
+        raise Exception("Fallo Google PLACES-API: check: GMAPS_API_KEY "+url + " "+response['status'])
     else:
 
         log.write("\n+"+url+"Google: "+response['status'])

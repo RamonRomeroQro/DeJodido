@@ -1,3 +1,5 @@
+from random import randint
+
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 from lugares.models import *
@@ -10,6 +12,9 @@ from django.http import HttpResponse
 from usuarios.forms import UsuarioReview
 from django.http import HttpResponseRedirect
 import pprint
+import traceback
+from lugares import urls
+
 def yelpReviews(request, id_yelp):
     url = 'https://api.yelp.com/v3/businesses/'+id_yelp+'/reviews'
     headers = {
@@ -146,8 +151,8 @@ def googleReviews(request, id_google):
 
 
 # Visualizar partidos en la landing page
-def detalle_lugar(request, nombre_lugar, id_lugar):
-    l = get_object_or_404(Lugar, id=id_lugar)
+def detalle_lugar(request, name, id_l):
+    l = get_object_or_404(Lugar, id=id_l)
     gkey = settings.GMAPS_API_KEY_JS
     formresena = UsuarioReview(prefix="resena")
     return render(request, 'lugares/details.html', {'lugar': l, 'gkey': gkey, 'forma': formresena})
@@ -165,10 +170,19 @@ def busqueda(request):
         qpais = Pais.objects.get(nombre=country)
         qstate = Estado.objects.filter(pais=qpais).get(nombre=state)
         qcity = Ciudad.objects.filter(estado=qstate).get(nombre=city)
-        lugares = Lugar.objects.filter(ciudad=qcity).filter(status=True)
-        placerandom = lugares.order_by('?').first()
-        lugar = []
 
+        # lugares = Lugar.objects.filter(ciudad=qcity).filter(status=True)
+        lugares = Lugar.objects.filter(ciudad=qcity)
+        c=lugares.all().count()
+        if c==0:
+            f=open('failed_search.log', 'a')
+            f.write(str(request.GET) + ' | ' +'Count 0\n')
+            f.close()
+
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+
+        placerandom = lugares.all()[randint(0, c - 1)]
+        lugar = []
         presupuesto = request.GET.getlist('presupuesto')
 
         for lug in lugares.filter(precio__range=(min(presupuesto), max(presupuesto))).order_by('-rating'):
@@ -200,9 +214,10 @@ def busqueda(request):
 
     except Exception as e:
 
-        with open('failed_search.log', 'a') as f:
-            f.write(str(request.GET)+' | '+str(e)+'\n')
-        f.closed
+        f=open('failed_search.log', 'a')
+        f.write(str(request.GET)+' | '+str(e)+'|'+traceback.format_exc()+'\n')
+        f.close()
 
         return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+
 

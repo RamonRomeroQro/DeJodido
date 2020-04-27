@@ -1,3 +1,4 @@
+
 <!doctype html>
 
 
@@ -42,6 +43,8 @@ $('.slider').slider({    indicators:false,
 
 
         {% for f in placerandom.imagen_set.all %}
+  {% if placerandom.imagen_set.count > 1%}
+            {% if f.status %}
 
 
         <li>
@@ -56,8 +59,26 @@ $('.slider').slider({    indicators:false,
         </h9>
         </div>
         </li>
+            {% endif %}
+            {% else %}
+       <li>
+        <img src="{{ f.imagen.url }}"> <!-- random image -->
+        <div class="caption right-align " >
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <h9 class="light grey-text text-lighten-3">
+
+                            {{ f.descripcion }}
+
+
+        </h9>
+        </div>
+        </li>
+            {% endif %}
 
 {% endfor %}
+
+
+        <!-------------------->
 
 
         </ul>
@@ -125,39 +146,67 @@ $('.slider').slider({    indicators:false,
             <div class="col s12 m6 l4 infinite-item">
 
 
-          <a href="{% url 'lugares:detalle_lugar' number.nombre number.id %}">
-                    <div class="lugar" style=" border-style: solid;
-              border-color: white;">
+<a href="{% url 'lugares:detalle_lugar' number.nombre number.id %}">
+           <div class="lugar" style=" border-style: solid;
+    border-color: white;">
 
 
-                  <div class="slider">
-                  <ul class="slides">
+        <div class="slider">
+        <ul class="slides">
+        <!-------------------->
 
 
 
-              {% for f in number.imagen_set.all %}
+        {% for f in number.imagen_set.all %}
+  {% if number.imagen_set.count > 1%}
 
 
-              <li>
-              <img src="{{ f.imagen.url }}">
-              <div class="caption right-align " >
-              <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-              <h9 class="light grey-text text-lighten-3">
+       {% if f.status  %}
 
-                                  {{ f.descripcion }}
+                        <li>
+        <img src="{{ f.imagen.url }}"> <!-- random image -->
+        <div class="caption right-align " >
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <h9 class="light grey-text text-lighten-3">
+
+                            {{ f.descripcion }}
 
 
-              </h9>
-          </div>
-          </li>
+        </h9>
+        </div>
+        </li>
+
+                   {% endif %}
+      {% else %}
+
+       <li>
+        <img src="{{ f.imagen.url }}"> <!-- random image -->
+        <div class="caption right-align " >
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <h9 class="light grey-text text-lighten-3">
+
+                            {{ f.descripcion }}
+
+
+        </h9>
+        </div>
+        </li>
+
+            {% endif %}
+
+
+
+
 
 {% endfor %}
 
 
+        <!-------------------->
 
 
         </ul>
         </div>
+
 
       <div class="info center ">
                     {{ number.nombre }}<br>
@@ -204,7 +253,7 @@ $('.slider').slider({    indicators:false,
 
 
       </div>
-    </a>
+</a>
 
         </div>
     {% endfor %}
