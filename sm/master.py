@@ -402,7 +402,7 @@ def saveLocal(log, arr, kyword, c, e, p):
 
         # print (new['status'])
         # pprint.pprint(new)
-        saveLocal(new, kyword, c, e, p)
+        saveLocal(log, new, kyword, c, e, p)
         # print ('eof')
     # sort by age
 
