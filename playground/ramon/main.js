@@ -1,69 +1,63 @@
-function JaroWrinker(s1, s2) {
-        var m = 0;
+function degrees_to_radians(degrees)
+{
+  var pi = Math.PI;
+  return degrees * (pi/180);
+}
 
-        // Exit early if either are empty.
-        if ( s1.length === 0 || s2.length === 0 ) {
-            return 0;
-        }
+function radians_to_degrees(radians)
+{
+  var pi = Math.PI;
+  return radians * (180/pi);
+}
 
-        // Exit early if they're an exact match.
-        if ( s1 === s2 ) {
-            return 1;
-        }
 
-        var range     = (Math.floor(Math.max(s1.length, s2.length) / 2)) - 1,
-            s1Matches = new Array(s1.length),
-            s2Matches = new Array(s2.length);
 
-        for ( i = 0; i < s1.length; i++ ) {
-            var low  = (i >= range) ? i - range : 0,
-                high = (i + range <= s2.length) ? (i + range) : (s2.length - 1);
+const R = 6378.1 ;
+var est={
+  center:{
+    lat:20.592996,
+    lon:-100.3918293,
+  },
+  pts:{
+      0:{},
+  60:{},
+  120:{},
+  180:{},
+  240:{},
+  300:{}
+}
 
-            for ( j = low; j <= high; j++ ) {
-            if ( s1Matches[i] !== true && s2Matches[j] !== true && s1[i] === s2[j] ) {
-                ++m;
-                s1Matches[i] = s2Matches[j] = true;
-                break;
-            }
-            }
-        }
+}
 
-        // Exit early if no matches were found.
-        if ( m === 0 ) {
-            return 0;
-        }
+for(var p in est.pts) {
+  //var value = est[key];
+  firstEval=getCors(est.center.lat, est.center.lon, p)
+  newLat = firstEval[0]
+  newLon = firstEval[1]
+  console.log(getCors(newLat, newLon, p+60))
 
-        // Count the transpositions.
-        var k = n_trans = 0;
+  // do something with "key" and "value" variables
 
-        for ( i = 0; i < s1.length; i++ ) {
-            if ( s1Matches[i] === true ) {
-            for ( j = k; j < s2.length; j++ ) {
-                if ( s2Matches[j] === true ) {
-                k = j + 1;
-                break;
-                }
-            }
+}
 
-            if ( s1[i] !== s2[j] ) {
-                ++n_trans;
-            }
-            }
-        }
+function getCors(lat_x,lon_x,degrees){
 
-        var weight = (m / s1.length + m / s2.length + (m - (n_trans / 2)) / m) / 3,
-            l      = 0,
-            p      = 0.1;
+var brng = degrees_to_radians(degrees);
+var d = 5 // Distance in km
+var lat1 = degrees_to_radians(lat_x) //#Current lat point converted to radians
+var lon1 = degrees_to_radians(lon_x) //#Current long point converted to radians
 
-        if ( weight > 0.7 ) {
-            while ( s1[l] === s2[l] && l < 4 ) {
-            ++l;
-            }
+var lat2 = Math.asin( Math.sin(lat1)*Math.cos(d/R) +
+     Math.cos(lat1)*Math.sin(d/R)*Math.cos(brng))
 
-            weight = weight + l * p * (1 - weight);
-        }
+var lon2 = lon1 + Math.atan2(Math.sin(brng)*Math.sin(d/R)*Math.cos(lat1),
+             Math.cos(d/R)-Math.sin(lat1)*Math.sin(lat2))
 
-        return weight;
-      }
+var lat2 = radians_to_degrees(lat2)
+var lon2 = radians_to_degrees(lon2)
+  // console.log(lat2)
+  // console.log(lon2)
+  return [lat2, lon2]
+}
 
-      console.log(JaroWrinker("20.5924074|-100.3788854|bar|Santiago de Querétaro|Querétaro|México","20.5924074|-100.3788854|restaurant|Santiago de Querétaro|Querétaro|México"))
+
