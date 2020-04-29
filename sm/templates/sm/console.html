@@ -64,8 +64,8 @@
 <br><br>
   <form id="newCommand" method="post" action="{% url 'sm:consola' %}" >
       {% csrf_token %}
-  <label for="lat">lat:</label><input class="comInput" value="20.592996" type="number" id="lat" name="lat"><br>
-  <label for="lng">lng:</label><input class="comInput" value="-100.3918293" type="number" id="lng" name="lng"><br>
+  <label for="lat">lat:</label><input class="comInput" value="20.592996"  id="lat" name="lat"><br>
+  <label for="lng">lng:</label><input class="comInput" value="-100.3918293"  id="lng" name="lng"><br>
   <label for="keyword">keyword:</label><input class="comInput" value="bar" type="text" id="keyword" name="keyword"><br>
   <label for="city">city:</label><input class="comInput" value="Santiago de Querétaro" type="text" id="city" name="city"><br>
   <label for="state">state:</label><input class="comInput" value="Querétaro" type="text" id="state" name="state"><br>
@@ -102,23 +102,49 @@
 
 function getCors(lat_x,lon_x,degrees){
 
+var a = 6378137,
+     b = 6356752.3142,
+     f = 1 / 298.257223563, // WGS-84 ellipsiod
+     s = 5000,
+     alpha1 = degrees_to_radians(degrees) ,
+     sinAlpha1 = Math.sin(alpha1),
+     cosAlpha1 = Math.cos(alpha1),
+     tanU1 = (1 - f) * Math.tan(degrees_to_radians(lat_x)),
+     cosU1 = 1 / Math.sqrt((1 + tanU1 * tanU1)), sinU1 = tanU1 * cosU1,
+     sigma1 = Math.atan2(tanU1, cosAlpha1),
+     sinAlpha = cosU1 * sinAlpha1,
+     cosSqAlpha = 1 - sinAlpha * sinAlpha,
+     uSq = cosSqAlpha * (a * a - b * b) / (b * b),
+     A = 1 + uSq / 16384 * (4096 + uSq * (-768 + uSq * (320 - 175 * uSq))),
+     B = uSq / 1024 * (256 + uSq * (-128 + uSq * (74 - 47 * uSq))),
+     sigma = s / (b * A),
+     sigmaP = 2 * Math.PI;
+ while (Math.abs(sigma - sigmaP) > 1e-12) {
+  var cos2SigmaM = Math.cos(2*sigma1 + sigma),
+      sinSigma = Math.sin(sigma),
+      cosSigma = Math.cos(sigma),
+      deltaSigma = B * sinSigma * (cos2SigmaM + B / 4 * (cosSigma * (-1 + 2 * cos2SigmaM * cos2SigmaM) - B / 6 * cos2SigmaM * (-3 + 4 * sinSigma * sinSigma) * (-3 + 4 * cos2SigmaM * cos2SigmaM)));
+  sigmaP = sigma;
+  sigma = s / (b * A) + deltaSigma;
+ };
+ var tmp = sinU1 * sinSigma - cosU1 * cosSigma * cosAlpha1,
+     lat2 = Math.atan2(sinU1 * cosSigma + cosU1 * sinSigma * cosAlpha1, (1 - f) * Math.sqrt(sinAlpha * sinAlpha + tmp * tmp)),
+     lambda = Math.atan2(sinSigma * sinAlpha1, cosU1 * cosSigma - sinU1 * sinSigma * cosAlpha1),
+     C = f / 16 * cosSqAlpha * (4 + f * (4 - 3 * cosSqAlpha)),
+     L = lambda - (1 - C) * f * sinAlpha * (sigma + C * sinSigma * (cos2SigmaM + C * cosSigma * (-1 + 2 * cos2SigmaM * cos2SigmaM))),
+     revAz = Math.atan2(sinAlpha, -tmp); // final bearing
+ return [ radians_to_degrees(lat2), lon_x + radians_to_degrees(L)];
 
-var brng = degrees_to_radians(degrees);
-var d = 5 // Distance in km
-var lat1 = degrees_to_radians(lat_x) //#Current lat point converted to radians
-var lon1 = degrees_to_radians(lon_x) //#Current long point converted to radians
 
-var lat2 = Math.asin( Math.sin(lat1)*Math.cos(d/R) +
-     Math.cos(lat1)*Math.sin(d/R)*Math.cos(brng))
 
-var lon2 = lon1 + Math.atan2(Math.sin(brng)*Math.sin(d/R)*Math.cos(lat1),
-             Math.cos(d/R)-Math.sin(lat1)*Math.sin(lat2))
 
-var lat2 = radians_to_degrees(lat2)
-var lon2 = radians_to_degrees(lon2)
+
+
+
+
+
   // console.log(lat2)
   // console.log(lon2)
-  return [lat2, lon2]
 }
 function degrees_to_radians(degrees)
 {
@@ -180,11 +206,12 @@ var pointPosible={}
       }
 
  */
+    var  pointOnMap=[];
+    var map=null;
 
-
-      function initMap() {
+      function initMap(listener) {
         // Create the map.
-        var map = new google.maps.Map(document.getElementById('map'), {
+         map = new google.maps.Map(document.getElementById('map'), {
           zoom: 10,
           center: {lat: 20.5924074, lng: -100.3788854},
           mapTypeId: 'roadmap'
@@ -198,11 +225,11 @@ var pointPosible={}
           // Add the circle for this city to the map.
 
           var cityCircle = new google.maps.Circle({
-            strokeColor: '#59ff00',
+            strokeColor: '#ff0000',
             strokeOpacity: 1,
             strokeWeight: 1,
-            fillColor: '#568e41',
-            fillOpacity: 0.1,
+            fillColor: '#ff0000',
+            fillOpacity: 0.7,
             map: map,
             center: citymap[city].center,
             radius: 5000,
@@ -224,7 +251,7 @@ var pointPosible={}
             strokeColor: '#4c89ff',
             strokeOpacity: 1,
             strokeWeight: 1,
-            fillColor: '#65c6ff',
+            fillColor: '#c2e4f6',
             fillOpacity: 0.2,
             map: map,
             center: pointPosible[p].center,
@@ -233,12 +260,17 @@ var pointPosible={}
           geodesic: true
 
           });
-
-
-
-          google.maps.event.addListener(cc, 'dragend', function() {
+             cc.addListener( 'dragend', function () {
               window.alert(cc.center.toString())
           });
+
+          cc.addListener('click', function() {
+                document.getElementById("lat").value=cc.center.lat();
+                    document.getElementById("lng").value=cc.center.lng();
+          });
+          pointOnMap.push(cc)
+
+
 
         }
 
