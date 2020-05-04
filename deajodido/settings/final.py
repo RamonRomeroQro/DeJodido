@@ -188,3 +188,10 @@ SOCIAL_AUTH_FACEBOOK_KEY = '805766712952383'  # App ID PRUEBA
 SOCIAL_AUTH_FACEBOOK_SECRET = 'd7b13e308d24be4726f0c81721259a97'  # App Secret PRUEBA
 SOCIAL_AUTH_REDIRECT_IS_HTTPS = False
 SECURE_SSL_REDIRECT = False
+
+########
+
+# Create your models here.
+from django.core.files.storage import FileSystemStorage
+
+upload_storage = FileSystemStorage(location=BASE_DIR, base_url='/uploads')

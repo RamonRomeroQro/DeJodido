@@ -445,6 +445,9 @@ def exec_command(request):
         f.write('default')
         f.close()
 
+    c = Comando.objects.create(
+        lat=options['lat'], lng=options['lng'], keyword=options['keyword'],
+        city=options['city'], state=options['state'], country=options['country'])
     try:
         response = busquedaGMaps(log_file, str(options['lat']), str(options['lng']), str(
             options['keyword']), str(options['city']), str(options['state']), str(options['country']))
@@ -452,22 +455,17 @@ def exec_command(request):
 
         saveLocal(log_file, response['response'], response['kyword'],
                   response['c'], response['e'], response['p'])
+        c.status_exec=True
 
-        c = Comando.objects.create(
-            lat=options['lat'], lng=options['lng'], keyword=options['keyword'],
-            city=options['city'], state=options['state'], country=options['country'], status_exec=True, log_file_path=log_file_p)
+
 
     except Exception as e:
-
         log_file.write("\n\n"+str(e)+traceback.format_exc())
-
-        c = Comando.objects.create(
-            lat=options['lat'], lng=options['lng'], keyword=options['keyword'],
-            city=options['city'], state=options['state'], country=options['country'],
-            status_exec=False, log_file_path=log_file_p)
-
+        c.status_exec=False
     log_file.write("\n\n"+str(c))
-    c.save()
-    log_file.close()
+    f.close()
+    c.log_file=SimpleUploadedFile(name=str(c)+'.log', content=open(log_file_p, 'r').read(), content_type="txt/log")
+    os.remove(log_file_p)
+
 
 
