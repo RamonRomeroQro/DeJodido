@@ -1,19 +1,15 @@
 import mimetypes
 from django.http import HttpResponse, Http404
-from django.conf import settings
-import os
-import multiprocessing
 from .master import exec_command
 from django.shortcuts import render
 from lugares.models import *
 from django.shortcuts import get_object_or_404
-
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Comando
-import deajodido.settings.final as settings
+from deajodido.settings import final
 
 
 @login_required
@@ -65,7 +61,7 @@ def lugares(request):
 @login_required
 def detalle_lugar(request, id_lugar):
     l = get_object_or_404(Lugar, id=id_lugar)
-    gkey = settings.GMAPS_API_KEY
+    gkey = final.GMAPS_API_KEY
     return render(request, 'sm/details.html', {'lugar': l, 'gkey': gkey})
 
 
@@ -160,11 +156,11 @@ def consola(request):
 @login_required
 def log(request, id_comando):
     c = get_object_or_404(Comando, id=id_comando)
-    if os.path.exists(c.log_file_path):
-        fl = open(c.log_file_path, 'r')
-        mime_type, _ = mimetypes.guess_type(c.log_file_path)
+    if os.path.exists(c.log_file.path):
+        fl = open(c.log_file.path, 'r')
+        mime_type, _ = mimetypes.guess_type(c.log_file.path)
         response = HttpResponse(fl, content_type=mime_type)
         response['Content-Disposition'] = f"attachment; filename=" + \
-            os.path.basename(c.log_file_path)
+            os.path.basename(c.log_file.path)
         return response
     raise Http404

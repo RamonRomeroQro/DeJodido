@@ -1,7 +1,7 @@
 from django.db import models
 from deajodido.settings import final
 
-import  os
+import os
 class Comando(models.Model):
 
     lat = models.FloatField(verbose_name='lat', null=True, blank=True)
@@ -20,5 +20,5 @@ class Comando(models.Model):
 
     def delete(self):
         if os.path.isfile(self.log_file.path):
-            os.remove(self.log_file_path)
+            os.remove(self.log_file.path)
         super(Comando, self).delete()

@@ -1,5 +1,5 @@
 from random import randint
-
+from deajodido.settings import final
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 from lugares.models import *
@@ -18,7 +18,7 @@ from lugares import urls
 def yelpReviews(request, id_yelp):
     url = 'https://api.yelp.com/v3/businesses/'+id_yelp+'/reviews'
     headers = {
-        'Authorization': 'Bearer CpMKG2Z-E_WAiDNoHTnGCUzZ2wUCTPsOwd2B6egscNf6p7BNOY81zt6JjtScUNRaQqq6ttHEqEYLW5PySrEVMe9KFpyeNY9q0Ao7U3ujCGbObr2IDRXTFUD-D1gEW3Yx'}
+        'Authorization': final.YELP_AUTH, }
     response = json.loads(requests.get(url, headers=headers).text)
     try:
         html = '<h2>Yelp</h2><ul class="collection">'
@@ -56,9 +56,9 @@ def yelpReviews(request, id_yelp):
 def foursquareReviews(request, id_foursquare):
     url = 'https://api.foursquare.com/v2/venues/'+id_foursquare+'/tips'
     params = dict(
-        client_id='0U1M35P3PWR3C3NW41MCVIP1OPSYMJJPXDG5EOFPNWTFVUY5',
-        client_secret='2P50CX0GU1TBMLTWXO5052XV5JKTT03A3EAQAFXZWWZ0YLTK',
-        v='20180323',
+        client_id=final.FSQ_client_id,
+        client_secret=final.FSQ_client_secret,
+        v=final.FSQ_v,
         limit='100',
         offset='200',
         sort='popular'
@@ -108,7 +108,7 @@ def foursquareReviews(request, id_foursquare):
 
 def googleReviews(request, id_google):
     detalle_url = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + \
-        id_google + '&key=' + settings.GMAPS_API_KEY
+        id_google + '&key=' + final.GMAPS_API_KEY
     new = json.loads(requests.get(detalle_url).text)
     if (new['status'] == 'OK'):
         i = 0
@@ -153,7 +153,7 @@ def googleReviews(request, id_google):
 # Visualizar partidos en la landing page
 def detalle_lugar(request, name, id_l):
     l = get_object_or_404(Lugar, id=id_l)
-    gkey = settings.GMAPS_API_KEY_JS
+    gkey = final.GMAPS_API_KEY_JS
     formresena = UsuarioReview(prefix="resena")
     return render(request, 'lugares/details.html', {'lugar': l, 'gkey': gkey, 'forma': formresena})
 
