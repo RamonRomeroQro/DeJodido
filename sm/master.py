@@ -1,22 +1,6 @@
-from lugares.models import Imagen
-from django.shortcuts import render
-from lugares.models import *
-from django.shortcuts import get_object_or_404
-from django.conf import settings
-from django.shortcuts import redirect
+
 import traceback
-import json
-import requests
-import datetime
-from django.http import HttpResponse
-from usuarios.forms import UsuarioReview
-from django.http import HttpResponseRedirect
-from django.urls import reverse
-from django.http import HttpResponseRedirect
-from django.contrib import messages
-from django.contrib.auth.decorators import login_required
-from .models import Comando
-from django.core.management.base import BaseCommand, CommandError
+from deajodido.settings import final
 import os
 import json
 import requests
@@ -28,14 +12,7 @@ from lugares.models import Tags
 from django.core.files.uploadedfile import SimpleUploadedFile
 from difflib import SequenceMatcher
 from django.conf import settings
-from django.conf import settings
-GMAPS_API_KEY = 'AIzaSyAyWoMzx2h4NwDk5NRmUqsODLC6vJKD_KA'
-GMAPS_API_KEY_JS = GMAPS_API_KEY
-FBTOKEN = '544112989843154|hBY39frkP-_8ovjnNsR3al2A08I'
-YELP_AUTH="Bearer HEumDTz_X--m2lBW9-ZDlrMkQ_JlbuFFuF-6T7fzCJVlHrKYUhm7d7kF_LRCFGA7INdPcVPjd5Bo3LiDrUc9mEh-r5kV7LhSqazuQNB_AULEToDQ07leabVba5yjXnYx"
-FSQ_client_id='TFLJCZKNWYCSSZPARN4JDZDRGPUENHKA12JOXYUHN4L5N5I5'
-FSQ_client_secret='SCLJLKDKO2TSJHUGI0RIEOL53G3FV3HR42NCN00SC3LG5EHN'
-FSQ_v='20180323'
+
 
 def similar(a, b):
     return SequenceMatcher(None, a, b).ratio()
@@ -64,7 +41,7 @@ def city(c, e, p):
 
 def getImagePath(log, g_id):
     detalle_url = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + \
-                  g_id + '&key=' + GMAPS_API_KEY
+                  g_id + '&key=' + final.GMAPS_API_KEY
     time.sleep(2)
     new = json.loads(requests.get(detalle_url).text)
     if new["status"]!="OK":
@@ -85,7 +62,7 @@ def getImagePath(log, g_id):
         while contador < cantidad:
             im_id = new['result']['photos'][contador]['photo_reference']
             image_url = 'https://maps.googleapis.com/maps/api/place/photo?maxheight=1600&photoreference=' + \
-                        im_id + '&key=' + GMAPS_API_KEY
+                        im_id + '&key=' + final.GMAPS_API_KEY
             time.sleep(2)
             response = requests.get(image_url, stream=True)
             dir_file = settings.BASE_DIR + '/media/Lugar/' + im_id + '.jpg'
@@ -191,7 +168,7 @@ def creacioDBO(log, gobj, fobj, sobj, yobj, kw, c, e, p):
 def busquedaYelp(regex, lat, lng):
     url = "https://api.yelp.com/v3/businesses/search?term=" + \
           regex + "&latitude=" + lat + "&longitude=" + lng
-    headers = {'Authorization': YELP_AUTH}
+    headers = {'Authorization': final.YELP_AUTH}
     response = json.loads(requests.get(url, headers=headers).text)
     # pprint.pprint(response)
     if "error" in response:
@@ -223,9 +200,9 @@ def busquedaYelp(regex, lat, lng):
 def busquedaFoursquare(regex, lat, lng):
     url = 'https://api.foursquare.com/v2/venues/search'
 
-    a=FSQ_client_id
-    b=FSQ_client_secret
-    c=FSQ_v
+    a=final.FSQ_client_id
+    b=final.FSQ_client_secret
+    c=final.FSQ_v
 
 
     params2 = dict(
@@ -284,7 +261,7 @@ def busquedaFoursquare(regex, lat, lng):
 
 def busquedaFacebook(regex, lat, lng):
     # specific="bar los amigos"
-    token = FBTOKEN
+    token = final.FBTOKEN
     urlFB = "https://graph.facebook.com/v3.0/search?type=place&center=" + lat + "," + lng + "&distance=5000&q=" + \
             regex + "&fields=name,link,overall_star_rating,price_range,website,phone&access_token=" + token
     response = json.loads(requests.get(urlFB).text)
@@ -331,7 +308,7 @@ def busquedaFacebook(regex, lat, lng):
 def busquedaGMaps(log, latitude, longitude, kyword, c, e, p):
     url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + latitude + \
           ',' + longitude + '&radius=5000' + '&keyword=' + \
-          kyword + '&key=' + GMAPS_API_KEY
+          kyword + '&key=' + final.GMAPS_API_KEY
     # print (url)
 
     response = json.loads(requests.get(url).text)
@@ -340,7 +317,7 @@ def busquedaGMaps(log, latitude, longitude, kyword, c, e, p):
         raise Exception("Fallo Google PLACES-API: check: GMAPS_API_KEY "+url + " "+response['status'])
     else:
 
-        log.write("\n+"+url+"Google: "+response['status'])
+        log.write("\n+"+url+"\nGoogle: "+response['status'])
     return {'response': response, 'kyword': kyword, 'c': c, 'e': e, 'p': p}
 
 
@@ -413,13 +390,13 @@ def saveLocal(log, arr, kyword, c, e, p):
         time.sleep(2)
 
         url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken=' + \
-              str(arr["next_page_token"]) + '&key=' + GMAPS_API_KEY
+              str(arr["next_page_token"]) + '&key=' + final.GMAPS_API_KEY
         # print (url)
         new = json.loads(requests.get(url).text)
         if new['status']!="OK":
             raise Exception("Fail next page: "+url+": "+new['status'])
 
-        log.write("OK next page: "+url+": "+new['status'])
+        log.write("\n\nOK next page: "+url+": "+new['status'])
 
         # print (new['status'])
         # pprint.pprint(new)
@@ -456,15 +433,18 @@ def exec_command(request):
         saveLocal(log_file, response['response'], response['kyword'],
                   response['c'], response['e'], response['p'])
         c.status_exec=True
+        print(">.",c.status_exec)
 
 
 
     except Exception as e:
         log_file.write("\n\n"+str(e)+traceback.format_exc())
-        c.status_exec=False
+        c.status_exec = True
+        print(">.", c.status_exec)
     log_file.write("\n\n"+str(c))
-    f.close()
-    c.log_file=SimpleUploadedFile(name=str(c)+'.log', content=open(log_file_p, 'r').read(), content_type="txt/log")
+    log_file.close()
+    c.log_file=SimpleUploadedFile(name=str(c)+'.log', content=open(log_file_p, 'rb').read(), content_type="text/plain")
+    c.save()
     os.remove(log_file_p)
 
 
