@@ -1,5 +1,103 @@
+
 # _De A Jodido:_<br>_an idea by BlackEMail_
 
+
+### General Structure
+
+* ./api/: Django Rest API FRAMEWORK
+* ./deajodido/: Settings, urls, keys and deployment
+* ./landing/: General Landing Search
+* ./lugares/: Models and views for places
+* ./sm/: Super Management and administrative module
+* ./static/: FrontEnd Framework dependencies
+* ./static/: FrontEnd Framework dependencies
+* ./usuarios/: User Models
+
+### Setup Up
+
+1. Create virtual enviroment
+
+    ``` bash
+
+    python3 -m venv venv
+
+    ```
+2. Initialize  virtual enviroment
+
+    ``` bash
+    source venv/bin/activate
+ 
+    ```
+3. Upgrade Package Manager (PIP) 
+
+    ``` bash
+    pip3 install --upgrade pip
+ 
+    ```
+4. Install dependencies
+
+    ``` bash
+    pip3 install -r requirements.txt
+ 
+    ```
+5. Setup Postgresql
+
+    ```` bash
+   
+
+
+
+
+    # remove old database files (If there was any)# install the binary
+
+    brew install postgresql
+
+    brew services start postgresql
+    initdb /usr/local/var/postgres
+    /usr/local/opt/postgres/bin/createuser -s postgres
+    brew services start postgresql
+    psql -d postgres -U postgres -c "drop database deajodido;"
+    psql -d postgres -U postgres -c "create database deajodido;"
+    
+
+
+
+    ```
+
+6. Migrate and run
+
+    ``` bash
+   find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
+    find . -path "*/migrations/*.pyc"  -delete
+    
+    python3 manage.py makemigrations 
+    python3 manage.py migrate 
+    python3 manage.py makemigrations landing
+    python3 manage.py migrate
+    python3 manage.py makemigrations lugares
+    python3 manage.py migrate
+    python3 manage.py makemigrations usuarios
+    python3 manage.py migrate
+    python3 manage.py makemigrations sm
+    python3 manage.py migrate
+    ```
+
+7. SU Creation
+
+    ``` bash
+
+    python3 manage.py createsuperuser
+
+    ```
+
+
+7. RUN
+
+    ``` bash
+
+    python3 manage.py runserver
+
+    ```
 ## Idea
 
 _**De A Jodido** es un portal en el cual uno busca diferentes opciones de salidas (viajes, tours, vida noctura, etc.) con base a tu presupuesto y preferencias (+ API's). De igual manera, se podrán armar grupos en la mismo portal para expandir la experiencia social y conocer los gustos y recomendaciones del mismo. <br><br>**De A Jodido** ,  a diferencia de las actuales plataformas de viajes o salidas, está hecha por, cómo nos gusta decir, hecha por la raza, para la raza. Esto significa que todas nuestras recomendaciones son hechas por usuarios que ya han tenido estas experiencias y de igual manera son calificadas por otros usuarios._
@@ -15,29 +113,9 @@ _**De A Jodido** es un portal en el cual uno busca diferentes opciones de salida
 
 ### Colaboradores:
 
-* Alejandro López, @AleLopezPerez1312
-* Daniel Amezcua,
-* Ramón Romero, @ramonromerotec
+* Alejandro López, @AleLopezPerez
+* Ramón Romero, @RamonRomeroQro
 
+# Thanks for the support to all those who supported the development of the idea.
 
-## Estándares Branching
-* Ramas Base: <ul><li>**Desarrollo (develop):** Rama base de desarrollo, ramas-feature y ramas-fixes surgen de ella.</li><li>**Producción (master):** Rama desplegada en servidor, revisión de 2 colaboradores en Pull Request, unicamente hace conexión con 'develop'</li></ul>
-* El nombre de las rams debe de seguir el siguiente formato: **[Nombre]/[DescripcionBreveFeatureOFix]**
-* Las ramas (branches) deben ser elimindas tras juntarse (Merge) con la rama de desarrollo (develop)</li></ul>
-* **Cambios en documentación unicamente permitidos en develop**
-
-## Arquitectura, Diseño, Planificación y Cambios
-
-* [Unidad de Equipo](https://drive.google.com/drive/folders/0AG0T7qc4GG5OUk9PVA)
-
-## Código
-
-* Clases con mayusculas iniciales e intermedias (camello)
-* variables con minúsculas
-
-
-
-#Peddy
-
-58, 148, 199
-
+----

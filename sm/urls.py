@@ -6,8 +6,9 @@ from django.conf import settings
 from .views import *
 from django.urls import path
 from django.views.generic import TemplateView
-from .import views
+from . import views
 from .views import *
+from . import master
 
 app_name = 'sm'
 
@@ -22,6 +23,7 @@ urlpatterns = [
     path('afalse/<int:id_imagen>', views.afalse, name='afalse'),
     path('imagenes', views.imagenes, name='imagenes'),
     path('', views.consola, name='consola'),
+    path('log/<int:id_comando>', views.log, name='log'),
 
     #path('listaciudades', views.listaciudades, name='listaciudades'),
 
