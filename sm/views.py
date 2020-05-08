@@ -9,8 +9,7 @@ from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Comando
-from deajodido.settings import final
-
+from django.conf import settings
 
 @login_required
 def imagenes(request):
@@ -61,7 +60,7 @@ def lugares(request):
 @login_required
 def detalle_lugar(request, id_lugar):
     l = get_object_or_404(Lugar, id=id_lugar)
-    gkey = final.GMAPS_API_KEY
+    gkey = settings.GMAPS_API_KEY
     return render(request, 'sm/details.html', {'lugar': l, 'gkey': gkey})
 
 

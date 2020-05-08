@@ -1,5 +1,4 @@
 from random import randint
-from deajodido.settings import final
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 from lugares.models import *
@@ -14,11 +13,12 @@ from django.http import HttpResponseRedirect
 import pprint
 import traceback
 from lugares import urls
+from django.conf import settings
 
 def yelpReviews(request, id_yelp):
     url = 'https://api.yelp.com/v3/businesses/'+id_yelp+'/reviews'
     headers = {
-        'Authorization': final.YELP_AUTH, }
+        'Authorization': settings.YELP_AUTH, }
     response = json.loads(requests.get(url, headers=headers).text)
     try:
         html = '<h2>Yelp</h2><ul class="collection">'
@@ -56,9 +56,9 @@ def yelpReviews(request, id_yelp):
 def foursquareReviews(request, id_foursquare):
     url = 'https://api.foursquare.com/v2/venues/'+id_foursquare+'/tips'
     params = dict(
-        client_id=final.FSQ_client_id,
-        client_secret=final.FSQ_client_secret,
-        v=final.FSQ_v,
+        client_id=settings.FSQID,
+        client_secret=settings.FSQS,
+        v=settings.FSQV,
         limit='100',
         offset='200',
         sort='popular'
@@ -108,7 +108,7 @@ def foursquareReviews(request, id_foursquare):
 
 def googleReviews(request, id_google):
     detalle_url = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + \
-        id_google + '&key=' + final.GMAPS_API_KEY
+        id_google + '&key=' + settings.GMAPS_API_KEY
     new = json.loads(requests.get(detalle_url).text)
     if (new['status'] == 'OK'):
         i = 0
@@ -153,7 +153,7 @@ def googleReviews(request, id_google):
 # Visualizar partidos en la landing page
 def detalle_lugar(request, name, id_l):
     l = get_object_or_404(Lugar, id=id_l)
-    gkey = final.GMAPS_API_KEY_JS
+    gkey = settings.GMAPS_API_KEY_JS
     formresena = UsuarioReview(prefix="resena")
     return render(request, 'lugares/details.html', {'lugar': l, 'gkey': gkey, 'forma': formresena})
 

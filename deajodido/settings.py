@@ -1,7 +1,9 @@
 import os
 from django.urls import reverse_lazy
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 
 # Application definition
 
@@ -153,7 +155,8 @@ SECRET_KEY = '-3eh!c!w_&@pn))c^nrmq*cy(#48orq%+4sj#vw6l_z9b&obu&'
 DEBUG = True
 
 
-
+#########
+# if 'RDS_HOSTNAME' in os.environ:
 
 ALLOWED_HOSTS = ['*']
 
@@ -178,20 +181,43 @@ GMAPS_API_KEY = 'AIzaSyAyWoMzx2h4NwDk5NRmUqsODLC6vJKD_KA'
 GMAPS_API_KEY_JS = GMAPS_API_KEY
 FBTOKEN = '544112989843154|hBY39frkP-_8ovjnNsR3al2A08I'
 YELP_AUTH="Bearer HEumDTz_X--m2lBW9-ZDlrMkQ_JlbuFFuF-6T7fzCJVlHrKYUhm7d7kF_LRCFGA7INdPcVPjd5Bo3LiDrUc9mEh-r5kV7LhSqazuQNB_AULEToDQ07leabVba5yjXnYx"
-FSQ_client_id='TFLJCZKNWYCSSZPARN4JDZDRGPUENHKA12JOXYUHN4L5N5I5'
-FSQ_client_secret='SCLJLKDKO2TSJHUGI0RIEOL53G3FV3HR42NCN00SC3LG5EHN'
-FSQ_v='20180323'
+FSQID='TFLJCZKNWYCSSZPARN4JDZDRGPUENHKA12JOXYUHN4L5N5I5'
+FSQS='SCLJLKDKO2TSJHUGI0RIEOL53G3FV3HR42NCN00SC3LG5EHN'
+FSQV='20180323'
 
 
 #SocialAUTH's Keys
-SOCIAL_AUTH_FACEBOOK_KEY = '805766712952383'  # App ID PRUEBA
-SOCIAL_AUTH_FACEBOOK_SECRET = 'd7b13e308d24be4726f0c81721259a97'  # App Secret PRUEBA
-SOCIAL_AUTH_REDIRECT_IS_HTTPS = False
-SECURE_SSL_REDIRECT = False
 
 ########
 
 # Create your models here.
 from django.core.files.storage import FileSystemStorage
 
-upload_storage = FileSystemStorage(location=BASE_DIR, base_url='/uploads')
+UPLOADSTORAGE = FileSystemStorage(location=BASE_DIR, base_url='/uploads')
+
+
+
+
+
+# Email Djnago Parameters
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'help.dejodido@gmail.com'
+EMAIL_HOST_PASSWORD = 'queretaro'
+EMAIL_USE_TLS = True
+
+#SocialAUTH's Keys
+SOCIAL_AUTH_FACEBOOK_KEY = '805766712952383'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = 'd7b13e308d24be4726f0c81721259a97'  # App Secret
+SOCIAL_AUTH_REDIRECT_IS_HTTPS = True # changes ?
+
+
+
+# Force https redirect
+SECURE_SSL_REDIRECT = True # changes?
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# Force HTTPS in the final URIs
+
+
+

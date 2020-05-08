@@ -1,6 +1,5 @@
 
 import traceback
-from deajodido.settings import final
 import os
 import json
 import requests
@@ -41,7 +40,7 @@ def city(c, e, p):
 
 def getImagePath(log, g_id):
     detalle_url = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + \
-                  g_id + '&key=' + final.GMAPS_API_KEY
+                  g_id + '&key=' + settings.GMAPS_API_KEY
     time.sleep(2)
     new = json.loads(requests.get(detalle_url).text)
     if new["status"]!="OK":
@@ -62,7 +61,7 @@ def getImagePath(log, g_id):
         while contador < cantidad:
             im_id = new['result']['photos'][contador]['photo_reference']
             image_url = 'https://maps.googleapis.com/maps/api/place/photo?maxheight=1600&photoreference=' + \
-                        im_id + '&key=' + final.GMAPS_API_KEY
+                        im_id + '&key=' + settings.GMAPS_API_KEY
             time.sleep(2)
             response = requests.get(image_url, stream=True)
             dir_file = settings.BASE_DIR + '/media/Lugar/' + im_id + '.jpg'
@@ -168,7 +167,7 @@ def creacioDBO(log, gobj, fobj, sobj, yobj, kw, c, e, p):
 def busquedaYelp(regex, lat, lng):
     url = "https://api.yelp.com/v3/businesses/search?term=" + \
           regex + "&latitude=" + lat + "&longitude=" + lng
-    headers = {'Authorization': final.YELP_AUTH}
+    headers = {'Authorization': settings.YELP_AUTH}
     response = json.loads(requests.get(url, headers=headers).text)
     # pprint.pprint(response)
     if "error" in response:
@@ -200,9 +199,9 @@ def busquedaYelp(regex, lat, lng):
 def busquedaFoursquare(regex, lat, lng):
     url = 'https://api.foursquare.com/v2/venues/search'
 
-    a=final.FSQ_client_id
-    b=final.FSQ_client_secret
-    c=final.FSQ_v
+    a=settings.FSQID
+    b=settings.FSQS
+    c=settings.FSQV
 
 
     params2 = dict(
@@ -261,7 +260,7 @@ def busquedaFoursquare(regex, lat, lng):
 
 def busquedaFacebook(regex, lat, lng):
     # specific="bar los amigos"
-    token = final.FBTOKEN
+    token = settings.FBTOKEN
     urlFB = "https://graph.facebook.com/v3.0/search?type=place&center=" + lat + "," + lng + "&distance=5000&q=" + \
             regex + "&fields=name,link,overall_star_rating,price_range,website,phone&access_token=" + token
     response = json.loads(requests.get(urlFB).text)
@@ -308,7 +307,7 @@ def busquedaFacebook(regex, lat, lng):
 def busquedaGMaps(log, latitude, longitude, kyword, c, e, p):
     url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + latitude + \
           ',' + longitude + '&radius=5000' + '&keyword=' + \
-          kyword + '&key=' + final.GMAPS_API_KEY
+          kyword + '&key=' + settings.GMAPS_API_KEY
     # print (url)
 
     response = json.loads(requests.get(url).text)
@@ -390,7 +389,7 @@ def saveLocal(log, arr, kyword, c, e, p):
         time.sleep(2)
 
         url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken=' + \
-              str(arr["next_page_token"]) + '&key=' + final.GMAPS_API_KEY
+              str(arr["next_page_token"]) + '&key=' + settings.GMAPS_API_KEY
         # print (url)
         new = json.loads(requests.get(url).text)
         if new['status']!="OK":
