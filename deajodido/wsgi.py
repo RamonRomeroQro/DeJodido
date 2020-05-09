@@ -17,47 +17,6 @@ from django.core.wsgi import get_wsgi_application
 import os
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "deajodido.settings")
-'''
-SECRET_KEY="-3eh!c!w_&@pn))c^nrmq*cy(#48orq%+4sj#vw6l_z9b&obu&"
-DEBUG=True
-ALLOWED_HOSTS=["*"]
-DBENGINE="django.db.backends.postgresql"
-DBNAME="dbdejodido"
-DBUSER="dbuserjodido"
-DBPSWD="mkd.3i4cq"
-DBHOST="localhost"
-DBPORT="5432"
-GMAPS_API_KEY="AIzaSyAyWoMzx2h4NwDk5NRmUqsODLC6vJKD_KA"
-GMAPS_API_KEY_JS="AIzaSyAyWoMzx2h4NwDk5NRmUqsODLC6vJKD_KA"
-FBTOKEN="544112989843154|hBY39frkP-_8ovjnNsR3al2A08I"
-YELP_AUTH="Bearer HEumDTz_X--m2lBW9-ZDlrMkQ_JlbuFFuF-6T7fzCJVlHrKYUhm7d7kF_LRCFGA7INdPcVPjd5Bo3LiDrUc9mEh-r5kV7LhSqazuQNB_AULEToDQ07leabVba5yjXnYx"
-FSQID="TFLJCZKNWYCSSZPARN4JDZDRGPUENHKA12JOXYUHN4L5N5I5"
-FSQS="SCLJLKDKO2TSJHUGI0RIEOL53G3FV3HR42NCN00SC3LG5EHN"
-FSQV="20180323"
-EMAIL_HOST="smtp.gmail.com"
-EMAIL_PORT=587
-EMAIL_HOST_USER="help.dejodido@gmail.com"
-EMAIL_HOST_PASSWORD="queretaro"
-EMAIL_USE_TLS=True
-SOCIAL_AUTH_FACEBOOK_KEY="805766712952383"
-SOCIAL_AUTH_FACEBOOK_SECRET="d7b13e308d24be4726f0c81721259a97"
-SOCIAL_AUTH_REDIRECT_IS_HTTPS=True
-SECURE_SSL_REDIRECT=False
-
-
-DATABASES = {
-    'default': {
-        'ENGINE': DBENGINE,
-        'NAME': DBNAME,
-        'USER': DBUSER,
-        'PASSWORD': DBPSWD,
-        'HOST': DBHOST,
-        'PORT': DBPORT,
-    }
-}
-
-'''
-
 
 from dotenv import load_dotenv
 
