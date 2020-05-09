@@ -1,4 +1,9 @@
+deajodido/*
+/deajodido/
 *.log
+settings.py
+wsgi.py
+manage.py
 
 ### CVS template
 /CVS/*
