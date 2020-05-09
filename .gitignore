@@ -1,9 +1,5 @@
-deajodido/*
-/deajodido/
 *.log
-settings.py
-wsgi.py
-manage.py
+/media/*
 
 ### CVS template
 /CVS/*

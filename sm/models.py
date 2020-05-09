@@ -12,7 +12,7 @@ class Comando(models.Model):
     country = models.CharField(verbose_name='country', null=True, blank=True, max_length=200)
     status_exec = models.BooleanField(verbose_name="execution result", blank=True, default=False)
     timestamp = models.DateTimeField(auto_now=True)
-    log_file = models.FileField(upload_to='Logs', storage=settings.UPLOADSTORAGE)
+    log_file = models.FileField(upload_to='logs', verbose_name='logs', null=True, blank=True)
 
     def __str__(self):
         return "|".join(list(map(str, [self.lat, self.lng, self.keyword, self.city, self.state,

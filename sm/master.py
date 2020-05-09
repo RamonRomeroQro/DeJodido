@@ -438,7 +438,7 @@ def exec_command(request):
 
     except Exception as e:
         log_file.write("\n\n"+str(e)+traceback.format_exc())
-        c.status_exec = True
+        c.status_exec = False
         print(">.", c.status_exec)
     log_file.write("\n\n"+str(c))
     log_file.close()
