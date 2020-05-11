@@ -45,7 +45,7 @@
           <tr>
     <td class="executed">{{ i.lat }}|{{ i.lng }}|{{ i.keyword }}|{{ i.city }}|{{ i.state }}|{{ i.country }}</td>
     <td>{{ i.status_exec }}</td>
-    <td><a href="{{i.log_file.url}}">{{ i.log_file }}</a> </td>
+    <td><a href="{% url 'sm:log' i.id %}" >{{ i.log_file }}</a> </td>
   </tr>
 
 
