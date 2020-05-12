@@ -96,11 +96,16 @@ SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
 }
 AUTO_LOGOUT_DELAY = 180
 
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = "json"
+CELERY_RESULT_SERIALIZER = "json"
+CELERY_TIMEZONE = 'America/Mexico_City'
+
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 #########
-# if 'RDS_HOSTNAME' in os.environ: os.environ['SECRET_KEY']
-# settings.py
+# Al Agregar variables de ambiente a manage.py, settings.py, wsgy y nginx
 
 from dotenv import load_dotenv
 
@@ -139,3 +144,5 @@ SOCIAL_AUTH_REDIRECT_IS_HTTPS =  eval(os.getenv("SOCIAL_AUTH_REDIRECT_IS_HTTPS")
 SECURE_SSL_REDIRECT =  eval(os.getenv("SECURE_SSL_REDIRECT"))
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
+BROKER_URL = os.getenv("BROKER_URL")
+CELERY_RESULT_BACKEND = os.getenv("CELERY_RESULT_BACKEND")

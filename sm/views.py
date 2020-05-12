@@ -10,6 +10,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Comando
 from django.conf import settings
+from .tasks import *
 
 @login_required
 def imagenes(request):
@@ -144,13 +145,14 @@ def update_image(request,  id_image):
 @login_required
 def consola(request):
     comandos = Comando.objects.all()
-    key = 'AIzaSyAyWoMzx2h4NwDk5NRmUqsODLC6vJKD_KA'
 
     if request.method == "POST":
-        exec_command(request)
+
+        async_update_database.delay(request.POST)
+
 
     n = Lugar.objects.all().count()
-    return render(request, 'sm/console.html', {'key': key, 'n': n, 'comandos': comandos})
+    return render(request, 'sm/console.html', {'key': settings.GMAPS_API_KEY_JS , 'n': n, 'comandos': comandos})
 
 @login_required
 def log(request, id_comando):
