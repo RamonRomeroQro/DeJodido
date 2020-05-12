@@ -99,9 +99,10 @@
     
 
 
-11. RUN
+11. Import or create .env or enviromental variables
 
     ``` bash
+    
 
     python3 manage.py runserver
 
