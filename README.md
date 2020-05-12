@@ -89,9 +89,17 @@
     python3 manage.py createsuperuser
 
     ```
+   
+8. Install redis
+      
+    ``` bash
+    
+        sudo apt install  redis
+    ```
+    
 
 
-7. RUN
+11. RUN
 
     ``` bash
 

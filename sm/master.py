@@ -1,4 +1,3 @@
-
 import traceback
 import os
 import json
@@ -43,15 +42,15 @@ def getImagePath(log, g_id):
                   g_id + '&key=' + settings.GMAPS_API_KEY
     time.sleep(2)
     new = json.loads(requests.get(detalle_url).text)
-    if new["status"]!="OK":
-        raise Exception("Fallo recuperacion imagen: "+detalle_url+ " "+ str(new["status"]))
-    log.write("\nRetrived info place: "+ detalle_url)
+    if new["status"] != "OK":
+        raise Exception("Fallo recuperacion imagen: " + detalle_url + " " + str(new["status"]))
+    log.write("\nRetrived info place: " + detalle_url)
     links = []
     # pprint.pprint(new)
     try:
-        phoneG=new['result']["international_phone_number"]
+        phoneG = new['result']["international_phone_number"]
     except Exception as e:
-        log.write("No phone: "+str(e))
+        log.write("No phone: " + str(e))
         phoneG = None
 
     try:
@@ -68,7 +67,7 @@ def getImagePath(log, g_id):
             with open(dir_file, 'wb') as out_file:
                 shutil.copyfileobj(response.raw, out_file)
             del response
-            log.write("\nDownloaded image "+ dir_file)
+            log.write("\nDownloaded image " + dir_file)
 
             links.append(dir_file)
             contador = contador + 1
@@ -137,10 +136,10 @@ def creacioDBO(log, gobj, fobj, sobj, yobj, kw, c, e, p):
             phoneFB=fobj["facebook_phone"],
             website=fobj["facebook_website"],
         )
-    if obj.imagen_set.all().count()==0:
+    if obj.imagen_set.all().count() == 0:
 
-        imagenes, phone_google = getImagePath(log ,gobj['google_id'])
-        obj.phoneG=phone_google
+        imagenes, phone_google = getImagePath(log, gobj['google_id'])
+        obj.phoneG = phone_google
         log.write("\n Attached phone")
         # print (imagenes)
         cont = 0
@@ -151,7 +150,7 @@ def creacioDBO(log, gobj, fobj, sobj, yobj, kw, c, e, p):
                                                                                      'rb').read(),
                                                                         content_type='image/jpeg'),
                                               descripcion='Importada desde Google Imagenes')
-            log.write("\nSaved image "+ imagenes[cont])
+            log.write("\nSaved image " + imagenes[cont])
             # Descargar y luego asignar y borrar
             if 'default' not in imagenes[cont]:
                 os.remove(imagenes[cont])
@@ -171,7 +170,7 @@ def busquedaYelp(regex, lat, lng):
     response = json.loads(requests.get(url, headers=headers).text)
     # pprint.pprint(response)
     if "error" in response:
-        raise Exception("Break Yelp "+ url +" "+ str(response))
+        raise Exception("Break Yelp " + url + " " + str(response))
     try:
 
         # print ("yelp_name: " + response['businesses'][0]['name'])
@@ -199,21 +198,20 @@ def busquedaYelp(regex, lat, lng):
 def busquedaFoursquare(regex, lat, lng):
     url = 'https://api.foursquare.com/v2/venues/search'
 
-    a=settings.FSQID
-    b=settings.FSQS
-    c=settings.FSQV
-
+    a = settings.FSQID
+    b = settings.FSQS
+    c = settings.FSQV
 
     params2 = dict(
-        client_id= a ,
-        client_secret= b ,
-        v= c ,
+        client_id=a,
+        client_secret=b,
+        v=c,
     )
 
     params = dict(
-        client_id= a ,
-        client_secret= b ,
-        v= c ,
+        client_id=a,
+        client_secret=b,
+        v=c,
         ll=str(lat) + ',' + str(lng),
         name=regex,
         intent='match',
@@ -223,7 +221,7 @@ def busquedaFoursquare(regex, lat, lng):
     resp = requests.get(url=url, params=params)
     data = json.loads(resp.text)
     if data["meta"]["code"] != 200:
-        raise Exception("Error FSQ APi "+ str(data["meta"]["code"])+" "+url)
+        raise Exception("Error FSQ APi " + str(data["meta"]["code"]) + " " + url)
 
     try:
 
@@ -235,7 +233,7 @@ def busquedaFoursquare(regex, lat, lng):
         resp2 = requests.get(url=urlrating, params=params2)
         data2 = json.loads(resp2.text)
         if data2["meta"]["code"] != 200:
-            raise Exception("Error FSQ APi: "+ str(data2["meta"]["code"])+ " "+urlrating)
+            raise Exception("Error FSQ APi: " + str(data2["meta"]["code"]) + " " + urlrating)
 
         try:
             foursquare_price = (data2['response']['venue']['price']['tier'])
@@ -265,7 +263,7 @@ def busquedaFacebook(regex, lat, lng):
             regex + "&fields=name,link,overall_star_rating,price_range,website,phone&access_token=" + token
     response = json.loads(requests.get(urlFB).text)
     if "error" in response:
-        raise Exception("broken fb api: "+urlFB +" " +str(response))
+        raise Exception("broken fb api: " + urlFB + " " + str(response))
     try:
         # print('facebook_name: ' + response['data'][0]['name'])
         facebook_id = response['data'][0]['id']
@@ -301,7 +299,7 @@ def busquedaFacebook(regex, lat, lng):
         facebook_phone = None
 
     return {'facebook_id': facebook_id, 'facebook_rating': facebook_rating, 'facebook_price': facebook_price,
-            'facebook_link': facebook_link, 'facebook_website':facebook_website, "facebook_phone": facebook_phone}
+            'facebook_link': facebook_link, 'facebook_website': facebook_website, "facebook_phone": facebook_phone}
 
 
 def busquedaGMaps(log, latitude, longitude, kyword, c, e, p):
@@ -313,10 +311,10 @@ def busquedaGMaps(log, latitude, longitude, kyword, c, e, p):
     response = json.loads(requests.get(url).text)
     # print(response['status'])
     if response['status'] != "OK":
-        raise Exception("Fallo Google PLACES-API: check: GMAPS_API_KEY "+url + " "+response['status'])
+        raise Exception("Fallo Google PLACES-API: check: GMAPS_API_KEY " + url + " " + response['status'])
     else:
 
-        log.write("\n+"+url+"\nGoogle: "+response['status'])
+        log.write("\n+" + url + "\nGoogle: " + response['status'])
     return {'response': response, 'kyword': kyword, 'c': c, 'e': e, 'p': p}
 
 
@@ -331,7 +329,7 @@ def saveLocal(log, arr, kyword, c, e, p):
             )
             if obj.tags.filter(descripcion=kyword).exists() == False:
                 obj.tags.add(t)
-                log.write("\n"+'tag agregada: '+kyword)
+                log.write("\n" + 'tag agregada: ' + kyword)
 
             log.write('\n>>>' + str(obj.nombre + ': recuperado'))
 
@@ -353,7 +351,6 @@ def saveLocal(log, arr, kyword, c, e, p):
                 google_price = arr['results'][count]['price_level']
             except KeyError:
                 google_price = -100
-
 
             gobj = {'google_nombre': google_nombre, 'google_id': google_id, 'google_rating': google_rating,
                     'google_direccion': google_direccion,
@@ -392,10 +389,10 @@ def saveLocal(log, arr, kyword, c, e, p):
               str(arr["next_page_token"]) + '&key=' + settings.GMAPS_API_KEY
         # print (url)
         new = json.loads(requests.get(url).text)
-        if new['status']!="OK":
-            raise Exception("Fail next page: "+url+": "+new['status'])
+        if new['status'] != "OK":
+            raise Exception("Fail next page: " + url + ": " + new['status'])
 
-        log.write("\n\nOK next page: "+url+": "+new['status'])
+        log.write("\n\nOK next page: " + url + ": " + new['status'])
 
         # print (new['status'])
         # pprint.pprint(new)
@@ -404,14 +401,13 @@ def saveLocal(log, arr, kyword, c, e, p):
     # sort by age
 
 
-def exec_command(request):
-
-    options=request.POST
-    log_base=str(settings.BASE_DIR) + '/Logs/'
+def exec_command(post_data):
+    options = post_data
+    log_base = str(settings.BASE_DIR) + '/Logs/'
     if not os.path.isdir(log_base):
         os.makedirs(log_base)
     timestamp = (time.strftime("%d-%m-%Y-%H:%M"))
-    log_file_p=log_base+timestamp+".log"
+    log_file_p = log_base + timestamp + ".log"
     log_file = open(log_file_p, 'w+')
     base = str(settings.BASE_DIR) + '/media/Lugar/'
     if not (os.path.isfile(settings.BASE_DIR + '/media/Lugar/default.jpg')):
@@ -428,23 +424,21 @@ def exec_command(request):
         response = busquedaGMaps(log_file, str(options['lat']), str(options['lng']), str(
             options['keyword']), str(options['city']), str(options['state']), str(options['country']))
 
-
         saveLocal(log_file, response['response'], response['kyword'],
                   response['c'], response['e'], response['p'])
-        c.status_exec=True
-        print(">.",c.status_exec)
+        c.status_exec = True
+        print(">.", c.status_exec)
 
 
 
     except Exception as e:
-        log_file.write("\n\n"+str(e)+traceback.format_exc())
+        log_file.write("\n\n" + str(e) + traceback.format_exc())
         c.status_exec = False
         print(">.", c.status_exec)
-    log_file.write("\n\n"+str(c))
+    log_file.write("\n\n" + str(c))
     log_file.close()
-    c.log_file=SimpleUploadedFile(name=str(c)+'.log', content=open(log_file_p, 'rb').read(), content_type="text/plain")
+    c.log_file = SimpleUploadedFile(name=str(c) + '.log', content=open(log_file_p, 'rb').read(),
+                                    content_type="text/plain")
     c.save()
     os.remove(log_file_p)
-
-
-
+    return c.status_exec
