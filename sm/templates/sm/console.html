@@ -45,7 +45,17 @@
           <tr>
     <td class="executed">{{ i.lat }}|{{ i.lng }}|{{ i.keyword }}|{{ i.city }}|{{ i.state }}|{{ i.country }}</td>
     <td>{{ i.status_exec }}</td>
-    <td><a href="{{ i.log_file.url }}" >{{ i.log_file }}</a> </td>
+
+    <td>
+      {% if i.log_file %}
+      <a href="{{ i.log_file.url }}" >
+        {{ i.log_file }}</a>
+      {% endif %}
+
+
+
+
+    </td>
   </tr>
 
 
@@ -247,6 +257,8 @@ var pointPosible={}
         }
 
         for  (var p in pointPosible){
+
+          var ref = pointPosible[p].center;
              var cc = new google.maps.Circle({
             strokeColor: '#4c89ff',
             strokeOpacity: 1,
@@ -254,7 +266,7 @@ var pointPosible={}
             fillColor: '#c2e4f6',
             fillOpacity: 0.2,
             map: map,
-            center: pointPosible[p].center,
+            center: ref,
             radius: 5000,
  draggable: true,
           geodesic: true
@@ -264,14 +276,16 @@ var pointPosible={}
               window.alert(cc.center.toString())
           });
 
-          cc.addListener('click', function() {
-                document.getElementById("lat").value=cc.center.lat();
-                    document.getElementById("lng").value=cc.center.lng();
-          });
+
           pointOnMap.push(cc)
-
-
-
+        }
+        for (var i=0; i<pointOnMap.length; i++){
+          pointOnMap[i].addListener('click', function() {
+            // add parameter self
+                document.getElementById("lat").value=pointOnMap[i].center.lat();
+                    document.getElementById("lng").value=pointOnMap[i].center.lng();
+                    pointOnMap[i].setOptions({fillColor: 'green'});
+          });
         }
 
 

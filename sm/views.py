@@ -147,8 +147,9 @@ def consola(request):
     comandos = Comando.objects.all()
 
     if request.method == "POST":
+        exec_command(request.POST)
 
-        async_update_database.delay(request.POST)
+        #async_update_database.delay(request.POST)
 
 
     n = Lugar.objects.all().count()
