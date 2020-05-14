@@ -45,14 +45,13 @@ def listaciudades(request):
 
 
 def get_ciudades(request):
-
     ciudades = Ciudad.objects.all()
     data = {}
 
     for c in ciudades:
         data.update({c.nombre + ", " + c.estado.nombre +
                      ", " + c.estado.pais.nombre: None})
-    #data.update({'Usar Ubicacion Actual': None})
+    # data.update({'Usar Ubicacion Actual': None})
     return JsonResponse(data)
 
 
@@ -64,3 +63,7 @@ def validar_email(request):
     }
 
     return JsonResponse(data)
+
+
+def terms_privacy(request):
+    return render(request, 'landing/terms.html')
