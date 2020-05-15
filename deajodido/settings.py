@@ -97,7 +97,6 @@ AUTHENTICATION_BACKENDS = (
 
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
-SITE_ID = 2
 LOGIN_REDIRECT_URL = '/'
 
 # retrived info
@@ -191,3 +190,6 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 BROKER_URL = os.getenv("BROKER_URL")
 CELERY_RESULT_BACKEND = os.getenv("CELERY_RESULT_BACKEND")
+
+SITE_ID = int(os.getenv("SITE_ID"))
+
