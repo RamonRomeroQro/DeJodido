@@ -11,8 +11,9 @@ from django.contrib.auth.decorators import login_required
 from .models import Comando
 from django.conf import settings
 from .tasks import *
+from django.contrib.auth.decorators import user_passes_test
 
-@login_required
+@user_passes_test(lambda u: u.is_superuser)
 def imagenes(request):
     nulls = Imagen.objects.filter(status=None).filter(
         lugar__status=True).order_by("lugar")
@@ -24,7 +25,7 @@ def imagenes(request):
 
 
 # FIX FOR NEXT UPDATE
-@login_required
+@user_passes_test(lambda u: u.is_superuser)
 def quickimages(request):
     q = Imagen.objects.filter(status=None).filter(
         lugar__status=True).order_by("lugar")
@@ -33,7 +34,7 @@ def quickimages(request):
     return render(request, 'sm/quick.html', {'s': s, 'n': n})
 
 
-@login_required
+@user_passes_test(lambda u: u.is_superuser)
 def atrue(request, id_imagen):
     i = Imagen.objects.get(id=id_imagen)
     i.status = True
@@ -41,7 +42,7 @@ def atrue(request, id_imagen):
     return HttpResponseRedirect(reverse('sm:quickimages'))
 
 
-@login_required
+@user_passes_test(lambda u: u.is_superuser)
 def afalse(request, id_imagen):
     i = Imagen.objects.get(id=id_imagen)
     i.status = False
@@ -49,7 +50,7 @@ def afalse(request, id_imagen):
     return HttpResponseRedirect(reverse('sm:quickimages'))
 
 # Visualizar partidos en la landing page
-@login_required
+@user_passes_test(lambda u: u.is_superuser)
 def lugares(request):
     numbers1 = Lugar.objects.filter(status=True).order_by('nombre')
     numbers2 = Lugar.objects.filter(status=False).order_by('nombre')
@@ -58,14 +59,14 @@ def lugares(request):
     return render(request, 'sm/list_all.html', {'numbers1': numbers1, 'numbers2': numbers2, 'numbers3': numbers3})
 
 
-@login_required
+@user_passes_test(lambda u: u.is_superuser)
 def detalle_lugar(request, id_lugar):
     l = get_object_or_404(Lugar, id=id_lugar)
     gkey = settings.GMAPS_API_KEY
     return render(request, 'sm/details.html', {'lugar': l, 'gkey': gkey})
 
 
-@login_required
+@user_passes_test(lambda u: u.is_superuser)
 def update_place(request,  id_lugar):
     l = get_object_or_404(Lugar, id=id_lugar)
     previous = str(l.status)
@@ -102,7 +103,7 @@ def update_place(request,  id_lugar):
     return HttpResponseRedirect(reverse('sm:lugares'))
 
 
-@login_required
+@user_passes_test(lambda u: u.is_superuser)
 def update_image(request,  id_image):
     i = get_object_or_404(Imagen, id=id_image)
     previous = str(i.status)
@@ -142,7 +143,7 @@ def update_image(request,  id_image):
     return HttpResponseRedirect(reverse('sm:detalle_lugar',  kwargs={'nombre_lugar': lugar.nombre, 'id_lugar': lugar.id}))
 
 
-@login_required
+@user_passes_test(lambda u: u.is_superuser)
 def consola(request):
     comandos = Comando.objects.all()
 
@@ -155,7 +156,7 @@ def consola(request):
     n = Lugar.objects.all().count()
     return render(request, 'sm/console.html', {'key': settings.GMAPS_API_KEY_JS , 'n': n, 'comandos': comandos})
 
-@login_required
+@user_passes_test(lambda u: u.is_superuser)
 def log(request, id_comando):
     c = get_object_or_404(Comando, id=id_comando)
     if os.path.exists(c.log_file.path):
