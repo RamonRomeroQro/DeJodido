@@ -3,77 +3,54 @@
 
 {% block content %}
 {% include 'searchbar.html' %}
-    <div class="container">
-
+<div class="container">
     <div class="row">
-      <div class="col s8 offset-s2 card">
-          <div class="card-content">
+        <div class="col s8 offset-s2 card">
+            <div class="card-content">
+                <div class="aux">
+                    {% load socialaccount %}
+              <h1>My Google Login Project</h1>
+              {% if user.is_authenticated %}
+              <p>Welcome, {{ user.username }} !</p>
 
-              <h5 class="center center-align">Iniciar Sesión</h5>
+              {% else %}
+              <h1>My Google Login Project</h1>
+              <a href="{% provider_login_url 'google' %}">Login with Google</a>
+              {% endif %}
+              </div>
 
-            <form action="." method="POST">
-                 <input type="hidden" name="next" value="{{ next }}" />
-                            {% csrf_token %}
-
-                <div class="row">
-                            <div class="input-field s12">                    					          <i class="material-icons iconis prefix">account_box</i>
-
-                    <input type="text" class="validate" name="{{form.username.html_name}}" id="{{ form.username.id_for_label }}" required/>
-
-                                <label for="{{form.username.id_for_label}}">Usuario</label>
-                </div>
-
+          <h5 class="center center-align">Iniciar Sesión</h5>
+                <form action="." method="POST">
+                    <input type="hidden" name="next" value="{{ next }}" />
+                        {% csrf_token %}
+                    <div class="row">
+                        <div class="input-field s12">
+                            <i class="material-icons iconis prefix">account_box</i>
+                            <input type="text" class="validate" name="{{form.username.html_name}}" id="{{ form.username.id_for_label }}" required/>
+                            <label for="{{form.username.id_for_label}}">Usuario</label>
+                        </div>
                     </div>
-
-                <div class="row">
-
-                <div class="input-field s12">
-                    					          <i class="material-icons iconis prefix">enhanced_encryption</i>
-                    <input class="validate" name="password" type="password" name="{{form.password.html_name}}" id="{{ form.password.id_for_label }}" required/>
-                    <label for="{{form.password.id_for_label}}">Contraseña</label>
-                </div>
-                </div>
- <div class="row ">
-
-                  <div class="input-field col s12 center center-align">
-<button class="btn waves-effect waves-light" type="submit" name="action">Acceder
-
-    <i class="material-icons right">send</i>
-  </button>
-                       <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
-
-
-
-
-                  </div>
-
-                                 </div>
-            </form>
-
-               <a href="{% url 'password_reset' %}">Recuperar Contraseña</a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          </div>
-
-      </div>
+                    <div class="row">
+                        <div class="input-field s12">
+                            <i class="material-icons iconis prefix">enhanced_encryption</i>
+                            <input class="validate" name="password" type="password" name="{{form.password.html_name}}" id="{{ form.password.id_for_label }}" required/>
+                            <label for="{{form.password.id_for_label}}">Contraseña</label>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="input-field col s12 center center-align">
+                            <button class="btn waves-effect waves-light" type="submit" name="action">Acceder
+                                <i class="material-icons right">send</i>
+                            </button>
+                            <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
+                        </div>
+                    </div>
+                </form>
+                <a href="{% url 'password_reset' %}">Recuperar Contraseña</a>
+            </div>
+        </div>
     </div>
-    </div>
+</div>
 
 {% endblock %}
 
