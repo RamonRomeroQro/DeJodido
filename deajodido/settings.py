@@ -95,7 +95,7 @@ AUTHENTICATION_BACKENDS = (
 
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
-SITE_ID = 2020
+SITE_ID = 2
 LOGIN_REDIRECT_URL = '/'
 
 # retrived info
