@@ -171,8 +171,8 @@ def busqueda(request):
         qstate = Estado.objects.filter(pais=qpais).get(nombre=state)
         qcity = Ciudad.objects.filter(estado=qstate).get(nombre=city)
 
-        # lugares = Lugar.objects.filter(ciudad=qcity).filter(status=True)
-        lugares = Lugar.objects.filter(ciudad=qcity)
+        lugares = Lugar.objects.filter(ciudad=qcity).filter(status=True)
+        # lugares = Lugar.objects.filter(ciudad=qcity)
         c=lugares.all().count()
         if c==0:
             f=open('failed_search.log', 'a')
