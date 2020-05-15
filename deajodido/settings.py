@@ -30,6 +30,12 @@ INSTALLED_APPS = [
     'social_django',
     'api',
     'sm',
+    # New for google
+    'django.contrib.sites',  # <--
+    'allauth',  # <--
+    'allauth.account',  # <--
+    'allauth.socialaccount',  # <--
+    'allauth.socialaccount.providers.google',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -81,11 +87,30 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
+    # New login
+    'django.contrib.auth.backends.ModelBacken',
+    'allauth.account.auth_backends.AuthenticationBackend',
+
 )
 
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
-LOGIN_REDIRECT_URL = '/usuarios/prueba_fb'
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'
+
+# retrived info
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
+
 SOCIAL_AUTH_FACEBOOK_SCOPE = [
     'email',
 ]
@@ -101,7 +126,6 @@ CELERY_TASK_SERIALIZER = "json"
 CELERY_RESULT_SERIALIZER = "json"
 CELERY_TIMEZONE = 'America/Mexico_City'
 
-
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 #########
@@ -113,8 +137,7 @@ load_dotenv()
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = eval(os.getenv("DEBUG"))
-ALLOWED_HOSTS = [ x.strip() for x in str(os.getenv("ALLOWED_HOSTS")).split(',')]
-
+ALLOWED_HOSTS = [x.strip() for x in str(os.getenv("ALLOWED_HOSTS")).split(',')]
 
 DATABASES = {
     'default': {
@@ -140,8 +163,8 @@ EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS')
 SOCIAL_AUTH_FACEBOOK_KEY = os.getenv('SOCIAL_AUTH_FACEBOOK_KEY')
 SOCIAL_AUTH_FACEBOOK_SECRET = os.getenv('SOCIAL_AUTH_FACEBOOK_SECRET')
-SOCIAL_AUTH_REDIRECT_IS_HTTPS =  eval(os.getenv("SOCIAL_AUTH_REDIRECT_IS_HTTPS"))
-SECURE_SSL_REDIRECT =  eval(os.getenv("SECURE_SSL_REDIRECT"))
+SOCIAL_AUTH_REDIRECT_IS_HTTPS = eval(os.getenv("SOCIAL_AUTH_REDIRECT_IS_HTTPS"))
+SECURE_SSL_REDIRECT = eval(os.getenv("SECURE_SSL_REDIRECT"))
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 BROKER_URL = os.getenv("BROKER_URL")

@@ -36,5 +36,7 @@ urlpatterns = [
     path('', include('landing.urls')),
     path('', include('lugares.urls')),
     path('sm/', include('sm.urls')),
+    path('accounts/', include('allauth.urls')), # <--newauth
+
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
