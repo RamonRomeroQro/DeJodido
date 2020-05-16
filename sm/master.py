@@ -73,7 +73,7 @@ def getImagePath(log, g_id):
             contador = contador + 1
         return links, phoneG
     except KeyError:
-        dir_file = settings.BASE_DIR + '/media/Lugar/default.jpg'
+        dir_file = settings.BASE_DIR + '/static/images/default.jpg'
         links.append(dir_file)
         return links, phoneG
 
@@ -144,16 +144,26 @@ def creacioDBO(log, gobj, fobj, sobj, yobj, kw, c, e, p):
         # print (imagenes)
         cont = 0
         while cont < len(imagenes):
-            im = Imagen.objects.get_or_create(lugar=obj,
-                                              imagen=SimpleUploadedFile(name=obj.id_google + '-' + str(cont) + '.jpg',
-                                                                        content=open(imagenes[cont],
-                                                                                     'rb').read(),
-                                                                        content_type='image/jpeg'),
-                                              descripcion='Importada desde Google Imagenes')
-            log.write("\nSaved image " + imagenes[cont])
+
             # Descargar y luego asignar y borrar
-            if 'default' not in imagenes[cont]:
+            if 'default' in imagenes[cont]:
+                im = Imagen.objects.get_or_create(lugar=obj,
+                                                  imagen=SimpleUploadedFile(
+                                                      name=obj.id_google + '-' + 'default' + '.jpg',
+                                                      content=open(imagenes[cont],
+                                                                   'rb').read(),
+                                                      content_type='image/jpeg'),
+                                                  descripcion=None)
+            else:
+                im = Imagen.objects.get_or_create(lugar=obj,
+                                                  imagen=SimpleUploadedFile(
+                                                      name=obj.id_google + '-' + str(cont) + '.jpg',
+                                                      content=open(imagenes[cont],
+                                                                   'rb').read(),
+                                                      content_type='image/jpeg'),
+                                                  descripcion=None)
                 os.remove(imagenes[cont])
+            log.write("\nSaved image " + imagenes[cont])
             cont = cont + 1
 
     obj.save()
@@ -410,12 +420,7 @@ def exec_command(post_data):
     log_file_p = log_base + timestamp + ".log"
     log_file = open(log_file_p, 'w+')
     base = str(settings.BASE_DIR) + '/media/Lugar/'
-    if not (os.path.isfile(settings.BASE_DIR + '/media/Lugar/default.jpg')):
-        log_file.write("\n Created: /media/Lugar/default.jpg ")
-        os.makedirs(base)
-        f = open(base + 'default.jpg', 'w+')
-        f.write('default')
-        f.close()
+
 
     c = Comando.objects.create(
         lat=options['lat'], lng=options['lng'], keyword=options['keyword'],
