@@ -20,6 +20,7 @@ urlpatterns = [
     path('update_image/<int:id_image>', views.update_image, name='update_image'),
     path('quickimages', views.quickimages, name='quickimages'),
     path('atrue/<int:id_imagen>', views.atrue, name='atrue'),
+    path('faces_command', views.faces_command, name='faces_command'),
     path('afalse/<int:id_imagen>', views.afalse, name='afalse'),
     path('imagenes', views.imagenes, name='imagenes'),
     path('', views.consola, name='consola'),
