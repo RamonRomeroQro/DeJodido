@@ -155,6 +155,13 @@ def consola(request):
     n = Lugar.objects.all().count()
     return render(request, 'sm/console.html', {'key': settings.GMAPS_API_KEY_JS , 'n': n, 'comandos': comandos})
 
+
+@user_passes_test(lambda u: u.is_superuser)
+def faces_command(request):
+    async_eval_faces.delay()
+    return HttpResponseRedirect(reverse('sm:consola'))
+
+
 @user_passes_test(lambda u: u.is_superuser)
 def log(request, id_comando):
     c = get_object_or_404(Comando, id=id_comando)
