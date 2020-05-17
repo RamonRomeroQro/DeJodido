@@ -199,24 +199,6 @@ var pointPosible={}
 
       }
 
-/*
-      var posible ={
-           n: {
-          center: { lat: 20.660365061593655, lng:-100.3502573183909 }
-        },
-          s: {
-          center: {
-
-              lat: 20.637902091385058
-
-, lng:-100.3918354307636 }
-        },
-
-
-
-      }
-
- */
     var  pointOnMap=[];
     var map=null;
 
@@ -273,24 +255,22 @@ var pointPosible={}
           geodesic: true
 
           });
-             cc.addListener( 'dragend', function () {
-              window.alert(cc.center.toString())
-          });
-
-
           pointOnMap.push(cc)
         }
-        for (var i=0; i<pointOnMap.length; i++){
-          pointOnMap[i].addListener('click', function() {
-            // add parameter self
-                document.getElementById("lat").value=pointOnMap[i].center.lat();
-                    document.getElementById("lng").value=pointOnMap[i].center.lng();
-                    pointOnMap[i].setOptions({fillColor: 'green'});
-          });
-        }
+
+
+for (let i = 0; i < pointOnMap.length; i++) {
+  pointOnMap[i].addListener("click", function() {
+    console.log("you clicked region number " + i);
+    document.getElementById("lat").value=pointOnMap[i].center.lat();
+    document.getElementById("lng").value=pointOnMap[i].center.lng();
+    pointOnMap[i].setOptions({fillColor: 'green'});
+  });
+}
 
 
       }
+
 
     </script>
 
@@ -419,7 +399,6 @@ form.addEventListener('submit', function (event) {
         }
 
 });
-
 
 
   </script>
