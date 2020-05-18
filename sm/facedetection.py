@@ -7,7 +7,11 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 
 
 def eval_faces():
-    list_places = Lugar.objects.all()
+    a=Lugar.objects.all()
+    for ax in a:
+        ax.status = None
+
+    list_places = Lugar.objects.filter(status=None)
     for place in list_places:
         images = place.imagen_set.all()
         for i in images:
@@ -16,7 +20,7 @@ def eval_faces():
                 pixels = pyplot.imread(filename)
                 detector = MTCNN()
                 faces = detector.detect_faces(pixels)
-                pyplot.close()
+                pyplot.clf()
             except:
                 i.imagen = SimpleUploadedFile(name=place.id_google + '-' + 'default' + '.jpg',
                                               content=open(settings.BASE_DIR + '/static/images/default.jpg', 'rb').read(),
@@ -31,5 +35,6 @@ def eval_faces():
             else:
                 i.status = True
                 i.save()
+
         place.status = True
         place.save()
