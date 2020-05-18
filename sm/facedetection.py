@@ -16,6 +16,7 @@ def eval_faces():
                 pixels = pyplot.imread(filename)
                 detector = MTCNN()
                 faces = detector.detect_faces(pixels)
+                pyplot.close()
             except:
                 i.imagen = SimpleUploadedFile(name=place.id_google + '-' + 'default' + '.jpg',
                                               content=open(settings.BASE_DIR + '/static/images/default.jpg', 'rb').read(),
