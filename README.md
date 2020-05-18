@@ -113,6 +113,7 @@
 sudo nano /etc/supervisor/conf.d/deajodido_celery.conf 
 sudo supervisorctl reread
 sudo supervisorctl update
+sudo supervisorctl restart deajodidocelery
 sudo supervisorctl status deajodidocelery
 ```
 ## Idea
