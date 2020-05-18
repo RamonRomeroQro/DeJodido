@@ -1,3 +1,4 @@
+
 # python3 manage.py shell < ./solve.py
 from lugares.models import *
 from django.conf import settings
@@ -5,8 +6,12 @@ from mtcnn.mtcnn import MTCNN
 from matplotlib import pyplot
 from django.core.files.uploadedfile import SimpleUploadedFile
 
-
-def eval_faces():
+a=Lugar.objects.all()
+for ax in a:
+    ax.status = None
+    for i in ax.imagen_set.all():
+        i.status=None
+'''
     list_places = Lugar.objects.filter(status=None)
     for place in list_places:
         images = place.imagen_set.all()
@@ -34,3 +39,4 @@ def eval_faces():
 
         place.status = True
         place.save()
+'''
