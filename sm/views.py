@@ -146,6 +146,8 @@ def update_image(request,  id_image):
 @user_passes_test(lambda u: u.is_superuser)
 def consola(request):
     comandos = Comando.objects.all()
+    n_none = len(Lugar.objects.filter(status=None))
+
 
     if request.method == "POST":
         #exec_command(request.POST)
@@ -153,7 +155,7 @@ def consola(request):
 
 
     n = Lugar.objects.all().count()
-    return render(request, 'sm/console.html', {'key': settings.GMAPS_API_KEY_JS , 'n': n, 'comandos': comandos})
+    return render(request, 'sm/console.html', {"num_none":n_none, 'key': settings.GMAPS_API_KEY_JS , 'n': n, 'comandos': comandos})
 
 
 @user_passes_test(lambda u: u.is_superuser)
