@@ -7,7 +7,7 @@ astunparse==1.6.3
 autopep8==1.5.2
 billiard==3.6.3.0
 cachetools==4.1.0
-celery==4.4.2
+celery==5.2.2
 certifi==2018.4.16
 chardet==3.0.4
 cycler==0.10.0
